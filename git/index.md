@@ -320,17 +320,17 @@ exit 0
 ## Host Static Site on Github Repo
 Host a simple static *public* document web site based on [Markdown](https://www.markdownguide.org/cheat-sheet) on Github by doing the following:
 1. Create a **public** Github repo with at least 2 files: An `index.md` and a `_config.yml`
-2. Your repo name *must be named* `<username>.github.io`, but if you have your own domain to use for this the repo can be named anything
+2. Your repo name *must be named* `<username>.github.io`, but if you have your own domain to use for this, then the repo can be named anything
 3. `index.md` is the home page, equivalent to a `README.md` or `index.html` file 
 4. `_config.yml` tells [Github Pages](https://pages.github.com/) how to render your site, e.g. what theme to use, etc.
 5. You can use [this very same site](https://que.tips) as an example
 6. Go to *Settings* section of your repo, then click on *Pages* under *Code and automation*
 7. Under *Source* select your main or master branch
-8. If using your own DNS domain, say `mydomain.com`, then set that up accordingly
-9. Update your DNS domain records as follows:
+8. If using your own DNS domain, say `mydomain.com`, then set up the `www` CNAME and Anycast IP addresses as follows: 
+
 ```
-www.mydomain.com    CNAME    lencap.github.io.
-@                   A        185.199.111.153
+www.mydomain.com    CNAME    git719.github.io.   # Where git719 is your Github username
+@                   A        185.199.111.153     # These 4 are Github's Anycast IP addresses
 @                   A        185.199.110.153
 @                   A        185.199.109.153
 @                   A        185.199.108.153
