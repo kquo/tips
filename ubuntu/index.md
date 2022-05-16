@@ -40,22 +40,29 @@ Below isn't working with T2 machines [2021-mar-07]. For a working alternative se
 
 - Create Ubuntu USB installer
 - Insert USB thumb disk 16GB or bigger
-- Download your target OS (specify desktop or server ISO):
+- Download your target OS (specify desktop or server ISO): 
+
 ```
 curl -LO https://releases.ubuntu.com/20.10/ubuntu-20.10-desktop-amd64.iso
 curl -LO https://releases.ubuntu.com/20.10/ubuntu-20.10-live-server-amd64.iso
 curl -LO https://releases.ubuntu.com/20.10/SHA256SUMS
 ```
-- Confirm SHA sums match
+
+- Confirm SHA sums match 
+
 ```
 cat SHA256SUMS
 shasum -a 256 ubuntu-20.10-live-server-amd64.iso
 ```
-- Convert to DMG format
+
+- Convert to DMG format 
+
 ```
 hdiutil convert ubuntu-20.10-live-server-amd64.iso -format UDRW -o ubuntu-20.10-live-server-amd64
 ```
-- List, umount, burn image
+
+- List, umount, burn image 
+ 
 ```
 diskutil list  # and capture the USB disk number, e.g., /dev/disk2
 diskutil unmountDisk /dev/disk2
@@ -64,6 +71,7 @@ sudo dd bs=32m conv=sync if=ubuntu-20.10-live-server-amd64.dmg of=/dev/rdisk2
 # WARNING: May see a GUI error message. Ignore it.
 diskutil unmountDisk /dev/disk2  # Again, after dd finishes
 ```
+
 - Prepare TARGET Mac
   - Boot into Recovery Mode by pressing: Command-R
   - Within Recovery Mode UI, click on Utilities menu, then Startup Security Utility
@@ -83,7 +91,8 @@ diskutil unmountDisk /dev/disk2  # Again, after dd finishes
 
 
 ## Fix initramfs Error
-To fix "initramfs unpacking failed decoding failed" error:
+To fix "initramfs unpacking failed decoding failed" error: 
+
 ```
 sudo vi /etc/initramfs-tools/initramfs.conf
 Replace COMPRESS=lz4 with COMPRESS=gzip
@@ -95,7 +104,8 @@ Reboot
 ## Speedup Boot Time
 Run `systemd-analyze blame` to see which services are taking the most time.
 
-Set up Grub profiling to speed things up.
+Set up Grub profiling to speed things up. 
+
 ```
 sudo vi /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash profile"
@@ -107,13 +117,15 @@ Once the boot up is complete, vi `/etc/default/grub` again and remove the `profi
 
 Run `systemd-analyze blame` again and compare.
 
-If NetworkManager takes the most time, you can disable at boot time:
+If NetworkManager takes the most time, you can disable at boot time: 
+
 ```
 systemctl mask NetworkManager-wait-online.service      # Disable
 systemctl unmask NetworkManager-wait-online.service    # To re-enable if necessary
 ```
 
-On some systems you can disable and remove cloud-init:
+On some systems you can disable and remove cloud-init: 
+
 ```
 sudo touch /etc/cloud/cloud-init.disabled
 Reboot machine, then run these commands to remove:
@@ -123,7 +135,8 @@ sudo rm -rf /etc/cloud/; sudo rm -rf /var/lib/cloud/
 
 
 ## Grub Customizer
-Install and run `grub-customizer` to ease grub customization of special kernel selections and settings. This doesn't work on a headless server, only on a graphical Desktop UI.
+Install and run `grub-customizer` to ease grub customization of special kernel selections and settings. This doesn't work on a headless server, only on a graphical Desktop UI. 
+
 ```
 sudo apt install grub-customizer
 grub-customizer 
@@ -132,7 +145,8 @@ grub-customizer
 
 ## Rescue OS From Live CD
 Boot from a Live Media to rescue existing OS on built-in disks.
-Usually to update grub:
+Usually to update grub: 
+
 ```
 sudo -i
 blkid  # To show all the partitions
@@ -174,7 +188,8 @@ sda3_crypt UUID=025c66a2-c683-42c5-b17c-322c2188fe3f /dev/disk/by-uuid/9e7a7336-
 
 
 ## Ubuntu Desktop
-To set up the MATE Ubuntu graphical desktop once you've installed a minimalist Ubuntu server, do the following:
+To set up the MATE Ubuntu graphical desktop once you've installed a minimalist Ubuntu server, do the following: 
+
 ```
 MATE
 sudo apt install ubuntu-mate-desktop
@@ -184,7 +199,8 @@ sudo apt-get install ubuntu-gnome-desktop
 
 
 ## Snap
-In Ubuntu version 20.04 Snap is installed by default, but it seems to mess with some progream. For instance, dig sometimes gives this error:
+In Ubuntu version 20.04 Snap is installed by default, but it seems to mess with some progream. For instance, dig sometimes gives this error: 
+
 ```
 user@nc2004:~# dig www.google.com
 dig: symbol lookup error: /lib/x86_64-linux-gnu/libisc.so.1601: undefined symbol: uv_handle_get_data
@@ -192,7 +208,8 @@ dig: symbol lookup error: /lib/x86_64-linux-gnu/libisc.so.1601: undefined symbol
 One is able to locate that library, and ldconfig -v even says the path is there, but it's unclear why the error still appears.
 Removing Snap fixes the issue, if you don't care for Snap.
 
-To remove Snap:
+To remove Snap: 
+
 ``` 
 snap list
 sudo snap remove X             # Repeat for each installed snap, except for snapd itself
@@ -223,7 +240,8 @@ fi
 
 
 ## Generate Crypted Password
-For crafting automated user-data install
+For crafting automated user-data install 
+
 ```
 sudo apt install whois
 echo password | mkpasswd -m sha512crypt --stdin
@@ -262,7 +280,8 @@ user1 ALL=(ALL) NOPASSWD: ALL
 
 
 ### Bash
-For root:
+For root: 
+
 ```
 export PS1='\[\033[01;31m\]\u@\h:\W\[\033[00m\]\$ '
 LS_COLORS='ex=31:ln=36'
@@ -288,7 +307,8 @@ set paste
 
 
 ## IPV6
-Disable IPv6 
+Disable IPv6  
+
 ```
 vi /etc/default/grub
   add ipv6.disable=1
@@ -312,7 +332,8 @@ net.ipv6.conf.lo.disable_ipv6=1
 
 
 ## Network
-Switch from DHCP to static IP:
+Switch from DHCP to static IP: 
+
 ```
 cat /etc/netplan/01-netcfg.yaml
   network:
@@ -338,7 +359,8 @@ vi /etc/netplan/01-netcfg.yaml
 
 
 ## Disable CONTROL-ALT-DELETE
-__Not 100% sure about this__. It can mess things up a bit. Needs more vetting.
+__Not 100% sure about this__. It can mess things up a bit. Needs more vetting. 
+
 ```
 sudo systemctl mask ctrl-alt-del.target
 sudo systemctl daemon-reload
@@ -375,7 +397,8 @@ sudo vi /etc/fstab
 
 
 ## Disable Unattended Upgrades
-Unexpected unattended upgrades can be really _annoying_. To disable them:
+Unexpected unattended upgrades can be really _annoying_. To disable them: 
+
 ``` 
 sudo dpkg-reconfigure unattended-upgrades
 Choose NO
@@ -388,7 +411,8 @@ sudo apt upgrade
 
 
 ## Disable Unused Services
-If you're not running LVM, you can disable these services:
+If you're not running LVM, you can disable these services: 
+
 ```
 sudo systemctl stop lvm2-lvmetad
 sudo systemctl stop lvm2-lvmetad.socket
@@ -399,7 +423,8 @@ sudo systemctl disable lvm2-lvmetad.socket
 
 ## Disable WiFi 
 Hard block = disable physically via BIOS
-Soft block = disable disable via OS
+Soft block = disable disable via OS 
+
 ```
 sudo rfkill list          # Show status
 sudo rfkill block wifi    # Disable via OS
@@ -419,7 +444,8 @@ Cleanup stuff that's not needed.
 - Disable Canonical advertising motd
 - Remove unused desktop folders: `rmdir Templates Public Downloads Documents Desktop Music Videos Pictures`
 
-- Remove packages that are hardly ever used:
+- Remove packages that are hardly ever used:  
+
 ```
 sudo apt purge whoopsie               # Canonical error reporting daemon
 sudo apt purge kerneloops             # Could leave around, but nah
@@ -428,7 +454,8 @@ sudo apt purge popularity-contest     # Being removed by Canonical anyway
 sudo apt purge modemmanager           # Why?
 ```
 
-- Remove packages not used on most servers:
+- Remove packages not used on most servers: 
+
 ```
 sudo apt purge wpasupplicant
 sudo apt purge pulseaudio 
@@ -438,7 +465,8 @@ sudo apt autoremove
 
 - Disable unused services:
   - <https://www.linux.com/topic/desktop/cleaning-your-linux-startup-process/>
-  - <https://delightlylinux.wordpress.com/2017/06/19/speed-up-linux-boot-by-disabling-services/>
+  - <https://delightlylinux.wordpress.com/2017/06/19/speed-up-linux-boot-by-disabling-services/> 
+
 ```
 sudo service --status-all  # To see what services are enabled
 sudo systemctl stop ufw && sudo systemctl disable ufw
@@ -453,7 +481,8 @@ sudo systemctl stop openvpn && sudo systemctl disable openvpn
 sudo systemctl stop bluetooth && sudo systemctl disable bluetooth
 ```
 
-- Disable MOTD at login
+- Disable MOTD at login 
+
 ```
 sudo su -c "echo ENABLED=0 > /etc/default/motd-news"
 sudo vi /etc/pam.d/sshd  # and disable the only 2 'motd' lines 
