@@ -3,22 +3,29 @@ Useful tips on the Raspberry Pi computers.
 
 
 ## Create Raspberry Pi OS MicroSD Card on macOS
-1. Download OS image and SHA-256 hash digest value text file
+1. Download OS image and SHA-256 hash digest value text file: 
+
 ```
 curl -LO https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspios_lite_arm64-2021-04-09/2021-03-04-raspios-buster-arm64-lite.zip
 curl -LO https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspios_lite_arm64-2021-04-09/2021-03-04-raspios-buster-arm64-lite.zip.sha256
 ```
-2. Compare SHA-256 digest values
+
+2. Compare SHA-256 digest values:  
+
 ```
 shasum -a 256 2021-03-04-raspios-buster-arm64-lite.zip
 cat 2021-03-04-raspios-buster-arm64-lite.zip.sha256
 ```
-3. Unzip image
+
+3. Unzip image: 
+
 ```
 unzip 2021-03-04-raspios-buster-arm64-lite.zip
 # Results is a 2021-03-04-raspios-buster-arm64-lite.img file
 ```
-4. Insert blank MicroSD card and burn the IMG file
+
+4. Insert blank MicroSD card and burn the IMG file: 
+
 ```
 diskutil list                                # Capture disk number, e.g., /dev/disk2
 diskutil unmountDisk /dev/disk2              # Unmount it
@@ -26,7 +33,9 @@ diskutil unmountDisk /dev/disk2              # Unmount it
 sudo dd bs=32m conv=sync if=2021-03-04-raspios-buster-arm64-lite.img of=/dev/rdisk2
 diskutil unmountDisk /dev/disk2              # Unmount it again
 ```
-5. Test it
+
+5. Test it: 
+
 ```
 Remove MicroSD, and insert it into target raspberry device and boot it up.
 
@@ -96,7 +105,9 @@ vi /boot/config.txt
 display_rotate = 3    # play with this number
 reboot
 ```
-For Raspberry Pi 4
+
+For Raspberry Pi 4: 
+
 ```
 vi /boot/cmdline.txt
   and add this to end of line
@@ -154,7 +165,8 @@ Ubuntu
 
 
 ## QEMU
-Emulate the Raspberry Pi in QEMU.
+Emulate the Raspberry Pi in QEMU: 
+
 ```
 #!/bin/bash
 # qemupi
@@ -189,7 +201,8 @@ qemu-system-arm \
 
 
 ## Ubuntu 20.04
-Run Ubuntu on the Raspberry Pi.
+Run Ubuntu on the Raspberry Pi: 
+
 ```
 Disable Wifi
 sudo vi /boot/firmware/usercfg.txt
