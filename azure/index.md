@@ -4,6 +4,15 @@ Azure tips.
 ## Azure VM Instances
 For a nice view of what VM instances Azure offers, with pricing, etc. go to <https://azureprice.net/?sortField=linuxPrice&sortOrder=true>
 
+- Get instance metadata: 
+
+```
+curl -sH "Metadata:true" --noproxy "*"  http://169.254.169.254/metadata/instance?api-version=2021-02-01 | jq
+
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
+```
+See <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service?tabs=windows>
+
 ## Installing the Azure CLI Tool
 The Azure CLI tool is essentially the [Azure Python SDK](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=bash) itself, since it is written in Python. Use below table to install in respective OS or environment:
 
