@@ -410,3 +410,9 @@ except Exception as e:
     pass
 ```
 
+## ZIP Password Protection
+```
+zip -e  archive.zip <list_of_files>        # Files in current directory
+zip -er archive.zip <directory> <file_n>   # Directory and files
+```
+
