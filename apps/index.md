@@ -25,12 +25,10 @@ export TWITTER_ACCESS_TOKEN_SECRET="your_access_token_secret"
   - `delete-tweets --since 2010-01-01 data/tweet.js`
   - `delete-tweets --since 2010-01-01 data/tweet.js --spare-min-likes 100 --spare-min-retweets 50`
 
-semiphemeral unlike --filename ~/Downloads/data/like.js
-(Had to lower tweppy version: pip install tweepy==3.10.0)
-
 `tweepy`: 
   - <https://github.com/tweepy/tweepy>
   - Semiphemeral needs this to work
+  - Had to lower version to get `semiphemeral` to work: `pip install tweepy==3.10.0`
 
 `semiphemeral`: 
   -  <https://github.com/micahflee/semiphemeral>
