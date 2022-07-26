@@ -85,7 +85,8 @@ rt02-campus.mydomain.com,192.168.0.22
 fw01-dc.mydomain.com,192.168.3.5
 ```
 
-- Records verifier:
+- Records verifier: 
+
 ```
 # chk.ps1
 # This script verifies A/PTR records from DNS records in input file. Needs DNS admin privileges.
@@ -125,7 +126,8 @@ ForEach ($rec in $records) {
 }
 ```
 
-- Records creator:
+- Records creator: 
+
 ```
 # add.ps1
 # This script create all DNS records as per input file. Requires DNS admin privileges.
@@ -174,7 +176,8 @@ ForEach ($rec in $records) {
 }
 ```
 
-- Records deleter:
+- Records deleter: 
+
 ```
 # del.ps1
 # This script deletes DNS records in input file. Needs DNS admin privileges.
@@ -243,7 +246,8 @@ ForEach ($rec in $records) {
 }
 ```
 
-- Records creator/updater:
+- Records creator/updater: 
+
 ```
 # upsert.ps1
 # This script creates/updates DNS records in input file. Needs DNS admin privileges.
@@ -316,7 +320,8 @@ ForEach ($rec in $records) {
 ```
 
 ## Speed Up Initial Record Creation
-To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone:
+To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone: 
+
 ```
 Format: 
     [authority-domain] [domain-of-zone-admin]
