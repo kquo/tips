@@ -1,4 +1,4 @@
-Cue me some tips! 
+Give me a clue! 
 
 ### [AWS](aws/index.md) &emsp; [Applications](apps/index.md) &emsp; [Arcade](arcade/index.md)
 ### [Azure](azure/index.md) &emsp; [ConspiracyTheories](conspiracies/index.md) &emsp; [Containers](containers/index.md)
@@ -10,5 +10,5 @@ Cue me some tips!
 
 ### [Politics](politics/index.md) &emsp; [Privacy](privacy/index.md) &emsp; [Python](python/index.md)
 ### [Raspberry](raspberry/index.md) &emsp; [Rust](rust/index.md) &emsp; [Security](security/index.md)
-### [Shell](shell/index.md) &emsp; [Thinking](thinking/index.md) &emsp; [Ubuntu](ubuntu/index.md)
-### [Virtualization](virt/index.md) &emsp; [Windows](windows/index.md)
+### [Shell](shell/index.md) &emsp; [Streaming](streaming/index.md) &emsp; [Thinking](thinking/index.md)
+### [Ubuntu](ubuntu/index.md) &emsp; [Virtualization](virt/index.md) &emsp; [Windows](windows/index.md)
