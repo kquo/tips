@@ -1,8 +1,10 @@
 # Arcade
 Nowadays there are many ways to play the old-style, coin-operated video arcade games:
+
 - You can buy the actual old game cabinets from eBay and other places.
 - You can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legitimately own.
 - You can set up a small form-factor PC with [GroovyArcade](http://wiki.arcadecontrols.com/index.php/GroovyArcade) as a dedicated arcade machine, again using ROMs you own.
+
 The rest of these tips are general notes on setting up either or the last two.
 
 
@@ -14,19 +16,19 @@ To set up MAME, do the following:
 - Copy the ROM zip files into the `~/.mame/roms/` directory and `cd` to it.
 - Run any specific game from the CLI with `mame stargate`
 
-** MAME References**:
+**MAME References**:
 - <https://docs.mamedev.org/index.html>
 
 
 ## GroovyArcade
-[GroovyArcade](http://wiki.arcadecontrols.com/index.php/GroovyArcade) an all-in-one OS based on Arch Linux aiming perfect [MAME](https://en.wikipedia.org/wiki/MAME) emulation on CRT screens. It can be installed from the LiveCD onto the hard drive, or booted from a USB flash drive. To set up GroovyArcade do the following:
+[GroovyArcade](http://wiki.arcadecontrols.com/index.php/GroovyArcade) is an all-in-one OS based on Arch Linux aiming perfect [MAME](https://en.wikipedia.org/wiki/MAME) emulation on CRT screens. It can be installed from the LiveCD onto the hard drive, or booted from a USB flash drive. To set up GroovyArcade do the following:
 
 * Download and create the GroovyArcade USB installer
 * Check for latest release at <https://github.com/substring/os>.
 * As of this writing it was <https://github.com/substring/os/releases/download/2022.01/groovyarcade-2022.01-x86_64.iso.xz>.
 * Download above ISO using `curl -LO` (see below).
 * You will need an empty USB drive of 8GB or more in size.
-* Create the USB using below instructions, which are for macOS, so you first need to convert the ISO to DMG format: 
+* Create the USB using below instructions, which are for macOS, and therefor require the ISO be converted to DMG format: 
 
 ```
 curl -LO https://github.com/substring/os/releases/download/2022.01/groovyarcade-2022.01-x86_64.iso.xz
@@ -70,6 +72,6 @@ To configure GroovyArcade for a vertical monitor, press ESCAPE from Attrach-Mode
 
 To configure MAME with a specific USB controller, you'll need configure within MAME itself, by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
 
-** GroovyArcade References**:
+**GroovyArcade References**:
 - <https://gitlab.com/groovyarcade/support/-/wikis/home>
 
