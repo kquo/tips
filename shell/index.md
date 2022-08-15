@@ -297,7 +297,8 @@ sed '/MATCH1/,/MATCH2/ s/THIS/THAT/g' input.txt
 
 
 ## Print Specific Columns
-- Print specific columns
+- Print specific columns: 
+
 ```
 cat TEXT.file | awk '{ $1=""; $2=""; print}'
 
@@ -306,7 +307,8 @@ also
 cat TEXT.file | cut -d ' ' -f2-
 ```
 
-- Print remaining fields
+- Print remaining fields: 
+
 ```
 awk $(NF)
 # Print first 2 fields, then all remaining fields
@@ -317,7 +319,8 @@ awinfo -iv | grep " cndigital " | awk '{printf "%-50s  %-20s  %-12s  %-6s\n", $1
 
 
 ## Tally Similar Lines
-Using `list.txt` as a sample text file to work with.
+Using `list.txt` as a sample text file to work with: 
+
 ```
 cat list.txt
 01
@@ -329,7 +332,8 @@ cat list.txt
 05
 ```
 
-Do the tally based on the first and only column:
+Do the tally based on the first and only column: 
+
 ```
 awk '{h[$1]++}END{for(i in h){printf "%2s %s\n", h[i],i | "sort -rn"}}' list.txt
  3 01
@@ -341,7 +345,8 @@ Notice that you can change `h[$1]` to `h[$2]` if you want to process the 2nd col
 
 
 ## Run Commands Over SSH
-To run arbitrarily complex command over SSH you sometimes have to *pack* the command as a variable.
+To run arbitrarily complex command over SSH you sometimes have to *pack* the command as a variable: 
+
 ```
 printf -v CMD "%q" "sudo -i"
 ssh -t "$1" "exec bash -c $CMD"
@@ -349,7 +354,8 @@ ssh -t "$1" "exec bash -c $CMD"
 
 
 ## Sort List of String
-Sort of a delimited list of string items with `tr`:
+Sort of a delimited list of string items with `tr`: 
+
 ```
 List="gif|jpg|jpeg|bmp|png|tiff|tif|ico|img|tga|wmf|txt|js|css|svg|swf|mp3|mp4"
 echo $List | tr -s "|" "\n" | sort -u | tr -s "\n" "|"
@@ -411,7 +417,8 @@ echo $NumberComma
 
 
 ## Tally Integers In Columns
-Two different ways to tally integers in a specific column.
+Two different ways to tally integers in a specific column: 
+
 ```
 CNT=0; for S in `awk '{ print $7}' file.txt` ; do ((CNT = CNT + S)) ; done ; echo $CNT
 
@@ -420,14 +427,16 @@ perl -lne '$s += $1 if / (\d+\.\d{0,2}) B$/; END{print $s}' file.txt
 
 
 ## Capitalize Word In File
-Capitalize all words in a given texts file.
+Capitalize all words in a given texts file: 
+
 ```
 sed -e "s/\b\(.\)/\u\1/g" file.txt
 ```
 
 
 ## Insert Variable In Lines
-Insert specific variable `A` in all qualifying lines of sample text file `/etc/puppet/puppet.conf`.
+Insert specific variable `A` in all qualifying lines of sample text file `/etc/puppet/puppet.conf`: 
+
 ```
 A=myhost.mydomain.com
 sed -i "s/^[^#]*certname *= *.*$/    certname = $A/g" /etc/puppet/puppet.conf
@@ -435,7 +444,8 @@ sed -i "s/^[^#]*certname *= *.*$/    certname = $A/g" /etc/puppet/puppet.conf
 
 
 ## Trim DNS List To Apex Domains Only
-Given list of DNS names in `1.txt`, output only the their DNS apex domains into file `2.txt`
+Given list of DNS names in `1.txt`, output only the their DNS apex domains into file `2.txt`: 
+
 ```
 for n in `cat 1.txt` ; do
   new=`echo $n | rev | awk -F'.' '{print $1 "." $2}' | rev`
@@ -451,16 +461,18 @@ msgBody=$(echo "$msg" | python -c 'import sys, json; print json.load(sys.stdin)[
 
 
 ## Shell History
-- Best method for clearing shell history:
+- Best method for clearing shell history: 
+
 ```
 history -d $((HISTCMD-1)) && history -c && rm -rf $HISTFILE
 ```
 
-- Clear bash history on logout. See https://codepre.com/%F0%9F%90%A7-how-to-clear-bash-history-on-logout.html
+- Clear bash history on logout. See <https://codepre.com/%F0%9F%90%A7-how-to-clear-bash-history-on-logout.html>
 
 
 ## Sample BASHRC
-Sample `.bashrc` file
+Sample `.bashrc` file: 
+
 ```
 export Grn='\e[1;32m' # Green
 export Rst='\e[0m'    # Text Reset
@@ -508,7 +520,8 @@ find DIRTREE -type f -exec chmod o+r {} +
 
 
 ## Graceful Trap Signal Exit
-Useful exit function to clean up during a runtime trap signal event.
+Useful exit function to clean up during a runtime trap signal event: 
+
 ```
 trap "{ sh /root/.bash_logout ; }" EXIT
 trap "{ stop_node ; stop_nginx ; exit 0 ; }" EXIT SIGHUP SIGINT SIGQUIT SIGILL SIGSTOP SIGTERM
@@ -568,14 +581,16 @@ curl -s -X POST -H "Host: www.wired.com" http://URL > curl.log 2>&1
 
 
 ## Gunzip URL
-Use `curl` to `gunzip` a URL
+Use `curl` to `gunzip` a URL: 
+
 ```
 curl -H "Accept-Encoding: gzip deflate" http://URL
 ```
 
 
 ## Test International Redirect
-Use `X-Forwarded-For` header to test international HTTP redirects with `curl`. This may no longer 
+Use `X-Forwarded-For` header to test international HTTP redirects with `curl`. This may no longer: 
+
 ```
 # Italian IP address
 curl -H "X-Forwarded-For: 79.13.226.127" http://www.mysite.com
@@ -586,7 +601,8 @@ curl -H "X-Forwarded-For: 5.42.160.1" http://www.mysite.com
 
 
 ## Split String Into Lines
-Split given string into separate lines for each single character:
+Split given string into separate lines for each single character: 
+
 ```
 echo "j2gDCeD s832h adsf" | fold -w1
 ```
