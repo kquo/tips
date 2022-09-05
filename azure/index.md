@@ -1,6 +1,9 @@
 # Azure 
 Azure tips.
 
+## Azure Services
+- [Azure Data Factory (ADF)](adf/index.md)
+
 ## Azure VM Instances
 For a nice view of what VM instances Azure offers, with pricing, etc. go to <https://azureprice.net/?sortField=linuxPrice&sortOrder=true>
 
