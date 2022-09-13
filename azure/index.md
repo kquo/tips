@@ -108,30 +108,66 @@ Granting access to resources is done with 3 key items: a security principal, a s
 
 All access is tracked via Activity Logs.
 
-## PowerShell Commands
-to run PowerShell from a Linux container: `docker run -it mcr.microsoft.com/azure-powershell pwsh`
+## PowerShell
 
-Common PS commands:
+### Azure From PowerShell
+- From Windows, PowerShell is of course built into Windows, simply open the PS Command Prompt then do: 
+
 ```
+Install-Module Az
+Import-Module Az
+Connect-AzAccount blah blah blah
+```
+
+- From Linux, do : 
+
+```
+# Find the way to install `pwsh` for your version of Linux
+pwsh
+# Then run same above commands
+```
+
+- From macOS, do : 
+
+```
+brew install powershell
+pwsh
+# Then same above commands
+```
+
+- From Docker container, do :
+
+```
+docker run -it mcr.microsoft.com/azure-powershell pwsh
+# Then run same above commands
+```
+
+### Common Commands
+```
+# List PS version
 $PSversionTable
 
+# Logon to Azure (see above section too)
 Login-AzAccount
 
+# Get RBAC role definition
 $r = Get-AzRoleDefinition "Monitoring Contributor"
+$r
+$r | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
 
+# Get/Select Specific Azure Subscription
 Get-AzSubscription
 Select-AzSubscription
 Set-AzSubscription
 
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
-
 # Update existing role
 Get-AzRoleDefinition -Name "Existing Role" | ConvertTo-Json | Out-File existing-role.json
+# Modify JSON file accordingly, then
 Set-AzRoleDefinition -InputFile "existing-role.json"
 
 # Create new custom role, based on existing
 Get-AzRoleDefinition -Name "Existing Role" | ConvertTo-Json | Out-File azure-support-basic.json
-vi azure-support-basic # And edit accordingly
+# Modify JSON file accordingly, then
 New-AzRoleDefinition -InputFile ./azure-support-basic.json
 
 # Install YAML module
