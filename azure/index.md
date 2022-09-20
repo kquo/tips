@@ -150,10 +150,13 @@ $PSversionTable
 # Logon to Azure (see above section too)
 Login-AzAccount
 
-# Get RBAC role definition
+# Get RBAC role definition(s)
 $r = Get-AzRoleDefinition "Monitoring Contributor"
 $r
 $r | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+
+# Get all role definitions in tenant and store as UTF8 text (makes easier Unix grep parsing, etc)
+Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | ConvertTo-JSON | jq | Out-File -Encoding utf8 custom-roles.json
 
 # Get/Select Specific Azure Subscription
 Get-AzSubscription
