@@ -10,5 +10,7 @@ Give me a clue!
 
 ### [Politics](politics/index.md) &emsp; [Privacy](privacy/index.md) &emsp; [Python](python/index.md)
 ### [Raspberry](raspberry/index.md) &emsp; [Rust](rust/index.md) &emsp; [Security](security/index.md)
-### [Shell](shell/index.md) &emsp; [Streaming](streaming/index.md) &emsp; [Thinking](thinking/index.md)
-### [Ubuntu](ubuntu/index.md) &emsp; [Virtualization](virt/index.md) &emsp; [Windows](windows/index.md)
+### [Shell](shell/index.md) &emsp; [Streaming](streaming/index.md) &emsp; [Terraform](tf/index.md)
+
+### [Thinking](thinking/index.md) &emsp; [Ubuntu](ubuntu/index.md) &emsp; [Virtualization](virt/index.md)
+### [Windows](windows/index.md)
