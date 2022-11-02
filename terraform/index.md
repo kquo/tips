@@ -178,3 +178,61 @@ terraform import azurerm_dns_a_record.mydomain-apex "/subscriptions/<UUID>/resou
 terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/CNAME/www"
 ```
 
+## Additional Notes
+Some additional notes regarding Terraform.
+
+### Extent of Terraform Privileges
+It's wise to limit and isolate the scope and roles of the security context under which Terraform operates. This reduces the potential blast-radius if the Terraform credentials may happen to be compromised.
+
+### Single vs Multi-states
+At some point you'll need to decide whether you will only have a single state file (local or remote). A single state file works fine for very small setups, but can quickly become cumbersome for larger infrastructure. Particularly if there are many different teams submitting changes to an environment and the state gets locked while each change is being applied. That is when having multiple states or workspaces will come in handy. It gives an organization more flexibility by allowing changes to be independently deployed without locking their separate workflows.
+
+### Mono-repo vs Multi-repo
+When working with Terraform there will come a point where you will need to decide whether to use a mono-repo versus a multi-repo _IaC_ structure for your source code repository. The common analogy is the monolithic project type a opposed to the micro-services project design. There is no right or wrong in this debate. The answer will depend on many different factors, such as how tightly-coupled your project and the development and operation teams are.
+
+The typical mono-repo repository structure looks like the following: 
+
+```
+terraform-azure-mymodule
+  +- examples
+  |   +- simple
+  |      + main.tf
+  +- modules
+  |   +- virtual_machine
+  |       + main.tf
+  |       + variables.tf
+  |       + outputs.tf
+  |   +- dns
+  |       + main.tf
+  |       + variables.tf
+  |       + outputs.tf
+  + main.tf
+  + variables.tf
+  + outputs.tf
+  + README.md
+```
+
+The `main.tf` file would look like something like this: 
+
+```
+# main.tf
+module "az-module-vm" {
+
+  # Source examples
+  source = "git@github.com:myrog/az-module-iaas.git?ref=1.0.0"            # Your own Github repo
+  # source = "./modules/vm"                                               # Your own local directory
+  # source = "<registry address/<organization>/<provider>/<module name>"  # A module registry
+  # .. example = "spacelift.io/your-organization/vpc-module-name/aws"
+  version = "1.0.0"
+
+  argument_1                     = var.test_1
+  argument_2                     = var.test_2
+  argument_3                     = var.test_3
+}
+```
+
+For an example of multi-repo structure you would follow the same as above, but without the `modules` directory. Each module would then have its own separate repo. The `main.tf` would then reference the remo repo module using the `github.com` example or the special registry.
+
+### What's a Module
+One thing to remember about a terraform module is that it should be for a _composite of resources_, not a single resource.
+
