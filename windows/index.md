@@ -1,6 +1,11 @@
 # Windows
 Microsoft Windows tips.
 
+1. [Manage ActiveDirectory from PowerShell](#manage-activedirectory-from-powershell)
+2. [Update PATH](#update-path)
+3. [Windows SubSystem for Linux (WSL)](#windows-subsystem-for-linux-wsl)
+4. [ROBOCOPY](#robocopy)
+
 
 ## Manage ActiveDirectory from PowerShell
 Make sure you have the right module installed
