@@ -1,72 +1,62 @@
 Give me a clue! 
 
 <table>
+<h2>
 
 <tr>
 <td> <h1> <a href="aws/">AWS</a> </h1> </td>
-<td> <a href="apps/">Application</a> </td>
-<td> <a href="arcade/">Arcade</a> </td>
+<td> <h2> <a href="apps/">Application</a> </h2> </td>
+<td> <h3> <a href="arcade/">Arcade</a> </h3> </td>
 <td> <a href="azure/">Azure</a> </td>
 <td> <a href="conspiracies/">Conspiracy Theories</a> </td>
 </tr>
 
 <tr>
-<h2>
 <td> <a href="containers">Containers</a> </td>
 <td> <a href="dns">DNS</a> </td>
 <td> <a href="devops">Devops</a> </td>
 <td> <a href="git">git</a> </td>
 <td> <a href="golang">GoLang</a> </td>
-</h2>
 </tr>
 
 <tr>
-<h3>
 <td> <a href="hobbies/">Hobbies</a> </td>
 <td> <a href="ios/">iOS</a> </td>
 <td> <a href="ldap/">LDAP</a> </td>
 <td> <a href="linux/">Linux</a> </td>
 <td> <a href="lb/">LoadBalancers</a> </td>
-</h3>
 </tr>
 
 <tr>
-<h4>
 <td> <a href="macos/">macOS</a> </td>
 <td> <a href="mysql/">MySQL</a> </td>
 <td> <a href="optimism/">Optimism</a> </td>
 <td> <a href="politics/">Politics</a> </td>
 <td> <a href="privacy/">Privacy</a> </td>
-</h4>
 </tr>
 
 <tr>
-<h5>
 <td> <a href="python/">Python</a> </td>
 <td> <a href="raspberry/">RaspberryPI</a> </td>
 <td> <a href="rust/">Rust</a> </td>
 <td> <a href="security/">Security</a> </td>
 <td> <a href="shell/">Shell</a> </td>
-</h5>
 </tr>
 
 <tr>
-<h1>
 <td> <a href="streaming/">Streaming</a> </td>
 <td> <a href="terraform/">Terraform</a> </td>
 <td> <a href="thinking/">Thinking</a> </td>
 <td> <a href="ubuntu/">Ubuntu</a> </td>
 <td> <a href="virt/">Virtualization</a> </td>
-</h1>
 </tr>
 
 <tr>
-<h1>
 <td> <a href="windows/">Windows</a> </td>
 <td> <a href="future/">Future entry</a> </td>
-</h1>
 </tr>
 
+</h2>
 </table>
 
 <!--
