@@ -3,13 +3,11 @@ Give me a clue!
 <table>
 
 <tr>
-<h1>
-<td> <a href="aws/">AWS</a> </td>
+<td> <h1> <a href="aws/">AWS</a> </h1> </td>
 <td> <a href="apps/">Application</a> </td>
 <td> <a href="arcade/">Arcade</a> </td>
 <td> <a href="azure/">Azure</a> </td>
 <td> <a href="conspiracies/">Conspiracy Theories</a> </td>
-</h1>
 </tr>
 
 <tr>
