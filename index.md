@@ -9,27 +9,30 @@ Give me a clue!
 <td> <a href="apps/">Application</a> </td>
 <td> <a href="arcade/">Arcade</a> </td>
 <td> <a href="azure/">Azure</a> </td>
-<td> <a href="conspiracies/">Conspiracy Theories</a> </td>
 </tr>
 
 <tr>
+<td> <a href="conspiracies/">Conspiracy Theories</a> </td>
 <td> <a href="containers">Containers</a> </td>
 <td> <a href="dns">DNS</a> </td>
 <td> <a href="devops">Devops</a> </td>
-<td> <a href="git">git</a> </td>
-<td> <a href="golang">GoLang</a> </td>
 </tr>
 
 <tr>
+<td> <a href="git">git</a> </td>
+<td> <a href="golang">GoLang</a> </td>
 <td> <a href="hobbies/">Hobbies</a> </td>
 <td> <a href="ios/">iOS</a> </td>
+</tr>
+
+<tr>
 <td> <a href="ldap/">LDAP</a> </td>
 <td> <a href="linux/">Linux</a> </td>
 <td> <a href="lb/">LoadBalancers</a> </td>
+<td> <a href="macos/">macOS</a> </td>
 </tr>
 
 <tr>
-<td> <a href="macos/">macOS</a> </td>
 <td> <a href="mysql/">MySQL</a> </td>
 <td> <a href="optimism/">Optimism</a> </td>
 <td> <a href="politics/">Politics</a> </td>
@@ -41,18 +44,18 @@ Give me a clue!
 <td> <a href="raspberry/">RaspberryPI</a> </td>
 <td> <a href="rust/">Rust</a> </td>
 <td> <a href="security/">Security</a> </td>
-<td> <a href="shell/">Shell</a> </td>
 </tr>
 
 <tr>
+<td> <a href="shell/">Shell</a> </td>
 <td> <a href="streaming/">Streaming</a> </td>
 <td> <a href="terraform/">Terraform</a> </td>
 <td> <a href="thinking/">Thinking</a> </td>
-<td> <a href="ubuntu/">Ubuntu</a> </td>
-<td> <a href="virt/">Virtualization</a> </td>
 </tr>
 
 <tr>
+<td> <a href="ubuntu/">Ubuntu</a> </td>
+<td> <a href="virt/">Virtualization</a> </td>
 <td> <a href="windows/">Windows</a> </td>
 <td> <a href="future/">Future entry</a> </td>
 </tr>
