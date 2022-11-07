@@ -2,7 +2,8 @@
 Useful LDAP tips.
 
 ## LDAP Search
-User `ldapsearch` utility for common searches:
+User `ldapsearch` utility for common searches: 
+
 ```
 # Show `mapping tree` configs
 ldapsearch -h localhost -D "cn=Directory Manager" -y <PasswordFile> -b "cn=mapping tree,cn=config" -LLLo ldif-wrap=no
@@ -18,7 +19,8 @@ ldapsearch -H ldaps://ldap.mydomain.com -D "mydomain\user1" -b "OU=LabAuthGroup,
 ```
 
 ## LDAP Modify
-Initialize a replication agreement:
+Initialize a replication agreement: 
+
 ```
 ldapmodify -h localhost -D "cn=Directory Manager" -y pwdfile -v
 dn: cn=ReplicationAgreement,cn=replica,cn=dc\=mydomain\,dc\=com,cn=mapping tree,cn=config
@@ -29,7 +31,8 @@ CTRL-D
 ```
 
 ## Linux SSSD Client
-Configure Linux SSSD client to use TLS LDAP.
+Configure Linux SSSD client to use TLS LDAP: 
+
 ```
 yum -y install sssd
 authconfig --enablesssd --enablesssdauth --ldapserver=ldaps://ldap.mydomain.io --ldapbasedn=dc=mydomain,dc=com --enablerfc2307bis --updateall
@@ -50,7 +53,8 @@ update-ca-trust
   ssh user@client
 ```
 
-- Sample `/etc/sssd/sssd.conf`:
+- Sample `/etc/sssd/sssd.conf`: 
+
 ```
 [sssd]
 services = nss, pam, ssh
@@ -86,7 +90,8 @@ ldap_uri = ldaps://ldap.mydomain.vm
 
 ## LDAP SSH-Key-Based Logon
 To setup LDAP SSH-Key-Based logon.
-- Extend LDAP schema by adding this file, and restarting:
+- Extend LDAP schema by adding this file, and restarting: 
+
 ```
 cat /etc/dirsrv/slapd-ldap1/schema/60sshlpk.ldif
 # 60sshlpk.ldif
@@ -128,7 +133,8 @@ objectClasses: (
 #
 ```
 
-- Then add these attribute entries to each individual account:
+- Then add these attribute entries to each individual account: 
+
 ```
 objectClass: ldapPublicKey
 sshPublicKey: ssh-rsa AAAA....Cn0bw==  # Shortened
