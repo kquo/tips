@@ -1,7 +1,7 @@
 Give me a clue! 
 
 <body>
-<h3>
+<h4>
 <table>
 
 <tr>
@@ -61,7 +61,7 @@ Give me a clue!
 </tr>
 
 </table>
-</h3>
+</h4>
 </body>
 
 <!--
