@@ -18,4 +18,4 @@ Many of us have an innate desire to fix many of the things we *see wrong* in the
     - Still, do try a bit to *understand* them, again proportionally to your sphere of influence
     - Do try a bit to be *informed* on them
     - Do try a bit to have a *stance* on them
-7. Not everything that we *see as wrong* may actually be wrong. Double and triple check whether *Issue X* is really a problem, and that's really worth solving.
+7. Not everything that we *see as wrong* may actually be wrong. Double and triple check whether *Issue X* is really a problem that is really worth solving.
