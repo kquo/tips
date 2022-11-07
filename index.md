@@ -1,30 +1,31 @@
 Give me a clue! 
 
-<table>
+<body>
 <h3>
+<table>
 
 <tr>
-<td> <h3> <a href="aws/">AWS</a> </h3> </td>
-<td> <h3 <a href="apps/">Application</a> </h3> </td>
-<td> <h3> <a href="arcade/">Arcade</a> </h3> </td>
-<td> <h3> <a href="azure/">Azure</a> </h3> </td>
-<td> <h3> <a href="conspiracies/">Conspiracy Theories</a> </h3> </td>
+<td> <a href="aws/">AWS</a> </td>
+<td> <a href="apps/">Application</a> </td>
+<td> <a href="arcade/">Arcade</a> </td>
+<td> <a href="azure/">Azure</a> </td>
+<td> <a href="conspiracies/">Conspiracy Theories</a> </td>
 </tr>
 
 <tr>
-<td> <h4> <a href="containers">Containers</a> </h4> </td>
-<td> <h4> <a href="dns">DNS</a> </h4> </td>
-<td> <h4> <a href="devops">Devops</a> </h4> </td>
-<td> <h4> <a href="git">git</a> </h4> </td>
-<td> <h4> <a href="golang">GoLang</a> </h4> </td>
+<td> <a href="containers">Containers</a> </td>
+<td> <a href="dns">DNS</a> </td>
+<td> <a href="devops">Devops</a> </td>
+<td> <a href="git">git</a> </td>
+<td> <a href="golang">GoLang</a> </td>
 </tr>
 
 <tr>
-<td> <h5> <a href="hobbies/">Hobbies</a> </h5> </td>
-<td> <h5> <a href="ios/">iOS</a> </h5> </td>
-<td> <h5> <a href="ldap/">LDAP</a> </h5> </td>
-<td> <h5> <a href="linux/">Linux</a> </h5> </td>
-<td> <h5> <a href="lb/">LoadBalancers</a> </h5> </td>
+<td> <a href="hobbies/">Hobbies</a> </td>
+<td> <a href="ios/">iOS</a> </td>
+<td> <a href="ldap/">LDAP</a> </td>
+<td> <a href="linux/">Linux</a> </td>
+<td> <a href="lb/">LoadBalancers</a> </td>
 </tr>
 
 <tr>
@@ -56,9 +57,9 @@ Give me a clue!
 <td> <a href="future/">Future entry</a> </td>
 </tr>
 
-</h3>
-
 </table>
+</h3>
+</body>
 
 <!--
 Original format
