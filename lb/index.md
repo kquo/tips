@@ -129,7 +129,8 @@ ltm rule redirect-http-to-https {
 ## HTTP Basic Auth iRule
 F5 iRule for basich HTTP authentication digest. This is really not recommended, but it's a good example of how iRules are crafted and used..
 
-- Create the rule
+- Create the rule: 
+
 ```
 # edit rule http-auth
     when HTTP_REQUEST {
@@ -167,7 +168,8 @@ F5 iRule for basich HTTP authentication digest. This is really not recommended, 
     }  
 ```
 
-- Add http-auth to 80 & 443 virtuals:
+- Add http-auth to 80 & 443 virtuals: 
+
 ```
 rules {
     http-auth
@@ -175,7 +177,8 @@ rules {
 }
 ```
 
-- Edit user/pass
+- Edit user/pass: 
+
 ```
 edit /ltm data-group authorized_users
 # md5 hash the password with shell command:
