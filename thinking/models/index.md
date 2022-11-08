@@ -1,30 +1,43 @@
 
 # Mental Models
 
-1. [Explaining](#explaining)
-2. [Modeling](#modeling)
-3. [Brainstorming](#brainstorming)
-4. [Experimenting](#experimenting)
-5. [Deciding](#deciding)
-6. [Reasoning](#reasoning)
-7. [Negotiating](#negotiating)
-8. [Mitigating](#mitigating)
-9. [Managing](#managing)
-10. [Developing](#developing)
-11. [Business](#business)
-12. [Influencing](#influencing)
-13. [Marketing](#marketing)
-14. [Competing](#competing)
-15. [Strategizing](#strategizing)
-16. [Military](#military)
-17. [Market](#market)
-18. [Political](#political)
-19. [Investing](#investing)
-20. [Learning](#learning)
-21. [Productivity](#productivity)
-22. [Nature](#nature)
-23. [Philosophy](#philosophy)
-24. [Internet](#internet)
+<body> <h4> <table>
+<tr>
+<td> <a href="#explaining">1. Explaining</a> </td>
+<td> <a href="#modeling">2. Modeling</a> </td>
+<td> <a href="#brainstorming">3. Brainstorming</a> </td>
+<td> <a href="#experimenting">4. Experimenting</a> </td>
+<td> <a href="#deciding">5. Deciding</a> </td>
+<td> <a href="#reasoning">6. Reasoning</a> </td>
+</tr>
+
+<tr>
+<td> <a href="#negotiating">7. Negotiating</a> </td>
+<td> <a href="#mitigating">8. Mitigating</a> </td>
+<td> <a href="#managing">9. Managing</a> </td>
+<td> <a href="#developing">10. Developing</a> </td>
+<td> <a href="#business">11. Business</a> </td>
+<td> <a href="#influencing">12. Influencing</a> </td>
+</tr>
+
+<tr>
+<td> <a href="#marketing">13. Marketing</a> </td>
+<td> <a href="#competing">14. Competing</a> </td>
+<td> <a href="#strategizing">15. Strategizing</a> </td>
+<td> <a href="#military">16. Military</a> </td>
+<td> <a href="#market-failure">17. Market Failure</a> </td>
+<td> <a href="#political-failure">18. Political Failure</a> </td>
+</tr>
+
+<tr>
+<td> <a href="#investing">19. Investing</a> </td>
+<td> <a href="#learning">20. Learning</a> </td>
+<td> <a href="#productivity">21. Productivity</a> </td>
+<td> <a href="#nature">22. Nature</a> </td>
+<td> <a href="#philosophy">23. Philosophy</a> </td>
+<td> <a href="#internet">24. Internet</a> </td>
+</tr>
+</table> </h4> </body>
 
 This section is almost entirely copied from [Mental Models I Find Repeatedly Useful](https://medium.com/@yegg/mental-models-i-find-repeatedly-useful-936f1cc405d) by __Gabriel Weinberg__, @yegg, CEO & Founder of DuckDuckGo.
 
