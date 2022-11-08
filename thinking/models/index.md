@@ -1,5 +1,31 @@
 
 # Mental Models
+
+[Explaining](#explaining)
+[Modeling](#modeling)
+[Brainstorming](#brainstorming)
+[Experimenting](#experimenting)
+[Deciding](#deciding)
+[Reasoning](#reasoning)
+[Negotiating](#negotiating)
+[Mitigating](#mitigating)
+[Managing](#managing)
+[Developing](#developing)
+[Business](#business)
+[Influencing](#influencing)
+[Marketing](#marketing)
+[Competing](#competing)
+[Strategizing](#strategizing)
+[Military](#military)
+[Market](#market)
+[Political](#political)
+[Investing](#investing)
+[Learning](#learning)
+[Productivity](#productivity)
+[Nature](#nature)
+[Philosophy](#philosophy)
+[Internet](#internet)
+
 This section is almost entirely copied from [Mental Models I Find Repeatedly Useful](https://medium.com/@yegg/mental-models-i-find-repeatedly-useful-936f1cc405d) by __Gabriel Weinberg__, @yegg, CEO & Founder of DuckDuckGo.
 
 > Around 2003 I came across Charlie Munger’s 1995 speech, The Psychology of Human Misjudgment, which introduced me to how behavioral economics can be applied in business and investing. More profoundly, though, it opened my mind to the power of seeking out and applying mental models across a wide array of disciplines.
