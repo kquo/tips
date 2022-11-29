@@ -467,7 +467,7 @@ msgBody=$(echo "$msg" | python -c 'import sys, json; print json.load(sys.stdin)[
 history -d $((HISTCMD-1)) && history -c && rm -rf $HISTFILE
 ```
 
-- Clear bash history on logout. See <https://codepre.com/%F0%9F%90%A7-how-to-clear-bash-history-on-logout.html>
+- To always clear bash history on logout. Save `~/.bash_logout` with single oneliner of `history -c`.
 
 
 ## Sample BASHRC
