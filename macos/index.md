@@ -2,58 +2,59 @@
 Useful macOS tips.
 
 
-## Migrate to a New Machine
+## Migrate Machines
 Consider doing this with [Ansible instead](https://blog.vandenbrand.org/2016/01/04/how-to-automate-your-mac-os-x-setup-with-ansible/).
+
+- Install Xcode: `xcode-select --install`
 
 - Install Homebrew
   - brew manages macOS apps distributed as source AND binaries
   - cask manages GUI macOS apps distributed as binaries
-  - Follow <https://brew.sh/>
-
-```
-brew install git
-brew install firefox
-brew install appcleaner iterm2 keepassxc kindle jq visual-studio-code
-```
+  - Follow instructions at <https://brew.sh/> then do `brew install git coreutils fd jq iterm2 keepassxc authy vscodium duckduckgo`
 
 - iTerm2: After installation, use the saved preferences in folder `/Users/user1/data/etc/iTerm2/`
 
-- Visual Studio Code: Copy from old to new:
+- Transfer VS Codium settings from SOURCE to NEW machine:
+1. On SOURCE machine, stop VSCodium application: 
+
 ```
-On OLD machine:
-  Stop Code
-  cd
-  mkdir data/etc/Code
-  rsync -av Library/Application\ Support/Code/ data/etc/Code/
-On NEW machine:
-  Stop Code
-  cd
-  rsync -av data/etc/Code/ Library/Application\ Support/Code/
+cd
+mkdir data/etc/VSCodium
+rsync -av Library/Application\ Support/VSCodium/ data/etc/VSCodium/
+```
+
+2. Make sure the data has been replicated to the cloud.
+
+3. On NEW machine, make sure VSCodium is fully stopped also:
+
+```
+cd
+rsync -av data/etc/VSCodium/ Library/Application\ Support/VSCodium/
 ```
 
 - KeePassXC: Important - while doing below steps on each machine, make sure the program is **not running**. 
+1. On SOURCE machine: 
 
 ```
-On OLD machine:
-  cd
-  mkdir data/etc/KeePassXC
-  cp Library/Application\ Support/KeePassXC/keepassxc.ini data/etc/KeePassXC/
-  cp Library/Preferences/org.keepassxc.keepassxc.plist data/etc/KeePassXC/
-
-On NEW machine:
-  cd
-  cp data/etc/KeePassXC/keepassxc.ini Library/Application\ Support/KeePassXC/
-  cp data/etc/KeePassXC/org.keepassxc.keepassxc.plist Library/Preferences/
+cd
+mkdir data/etc/KeePassXC
+cp Library/Application\ Support/KeePassXC/keepassxc.ini data/etc/KeePassXC/
+cp Library/Preferences/org.keepassxc.keepassxc.plist data/etc/KeePassXC/
 ```
 
-- Xcode should have been automatically installed by Homebrew.
+2. On NEW machine: 
+
+```
+cd
+cp data/etc/KeePassXC/keepassxc.ini Library/Application\ Support/KeePassXC/
+cp data/etc/KeePassXC/org.keepassxc.keepassxc.plist Library/Preferences/
+```
 
 - Install other important apps, if not already installed: 
 
 ```
-brew install python@3.9 go git coreutils azure-cli youtube-dl fd ffmpeg dos2unix
-brew install gnutls iperf3 imagemagick jq nmap pwgen appcleaner firefox 
-brew install keepassxc signal vlc authy iterm2 kindle visual-studio-code 
+brew install ffmpeg dos2unix pwgen nmap iperf3 gnutls python go
+brew install imagemagick appcleaner firefox signal iterm2 kindle azure-cli youtube-dl
 ```
 
 
@@ -520,7 +521,6 @@ alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-
 - Right click and EJECT
 
 
-
 ## Systems Updates
 ```
 CHECK EXISTING
@@ -537,5 +537,5 @@ Since Catalina, the default shell for **macOS** has been `zsh`. To switch to `ba
 chsh -s /bin/bash
 ```
 
-**NOTE**: There are good reasons to switch to `zsh`, but that will need to be explored.
+**NOTE**: There are good reasons to switch to `zsh`, but that will required some exploration.
 
