@@ -15,6 +15,7 @@ Consider doing this with [Ansible instead](https://blog.vandenbrand.org/2016/01/
 - iTerm2: After installation, use the saved preferences in folder `/Users/user1/data/etc/iTerm2/`
 
 - Transfer VS Codium settings from SOURCE to NEW machine:
+
 1. On SOURCE machine, stop VSCodium application: 
 
 ```
@@ -33,6 +34,7 @@ rsync -av data/etc/VSCodium/ Library/Application\ Support/VSCodium/
 ```
 
 - KeePassXC: Important - while doing below steps on each machine, make sure the program is **not running**. 
+
 1. On SOURCE machine: 
 
 ```
