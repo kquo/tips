@@ -205,7 +205,8 @@ Connect-AzAccount -ServicePrincipal -Credential $credentials -Tenant <tenant ID>
 ``` 
 
 ## Create Service Principal
-To create a service principal using Azure CLI tool, and grant it RBAC role `Contributor` at a specific subscription scope, run the following:  
+To quickly create an Azure service principal from the CLI, and grant it RBAC role `Contributor` at a specific subscription scope, run the following: 
+
 ```
 az ad sp create-for-rbac -n sp-cli-mgmt --role="Contributor" --scopes="/subscriptions/<SubscriptionId>"
 {
@@ -217,7 +218,7 @@ az ad sp create-for-rbac -n sp-cli-mgmt --role="Contributor" --scopes="/subscrip
 ```
 If you omit the `-n <Name>` option, Azure will automatically pick a name like `azure-cli-2022-04-03-23-15-00` for you.
 
-## _Microsoft Graph PowerShell_ Warning
+## WARNING: Use of _Microsoft Graph PowerShell_ SP
 Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to Azure APIs is highly **discouraged**.
 - See <https://practical365.com/connect-microsoft-graph-powershell-sdk/>
 - The problem is that this SP can collect too many aggregated API permissions over time
@@ -233,12 +234,16 @@ Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to 
     A. Again, use a specifically registered App/SP with permanent but limited privileges for the task   
 
     B. Do an MSAL interactive browser popup login
+
        - Use the built "_Azure PowerShell_" SP with ClientID _1950a258-227b-4e31-a9cf-717495945fc2_
        - See <https://stackoverflow.com/questions/30454771/how-does-azure-powershell-work-with-username-password-based-auth>
 
     C. Use the MSAL libraries to generate an access token for the specific SPI:
+
        - MSAL supports many different languages such a Python, Go, and PowerShell
+
          - See <https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview> 
+
        - From PowerShell you can then login with: `Connect-MgGraph -AccessToken $generated_token`
        - From Python scripts and Go utilities there are many different ways to logon and access APIs
 
