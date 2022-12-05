@@ -225,25 +225,15 @@ Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to 
 - This brings forth the distinct possibility the SP will become over-permissioned and therefore a security risk
 - Obviously, this only means the specific use of the _Microsoft Graph PowerShell_ SP for authentication, not the PowerShell scripts themselves
 - ALTERNATIVES:
-
-  1. Set up a dedicated automated pipeline job for the specific ad hoc task at hand (**PREFERRED**)
-     - Use a specifically registered App/SP with permanent but limited privileges for the task
-
-  2. If you must write a semi-manual CLI script, then:
-
-    A. Again, use a specifically registered App/SP with permanent but limited privileges for the task   
-
-    B. Do an MSAL interactive browser popup login
-
-       - Use the built "_Azure PowerShell_" SP with ClientID _1950a258-227b-4e31-a9cf-717495945fc2_
-       - See <https://stackoverflow.com/questions/30454771/how-does-azure-powershell-work-with-username-password-based-auth>
-
-    C. Use the MSAL libraries to generate an access token for the specific SPI:
-
-       - MSAL supports many different languages such a Python, Go, and PowerShell
-
-         - See <https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview> 
-
-       - From PowerShell you can then login with: `Connect-MgGraph -AccessToken $generated_token`
-       - From Python scripts and Go utilities there are many different ways to logon and access APIs
-
+  - Set up a dedicated automated pipeline job for the specific ad hoc task at hand (**PREFERRED**)
+    - Use a specifically registered App/SP with permanent but limited privileges for the task
+  - If you must write a semi-manual CLI script, then:
+    - Again, use a specifically registered App/SP with permanent but limited privileges for the task
+    - Do an MSAL interactive browser popup login
+      - Use the built "_Azure PowerShell_" SP with ClientID _1950a258-227b-4e31-a9cf-717495945fc2_
+      - See <https://stackoverflow.com/questions/30454771/how-does-azure-powershell-work-with-username-password-based-auth>
+    - Use the MSAL libraries to generate an access token for the specific SPI:
+      - MSAL supports many different languages such a Python, Go, and PowerShell
+        - See <https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview> 
+      - From PowerShell you can then login with: `Connect-MgGraph -AccessToken $generated_token`
+      - From Python scripts and Go utilities there are many different ways to logon and access APIs
