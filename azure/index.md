@@ -237,3 +237,5 @@ Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to 
         - See <https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview> 
       - From PowerShell you can then login with: `Connect-MgGraph -AccessToken $generated_token`
       - From Python scripts and Go utilities there are many different ways to logon and access APIs
+
+

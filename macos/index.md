@@ -1,6 +1,8 @@
 # macOS
 Useful macOS tips.
 
+## Useful CLI Site
+Awesome macOS Command-Line = <https://git.herrbischoff.com/awesome-macos-command-line/about/>
 
 ## Migrate Machines
 Consider doing this with [Ansible instead](https://blog.vandenbrand.org/2016/01/04/how-to-automate-your-mac-os-x-setup-with-ansible/).
