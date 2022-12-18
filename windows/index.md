@@ -84,3 +84,41 @@ SET _options=/LOG:C:\temp\datasync-log.txt /R:2 /W:2
 :: /LOG :: Output log file 
 ROBOCOPY %_source% %_dest% %_what% %_options%
 ```
+
+## Create Windows USB Installer from macOS
+Some notes: 
+
+```
+diskutil list                                             # Capture USB disk number, e.g. '/dev/disk6'
+diskutil eraseDisk MS-DOS WIN GPT /dev/disk8              # Or use exFAT fs type ..
+diskutil eraseDisk exFAT WIN GPT /dev/disk8               # Or use exFAT fs type ..
+hdiutil mount ~/Downloads/WINIMAGE.iso                    # Mount downloaded Windows ISO
+cp -rp /Volumes/WINIMAGE_MOUNTED_ISO/* /Volumes/WIN/      # .. or
+rsync -av /Volumes/WINIMAGE_MOUNTED_ISO/ /Volumes/WIN/
+hdiutil unmount /Volumes/WINIMAGE_MOUNTED_ISO
+hdiutil unmount /Volumes/WIN
+```
+
+## Prep HDD for Windows 10 Installation
+Notes on preping an HDD for Win 10 install: 
+
+```
+Shift-F10 to open Prompt
+diskpart
+list disk 
+select disk 0
+convert GPT                             # Special fix
+
+clean 
+create partition primary                # Use entire disk or 
+create partition primary size=500000    # For a 500GB size part
+format fs=ntfs quick
+assign
+active 
+list volume
+exit
+
+xcopy d:\ h:\media /e /b /k
+```
+
+
