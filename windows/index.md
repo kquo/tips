@@ -121,4 +121,9 @@ exit
 xcopy d:\ h:\media /e /b /k
 ```
 
+## PowerShell Aliases
+- List built-in aliases = `Get-Alias`
+- Set an alias = `sal ll dir`
+- To create permanent aliases use your favorite editor (vi, Notepad) and = `notepad $profile`
+- SUGGESTION: Aliases are an **interactive** feature - do not use in scripts.
 
