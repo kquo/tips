@@ -1,4 +1,4 @@
-Give me a clue! 
+AI systems like <https://chat.openai.com/chat> will gradually make this site superfluous 😀🤓
 
 <body> <h4> <table>
 
