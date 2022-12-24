@@ -1,4 +1,4 @@
-AI systems like <https://chat.openai.com/chat> will gradually make this site superfluous 😀🤓
+AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites like this one superfluous 😀🤓. See [BASH query example](chatgpt-bash.jpg), or even [how I created this entry within this file](chatpgt-markdown.jpg).
 
 <body> <h4> <table>
 
