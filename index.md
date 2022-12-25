@@ -1,4 +1,6 @@
-AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites like this one superfluous 😀🤓. See [BASH query example](chatgpt-bash.jpg), or even [how I created this entry within this file](chatpgt-markdown.jpg).
+Quick and useful tips.
+
+Although AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites like this superfluous 😀🤓.
 
 <body> <h4> <table>
 
@@ -49,17 +51,6 @@ AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FA
 <td> <a href="shell/">Shell</a> </td>
 <td> <a href="streaming/">Streaming</a> </td>
 <td> <a href="terraform/">Terraform</a> </td>
-</tr>
-
-<tr>
-<td> <a href="thinking/">Thinking</a> </td>
-<td> <a href="ubuntu/">Ubuntu</a> </td>
-<td> <a href="virt/">Virtualization</a> </td>
-<td> <a href="windows/">Windows</a> </td>
-</tr>
-
-<tr>
-<td> <a href="future/">Future entry</a> </td>
 </tr>
 
 </table> </h4> </body>
