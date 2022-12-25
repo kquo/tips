@@ -1,6 +1,6 @@
 Very quick and useful tips.
 
-Of coruse AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites such as this superfluous 😀🤓.
+Of course AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites such as this superfluous 😀🤓.
 
 <body> <h4> <table>
 
