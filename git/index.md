@@ -1,4 +1,4 @@
-# GIT
+# git
 Version control tips. Mostly on `git` but may include others.
 
 

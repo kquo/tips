@@ -1,6 +1,28 @@
 # DNS
 Useful DNS tips.
 
+## Speed Up Initial Record Creation
+To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone:
+
+```
+Format:
+    [authority-domain] [domain-of-zone-admin]
+    [zone-serial-number] [refresh-time] [retry-time]
+    [expire-time] [negative caching TTL]
+Example:
+    ns.example.net. hostmaster.example.com. 1
+    7200 900 1209600 86400
+```
+
+## Google DNS Flush cache
+<https://developers.google.com/speed/public-dns/cache>
+
+## Improving DNS Perfomance
+- Use a DNS service that uses Anycast for their servers
+- Make sure the DNS provider has servers distributed globally (and that perform well)
+- Try to avoid long CNAME chains (try to avoid them at all if possible)
+- Use a long Time To Live (TTL) on your records so they can be cached by the ISPs and users
+
 ## Configure NextDNS on pfSense
 There are *several options*, but using the [NextDNS CLI client (DoH Proxy)](https://github.com/nextdns/nextdns) is the easiest.
 
@@ -318,26 +340,3 @@ ForEach ($rec in $records) {
   Add-DnsServerResourceRecordA -ComputerName $ns -ZoneName $zone -TimeToLive 00:05:00 -Name $name -IPv4Address $ip -CreatePtr
 }
 ```
-
-## Speed Up Initial Record Creation
-To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone: 
-
-```
-Format: 
-    [authority-domain] [domain-of-zone-admin]
-    [zone-serial-number] [refresh-time] [retry-time] 
-    [expire-time] [negative caching TTL] 
-Example: 
-    ns.example.net. hostmaster.example.com. 1 
-    7200 900 1209600 86400
-```
-
-## Google DNS Flush cache
-<https://developers.google.com/speed/public-dns/cache>
-
-## Improving DNS Perfomance 
-- Use a DNS service that uses Anycast for their servers
-- Make sure the DNS provider has servers distributed globally (and that perform well)
-- Try to avoid long CNAME chains (try to avoid them at all if possible)
-- Use a long Time To Live (TTL) on your records so they can be cached by the ISPs and users
-
