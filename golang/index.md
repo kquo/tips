@@ -14,7 +14,7 @@ go: go.mod file not found in current directory or any parent directory; see 'go 
 ```
 Do this
 ```
-go mod init
+go mod init <prg_name|mod_name> # Simple name or github.com/git719/maz
 go mod tidy
 ```
 Or if you don't want to build as a module, this:
