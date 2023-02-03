@@ -484,29 +484,46 @@ brew deps --tree --installed  # List all with deps
 sudo scutil --set HostName MyHostName
 ```
 
+## User BASHRC
+A typical `.bashrc` for a user.
+
+```
+ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
+trap ExitFunc EXIT
+export GOPATH=~/go
+export PATH=$PATH:/usr/local/bin:$GOPATH/bin:$GOROOT/bin
+export HISTCONTROL=ignoreboth   # Ignore both duplicates and space-prefixed commands
+export HISTIGNORE='ls:cd:ll:h'  # Ignore these commands
+export EDITOR=vi
+export Grn='\e[1;32m' Rst='\e[0m' # Green color and reset
+export PS1="\[$Grn\]\u@\h:\W\[$Rst\]$ "
+alias ls='gls -N --color -h --group-directories-first'
+alias ll='ls -ltra'
+alias h='history'
+alias vi='vim'
+alias grep='grep --color'
+alias code='/Applications/VSCodium.app/Contents/Resources/app/bin/codium'
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export HOMEBREW_NO_ANALYTICS=1  # Disable homebrew Google Analytics collection
+
+```
 
 ## Root BASHRC
-- `.bashrc` for root
+A typical `.bashrc` for root.
+
 ```
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export HOMEBREW_NO_ANALYTICS=1   # Disable homebrew Google Analytics collection
-export Red='\e[1;31m' # Red
-export Grn='\e[1;32m' # Green
-export Rst='\e[0m'    # Text Reset
-export LSCOLORS='exgxcxdxBxegedabagacad'
-export LS_COLORS='ex=31:ln=36'
-[[ ! $(which gls) ]] && alias ls='gls -N --color' || alias ls='ls -G'
-export PS1="\[$Red\]\u@\h:\W\[$Rst\]$ "
+ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
+trap ExitFunc EXIT
 export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:cd:ll:h'
 export EDITOR=vi
-alias ll='ls -ltr'
-alias date='date "+%a %Y-%m-%d %H:%M %Z"'
-alias vi='vim'
+export Grn='\e[1;31m' Rst='\e[0m' # Red color and reset
+export PS1="\[$Red\]\u@\h:\W\[$Rst\]$ "
+alias ll='ls -ltra'
 alias h='history'
-alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+alias vi='vim'
+alias grep='grep --color'
 ```
-
 
 ## Create macOS USB Installer
 - Download latest macOS installer via the App Store
