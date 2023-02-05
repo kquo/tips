@@ -1,5 +1,7 @@
 Very quick and useful tips.
 
+https://github.com/git719/tools/blob/8815108998a70d6322f8a4891acd2fcad3513c14/clang/lower.c#L1
+
 Of course AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites such as this superfluous 😀🤓.
 
 <body> <h4> <table>
