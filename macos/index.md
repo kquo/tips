@@ -1,66 +1,96 @@
 # macOS
-Useful macOS tips.
+macOS tips.
 
-## Useful CLI Site
-Awesome macOS Command-Line = <https://git.herrbischoff.com/awesome-macos-command-line/about/>
 
-## Migrate Machines
-Consider doing this with [Ansible instead](https://blog.vandenbrand.org/2016/01/04/how-to-automate-your-mac-os-x-setup-with-ansible/).
-
-- Install Xcode: `xcode-select --install`
-
-- Install Homebrew
-  - brew manages macOS apps distributed as source AND binaries
-  - cask manages GUI macOS apps distributed as binaries
-  - Follow instructions at <https://brew.sh/> then do `brew install git coreutils fd jq iterm2 keepassxc authy vscodium duckduckgo`
-
-- iTerm2: After installation, use the saved preferences in folder `/Users/user1/data/etc/iTerm2/`
-
-- Transfer VS Codium settings from SOURCE to NEW machine:
-
-1. On SOURCE machine, stop VSCodium application: 
-
+## Homebrew
+- Command commands:
 ```
-cd
-mkdir data/etc/VSCodium
-rsync -av Library/Application\ Support/VSCodium/ data/etc/VSCodium/
+brew cleanup -ns                    # See what you'd be cleaning up 
+brew cleanup -s                     # Clean it all up, including cache
+brew remove  <package name>         # Uninstall/remove
+brew uninstall <package name>       # Uninstall/remove
+brew leaves                         # List all installed top-level packages, that are not dependencies
+brew list                           # List all install packages
+brew deps --tree --installed        # List all with deps
 ```
 
-2. Make sure the data has been replicated to the cloud.
-
-3. On NEW machine, make sure VSCodium is fully stopped also:
-
+- Uninstall Homebrew -- **review link before running!**:
 ```
-cd
-rsync -av data/etc/VSCodium/ Library/Application\ Support/VSCodium/
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 ```
 
-- KeePassXC: Important - while doing below steps on each machine, make sure the program is **not running**. 
 
-1. On SOURCE machine: 
-
-```
-cd
-mkdir data/etc/KeePassXC
-cp Library/Application\ Support/KeePassXC/keepassxc.ini data/etc/KeePassXC/
-cp Library/Preferences/org.keepassxc.keepassxc.plist data/etc/KeePassXC/
-```
-
-2. On NEW machine: 
-
-```
-cd
-cp data/etc/KeePassXC/keepassxc.ini Library/Application\ Support/KeePassXC/
-cp data/etc/KeePassXC/org.keepassxc.keepassxc.plist Library/Preferences/
-```
-
-- Install other important apps, if not already installed: 
+## Mac Migration
+- Update hostname: `sudo scutil --set HostName MyHostName`
+- Follow instructions at <https://brew.sh/>
+- Then do: `brew install coreutils iterm2 keepassxc vscodium duckduckgo fd jq git`
+- For iTerm2 use the saved preferences under `~/data/etc/iTerm2/`
+- VSCodium
+  - Make sure VSCodium is **NOT** running on neither machines
+  - On SOURCE machine:
+    `cd`
+    `tar czf codium.tar.gz Library/Application\ Support/VSCodium`
+  - SSH copy `codium.tar.gz` to `$HOME` on NEW machine, and:
+    `cd`
+    `tar xzf codium.tar.gz`
+- KeePassXC
+  - Important, make sure KeePassXC is **NOT** running on neither machines
+  - On SOURCE:
+    `cd`
+    `ls -l Library/Application\ Support/KeePassXC/keepassxc.ini`
+    `ls -l Library/Preferences/org.keepassxc.keepassxc.plist`
+  - SSH copy `keepassxc.ini` to NEW_MACHINE: `$HOME/Library/Application\ Support/KeePassXC/keepassxc.ini` 
+  - SSH copy `org.keepassxc.keepassxc.plist` to NEW_MACHINE: `$HOME/Library/Preferences/org.keepassxc.keepassxc.plist` 
+- Install others:
 
 ```
 brew install ffmpeg dos2unix pwgen nmap iperf3 gnutls python go
-brew install imagemagick appcleaner firefox signal iterm2 kindle azure-cli youtube-dl
+brew install imagemagick appcleaner kindle youtube-dl
+```
+- Switch to `bash`: `chsh -s /bin/bash`
+- Update screencapture behaviour: `.../tools/macos/screencapture`
+
+
+## BASHRC
+- `.bashrc` for a user: 
+
+```
+ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
+trap ExitFunc EXIT
+export GOPATH=~/go
+export PATH=$PATH:/usr/local/bin:$GOPATH/bin:$GOROOT/bin
+export HISTCONTROL=ignoreboth   # Ignore both duplicates and space-prefixed commands
+export HISTIGNORE='ls:cd:ll:h'  # Ignore these commands
+export EDITOR=vi
+export Grn='\e[1;32m' Rst='\e[0m' # Green color and reset
+export PS1="\[$Grn\]\u@\h:\W\[$Rst\]$ "
+alias ls='gls -N --color -h --group-directories-first'
+alias ll='ls -ltra'
+alias h='history'
+alias vi='vim'
+alias grep='grep --color'
+alias code='/Applications/VSCodium.app/Contents/Resources/app/bin/codium'
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export HOMEBREW_NO_ANALYTICS=1  # Disable homebrew Google Analytics collection
+```
+- `.bashrc` for root: 
+
+```
+ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
+trap ExitFunc EXIT
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='ls:cd:ll:h'
+export EDITOR=vi
+export Grn='\e[1;31m' Rst='\e[0m' # Red color and reset
+export PS1="\[$Red\]\u@\h:\W\[$Rst\]$ "
+alias ll='ls -ltra'
+alias h='history'
+alias vi='vim'
+alias grep='grep --color'
 ```
 
+## Useful CLI Site
+Awesome macOS Command-Line = <https://git.herrbischoff.com/awesome-macos-command-line/about/>
 
 ## Export iCloud Photos Locally
 Use [iCloud Photo Downloader](https://github.com/icloud-photos-downloader/icloud_photos_downloader) Python utility - `icloudpd`. It downloads all photos from your iCloud account via the CLI. This means *all* photos as well as *all* videos.
@@ -78,20 +108,6 @@ Insert USB disk, or more dangerously, scan your OS HDD.
 brew install testdisk
 sudo photorec              # Then pick drive to scan, and destination folder for scanned files
 ```  
-
-
-## Lulu Egress Firewall
-See <https://objective-see.com/products/lulu.html>
-
-
-## iCloud Defaults
-  - iCloud Drive
-  - Photos           # ONLY on main machine
-  - Mail             # To allow sending Calendar reminders
-  - Contacts
-  - Calendars
-  - Keychain
-  - Find My Mac
 
 
 ## Adding macOS Static Routes
@@ -118,7 +134,7 @@ sudo sysctl -w net.inet.ip.forwarding=1                  # Enable IP forwarding
 ```
 
 
-### Install Ubuntu on Mac
+### Install Ubuntu on a Mac
 
 1. <https://github.com/marcosfad/mbp-ubuntu> [VERIFIED]
 2. <https://linuxnewbieguide.org/how-to-install-linux-on-a-macintosh-computer/>
@@ -162,7 +178,9 @@ cp /boot/efi/EFI/ubuntu/grubx64.efi /boot/efi/EFI/Boot/bootx64.efi
 
 
 ## What TCP Ports Are Listening
+```
 sudo lsof -iTCP -sTCP:LISTEN -n -P    # List what TCP ports apps are listening on
+```
 
 
 ## Disk Speed
@@ -223,19 +241,6 @@ sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
 sudo killall -HUP mDNSResponder
 
 scutil --dns | grep 'nameserver\[[0-9]*\]'
-```
-
-
-## Adjust Screen Capture
-```
-#!/bin/bash
-# osx-screencapture-adjust
-defaults write com.apple.screencapture location ~/Downloads
-defaults write com.apple.screencapture type jpg
-defaults write com.apple.screencapture name "screenshot"
-defaults write com.apple.screencapture include-date -bool false
-defaults write com.apple.screencapture disable-shadow -bool false
-killall SystemUIServer
 ```
 
 
@@ -455,76 +460,6 @@ brew update && brew upgrade powershell        # Upgrade
 ```
 
 
-## Homebrew
-Homebrew is the missing built-in package manager for macOS.  
-
-- Install Homebrew formulae
-```
-brew cleanup -ns    # See what you'd be cleaning up 
-brew cleanup -s     # Clean it all up, including cache
-brew uninstall ansible dirmngr gnu-tar libassuan blah blah blah
-```
-
-- Check installed programs (formulae): 
-```
-brew leaves                   # List all installed top-level packages, that are not dependencies
-brew list                     # List all install packages
-brew deps --tree --installed  # List all with deps
-```
-
-- Uninstall Homebrew itself
-```
-# Review this link before you run it!
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
-```
-
-
-## Update Hostname
-```
-sudo scutil --set HostName MyHostName
-```
-
-## User BASHRC
-A typical `.bashrc` for a user.
-
-```
-ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
-trap ExitFunc EXIT
-export GOPATH=~/go
-export PATH=$PATH:/usr/local/bin:$GOPATH/bin:$GOROOT/bin
-export HISTCONTROL=ignoreboth   # Ignore both duplicates and space-prefixed commands
-export HISTIGNORE='ls:cd:ll:h'  # Ignore these commands
-export EDITOR=vi
-export Grn='\e[1;32m' Rst='\e[0m' # Green color and reset
-export PS1="\[$Grn\]\u@\h:\W\[$Rst\]$ "
-alias ls='gls -N --color -h --group-directories-first'
-alias ll='ls -ltra'
-alias h='history'
-alias vi='vim'
-alias grep='grep --color'
-alias code='/Applications/VSCodium.app/Contents/Resources/app/bin/codium'
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export HOMEBREW_NO_ANALYTICS=1  # Disable homebrew Google Analytics collection
-
-```
-
-## Root BASHRC
-A typical `.bashrc` for root.
-
-```
-ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
-trap ExitFunc EXIT
-export HISTCONTROL=ignoreboth
-export HISTIGNORE='ls:cd:ll:h'
-export EDITOR=vi
-export Grn='\e[1;31m' Rst='\e[0m' # Red color and reset
-export PS1="\[$Red\]\u@\h:\W\[$Rst\]$ "
-alias ll='ls -ltra'
-alias h='history'
-alias vi='vim'
-alias grep='grep --color'
-```
-
 ## Create macOS USB Installer
 - Download latest macOS installer via the App Store
   - Quit without continuing installation!
@@ -550,13 +485,3 @@ CHECK EXISTING
 SPECIFIC softwareupdate -i MRTConfigData_10_14-1.45 --include-config-data
 ALL      softwareupdate -ia --include-config-data
 ```
-
-
-## Permanent Bash
-Since Catalina, the default shell for **macOS** has been `zsh`. To switch to `bash` permanently do:
-```
-chsh -s /bin/bash
-```
-
-**NOTE**: There are good reasons to switch to `zsh`, but that will required some exploration.
-
