@@ -1,6 +1,4 @@
-Very quick and useful tips.
-
-Of course AI systems like ChatGPT (<https://chat.openai.com/chat>) are gradually making FAQ sites such as this superfluous 😀🤓.
+Quick, useful tips.
 
 <body> <h4> <table>
 
