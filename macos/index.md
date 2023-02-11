@@ -59,34 +59,40 @@ ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
 trap ExitFunc EXIT
 export GOPATH=~/go
 export PATH=$PATH:/usr/local/bin:$GOPATH/bin:$GOROOT/bin
-export HISTCONTROL=ignoreboth   # Ignore both duplicates and space-prefixed commands
-export HISTIGNORE='ls:cd:ll:h'  # Ignore these commands
+export HISTCONTROL=ignoreboth  # Ignore both duplicates and space-prefixed commands
+export HISTIGNORE='ls:cd:ll:h' # Ignore these commands
 export EDITOR=vi
 export Grn='\e[1;32m' Rst='\e[0m' # Green color and reset
 export PS1="\[$Grn\]\u@\h:\W\[$Rst\]$ "
 alias ls='gls -N --color -h --group-directories-first'
-alias ll='ls -ltra'
+alias ll='ls -ltr'
 alias h='history'
 alias vi='vim'
+export GREP_COLOR='1;36' # Cyan
 alias grep='grep --color'
+alias pwgen='pwgen -s1 14 6'
 alias code='/Applications/VSCodium.app/Contents/Resources/app/bin/codium'
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export HOMEBREW_NO_ANALYTICS=1  # Disable homebrew Google Analytics collection
+export HOMEBREW_NO_ANALYTICS=1    # Disable homebrew Google Analytics collection
 ```
 - `.bashrc` for root: 
 
 ```
 ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
 trap ExitFunc EXIT
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:cd:ll:h'
 export EDITOR=vi
-export Grn='\e[1;31m' Rst='\e[0m' # Red color and reset
+export Red='\e[1;31m' Rst='\e[0m' # Red color and reset
 export PS1="\[$Red\]\u@\h:\W\[$Rst\]$ "
-alias ll='ls -ltra'
+alias ls='gls -N --color -h --group-directories-first'
+alias ll='ls -ltr'
 alias h='history'
 alias vi='vim'
+export GREP_COLOR='1;36' # Cyan
 alias grep='grep --color'
+alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 ```
 
 ## Useful CLI Site
@@ -484,4 +490,4 @@ CHECK EXISTING
 
 SPECIFIC softwareupdate -i MRTConfigData_10_14-1.45 --include-config-data
 ALL      softwareupdate -ia --include-config-data
-```
+EP_COLOR="1;36"
