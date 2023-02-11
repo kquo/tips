@@ -70,6 +70,7 @@ alias h='history'
 alias vi='vim'
 export GREP_COLOR='1;36' # Cyan
 alias grep='grep --color'
+alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias pwgen='pwgen -s1 14 6'
 alias code='/Applications/VSCodium.app/Contents/Resources/app/bin/codium'
 export BASH_SILENCE_DEPRECATION_WARNING=1
