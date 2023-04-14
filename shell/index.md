@@ -1,6 +1,16 @@
 # Shell
 Useful tips on BASH and other shells.
 
+## Postman REST API Caller
+Shell alias to call REST APIs. Use `zman` or any other way to acquire the token: 
+
+```
+alias postman='curl -sH "Authorization: Bearer $(zman -z | grep Authorization | awk '\''{print $3}'\'' | tail -1) -H "Content-Type: application/json"
+
+# Usage
+postman -X GET "https://some-api.com/resource?param1=x&param2=y"
+
+```
 
 ## Bash Script Safety
 Always try to use `set -euo pipefail` in bash scripts.
