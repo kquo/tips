@@ -3,49 +3,49 @@ Quick, useful tips.
 <body> <h4> <table>
 
 <tr>
-<td> <a href="activism/">Activism</a> </td>
-<td> <a href="arcade/">Arcade</a> </td>
-<td> <a href="aws/">AWS</a> </td>
-<td> <a href="azure/">Azure</a> </td>
+<td> <a href="activism/">activism</a> </td>
+<td> <a href="arcade/">arcade</a> </td>
+<td> <a href="aws/">aws</a> </td>
+<td> <a href="azure/">azure</a> </td>
 </tr>
 
 <tr>
-<td> <a href="conspiracies/">Conspiracy Theories</a> </td>
-<td> <a href="containers">Containers</a> </td>
-<td> <a href="devops">Devops</a> </td>
-<td> <a href="dns">DNS</a> </td>
+<td> <a href="conspiracies/">conspiracies</a> </td>
+<td> <a href="containers">containers</a> </td>
+<td> <a href="devops">devops</a> </td>
+<td> <a href="dns">dns</a> </td>
 </tr>
 
 <tr>
-<td> <a href="email">Email</a> </td>
+<td> <a href="editors/">editors</a> </td>
+<td> <a href="email">email</a> </td>
 <td> <a href="git">git</a> </td>
-<td> <a href="golang">GoLang</a> </td>
-<td> <a href="hobbies/">Hobbies</a> </td>
+<td> <a href="golang">golang</a> </td>
 </tr>
 
 <tr>
-<td> <a href="linux/">Linux</a> </td>
-<td> <a href="macos/">macOS</a> </td>
-<td> <a href="optimism/">Optimism</a> </td>
-<td> <a href="pdf/">PDF</a> </td>
+<td> <a href="hobbies/">hobbies</a> </td>
+<td> <a href="linux/">linux</a> </td>
+<td> <a href="macos/">macos</a> </td>
+<td> <a href="optimism/">optimism</a> </td>
 </tr>
 
 <tr>
-<td> <a href="politics/">Politics</a> </td>
-<td> <a href="privacy/">Privacy</a> </td>
-<td> <a href="python/">Python</a> </td>
-<td> <a href="security/">Security</a> </td>
+<td> <a href="pdf/">pdf</a> </td>
+<td> <a href="politics/">politics</a> </td>
+<td> <a href="privacy/">privacy</a> </td>
+<td> <a href="python/">python</a> </td>
 </tr>
 
 <tr>
-<td> <a href="shell/">Shell</a> </td>
-<td> <a href="streaming/">Streaming</a> </td>
-<td> <a href="terraform/">Terraform</a> </td>
-<td> <a href="twitter/">Twitter</a> </td>
+<td> <a href="security/">security</a> </td>
+<td> <a href="shell/">shell</a> </td>
+<td> <a href="streaming/">streaming</a> </td>
+<td> <a href="terraform/">terraform</a> </td>
 </tr>
 
 <tr>
-<td> <a href="vi/">Vi Editor</a> </td>
+<td> <a href="twitter/">twitter</a> </td>
 <td> </td>
 <td> </td>
 <td> </td>
