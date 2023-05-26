@@ -10,6 +10,9 @@ Below is primarily taken from <https://documentation.divio.com/>, posted in [Hac
 4. **Explanation**: Information oriented
 
 These 4 groups form a quadrant where each of the components is similar to its two neighbours:
+
+![Quadrants](./quadrants.jpg)
+
 - tutorials and how-to guides are *both* concerned with describing practical steps
 - how-to guides and technical reference are *both* what we need when we are at work, coding
 - reference guides and explanation are *both* concerned with theoretical knowledge
