@@ -85,6 +85,12 @@ printf "${YELLOW2}Terminal/Bash colors${NC}\n"
 # WARNING: When working with PS1 prompt you MUST WRAP these with '\[' and '\]'!
 ```
 
+- __24-bit true color sequences__:
+```
+Rst="\e[0m" ; SEQ=$(seq 0 32 255) ; for i in $SEQ ; do for j in $SEQ ; do for k in $SEQ ; do C="\e[38;2;${i};${j};${k}m" ; printf "${C} \\\\e[38;2;${i};${j};${k}m ${Rst}" ; done
+ ; done ; done ; echo
+```
+
 
 ## Bash Cursor Positioning
 Bash terminal console cursor positioning:
