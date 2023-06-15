@@ -325,20 +325,6 @@ networksetup -listpreferredwirelessnetworks en0       # List networks
 sudo wdutil log -wifi                                 # disable wifi logging
 ```
 
-## Startup Keys
-```
-Options-Command-R    Boot into Recovery Mode with latest OS for this hardware
-Command-R            Boot into Recovery Mode with original OS
-Options              Access Mac Startup Manager
-C                    Boot from USB/CD
-N                    NetBoot
-Shift                Safe Boot
-Command-V            Verbose Mode
-Command-S            Single User Mode
-Command-Option-P-R   Reset PRAM
-T                    Enable Target Disk Mode
-```
-
 
 ## Use iCloud For Login
 ```
