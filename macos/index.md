@@ -489,9 +489,7 @@ brew update && brew upgrade powershell        # Upgrade
 
 ## Systems Updates
 ```
-CHECK EXISTING
-  system_profiler SPInstallHistoryDataType | grep -A5 MRTConfigData
-
-SPECIFIC softwareupdate -i MRTConfigData_10_14-1.45 --include-config-data
-ALL      softwareupdate -ia --include-config-data
-EP_COLOR="1;36"
+CHECK EXISTING   system_profiler SPInstallHistoryDataType | grep -A5 MRTConfigData
+SPECIFIC         softwareupdate -i MRTConfigData_10_14-1.45 --include-config-data
+ALL              softwareupdate -ia --include-config-data
+```
