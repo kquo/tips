@@ -469,7 +469,6 @@ pwsh                                          # Test
 brew update && brew upgrade powershell        # Upgrade
 ```
 
-
 ## Create macOS USB Installer
 - Download latest macOS installer via the App Store
   - Quit without continuing installation!
@@ -486,6 +485,23 @@ brew update && brew upgrade powershell        # Upgrade
 
 - Right click and EJECT
 
+## Startup Keys
+- For newer Apple Silicon CPU machines:
+  Switch on your Mac device with the Power Button and do not stop pressing the power button until you see a window that displays a list of drives connected to your Mac.
+
+- For older Apple Intel CPU machines:
+```
+Options-Command-R    Boot into Recovery Mode with latest OS for this hardware
+Command-R            Boot into Recovery Mode with original OS
+Options              Access Mac Startup Manager
+C                    Boot from USB/CD
+N                    NetBoot
+Shift                Safe Boot
+Command-V            Verbose Mode
+Command-S            Single User Mode
+Command-Option-P-R   Reset PRAM
+T                    Enable Target Disk Mode
+```
 
 ## Systems Updates
 ```
