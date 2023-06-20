@@ -323,14 +323,17 @@ also
 cat TEXT.file | cut -d ' ' -f2-
 ```
 
-- Print remaining fields: 
+- Print specific or remaining fields using `awk`k: 
 
 ```
-awk $(NF)
+# Print the last field
+awk '{printf "%s\n", $(NF)}' multi-field-file.txt
+
 # Print first 2 fields, then all remaining fields
-awk '{printf "%-30s  %-6s ", $1, $2 ; for (i=3;i<=NF;i++) printf "%s ", $(i); printf "\n"}' multi-field-file.txt
+awk '{printf "%-30s  %-6s %s\n", $1, $2, substr($0, index($0, $3))}' multi-field-file.txt
+
 # Print specific fields
-awinfo -iv | grep " cndigital " | awk '{printf "%-50s  %-20s  %-12s  %-6s\n", $1, $(NF-12), $NF, $(NF-4)}' | grep " - " | sort
+awk '{printf "%-50s  %-20s  %-12s  %-6s\n", $1, $(NF-12), $NF, $(NF-4)}' multi-field-file.txt
 ```
 
 
