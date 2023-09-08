@@ -29,44 +29,55 @@ To install Go on **macOS** (see <http://sourabhbajaj.com/mac-setup/Go/README.htm
 ```
 brew update
 brew install golang
-vi .bashrc
-export GOPATH=$HOME/.go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+vi ~/.bashrc
+export GOPATH=~/go
+export PATH=$GOPATH/bin:$PATH
 ```
 
 
 ## Install Go on Linux
-To install Go on **Linux**:
+To install Go on **Linux** manually: 
+
 ```
-curl -LO https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go
-tar -C /usr/local -xzf go1.17.2.linux-amd64.tar.gz
-Add: export PATH=$PATH:/usr/local/go/bin to .bashrc
+cd
+curl -sLO https://go.dev/dl/go1.21.1.linux-amd64.tar.gz
+tar xzf go1.21.1.linux-amd64.tar.gz
+# Then add below two lines to your .bashrc file:
+export GOPATH=~/go
+export PATH=$GOPATH/bin:$PATH
 ```
 
-Or using this script, to automate future updates:
+Or semi-manually using below script: 
+
 ```
 #!/bin/bash
-# install-golang
-Digest0=de874549d9a8d8d8062be05808509c09a88a248e77ec14eb77453530829ac02b
-Ver=1.9.2
-Archive=go${Ver}.linux-amd64.tar.gz
-URL=https://storage.googleapis.com/golang/${Archive}
-msg="Are you sure you want to DOWNLOAD and INSTALL GoLang archive '${Archive}'? Y/N "
-read -p "$msg" -n 1 && [[ ! $REPLY =~ ^[Yy]$ ]] && printf "\nAborted.\n" && exit 1
-echo Downloading $Archive ...
-curl -LO $URL
-Digest1=`shasum -a 256 go${Ver}*.tar.gz`
-if [[ "$Digest0" -ne "$Digest1" ]]; then
-    printf "Error. The digests are different!\nDigest0 = %s\nDigest1 = %s\n" "$Digest0" "$Digest1"
-fi
-echo Removing old version ...
-sudo rm -rf /usr/local/go
-echo Installing ...
-tar -C /usr/local -xvzf $Archive
-```
+# install-go.sh
 
+Ver="1.21.1"
+Filename="go${Ver}.linux-amd64.tar.gz"
+cd
+if [[ -d "go" ]]; then 
+   printf "Director 'go' already exists. Aborting!\n"
+   exit
+fi
+
+sudo dnf install -y perl-Digest-SHA jq curl
+
+Files="$(curl -s https://go.dev/dl/?mode=json)"
+curl -sLO https://go.dev/dl/${Filename}
+
+DigestLocal=$(shasum -a 256 ${Filename} | awk '{print $1}')
+DigestRemote=$(echo $Files | jq -r '.[] | .files[] | "\(.filename) \(.sha256)"' | grep "$Filename" | awk '{print $2}')
+printf "\n%24s %s\n" "SHA DIGEST REMOTE" $DigestRemote
+printf "\n%24s %s\n" "SHA DIGEST DOWNLOADED" $DigestLocal
+if [[ "$DigestLocal" -ne "$DigestRemote" ]]; then
+   printf "\nSHA digests do NOT match. Aborting!\n"
+   exit
+fi
+print "\nSHA digests do match. Installing ...\n"
+tar xzf $Filename
+rm -vf $Filename
+```
 
 ## Reduce Binary Executable Size
 To reduce binary executable sizes:
