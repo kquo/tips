@@ -5,6 +5,18 @@ Useful GoLang tips.
 ## Examples
 Great examples <https://gobyexample.com/>
 
+## Point to Local Package
+While refactoring and troubleshooting code it is sometimes necessary to point to the local version of a package.
+
+You can do this by modifying the `go.mod` file as follows:
+
+```
+require (
+    github.com/git719/utl v1.1.11
+)
+
+replace github.com/git719/utl => /Users/myuser/mycode/utl
+```
 
 ## Common Build Errors
 When you get:
