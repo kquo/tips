@@ -2,8 +2,9 @@
 Useful GoLang tips.
 
 
-## Examples
-Great examples <https://gobyexample.com/>
+## References
+- Usefule examples = <https://gobyexample.com/>
+- Static analysis = <https://github.com/analysis-tools-dev/static-analysis#go>
 
 ## Point to Local Package
 While refactoring and troubleshooting code it is sometimes necessary to point to the local version of a package.
