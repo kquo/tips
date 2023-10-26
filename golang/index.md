@@ -38,59 +38,12 @@ go env # To view all Go variables
 
 
 ## Install Go on macOS
-To install Go on **macOS** (see <http://sourabhbajaj.com/mac-setup/Go/README.html>):
-```
-brew update
-brew install golang
-vi ~/.bashrc
-export GOPATH=~/go
-export PATH=$GOPATH/bin:$PATH
-```
+- Use BASH script `install-golang.sh` at <https://github.com/git719/tools/blob/main/bash/install-golang.sh>
+- Modify the script's line: `GOVER="1.21.1"` for the version you want
+- It tries to install at `$HOME/go`, so if you have a previous version you'll need to first back it up
+- Script can install Go in Red Hat Linux, Windows GitBASH, or macos environment
+- Note, RHEL `shasum` command is in package perl-Digest-SHA
 
-
-## Install Go on Linux
-To install Go on **Linux** manually: 
-
-```
-cd
-curl -sLO https://go.dev/dl/go1.21.1.linux-amd64.tar.gz
-tar xzf go1.21.1.linux-amd64.tar.gz
-# Then add below two lines to your .bashrc file:
-export GOPATH=~/go
-export PATH=$GOPATH/bin:$PATH
-```
-
-Or semi-manually using below script: 
-
-```
-#!/bin/bash
-# install-go.sh
-
-Ver="1.21.1"
-Filename="go${Ver}.linux-amd64.tar.gz"
-cd
-if [[ -d "go" ]]; then 
-   printf "Director 'go' already exists. Aborting!\n"
-   exit
-fi
-
-sudo dnf install -y perl-Digest-SHA jq curl
-
-Files="$(curl -s https://go.dev/dl/?mode=json)"
-curl -sLO https://go.dev/dl/${Filename}
-
-DigestLocal=$(shasum -a 256 ${Filename} | awk '{print $1}')
-DigestRemote=$(echo $Files | jq -r '.[] | .files[] | "\(.filename) \(.sha256)"' | grep "$Filename" | awk '{print $2}')
-printf "\n%24s %s\n" "SHA DIGEST REMOTE" $DigestRemote
-printf "\n%24s %s\n" "SHA DIGEST DOWNLOADED" $DigestLocal
-if [[ "$DigestLocal" -ne "$DigestRemote" ]]; then
-   printf "\nSHA digests do NOT match. Aborting!\n"
-   exit
-fi
-print "\nSHA digests do match. Installing ...\n"
-tar xzf $Filename
-rm -vf $Filename
-```
 
 ## Reduce Binary Executable Size
 To reduce binary executable sizes:
