@@ -25,28 +25,28 @@ Quick, useful tips.
 
 <tr>
 <td> <a href="hobbies/">hobbies</a> </td>
+<td> <a href="how-to-argue/">how-to-argue</a> </td>
 <td> <a href="linux/">linux</a> </td>
 <td> <a href="macos/">macos</a> </td>
-<td> <a href="optimism/">optimism</a> </td>
 </tr>
 
 <tr>
+<td> <a href="optimism/">optimism</a> </td>
 <td> <a href="pdf/">pdf</a> </td>
 <td> <a href="politics/">politics</a> </td>
 <td> <a href="privacy/">privacy</a> </td>
-<td> <a href="python/">python</a> </td>
 </tr>
 
 <tr>
+<td> <a href="python/">python</a> </td>
 <td> <a href="security/">security</a> </td>
 <td> <a href="shell/">shell</a> </td>
 <td> <a href="streaming/">streaming</a> </td>
-<td> <a href="terraform/">terraform</a> </td>
 </tr>
 
 <tr>
+<td> <a href="terraform/">terraform</a> </td>
 <td> <a href="twitter/">twitter</a> </td>
-<td> </td>
 <td> </td>
 <td> </td>
 </tr>
