@@ -143,25 +143,22 @@ To speed things up, maybe use `sysctl net.isr.dispatch=deferred`? [Need sources]
   - <https://prolificusa.com/product/pl2303gc-usb-full-uart-bridge-controller-gpio/>
 - After you will see this device = `/dev/tty.usbserial-CSBFj19B616`
 - Connect with screen at 115200
+
   - `screen /dev/tty.usbserial-CSBFj19B616 115200`
   - `Press Ctrl-A, Ctrl-\ to quit`
 
 
-## Password Generation
-- Generate passwords using `pwgen`: 
+## Memorable Password Generation
+To generate 4-word phrase memorable password use [pgen](https://github.com/git719/pgen):
 
 ```
-Generate Using Pattern:
-  Length  = 14
-  Include = A-Z a-z 0-9
-  Exclude = IOilo
-  Add = ,./;=!@#+  (If any are allowed)
-
-Use pwgen utility:  
-  pwgen -r IOilo -B 14
+$ pgen
+stylus-unable-manmade-hatching
 ```
 
-- Check GRC's Interactive Brute Force Password "Search Space" Calculator: <https://www.grc.com/haystack.htm>
+You can use `pgen 6` to generate 6-word prhases, and so on.
+
+To check entropy of these passwords use GRC's Interactive Brute Force Password "Search Space" Calculator: <https://www.grc.com/haystack.htm>
 
 
 ## OpenSSL Commands
