@@ -61,6 +61,14 @@ diff -r -x ".Spotlight*" -x ".DS_Store*" -x ".DocumentRevisions-V100*" -x ".fsev
 $HILITE -s bash --out-format=esc
 ```
 
+## Remove Shell Colorized Output
+If you have a text file filled with colorized escaped sequences, and want to remove it, use `sed`: 
+
+```
+sed 's/\x1B\[[0-9;]\{1,5\}[mGK]//g' colored_file.txt > cleaned_file.txt
+
+```
+
 
 ## Bash Colors
 There are two ways of doing colors with bash.
