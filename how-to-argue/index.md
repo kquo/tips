@@ -15,7 +15,7 @@ Just follow the Interpersonal Argument Protocol (IAP) below, which is a simple n
   3. If at any point you sense an infringement of Item #1, say so and DO NOT continue until all parties are in agreement on Item #1.
   4. Follow the **Rogerian, Rapoport, Dennet rules of Debate** below.
   5. Try to be humble and ask questions to seek understanding.
-  6. Repeat items #1 through #5 until any party enacts Item #1, 3rd part.
+  6. Repeat items #1 through #5 until any party enacts Item #1c.
 
 ## Rogerian, Rapoport, Dennet Rules of Debate
 Humanity has largely solved the problem of how to argue properly! We just need the self-discipline to follow the proven advice.
