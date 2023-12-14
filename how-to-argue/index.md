@@ -5,15 +5,17 @@ Just follow the Interpersonal Argument Protocol (IAP) below, which is a simple n
 
 ## Interpersonal Argument Protocol (IAP)
   1. Follow key requirements
-    a. Appropriate time and place for the exchange.
-    b. Mutual, honest, serious respect to learning.
-    c. It is OK for any party to PAUSE or even END the debate at ANY time.
-    d. Follow this protocol.
+     <ol style="list-style-type: lower-latin">
+     <li>Appropriate time and place for the exchange.</li>
+     <li>Mutual, honest, serious respect to learning.</li>
+     <li>It is OK for any party to PAUSE or even END the debate at ANY time.</li>
+     <li>Follow this protocol.</li>
+     </ol>
   2. If above requirements are missing, don't give up! Send this link, asking if 'other side' would like to agree to them.
   3. If at any point you sense an infringement of Item #1, say so and DO NOT continue until all parties are in agreement on Item #1.
   4. Follow the **Rogerian, Rapoport, Dennet rules of Debate** below.
   5. Try to be humble and ask questions to seek understanding.
-  6. Repeat items #1 through #5 until any party enacts Item #1c.
+  6. Repeat items #1 through #5 until any party enacts Item #1, 3rd part.
 
 ## Rogerian, Rapoport, Dennet Rules of Debate
 Humanity has largely solved the problem of how to argue properly! We just need the self-discipline to follow the proven advice.
