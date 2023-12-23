@@ -10,6 +10,10 @@ Just follow the Interpersonal Argument Protocol (IAP) below, which is a simple n
      <li>Mutual, honest, serious respect to learning.</li>
      <li>It is OK for any party to PAUSE or even END the debate at ANY time.</li>
      <li>Follow this protocol.</li>
+     <li>Aim for highest approximation to the truth.</li>
+     <li>Try using the scientific method to acquire knowledge.</li>
+     <li>Avoid the temptation to force agreement; appreciating the other side may be more important.</li>
+     <li>Admit that agreement may only come years later, if at all.</li>       
      </ol>
   2. If above requirements are missing, don't give up! Send this link, asking if 'other side' would like to agree to them.
   3. If at any point you sense an infringement of Item #1, say so and DO NOT continue until all parties are in agreement on Item #1.
