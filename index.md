@@ -2,7 +2,7 @@ Quick, useful tips.
 
 <body>
 <h4>
-<table style="border-collapse: collapse; border: none;">
+<table>
 
 <tr>
 <td> <a href="activism/">activism</a> </td>
