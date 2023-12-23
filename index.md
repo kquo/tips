@@ -1,6 +1,8 @@
 Quick, useful tips.
 
-<body> <h4> <table>
+<body>
+<h4>
+<table style="border-collapse: collapse; border: none;">
 
 <tr>
 <td> <a href="activism/">activism</a> </td>
@@ -51,4 +53,6 @@ Quick, useful tips.
 <td> </td>
 </tr>
 
-</table> </h4> </body>
+</table>
+</h4>
+</body>
