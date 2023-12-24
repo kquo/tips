@@ -11,7 +11,7 @@ While refactoring and troubleshooting code it is sometimes necessary to point to
 
 You can do this by modifying the `go.mod` file as follows:
 
-```
+```bash
 require (
     github.com/git719/utl v1.1.11
 )
@@ -21,7 +21,7 @@ replace github.com/git719/utl => /Users/myuser/mycode/utl
 
 ## Common Build Errors
 When you get:
-```
+```bash
 $ go build
 go: go.mod file not found in current directory or any parent directory; see 'go help modules'
 ```
@@ -58,7 +58,7 @@ upx -9 <binary>
 ## Useful Code Snippets
 
 - Check if field exists in given struct
-``` 
+```go
 func FieldInStruct(Field string, Struct interface{}) bool {
     val := reflect.ValueOf(Struct)
     for i := 1; i < val.Type().NumField(); i++ {
@@ -71,7 +71,7 @@ func FieldInStruct(Field string, Struct interface{}) bool {
 ```
 
 - Return list of JSON objects in local data file
-```
+```go
 func GetListFromLocalFile(storeFile string) interface{} {
     localFile := filepath.Join(progConfDir, storeFile)  // Note progConfDir is global
     JSONData, err := ioutil.ReadFile(localFile)
@@ -117,7 +117,7 @@ func GetListFromLocalFile(storeFile string) interface{} {
 
 ## Common Makefile
 Makefiles are usually not needed with Go, but if you must, this one for macOS and Linux will build target binaries for multiple OSes.
-```
+```makefile
 # Makefile
 # Assumes GOPATH is already set up properly, e.g., $HOME/go
 
@@ -137,27 +137,4 @@ install:
   cp build/macos/awsinfo $(HOME)/data/bin
 clean:
   rm -rf build
-```
-
-
-## Jenkins Golang Setup
-This is really old, but may still be useful. 
-```
-Using the GoLang plugin
-  Under "Source Code Management", select "Checkout to a sub-directory"
-    e.g. src/github.com/lencap/awsinfo
-    This will satisfy the vendoring setup
-  Tick "Set up Go programming language tools" and select the proper version
-  Add below to top of the Execute shell that's running Make
-    export GOPATH=${WORKSPACE}
-    export PATH="${PATH}:${GOPATH}/bin"
-    cd ${GOPATH}/src/github.com/lencap/awsinfo
-  Then run Make and after that, and so on
-
-  ALSO, use "Archive the artifacts" to use the resulting binaries in other Jenkins jobs.
-    Specify a "Files to archive" as specific as possible.
-      e.g.: src/github.com/<org>/project-name/build/centos/BINARY
-
-  On those other Jenkins project wanting to use the binaries, use "Copy artifacts from another project"
-    Set "Flatten directories" to bring single binaries to the root of the WORKSPACE
 ```
