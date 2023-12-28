@@ -2,12 +2,12 @@
 Azure tips.
 
 ## Azure Services
-Azure services are all the [Microsoft Azure Cloud Products](https://azure.microsoft.com/en-us/products/) offerings.
+Azure services are all the [Microsoft Azure Cloud Product](https://azure.microsoft.com/en-us/products/) offerings. Below are separate tip pages for specific services:
 - [Azure Data Factory (ADF)](adf/index.md)
 
 ## Azure Virtual Machines
 - Azure allows different types of VMs, see [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) for more info.
-- The [Azure VM Comparison](https://azureprice.net/?sortField=linuxPrice&sortOrder=true) is a really nice view of all current VM instances types that Azure offers, and it includes princing, and so on.
+- The [Azure VM Comparison page](https://azureprice.net/?sortField=linuxPrice&sortOrder=true) provides a quick and dirty view of all current VM instances types that Azure offers, and includes latest princing.
 
 - Get instance metadata: 
 
@@ -19,7 +19,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 See also <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service?tabs=windows>
 
 ## Install Azure CLI
-The Azure CLI tool is essentially the [Azure Python SDK](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=bash) itself, since it is written in Python. Use below table to install in respective OS or environment:
+The [Azure CLI tool](https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli) (`az`) is a cross-platform utility that allows you to connect to Azure and execute administrative commands on Azure resources. Follow below table to install and use in the respective OS or environment:
 
 | OS | Command |
 | --- | --- |
@@ -29,7 +29,7 @@ The Azure CLI tool is essentially the [Azure Python SDK](https://docs.microsoft.
 | [Docker](https://docs.microsoft.com/en-us/cli/azure/run-azure-cli-docker?view=azure-cli-latest)  | docker run -it mcr.microsoft.com/azure-cli |
 
 ## Create VM
-Example of how to create an Azure VM using the `az` CLI tool.
+Create a sample Azure VM using the `az` utility.
 
 - Create VM, resource, group and VNET all at once
 ```
