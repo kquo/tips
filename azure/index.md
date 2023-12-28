@@ -2,6 +2,7 @@
 Azure tips.
 
 ## Azure Services
+Azure services are essentially all the [Azure Products](https://azure.microsoft.com/en-us/products/) that Microsoft makes available its cloud.
 - [Azure Data Factory (ADF)](adf/index.md)
 
 ## Azure VM Instances
@@ -91,8 +92,9 @@ At a **very high level**, the Identity and Access Management (IAM) components in
 **Azure Active Directory** (AAD) which extends an organization's On-Prem Active Directory (AD) using AD Connect and sync services. It is the core component that enables an organization to facilitate the right individuals (1) to access the right resources (2), at the right time (3), and for the right reason (4).
 
 **Azure resources** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
+
 | Role | Rights |
-|---|---|
+| ---- | ------ |
 | Reader | Read All |
 | Contributor | Read All, Manage All |
 | Owner | Read All, Manage All, Manage RBAC |
@@ -100,11 +102,12 @@ At a **very high level**, the Identity and Access Management (IAM) components in
 There are also resource-specific *built-in* roles such as for VMs, SQL, AKS, and other services. But if those built-in roles are too permissive an organization can also create its own RBAC *custom roles* for more granual access control.
 
 Granting access to resources is done with 3 key items: a security principal, a specific role, at a specific scope. Below table summarizes this triad.
-| Element | Function/Example |
-|---|---|
-| Security Principal | User, Groups, Registered Application or Service Principal |
-| Role | Reader, Contributor, Owner, CustomRoleX, CustomRoleY |
-| Scope| Tenant (root MG), Management Group (MG), Subscription, Resource Group, Specific Resource |
+
+| Element | Description |
+| ------- | ---------------- |
+| Security Principal | User, Groups, Registered Application, Service Principal, or Managed Identity |
+| Role | Reader, Contributor, Owner, Custom_Role_X, or Custom_Role_Y |
+| Scope| Tenant Root Group, Management Group (MG), Subscription, Resource Group, Specific Resource |
 
 All access is tracked via Activity Logs.
 
