@@ -2,11 +2,12 @@
 Azure tips.
 
 ## Azure Services
-Azure services are essentially all the [Azure Products](https://azure.microsoft.com/en-us/products/) that Microsoft makes available its cloud.
+Azure services are all the [Microsoft Azure Cloud Products](https://azure.microsoft.com/en-us/products/) offerings.
 - [Azure Data Factory (ADF)](adf/index.md)
 
-## Azure VM Instances
-For a nice view of what VM instances Azure offers, with pricing, etc. go to <https://azureprice.net/?sortField=linuxPrice&sortOrder=true>
+## Azure Virtual Machines
+- Azure allows different types of VMs, see [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) for more info.
+- The [Azure VM Comparison](https://azureprice.net/?sortField=linuxPrice&sortOrder=true) is a really nice view of all current VM instances types that Azure offers, and it includes princing, and so on.
 
 - Get instance metadata: 
 
@@ -15,9 +16,9 @@ curl -sH "Metadata:true" --noproxy "*"  http://169.254.169.254/metadata/instance
 
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | ConvertTo-Json -Depth 64
 ```
-See <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service?tabs=windows>
+See also <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service?tabs=windows>
 
-## Installing the Azure CLI Tool
+## Install Azure CLI
 The Azure CLI tool is essentially the [Azure Python SDK](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment?tabs=bash) itself, since it is written in Python. Use below table to install in respective OS or environment:
 
 | OS | Command |
