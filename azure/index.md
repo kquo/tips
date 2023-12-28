@@ -92,16 +92,16 @@ At a **very high level**, the Identity and Access Management (IAM) components in
 
 **Azure resources** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
 | Role | Rights |
-| --- | --- |
+|---|---|
 | Reader | Read All |
 | Contributor | Read All, Manage All |
 | Owner | Read All, Manage All, Manage RBAC |
 
-There are also resource-specific *built-in* roles such as for VMs, SQL, AKS, and other services. But if those built-in roles are too permissive, and organization can also create its own RBAC *custom roles* for more granual access control.
+There are also resource-specific *built-in* roles such as for VMs, SQL, AKS, and other services. But if those built-in roles are too permissive an organization can also create its own RBAC *custom roles* for more granual access control.
 
 Granting access to resources is done with 3 key items: a security principal, a specific role, at a specific scope. Below table summarizes this triad.
 | Element | Function/Example |
-| --- | --- |
+|---|---|
 | Security Principal | User, Groups, Registered Application or Service Principal |
 | Role | Reader, Contributor, Owner, CustomRoleX, CustomRoleY |
 | Scope| Tenant (root MG), Management Group (MG), Subscription, Resource Group, Specific Resource |
