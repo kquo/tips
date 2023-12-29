@@ -1,23 +1,17 @@
 # Azure 
 Azure tips.
 
-## Azure Services
-The Microsoft Azure cloud offers a comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various **services**. Users can access these wide array of services which included virtual machines (VM), databases, storage solutions, machine learning, artificial intelligence (AI), serverless computing, content delivery networks (CDN), and more. Most of these Azure services are managed via the Azure Resource Manager API at <https://management.azure.com>, as detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>. Azure services are the core of the Microsoft Azure cloud ecosystem. See below pages for specific tips on those services:
+## Azure Resource Services
+What we call "Azure Resource Services" here is the comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various **services** on Microsoft's Azure cloud. Users can access these wide array of **Azure Services** which included virtual machines (VM), databases, storage solutions, machine learning, artificial intelligence (AI), serverless computing, content delivery networks (CDN), and more. The funtions of these Azure services are managed via the Azure Resource Manager API at <https://management.azure.com>, as detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>. Azure services are the core of the Microsoft Azure cloud ecosystem. See below pages for specific tips on specific services:
 
-- [Azure Data Factory (ADF)](adf/index.md): 
+- [Azure Data Factory (ADF)](adf/index.md): A cloud-based data integration service that orchestrates data movement and transformation between direct data compute resources.
 
-## Microsoft Identity Platform
-Another key component to the Azure ecosystem is the [Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/), which is the platform serving as the identity provider along with tools and services to control and protect access to azure services. Microsoft Entra ID (formerly known as Azure Active Directory) is the identity provider, but below other elements also play a vital role in the overall Azure identity and access management (IAM) framework:
+## Azure Security Services
+What we call "Azure Security Services" here is what Microsoft calls its "Microsoft Identity Platform." The [Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/) plays a major role in the Azure ecosystem. It is also a suite of cloud identity services that provides several essential components, allowing businesses and institutions to control and manage access to services and applications running on Azure.
 
-- [Microsoft Entra ID](): 
-
-## Azure Identity and Access Management (IAM)
-
-IAM in Azure
-At a **very high level**, the Identity and Access Management (IAM) components in Microsoft Azure can be summarized as follows.
-
-**Azure Active Directory** (AAD) which extends an organization's On-Prem Active Directory (AD) using AD Connect and sync services. It is the core component that enables an organization to facilitate the right individuals (1) to access the right resources (2), at the right time (3), and for the right reason (4).
-
+- [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) (formerly known as Azure Active Directory): The key element serving as the primary **identity provider** for Azure, with tools and services to control and protect access to azure services. It plays a vital role within the overall Azure identity and access management ([IAM](https://learn.microsoft.com/en-us/entra/fundamentals/introduction-identity-access-management)) framework of a business or instutition. At a very high level, IAM can be summarized as the core component that enables an organization to facilitate **1)** the right individuals, **2)** to access the right resources, **3)** at the right time, and **4)** for the right reasons. The Microsoft Entra ID functions are managed via the [MS Graph](https://learn.microsoft.com/en-us/graph/overview) API, typically via the <https://graph.microsoft.com> endpoint.
+- Other important Azure security services are [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview) and [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure). Moreover, the [Azure Security](https://learn.microsoft.com/en-us/azure/security/fundamentals/overview) page lists other essential elements within Azure security services.
+ 
 **Azure resources** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
 
 | Role | Rights |
