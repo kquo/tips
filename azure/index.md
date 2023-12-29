@@ -17,40 +17,27 @@ What we call _Azure **Security** Services_ here is essentially what Microsoft ca
 - [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) (formerly known as Azure Active Directory): This is the key element that serves as the primary **identity provider** for Azure, with tools and services to control and protect access to azure services and applications. It plays a vital role within the overall Azure identity and access management ([IAM](https://learn.microsoft.com/en-us/entra/fundamentals/introduction-identity-access-management)) framework of any institution. At a very high level, IAM can be summarized as the core framework that enables an organization to facilitate **1)** the right individuals, **2)** to access the right resources, **3)** at the right time, and **4)** for the right reasons. The Microsoft Entra ID functions are managed via the [MS Graph](https://learn.microsoft.com/en-us/graph/overview) API, typically via the <https://graph.microsoft.com> endpoint.
 - Other important Azure security services are [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview) and [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure). Moreover, the [Azure Security](https://learn.microsoft.com/en-us/azure/security/fundamentals/overview) page lists other essential elements within Azure security services.
 
-## Manage Azure Access
-To manage access into Azure resource or security services you must first understand that these are indeed two separate Azure _realms_, but they are very closely intertwined. The Resource Realm is where Azure service objects live, and the Security Realm is where, well, security objects live. Luckily, these realms share the same hierarchy, which starts at the top, within an organization's **Azure tenant**.
+## Azure Management Hierarchy
+To manage access into Azure resource or security services you must first understand that these are indeed two (2) separate _realms_, but they are very closely intertwined. The Resource Realm is where Azure service objects live, and the Security Realm is where, well, security objects live. Luckily, these realms share the same hierarchy, which starts at the top, within an organization's **Azure tenant**.
 
-- Tenant: This is the top of the hierarchy. It is here where all **security** objects such as Users, Groups, and Service Principals reside. The tenant has a special top-level object called the **Tenant Root Group**, which is of type Management Group (MG). This Root MG can have other sub MGs defined underneath it. Any MG, including the Root MG can have individual subscriptions.
-- Subscription: This is where resource groups live. It is an additional "bucket" that an organization can use to logically organize its resources.
-- Resource Group (RG): This is where individual resources live. It is yet another "sub bucket" to logically organized resources with the hierarchy.
-- Individual Resource: This is an actual service object, such a VM, or a storage account.
+- Tenant: This is the top of the hierarchy. It is here where all **security** objects such as Users, Groups, and Roles reside (for a list of all object types see _Services and features_ in the [Overview of Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview)).
+- Tenant Root Group: A special top-level object, essentially the same as the Tenant itself, but where all *resource** objects live. It is of resource type _Management Group_ (MG). This root MG can have other sub MGs defined underneath it, as well as individual subscriptions.
+- Management Group(MG): This is where other subscriptions live. It is an object that allows an organization to logically arrange its resources.
+- Subscription: This is where resource groups live. It is an additional _bucket_ that an organization can use to logically organize its resources.
+- Resource Group (RG): This is where individual resources live. It is yet another _sub bucket_ to logically organized resources with the hierarchy.
+- Individual Resource: This is an actual service object, such a VM, or a storage account. For more info on resource types see [What is Azure Resource Manager](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview) and [Azure products](https://azure.microsoft.com/en-us/products/).
 
 > **Note**<br>
 [Stack Overflow has this really good entry](https://stackoverflow.com/questions/47307368/what-is-the-difference-between-an-azure-tenant-and-azure-subscription), highlighting the relation of these objects within an Azure tenant.
 
-Note that organizations typically have multiple tenants, such as a **Development** tenant for a testing environment, and a **Production** one for theior live environment. Security objects typically _do not_ cross tenants, except for special objects that do support a more special and advanced multi-tenant configuration.
-
-
-, it** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
-
-| Role | Rights |
-| ---- | ------ |
-| Reader | Read All |
-| Contributor | Read All, Manage All |
-| Owner | Read All, Manage All, Manage RBAC |
-
-There are also resource-specific *built-in* roles such as for VMs, SQL, AKS, and other services. But if those built-in roles are too permissive an organization can also create its own RBAC *custom roles* for more granual access control.
-
-Granting access to resources is done with 3 key items: a security principal, a specific role, at a specific scope. Below table summarizes this triad.
-
-| Element | Description |
-| ------- | ---------------- |
-| Security Principal | User, Groups, Registered Application, Service Principal, or Managed Identity |
-| Role | Reader, Contributor, Owner, Custom_Role_X, or Custom_Role_Y |
-| Scope| Tenant Root Group, Management Group (MG), Subscription, Resource Group, Specific Resource |
-
-All access is tracked via Activity Logs.
-
+**Important:**<br>
+1. All security objects are available cross the entire individual tenant's hierarchy.
+2. Organizations typically have multiple tenants, such as a **Development** tenant for a testing environment, and a **Production** one for their live environment, and so on.
+3. Security objects typically __do not__ cross tenants, except for special objects that do support a more advanced and rare multi-tenant configuration.
+4. Resource objects that defined or deployed to only one area of the hierachy, are only available within that area. For instance, if a resource Role Based Access Control (RBAC) role _definition_ is deployed only to subscription A, it cannot be as _assigned/consumed_ in subscription B.
+5. It is almost always better to define resource objects, such as resource RBAC role definitions, at the _very top of the hierarchy_, the Tenant Root Group. That way they are always available to be used anywhere within the entire tenant.
+6. Microsoft Azure makes available native, **Built-In** Entra ID roles (security realm) as well as resource RBAC roles (resource realm) for each service product offering. These roles are available globally, to every organization tenant.
+7. Many organization choose to create their own **Custom** roles based on the Built-In ones, because it affords them better version control of these roles. Microsoft is known for change Built-In role behavior from time to time.
 
 ## Azure Virtual Machines
 - Azure allows different types of VMs, see [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) for more info.
