@@ -20,10 +20,15 @@ What we call _Azure **Security** Services_ here is essentially what Microsoft ca
 ## Manage Azure Access
 To manage access into Azure resource or security services you must first understand that these are indeed two separate Azure _realms_, but they are very closely intertwined. The Resource Realm is where Azure service objects live, and the Security Realm is where, well, security objects live. Luckily, these realms share the same hierarchy, which starts at the top, within an organization's **Azure tenant**.
 
-> **Note**<br>
-[Stack Overflow has this really good entry](https://stackoverflow.com/questions/47307368/what-is-the-difference-between-an-azure-tenant-and-azure-subscription), highlighting the relation and key differences between Azure tenant and subscriptions.
+- Tenant: This is the top of the hierarchy. It is here where all **security** objects such as Users, Groups, and Service Principals reside. The tenant has a special top-level object called the **Tenant Root Group**, which is of type Management Group (MG). This Root MG can have other sub MGs defined underneath it. Any MG, including the Root MG can have individual subscriptions.
+- Subscription: This is where resource groups live. It is an additional "bucket" that an organization can use to logically organize its resources.
+- Resource Group (RG): This is where individual resources live. It is yet another "sub bucket" to logically organized resources with the hierarchy.
+- Individual Resource: This is an actual service object, such a VM, or a storage account.
 
-Note that organizations typically have multiple tenants, such as a Development tenant as a testing environemnt, and a Production one for the live environment.
+> **Note**<br>
+[Stack Overflow has this really good entry](https://stackoverflow.com/questions/47307368/what-is-the-difference-between-an-azure-tenant-and-azure-subscription), highlighting the relation of these objects within an Azure tenant.
+
+Note that organizations typically have multiple tenants, such as a **Development** tenant for a testing environment, and a **Production** one for theior live environment. Security objects typically _do not_ cross tenants, except for special objects that do support a more special and advanced multi-tenant configuration.
 
 
 , it** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
