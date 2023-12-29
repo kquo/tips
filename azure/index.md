@@ -2,20 +2,14 @@
 Azure tips.
 
 ## Azure Services
-The Microsoft Azure cloud offering is a robust, scalable, and flexible computing ecosystem. It provides a comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various **services**. These platforms offer the primary category of cloud computing services such as Infrastructure as a Service ([IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)), Platform as a Service ([PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service)), and Software as a Service ([SaaS](https://en.wikipedia.org/wiki/Software_as_a_service)) solutions.
+The Microsoft Azure cloud offers a comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various **services**. Users can access these wide array of services which included virtual machines (VM), databases, storage solutions, machine learning, artificial intelligence (AI), serverless computing, content delivery networks (CDN), and more. Most of these Azure services are managed via the Azure Resource Manager API at <https://management.azure.com>, as detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>. Azure services are the core of the Microsoft Azure cloud ecosystem. See below pages for specific tips on those services:
 
-Users can access a wide array of services including virtual machines, databases, storage solutions, machine learning, artificial intelligence, serverless computing, content delivery networks, and more, empowering businesses and institutions to build, deploy, and manage applications effectively while optimizing scalability, security, and cost-efficiency in a highly dynamic and elastic environment.
+- [Azure Data Factory (ADF)](adf/index.md): 
 
-Most Azure services are managed via the Azure Resource Manager API at <https://management.azure.com>, and detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>
-
-Azure services are the core of the Microsoft Azure cloud ecosystem. See below pages for specific tips on those services:
-
-- [Azure Data Factory (ADF)](adf/index.md)
-
-## Microsoft Entra ID
+## Microsoft Identity Platform
 Another key component to the Azure ecosystem is the [Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/), which is the platform serving as the identity provider along with tools and services to control and protect access to azure services. Microsoft Entra ID (formerly known as Azure Active Directory) is the identity provider, but below other elements also play a vital role in the overall Azure identity and access management (IAM) framework:
 
-- 
+- [Microsoft Entra ID](): 
 
 ## Azure Identity and Access Management (IAM)
 
