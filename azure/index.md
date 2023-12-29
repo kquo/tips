@@ -17,8 +17,16 @@ What we call _Azure **Security** Services_ here is essentially what Microsoft ca
 - [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) (formerly known as Azure Active Directory): This is the key element that serves as the primary **identity provider** for Azure, with tools and services to control and protect access to azure services and applications. It plays a vital role within the overall Azure identity and access management ([IAM](https://learn.microsoft.com/en-us/entra/fundamentals/introduction-identity-access-management)) framework of any institution. At a very high level, IAM can be summarized as the core framework that enables an organization to facilitate **1)** the right individuals, **2)** to access the right resources, **3)** at the right time, and **4)** for the right reasons. The Microsoft Entra ID functions are managed via the [MS Graph](https://learn.microsoft.com/en-us/graph/overview) API, typically via the <https://graph.microsoft.com> endpoint.
 - Other important Azure security services are [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview) and [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure). Moreover, the [Azure Security](https://learn.microsoft.com/en-us/azure/security/fundamentals/overview) page lists other essential elements within Azure security services.
 
-## Azure Resource Access
-** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
+## Manage Azure Access
+To manage access into Azure resource or security services you must first understand that these are indeed two separate Azure _realms_, but they are very closely intertwined. The Resource Realm is where Azure service objects live, and the Security Realm is where, well, security objects live. Luckily, these realms share the same hierarchy, which starts at the top, within an organization's **Azure tenant**.
+
+> [!IMPORTANT]  
+> [Stack Overflow has this really good entry](https://stackoverflow.com/questions/47307368/what-is-the-difference-between-an-azure-tenant-and-azure-subscription), which highlights the connection and key differences between an Azure tenant and its subscriptions.
+
+Note that organizations typically have multiple tenants, such as a Development tenant as a testing environemnt, and a Production one for the live environment.
+
+
+, it** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
 
 | Role | Rights |
 | ---- | ------ |
