@@ -2,8 +2,48 @@
 Azure tips.
 
 ## Azure Services
-Azure services are all the [Microsoft Azure Cloud Product](https://azure.microsoft.com/en-us/products/) offerings. Below are separate tip pages for specific services:
+The Microsoft Azure cloud offering is a robust, scalable, and flexible computing ecosystem. It provides a comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various **services**. These platforms offer the primary category of cloud computing services such as Infrastructure as a Service ([IaaS](https://en.wikipedia.org/wiki/Infrastructure_as_a_service)), Platform as a Service ([PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service)), and Software as a Service ([SaaS](https://en.wikipedia.org/wiki/Software_as_a_service)) solutions.
+
+Users can access a wide array of services including virtual machines, databases, storage solutions, machine learning, artificial intelligence, serverless computing, content delivery networks, and more, empowering businesses and institutions to build, deploy, and manage applications effectively while optimizing scalability, security, and cost-efficiency in a highly dynamic and elastic environment.
+
+Most Azure services are managed via the Azure Resource Manager API at <https://management.azure.com>, and detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>
+
+Azure services are the core of the Microsoft Azure cloud ecosystem. See below pages for specific tips on those services:
+
 - [Azure Data Factory (ADF)](adf/index.md)
+
+## Microsoft Entra ID
+Another key component to the Azure ecosystem is the [Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/), which is the platform serving as the identity provider along with tools and services to control and protect access to azure services. Microsoft Entra ID (formerly known as Azure Active Directory) is the identity provider, but below other elements also play a vital role in the overall Azure identity and access management (IAM) framework:
+
+- 
+
+## Azure Identity and Access Management (IAM)
+
+IAM in Azure
+At a **very high level**, the Identity and Access Management (IAM) components in Microsoft Azure can be summarized as follows.
+
+**Azure Active Directory** (AAD) which extends an organization's On-Prem Active Directory (AD) using AD Connect and sync services. It is the core component that enables an organization to facilitate the right individuals (1) to access the right resources (2), at the right time (3), and for the right reason (4).
+
+**Azure resources** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
+
+| Role | Rights |
+| ---- | ------ |
+| Reader | Read All |
+| Contributor | Read All, Manage All |
+| Owner | Read All, Manage All, Manage RBAC |
+
+There are also resource-specific *built-in* roles such as for VMs, SQL, AKS, and other services. But if those built-in roles are too permissive an organization can also create its own RBAC *custom roles* for more granual access control.
+
+Granting access to resources is done with 3 key items: a security principal, a specific role, at a specific scope. Below table summarizes this triad.
+
+| Element | Description |
+| ------- | ---------------- |
+| Security Principal | User, Groups, Registered Application, Service Principal, or Managed Identity |
+| Role | Reader, Contributor, Owner, Custom_Role_X, or Custom_Role_Y |
+| Scope| Tenant Root Group, Management Group (MG), Subscription, Resource Group, Specific Resource |
+
+All access is tracked via Activity Logs.
+
 
 ## Azure Virtual Machines
 - Azure allows different types of VMs, see [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) for more info.
@@ -86,31 +126,6 @@ az vmss extension delete -g $NodeResGroup --vmss-name $VmssList -n VMAccessForLi
 az vmss update-instances --instance-ids "*" -g $NodeResGroup -n $VmssList
 ``` 
 Try SSH'ing to node to confirm there's no longer access.
-
-## IAM in Azure
-At a **very high level**, the Identity and Access Management (IAM) components in Microsoft Azure can be summarized as follows.
-
-**Azure Active Directory** (AAD) which extends an organization's On-Prem Active Directory (AD) using AD Connect and sync services. It is the core component that enables an organization to facilitate the right individuals (1) to access the right resources (2), at the right time (3), and for the right reason (4).
-
-**Azure resources** are core service offerings that allow an organization to perform its cloud functions, and it uses Role Based Access Control (RBAC) with 3 built-in roles.
-
-| Role | Rights |
-| ---- | ------ |
-| Reader | Read All |
-| Contributor | Read All, Manage All |
-| Owner | Read All, Manage All, Manage RBAC |
-
-There are also resource-specific *built-in* roles such as for VMs, SQL, AKS, and other services. But if those built-in roles are too permissive an organization can also create its own RBAC *custom roles* for more granual access control.
-
-Granting access to resources is done with 3 key items: a security principal, a specific role, at a specific scope. Below table summarizes this triad.
-
-| Element | Description |
-| ------- | ---------------- |
-| Security Principal | User, Groups, Registered Application, Service Principal, or Managed Identity |
-| Role | Reader, Contributor, Owner, Custom_Role_X, or Custom_Role_Y |
-| Scope| Tenant Root Group, Management Group (MG), Subscription, Resource Group, Specific Resource |
-
-All access is tracked via Activity Logs.
 
 ## PowerShell
 
