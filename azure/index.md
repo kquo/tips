@@ -20,8 +20,8 @@ What we call _Azure **Security** Services_ here is essentially what Microsoft ca
 ## Manage Azure Access
 To manage access into Azure resource or security services you must first understand that these are indeed two separate Azure _realms_, but they are very closely intertwined. The Resource Realm is where Azure service objects live, and the Security Realm is where, well, security objects live. Luckily, these realms share the same hierarchy, which starts at the top, within an organization's **Azure tenant**.
 
-> [!IMPORTANT]  
-> [Stack Overflow has this really good entry](https://stackoverflow.com/questions/47307368/what-is-the-difference-between-an-azure-tenant-and-azure-subscription), which highlights the connection and key differences between an Azure tenant and its subscriptions.
+> **Note**<br>
+[Stack Overflow has this really good entry](https://stackoverflow.com/questions/47307368/what-is-the-difference-between-an-azure-tenant-and-azure-subscription), highlighting the relation and key differences between Azure tenant and subscriptions.
 
 Note that organizations typically have multiple tenants, such as a Development tenant as a testing environemnt, and a Production one for the live environment.
 
