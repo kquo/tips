@@ -407,6 +407,46 @@ except Exception as e:
     pass
 ```
 
+## Github Actions ODIC Access to Cloud Provider
+- Using AWS as a sample cloud provider
+- At high level
+  - Create a role on AWS, add trust policy specifying which github Organization + Repo are allowed to access this AWS role
+  - Create an identity provider for github actions
+  - Use the setup-aws action, specify the role and it will take care of the rest
+- At lowel level:
+  - Github spins up an Action with your pipeline code
+  - Every action job comes with a token as an environment variable for authenticated calls to github
+  - You send a post request to github, asking for a “web identity token“
+  - You send this token to AWS, exchanging it for (you guest it) a pair of keys and session token
+  - You use this set of keys to authenticate with AWS services as normal
+- Notes:
+  - The key point is that the JWT token is signed by github and its content can be verified by AWS using github’s public key
+  - The token also contains scopes such as organization, repo, branch, that AWS can either grant or deny access to
+  - OIDC Flow Diagram: 
+
+```
+Github Job                       Github                    Cloud Provider (AWS)
+│                                  │                               │
+│        1. give me JWT token      │                               │
+│ ───────────────────────────────► │                               │
+│                                  │                               │
+│                                  │                               │
+│        2. returns JWT token      │                               │
+│ ◄─────────────────────────────── │                               │
+│                                  │                               │
+│                                  │                               │
+│        3. give me AWS keys       │   JWT token, role to assume   │
+│ ───────────────────────────────────────────────────────────────► │
+│                                  │                               │
+│                                  │                               │
+│        4. returns AWS keys       │                               │
+│ ◄─────────────────────────────────────────────────────────────── │
+│                                  │                               │
+```
+- References:
+  - <https://blog.digger.dev/how-open-id-connect-works-illustrated/>
+  - <https://asciiflow.com/#/>
+
 ## ZIP Password Protection
 ```
 zip -e  archive.zip <list_of_files>        # Files in current directory
