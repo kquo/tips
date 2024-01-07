@@ -251,4 +251,9 @@ Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to 
       - From PowerShell you can then login with: `Connect-MgGraph -AccessToken $generated_token`
       - From Python scripts and Go utilities there are many different ways to logon and access APIs
 
+## Azure Questions
+- The functionalities of [Azure Resource Manager] (https://management.azure.com) and [MS Graph] (https://graph.microsoft.com) are very closely intertwined. Will these planes ever be bridged, integrated, or unified into a single platform and API?
+
+- Will ARM ever get its own internal infrastructure as code (Iac) framework? Is that what Bicep was meant for? Why not use Bicep (or whatever declarative/configuration DSL) to drive the Azure Portal Web UI? That way everything one does via the Portal UI is natively and immediately kept as an IaC footprint?
+
 
