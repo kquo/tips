@@ -35,7 +35,7 @@ But this is not easy, and the likelihood of changing their minds is so tiny that
   * Many beliefs are _inextricably_ tied to our **identity** &mdash; becoming part of who we _are_ 
   * **You cannot talk some people out of pseudoscience!**
     * Pseudoscientific memes are _designed_ to _resist_ this!
-  * Only then can can convince themselves  
+  * Only **they** can can dispel the false beliefs  
 * **Solution**
   * Acknowledge that you're in a toxic **tent** if/when you argue with them
   * **You** have to _step outside_ of the tent
