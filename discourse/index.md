@@ -4,19 +4,18 @@ Tips on how to have better collaborative discussions and rational debates.
 A better dialogue can be achieved by following the Discourse Protocol (DP) below, which is a simple numbered list of personalized dictums that can be universally followed by sentient beings to solve intellectual differences. 
 
 ## Discourse Protocol (DP)
-  1. Follow key requirements
+  1. Must try to follow these key requirements
      <ol style="list-style-type: lower-latin">
-     <li>Appropriate time and place for the exchange.</li>
-     <li>Mutual, honest, serious respect to learning.</li>
-     <li>It is OK for any party to PAUSE or even END the debate at ANY time.</li>
-     <li>Follow this protocol.</li>
-     <li>Aim for highest approximation to the truth.</li>
-     <li>Try using [science](https://que.tips/science/) to acquire knowledge.</li>
-     <li>Avoid the temptation to force agreement; appreciating that the other side may be more important.</li>
-     <li>Admit that agreement may only come years later, *if at all*.</li>       
+     <li>Appropriate time and place for the exchange</li>
+     <li>Mutual, honest, serious respect to learning</li>
+     <li>It is Ok for any party to **pause** or even **end** the debate at **any** time</li>
+     <li>Aim for highest approximation to the truth</li>
+     <li>Use [science](https://que.tips/science/) to acquire knowledge</li>
+     <li>Avoid the temptation to force agreement; appreciating that the other side may be more important</li>
+     <li>Admit that agreement may only come years later, *if at all*</li>       
      </ol>
-  2. If above requirements are missing, don't give up! Send this link, asking if 'other side' would like to agree to them.
-  3. If at any point you sense an infringement of Item #1, say so and DO NOT continue until all parties are in agreement on Item #1.
+  2. If above requirements are missing, don't give up! Send this link, asking if *other side* would like to agree to them.
+  3. If at any point you sense an infringement of Item #1, say so and **do not** continue until all parties are in agreement on Item #1.
   4. Follow the Rogerian, Rapoport, Dennet **Rules of Debate** below.
   5. Try to be humble and ask questions to seek understanding.
   6. Repeat items #1 through #5 until any party enacts Item #1c.
