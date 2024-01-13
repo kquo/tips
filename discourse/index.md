@@ -8,11 +8,11 @@ A better dialogue can be achieved by following the Discourse Protocol (DP) below
      <ol style="list-style-type: lower-latin">
      <li>Appropriate time and place for the exchange</li>
      <li>Mutual, honest, serious respect to learning</li>
-     <li>It is Ok for any party to **pause** or even **end** the debate at **any** time</li>
+     <li>It is Ok for any party to <b>pause</b> or even <b>end</b> the debate at <b>any</b> time</li>
      <li>Aim for highest approximation to the truth</li>
-     <li>Use [science](https://que.tips/science/) to acquire knowledge</li>
+     <li>Use <a href="https://que.tips/science/">science</a> to acquire knowledge</li>
      <li>Avoid the temptation to force agreement; appreciating that the other side may be more important</li>
-     <li>Admit that agreement may only come years later, *if at all*</li>       
+     <li>Admit that agreement may only come years later, <i>if at all</i></li>       
      </ol>
   2. If above requirements are missing, don't give up! Send this link, asking if *other side* would like to agree to them.
   3. If at any point you sense an infringement of Item #1, say so and **do not** continue until all parties are in agreement on Item #1.
