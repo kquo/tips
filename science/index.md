@@ -9,7 +9,7 @@ Honest adherence to science leads to better decisions, more accurate beliefs, an
 Science is **good**.
 
 ## List of Sciences
-A list of scientific occupations can be found at <https://en.wikipedia.org/wiki/List_of_scientific_occupations>. However, it is worth noting that differences and divisions across scientific disciplines are a mere formality typically used as a pragmatic or organizational construct, serving as a means of structuring knowledge within academic and institutional frameworks. Despite disciplinary boundaries, everyone involved in science accepts that the underlying commonalities or interconnectedness in the pursuit of scientific understanding is what really matters.
+Scientific [occupations are comprehensively listed on Wikipedia](https://en.wikipedia.org/wiki/List_of_scientific_occupations). Yet, it's crucial to recognize that distinctions between scientific disciplines are often formalities, employed pragmatically for organizational purposes within academic and institutional frameworks. Despite these boundaries, the scientific community acknowledges the intrinsic commonalities and interconnectedness in the pursuit of understanding. The essence lies not in the scientific field or occupation *per se* but in the substantial scientific contributions they each yield.
 
 ## Promoting Science is Not Easy
 The problem with science is that it does not come easy to humans. Many people have the luck of having been born in societies where science is formally taught as part of a normal education. But even in those societies there are still many challenges promoting scientific literacy.
