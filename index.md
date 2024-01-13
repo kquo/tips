@@ -41,12 +41,13 @@ Quick, useful tips.
 
 <tr>
 <td> <a href="python/">python</a> </td>
+<td> <a href="science/">science</a> </td>
 <td> <a href="security/">security</a> </td>
 <td> <a href="shell/">shell</a> </td>
-<td> <a href="streaming/">streaming</a> </td>
 </tr>
 
 <tr>
+<td> <a href="streaming/">streaming</a> </td>
 <td> <a href="terraform/">terraform</a> </td>
 <td> <a href="twitter/">twitter</a> </td>
 <td> </td>
