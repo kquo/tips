@@ -14,7 +14,7 @@ Brief and practical tips.
 <tr>
 <td> <a href="containers">containers</a> </td>
 <td> <a href="devops">devops</a> </td>
-<td> <a href="discourse/">how-to-argue</a> </td>
+<td> <a href="discourse/">discourse</a> </td>
 <td> <a href="dns">dns</a> </td>
 </tr>
 
