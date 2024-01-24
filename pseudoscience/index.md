@@ -2,7 +2,7 @@
 Tips on pseudoscience.
 
 ## Pseudoscience is Bad
-Pseudoscience is considered unreliable and misleading because it lacks empirical evidence, scientific methodology, and rigorous testing. It often makes unsupported claims, leading to misinformation and a misunderstanding of the natural world. Pseudoscience sometimes looks like science, but it is not. It has no community-wide accepted set of practices open to criticism and refinement.
+Pseudoscience is considered unreliable and misleading because it lacks empirical evidence, scientific methodology, and rigorous testing. It often makes unsupported claims, leading to misinformation and a misunderstanding of the natural world. Pseudoscience sometimes looks like [science](https://que.tips/science/), but it is not. It has no community-wide accepted set of practices open to criticism and refinement.
 
 Believing in pseudoscience can lead to misguided decisions, incorrect beliefs, and potentially harmful actions. Relying on information without a basis in scientific evidence can contribute to the spread of misinformation, affecting individuals' health, safety, and well-being. In short, it can be very bad for humanity.
 
