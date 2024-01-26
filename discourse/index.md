@@ -16,7 +16,7 @@ For more productive and enjoyable discussions try following the Discourse Protoc
   3. Be humble and ask honest questions to seek understanding.
   4. Really think about the idea that you could be wrong and the other side could be right.
   5. Talk things over rationally, preferably using <a href="https://que.tips/science/">science</a>.
-  6. Agreement is comparatively unimportant, as both side could easily be mistaken.
+  6. Agreement is comparatively unimportant, as both side could easily be mistaken [Karl Popper](popper/index.md).
   7. Repeat items #1 through #6 until any party enacts Item #1c.
 
 Also, as Dennet points out, when you try to explain what the other side thinks, make it so clear that they might say, "Thanks, I wish I had said it like that!"
