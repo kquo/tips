@@ -17,10 +17,10 @@ For productive and enjoyable discussions try following the Discourse Protocol (D
 2. Follow below simple guidelines:
     <ol style="list-style-type: lower-latin">
     <li>Listen attentively and make the other side feel understood</li>
-    <li>Be humble and ask honest questions to seek understanding</li>
-    <li>Really think about the idea that you could be wrong and the other side could be right</li>
-    <li>Talk things over rationally, preferably using <a href="https://que.tips/science/">science</a></li>
     <li>As Dennet points out, when you try to explain what the other side thinks, make it so clear that they might say, "Thanks, I wish I had said it like that!"</li>
+    <li>Be humble and ask honest questions to seek understanding</li>
+    <li>Talk things over rationally, preferably using <a href="https://que.tips/science/">science</a></li>
+    <li>Really think about the idea that you could be wrong and the other side could be right</li>
     <li>Remember that agreement is comparatively unimportant, as both side could easily be mistaken (<a href="https://que.tips/discourse/popper/">Karl Popper</a>)</li>
     </ol>
 3. Repeat items #1 and #2 until any party enacts Item #1c
