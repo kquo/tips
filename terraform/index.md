@@ -1,13 +1,20 @@
 # Terraform
-[Hashicorp Terraform](https://www.terraform.io/) is an open-source Infrastructure-as-Code (IaC) tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
+[Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
 
-## Azure
+## Manage Azure With Terraform
 Tips on managing your Azure tenant with Terraform.
 
 ### Getting Started
 - These particular instructions assume you will be managing your Azure tenant from an Apple Mac host, using BASH as a shell terminal
 - Of course you can do the same on a Windows host running GitBASH, or a Linux host using regular BASH, making the necessary adjustments
-- Install 1) Terraform and 2) Azure CLI tools on macOS with `brew install terraform azure-cli`
+- Install Terraform and Azure CLI on *macOs*: 
+
+  ```
+  brew tap hashicorp/tap
+  brew install hashicorp/tap/terraform
+  brew install azure-cli
+  ```
+
 - Create a new, private source code repository in your SCM system and call it "mytf"
 - This repo will hold `main.tf` and all other Infrastructure-as-Code Terraform configuration files
 - Use <https://github.com/github/gitignore/blob/main/Terraform.gitignore> to avoid checking in the wrong files
