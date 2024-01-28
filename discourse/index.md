@@ -3,7 +3,7 @@ A simple tip for improving discussions and making them more fruitful and enjoyab
 
 Based on the ideas of experts like [Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), [Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett), and others in this field, we can say that people have mostly figured out __how to argue properly__ with other **_reasonable_** people.
 
-When talking with most people, it's important to keep in mind that not everyone is **_reasonable_**. Some people, for various reasons, such as believing in [pseudoscience](../pseudoscience), may not be open to discussion. In situations like these, it's best to avoid trying to have rational conversations altogether.
+When talking with most people, it's important to keep in mind that not everyone is **_reasonable_**. Some people, for various reasons, such as believing in [pseudoscience](../pseudoscience), may not be open to discussion. In situations like these, it's best to avoid trying to have *rational* conversations altogether. As an alternative, consider the **Having Impossible Conversations** section below.
 
 ## Discourse Protocol
 For productive and enjoyable discussions try following the Discourse Protocol (DP):
@@ -25,3 +25,25 @@ For productive and enjoyable discussions try following the Discourse Protocol (D
     </ol>
 3. Repeat items #1 and #2 until any party enacts Item #1c
 
+## Having Impossible Conversations
+[Peter_Boghossian](https://en.wikipedia.org/wiki/Peter_Boghossian) and [James A. Lindsay](https://en.wikipedia.org/wiki/James_A._Lindsay) wrote a great book in 2019 entitled [How to Have Impossible Conversations: A Very Practical Guide](https://a.co/d/3xpHH8x), which is a valuable source of information regarding this topic. This is a very brief, still incomplete, and probably a bit unfair take on their message, but maybe a good mnemonic for some:
+
+- Modeling
+  - Be/do what you want them to do
+  - Admit ignorance
+- Words
+  - Be careful
+  - Understand their definitions
+- Ask questions
+  - How/What calibrated open-ended questions, that don't lead to simple Yes/No
+- Acknowledge extremists
+  - Create a basis, a bridge
+  - Acknowledge extremists on **your side**, to help bridge the moral divide for your oponent
+    - "Antifa are a bunch of fanatics/zealots/radicals and should be arrested"
+    - "Looters are destructive whackos and need to be stopped"
+  - Don't expect reciprocation - just build trust
+  - Treat their side charitably
+- Don't blame, focus on contribution
+- Focus on epistemology
+  - How do they know what they claim to know
+- Learn what makes someone closed-minded
