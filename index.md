@@ -49,7 +49,7 @@ Brief, practical, work-in-progress tips and suggestions.
 <tr>
 <td> <a href="streaming/">streaming</a> </td>
 <td> <a href="terraform/">terraform</a> </td>
-<td> <a href="thinking/">terraform</a> </td>
+<td> <a href="thinking/">thinking</a> </td>
 <td> <a href="twitter/">twitter</a> </td>
 </tr>
 
