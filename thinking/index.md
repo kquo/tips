@@ -21,9 +21,11 @@ Is the pace of progress limited to the slow, gradual change we have been seeing?
 
 
 ## Misguided Libertarianism
-[Libertarianism](https://en.wikipedia.org/wiki/Libertarianism) on its own makes a lot of sense, but there is a particular modern strain, exemplified by the likes of Joe Rogan, Ben Shapiro, and others that can be harmful. While their arguments seem very logical and rational, upon closer examination they appear incompatible with fostering a just and cohesive society, that lean towards anti-social tendencies.
+[Libertarianism](https://en.wikipedia.org/wiki/Libertarianism) on its own has many reasonable merits, but there is a particular modern strain, exemplified by the likes of Joe Rogan, Ben Shapiro, and others that can be harmful. While their arguments seem very logical and rational, upon closer examination they appear incompatible with fostering a just and cohesive society.
 
-The problem with this kind of libertarianism is that it doesn't consider that not everyone can understand or follow their ideals. A good political philosophy should recognize that people have limitations.
+This extreme form of rationality overrides common sense and leads to anti-social tendencies when these social media personalities prioritize strict adherence to ideological principles over empathetic understanding or cooperative behavior in society. One example of that was Rogan's push-back to COVID vaccines, insisting that his personal prerogative was more important.
+
+The problem with this kind of libertarianism is that it doesn't consider that not everyone can understand, or have the capacity to follow their ideals. A decent political philosophy should recognize that people have limitations. Not everyone has the knowledge and resource wherewithal to manage their own body like a rich Joe Rogan, and to promote the body-sovereignty ideal to an audience of millions is incredibly irresponsible when it comes to viruses that affect millions of other humans.
 
 
 ## Answer Patterns
