@@ -57,4 +57,4 @@ Brief, practical, work-in-progress tips and suggestions.
 </h4>
 </body>
 
-For feedback and suggestions, write me a <redacted@example.com>
+For feedback and suggestions, write to <redacted@example.com>
