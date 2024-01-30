@@ -56,3 +56,5 @@ Brief, practical, work-in-progress tips and suggestions.
 </table>
 </h4>
 </body>
+
+For feedback and suggestions, write me a <redacted@example.com>

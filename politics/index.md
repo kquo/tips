@@ -27,23 +27,23 @@ For many reasons, too many of us tend to idolize these bad personalities, which 
 ## Donald Trump
 [Donald Trump](https://en.wikipedia.org/wiki/Donald_Trump) is, unfortunately, a perfect example of a very prominent person with a _pathological personality_. What makes Trump's case so insidious is that he seems to be manipulating a sizeable segment of American voters.
 
-Since making a prescence in American politics Trump seems to have awakened and enbolden some hidden anxieties in the psyche of many Americans, and they seem to share the same general views and concerns:
+Since making a prescence in American politics Trump seems to have awakened and enbolden some hidden anxieties in the psyche of many Americans, and they seem to share the same general views and concerns (some valid, some not so valid):
 
 - A strong desire to get rid of the evils they see afflicting the country.
 - An *unrealistic* caricature of what is actually afflicting the country. (Let's remember that how people perceive the world has consequences. If they think that the world is going to hell in a bucket, they will think and act accordingly.)
 - Trump symbolizes the _desperation_ that many of them embody daily, from the moment they get up until they go to bed.
 - They fear that the country is being invaded by immigrants.
-- They fear that the political opposition, the Democrats, are evil and corrupt.
-- They fear that Democrats are simply conniving to take away their rights, especially their guns.
-- And the list goes on and on.
+- They fear that the political opposition, the Democrats, are **all** evil and corrupt.
+- They fear that Democrats are simply conniving to take away **all** their rights, especially their 2nd Amendment rights.
+- And the list goes on and on ...
 
-Non-Trump supporters listen to all these concerns and see how incredibly outlandish and unhinged they are. Many, quite understandably, wonder if the United States will even be able to survive the Trump cult personality. Political pundits from Left and Center are constantly trying to better understand this phenomenom, and ponder how it will end. [Bandy X. Lee](https://en.wikipedia.org/wiki/Bandy_X._Lee), a forensic psychiatrist, describes [in this Scientific American interview](https://www.scientificamerican.com/article/the-shared-psychosis-of-donald-trump-and-his-loyalists/) the two major emotional drives that ties Trump and his followers: narcissistic symbiosis and shared psychosis.
+On the other hand, non-Trump supporters listen to all these concerns and see how incredibly outlandish and unhinged they seem. Many, quite understandably, wonder if the United States will even be able to survive the Trump cult of personality. Political pundits from Left and Center are constantly trying to better understand this phenomenom, and ponder how it will end. [Bandy X. Lee](https://en.wikipedia.org/wiki/Bandy_X._Lee), a forensic psychiatrist, describes [in this Scientific American interview](https://www.scientificamerican.com/article/the-shared-psychosis-of-donald-trump-and-his-loyalists/) the two major emotional drives that ties Trump and his followers: narcissistic symbiosis and shared psychosis.
 
 1. **Narcissistic symbiosis**: Fefers to the developmental wounds that make the leader-follower relationship magnetically attractive. The leader, hungry for adulation to compensate for an inner lack of self-worth, projects grandiose omnipotence, while the followers, rendered needy by societal stress or developmental injury, yearn for a parental figure. When such wounded individuals are given positions of power, they arouse similar pathology in the population that creates a "lock and key" relationship.
 
 2. **Shared psychosis**: When a highly symptomatic individual is placed in an influential position, the person’s symptoms can spread through the population through emotional bonds, heightening existing pathologies and inducing delusions, paranoia and propensity for violence — even in previously **healthy individuals**.
 
-The **treatment** is of course, the removal of exposure, but some important notes to keep in mind if you must interact with a die-hard Trump supporter and are thinking of :
+The **treatment** is of course, the removal of exposure, but some important notes to keep in mind if you must interact with a die-hard Trump supporter:
 
 - Recognize that the _relationship_ between Trump and his supporters is an _abusive_ one.
 - First, do not to confront the supporters’ beliefs, for it will only rouse resistance.
