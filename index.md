@@ -57,4 +57,4 @@ Brief, practical, work-in-progress tips and suggestions.
 </h4>
 </body>
 
-For feedback and suggestions, write me a <7fqdora6@duck.com>
+For feedback and suggestions, write to <7fqdora6@duck.com>
