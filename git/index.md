@@ -162,7 +162,8 @@ curl -u lencap:TOKEN https://api.github.com/orgs/:ORGNAME/repos?type=private
 To show current git branch in BASH PS1 prompt, do the following: 
 
 1. Create this `~/.fast-git-prompt.sh` script: 
-```
+
+```bash
 # Copyright (c) 2019 Will Bender. All rights reserved.
 
 # This work is licensed under the terms of the MIT license.
@@ -218,7 +219,7 @@ function __fastgit_ps1 () {
 
 2. Then add below section somewhere in your `~/.bashrc` file: 
 
-```
+```bash
 export Grn='\[\e[1;32m\]' Blu='\[\e[1;34m\]'  Rst='\[\e[0m\]' # Color green, blue & reset
 # ~/.fast-git-prompt.sh = https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f
 if [[ -f ~/.fast-git-prompt.sh ]]; then
@@ -229,7 +230,7 @@ else
 fi
 ```
 
-The script above has been slightly reformated from [the origial Github Gist](https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f).
+The script above has been slightly reformated from [the original Github Gist](https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f).
 
 
 ## Host Static Site on Github Repo
