@@ -1,5 +1,5 @@
 # git
-Version control tips. Mostly on `git` but may include others.
+Version control tips with `git` and <https://github.com>.
 
 
 ## Github Actions
@@ -7,19 +7,61 @@ Version control tips. Mostly on `git` but may include others.
 - For training info see <https://github.com/lencap/gh-abcs-actions>
 
 
-## Common Commands
+## Remove Branches
+```
+git branch -d MY_BRANCH                      # Delete local MY_BRANCH
+git push origin :MY_BRANCH                   # Delete remote MY_BRANCH
+git remote prune origin --dry-run            # Confirm which branches have been removed from remote
+git remote prune origin                      # Remove them from local
+```
+
+
+## Basic Usage
 ```
 git checkout MASTER-BRANCH                   # Checkout the canonical source
 git pull --rebase                            # Ensure most recent changes are in
 git checkout -b MY_BRANCH                    # Create a local branch
 git push --set-upstream origin MY_BRANCH     # Push it to origin, to work from it
-
-# Make all your changes
-
+... Now make all your needed changes
 git add .                                    # Add your changes
 git commit -m "my changes"                   # Commit your changes
+... Create a pull request (PR) via the web UI, have it peer-review, then merge it
+```
 
-# Create a pull request (PR), have it peer-review, then merge via UI
+
+## General
+```
+git diff branch_A branch_B                   # Compare two branches
+git config user.email <email>
+git clone git@github.com:Org/MyRepo.git      # Clone via SSH
+git clone https://github.com/Org/MyRepo.git  # Clone via HTTPS
+git clone /data/tech/code/trix.git trix      # Clone bare local repo (in iCloud, etc)
+
+git pull                                     # Pick up recent changes from master
+git add .                                    # Update local repo with all recent changes (b4 committing)
+git commit -m "message"                      # Commit all recent changes to current branch (local copy)
+git push                                     # Commit your local copy to OFFICIAL master branch
+
+git branch -a                                # Display all branches
+git checkout branchA                         # Switch to branch 'branchA'
+git log -p                                   # Show full description of recent commits
+git log --pretty=oneline                     # Show prettified recent comments
+
+git checkout SOURCE -- FILE/PATH/HERE        # Bring FILE/PATH/HERE from SRC to current branch         
+git checkout SOURCE -- .                     # Bring all the files from SRC to current branch         
+git diff --stat=140 main                     # Great view comparison of current branch to main
+git branch --contains GITHASH                # Search For Specific Hash Across Branches
+
+git mergetool                                      # Resolve Conflicts
+git config --global credential.helper osxkeychain  # Store Credentials on macOS Keychain
+```
+
+## Switch from master to main
+```
+git branch -m master main
+git push -u origin main
+# Now go to the SCM UI and change to main branch
+git push origin --delete master
 ```
 
 
@@ -39,47 +81,6 @@ git push
 ```
 git remote set-url origin git@github.com:user/repo2             # Replace origin
 git remote set-url --add origin https://github.com/user/repo3   # Add another origin
-```
-
-
-## Remove Branches
-```
-git branch -d MY_BRANCH                      # Delete local MY_BRANCH
-git push origin :MY_BRANCH                   # Delete remote MY_BRANCH
-git remote prune origin --dry-run            # Confirm which branches have been removed from remote
-git remote prune origin                      # Remove them from local
-```
-
-
-## Compare Branches
-```
-git diff branch_A branch_B                   # Compare two branches
-```
-
-
-## General
-```
-git config user.email <email>
-git clone git@github.com:Org/MyRepo.git      # Clone via SSH
-git clone https://github.com/Org/MyRepo.git  # Clone via HTTPS
-git clone /data/tech/code/trix.git trix      # Clone bare local repo (in iCloud, etc)
-git pull                                     # Pick up recent changes from master
-git add .                                    # Update local repo with all recent changes (b4 committing)
-git commit -m "message"                      # Commit all recent changes to current branch (local copy)
-git push                                     # Commit your local copy to OFFICIAL master branch
-git branch -a                                # Display all branches
-git checkout branchA                         # Switch to branch 'branchA'
-git log -p                                   # Show full description of recent commits
-git log --pretty=oneline                     # Show prettified recent comments
-```
-
-
-## Switch from master to main
-```
-git branch -m master main
-git push -u origin main
-# Now go to the SCM UI and change to main branch
-git push origin --delete master
 ```
 
 
@@ -107,67 +108,6 @@ git push origin [branch Name] -f
 ```
 
 
-## Pull in Submodules Updates
-```
-git submodule init
-git submodule update
-git submodule foreach 'git fetch origin; git checkout $(git rev-parse --abbrev-ref HEAD); git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); git submodule update --recursive; git clean -dfx'
-# For Jenkins jobs it's better to use the git plugin 'Multiple SCM' option
-```
-
-
-## Removing Large, Old Files From Repo History
-See http://git-scm.com/book/en/Git-Internals-Maintenance-and-Data-Recovery
-```
-git gc                 -- Pack up old loose objects
-git count-objects -v   -- Check size-pack, it's in KB
-git verify-pack -v .git/objects/pack/pack-*.idx | sort -k 3 -n | tail -3    -- Find largest packed files
-git rev-list --objects --all | grep "c7b03017"  -- Get actual file name (grep 1st few ltrs of target obj ID)
-git log --pretty=oneline --branches -- file/work.tgz -- Show commits that modded file "file/work.tgz"
-git filter-branch --index-filter 'git rm --cached --ignore-unmatch file/work.tgz' -- d0ff408^..
-  -- Rewrite all commits downstream from d0ff408 (last commit) to fully remove the file
-rm -rf .git/logs/ .git/refs/original -- To fully remove references to this file
-git gc                 -- PAck up old loose objects again
-git count-objects -v  -- See how much space we've saved
-```
-
-
-## Adding a Submodule to a Repo
-```
-git submodule add git://github.com/whosever/whatever.git foo/bar
-```
-
-
-## Merge Specific Files From Another Branch
-```
-git branch # View branches
-* ci
-  stag
-  prod
-vi somepath/file/code.src
-git status
-git add .
-git commit -m "some change"
-git push
-
-git checkout stag
-git pull --rebase
-git checkout ci somepath/file/code.src
-git status
-git add .
-git commit -m "some change"
-git push
-
-git checkout prod
-git pull --rebase
-git checkout ci somepath/file/code.src
-git status
-git add .
-git commit -m "some change"
-git push
-```
-
-
 ## Create new Git Origin Repo, Local or Remote
 ```
 # Populate myproject directory with initial required files to be commited
@@ -189,19 +129,6 @@ git push
 ```
 
 
-## Remove a Submodule
-```
-Delete the relevant section from the .gitmodules file.
-Stage the .gitmodules changes git add .gitmodules
-Delete the relevant section from .git/config.
-Run git rm --cached path_to_submodule (no trailing slash).
-Run rm -rf .git/modules/path_to_submodule
-Commit git commit -m "Removed submodule <name>"
-Delete the now untracked submodule files
-rm -rf path_to_submodule
-```
-
-
 ## Tags
 ```
 git tag                               # List tags
@@ -216,49 +143,12 @@ git push origin :refs/tags/v2.0.0     # ... and remotely
 ```
 
 
-## Search For Specific Hash Across Branches
-```
-git branch --contains GITHASH
-```
-
-
-## Resolve Conflicts
-```
-git mergetool
-```
-
-
-## Common SVN Commands
-```
-svn co --username=USER --password=PWD https://svn-scm.domain.com/repo/mycode
-svn add file_or_dir_namesvn delete file_or_dir_name
-svn diff     # what's diff between your files and repos?
-svn update   # update your copy with repo's latest changes
-svn status   # list status of recently changed files (with search codes)
-svn clenaup  # searches your working copy and runs any leftover to-do items, removing working copy locks, etc
-svn resolve file_or_dir_name  # accept as final
-svn ci -m "Saving recent changes" --username=USER --password=PWD https://svn-scm.domain.com/repo/mycode
-```
-
-See also:
-* <http://svnbook.red-bean.com/en/1.4/svn-book.html>
-* <http://svnbook.red-bean.com/en/1.4/svn-book.html#svn.tour.cycle>
-
-
-## Store Credentials on macOS Keychain
-```
-git config --global credential.helper osxkeychain
-```
-
-
 ## Markdown Choice List
 ```
-
     * [ ] Is it still in use?
     * [ ] Should it be maintained and kept active?
     * [ ] Should it be archived for future reference?
     * [ ] Or should it just be deleted with no trace left behind?
-
 ```
 
 
@@ -269,52 +159,74 @@ curl -u lencap:TOKEN https://api.github.com/orgs/:ORGNAME/repos?type=private
 
 
 ## Show Branch in Shell Prompt
-To Show branch in BASH prompt, add the following to your `.bashrc` file:
+To show current git branch in BASH PS1 prompt, do the following: 
+1. Create this `~/.fast-git-prompt.sh` script: 
 ```
-gitbranch() {
-    Branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-    [[ -n "$Branch" ]] && echo "($Branch)" || echo ""
-}
-export PS1="\[\033[00;32m\]\u@\h:\W\[\033[00m\]\[\033[01;34m\]\$(gitbranch)\[\033[00m\]$ "
-export PS1="\[$Grn\]\u@\h:\W\[$Rst\]\[$Blu\]\$(gitbranch)\[$Rst\]$ "
-```
+# Copyright (c) 2019 Will Bender. All rights reserved.
 
+# This work is licensed under the terms of the MIT license.
+# For a copy, see <https://opensource.org/licenses/MIT>.
 
-## Vault Pre-Commit Linter
-Place below two scripts in `REPO/scripts/` directory with `755` perms:
+# Very fast __git_ps1 implementation
+# Inspired by https://gist.github.com/wolever/6525437
+# Mainly this is useful for Windows users stuck on msys, cygwin, or slower wsl 1.0 because git/fs operations are just slower
+# Caching can be added by using export but PROMPT_COMMAND is necessary since $() is a subshell and cannot modify parent state.
+# Linux: time __ps1_ps1 (~7ms)
+# Windows msys2: time __git_ps1 (~100ms)
+# Windows msys2: time git rev-parse --abbrev-ref HEAD 2> /dev/null (~86ms)
+# Windows msys2: time __fastgit_ps1 (~1-3ms)
 
-Put a note in the repo's README to run the installation:
-`$ scripts/install-pre-commit.sh`
+# Simple PS1 without colors using format arg. Feel free to use PROMPT_COMMAND
+export PS1="\u@\h \w \$(__fastgit_ps1 '[%s] ')$ "
 
-All subsequent commits will run Vault linter on each policy file
-```
-#!/bin/bash
-# pre-commit
-BLUE2='\e[1;34m' ; RED2='\e[1;31m' ; NC='\e[0m'
-printf "${BLUE2}pre-commit checks starting ...${NC}\n"
-[[ -z "$(which vault)" ]] && printf "${RED2}Can't find 'vault' binary${NC}\n" && exit 1
-# Run Vault linter on each policy file about to be committed
-for PolicyFile in `git diff HEAD --name-only | grep "\.policy$"` ; do
-    # If file doesn't exist then it is probably being deleted, and we don't care to lint
-    if [[ -f "$PolicyFile" ]]; then
-        vault policy fmt $PolicyFile
-        [[ "$?" != "0" ]] && printf "${RED2}--> ${PolicyFile}${NC}\n" && exit 1
+# 100% pure Bash (no forking) function to determine the name of the current git branch
+function __fastgit_ps1 () {
+    local headfile head branch
+    local dir="$PWD"
+
+    while [ -n "$dir" ]; do
+        if [ -e "$dir/.git/HEAD" ]; then
+            headfile="$dir/.git/HEAD"
+            break
+        fi
+        dir="${dir%/*}"
+    done
+
+    if [ -e "$headfile" ]; then
+        read -r head < "$headfile" || return
+        case "$head" in
+            ref:*) branch="${head##*/}" ;;
+            "") branch="" ;;
+            *) branch="${head:0:7}" ;;  #Detached head. You can change the format for this too.
+        esac
     fi
-done
-printf "${BLUE2}pre-commit checks successfully completed${NC}\n"
-exit 0
+
+    if [ -z "$branch" ]; then
+        return 0
+    fi
+
+    if [ -z "$1" ]; then
+        # Default format
+        printf "(%s) " "$branch"
+    else
+        # Use passed format string
+        printf "$1" "$branch"
+    fi
+}
 ```
-and
+
+2. Then add below section somewhere in your `~/.bashrc` file: 
 ```
-#!/bin/bash
-# install-pre-commit.sh
-BLUE2='\e[1;34m' ; RED2='\e[1;31m' ; NC='\e[0m'
-CMD="ln -sfv ../../scripts/pre-commit.sh .git/hooks/pre-commit"
-$CMD
-[[ "$?" != "0" ]] && printf "${RED2}Error setting up the '$CMD' symlink${NC}\n" && exit 1
-printf "${BLUE2}Successfully set up pre-commit symlink${NC}\n"
-exit 0
+export Grn='\[\e[1;32m\]' Blu='\[\e[1;34m\]'  Rst='\[\e[0m\]' # Color green, blue & reset
+# ~/.fast-git-prompt.sh = https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f
+if [[ -f ~/.fast-git-prompt.sh ]]; then
+    source ~/.fast-git-prompt.sh
+    export PS1="${Grn}[\h \W]${Rst} \$(__fastgit_ps1 '(${Blu}%s${Rst}) ')$ "
+else
+    export PS1="${Grn}[\h \W]${Rst}$ "
+fi
 ```
+The script above has been slightly reformated from [the origial Github Gist](https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f).
 
 
 ## Host Static Site on Github Repo
@@ -335,3 +247,4 @@ www.mydomain.com    CNAME    git719.github.io.   # Where git719 is your Github u
 @                   A        185.199.109.153
 @                   A        185.199.108.153
 ```
+
