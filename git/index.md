@@ -22,6 +22,7 @@ git checkout MASTER-BRANCH                   # Checkout the canonical source
 git pull --rebase                            # Ensure most recent changes are in
 git checkout -b MY_BRANCH                    # Create a local branch
 git push --set-upstream origin MY_BRANCH     # Push it to origin, to work from it
+git config --global push.default current     # To automatically do above henceforth
 ... Now make all your needed changes
 git add .                                    # Add your changes
 git commit -m "my changes"                   # Commit your changes
