@@ -6,3 +6,8 @@ table {
 td, th {
   border: none;
 }
+
+table tr td, table tr th {
+  border: none;
+}
+
