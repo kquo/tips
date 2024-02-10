@@ -1,3 +1,11 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 Column Layout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 Quick and useful tips and suggestions.
 
 <body>
@@ -58,3 +66,4 @@ Quick and useful tips and suggestions.
 </body>
 
 These pages are dedicated to the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) and everyone who cherishes the pursuit of reason, science, humanism, and progress. For feedback and/or suggestions write to <7fqdora6@duck.com>
+</html>
