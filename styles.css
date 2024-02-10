@@ -4,10 +4,9 @@ table {
 }
 
 td, th {
-  border: none;
+  border: none !important;
 }
 
 table tr td, table tr th {
-  border: none;
+  border: none !important;
 }
-
