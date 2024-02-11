@@ -2,11 +2,6 @@
 Version control tips with `git` and <https://github.com>.
 
 
-## Github Actions
-- For great examples see <https://www.actionsbyexample.com/>
-- For training info see <https://github.com/lencap/gh-abcs-actions>
-
-
 ## Remove Branches
 ```
 git branch -d MY_BRANCH                      # Delete local MY_BRANCH
