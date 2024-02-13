@@ -2,7 +2,9 @@
 Helpful Microsoft Azure cloud tips.
 
 ## Azure Cloud
-The __cloud__ metaphor usually evokes a feeling of something that is experienced without understanding what it is or how it works, and Microsoft Azure [cloud computing](https://en.wikipedia.org/wiki/Cloud_computing) can definitely feel that way. To avoid a lot of hype, it is best to approach the Azure Cloud as revolving around two major realms: **Resource** and **Security**. This approach is not how Microsoft typically documents Azure. Nonetheless, this is a much more helpful perspective on how it is put together and how it works. In essence, the Azure cloud can be summarized by its two fundamental realms: Azure Resource Services and Azure Security Services.
+The __cloud__ metaphor usually evokes a feeling of something that is experienced without understanding what it is or how it works, and Microsoft Azure [cloud computing](https://en.wikipedia.org/wiki/Cloud_computing) if no different.
+
+To avoid the hype, let's approach the Azure Cloud as revolving around two major realms: **Resource** and **Security**. This is not how Microsoft typically documents Azure, but it's a more helpful perspective on how it is put together and how it works. In essence, the Azure cloud can be summarized by its two fundamental realms: Azure Resource Services and Azure Security Services.
 
 ## Azure Resource Services
 What we call _Azure **Resource** Services_ here is essentially the comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various services on Microsoft's Azure cloud. Institutions can access these wide array of **Azure Services** which include virtual machines (VM), databases, storage solutions, machine learning, artificial intelligence (AI), serverless computing, content delivery networks (CDN), and much more. The functions of these services are primarily managed via the Azure Resource Manager API at <https://management.azure.com>, and are detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>. Azure services are the core of the Azure ecosystem.
@@ -12,7 +14,7 @@ See below pages for specific tips on specific services:
 - [Azure Data Factory (ADF)](adf/index.md): A cloud-based data integration service that orchestrates data movement and transformation between direct data compute resources.
 
 ## Azure Security Services
-What we call _Azure **Security** Services_ here is essentially what Microsoft calls its _[Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/)_, and it plays a key, essential role in the Azure ecosystem. In fact, it permeates all of Azure. Like Azure Resources, it is a complementary suite of services that provides several essential cloud identity components, allowing institutions to control and manage access to services and applications that they host on Azure.
+What we call _Azure **Security** Services_ here is essentially what Microsoft calls its _[Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/)_, and it plays a fundamental role in the Azure ecosystem, that permeates all of Azure. Like Azure Resources, it is a complementary suite of services that provides several essential cloud identity components, allowing institutions to control and manage access to services and applications that they host on Azure.
 
 - [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/whatis) (formerly known as Azure Active Directory): This is the key element that serves as the primary **identity provider** for Azure, with tools and services to control and protect access to azure services and applications. It plays a vital role within the overall Azure identity and access management ([IAM](https://learn.microsoft.com/en-us/entra/fundamentals/introduction-identity-access-management)) framework for any institution. At a very high level, IAM can be summarized as the core framework that enables an organization to facilitate **1)** the right individuals, **2)** to access the right resources, **3)** at the right time, and **4)** for the right reasons. The Microsoft Entra ID functions are managed via the [MS Graph](https://learn.microsoft.com/en-us/graph/overview) API, typically via the <https://graph.microsoft.com> endpoint.
 - Other important Azure security services are [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview) and [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure). Moreover, the [Azure Security](https://learn.microsoft.com/en-us/azure/security/fundamentals/overview) page lists other essential elements within Azure security services.
@@ -38,6 +40,18 @@ To manage access into Azure resource or security services you must first underst
 5. It is almost always better to define resource objects, such as resource RBAC role definitions, at the _very top of the hierarchy_, the Tenant Root Group. That way they are always available to be used anywhere within the entire tenant.
 6. Microsoft Azure makes available native, **Built-In** Entra ID roles (security realm) as well as resource RBAC roles (resource realm) for each service product offering. Microsoft makes these roles available globally, to every organization with a tenant in Azure cloud.
 7. Many organization choose to create their own **Custom** roles based on the Built-In ones, because it affords them better version control of these roles. Microsoft is known for changing Built-In role behavior from time to time, and having your own _pinned_version of a role offers more control.
+
+## Azure Access Methods
+To do work in azure, whether to create resource or security objects, or to manage them, you have to access Azure in one of the following ways:
+
+| Method | Secret | Typical Use |
+| --- | --- | --- |
+| Azure CLI | Yes, secured via browser popup | Interactive command line |
+| OIDC | No | CI/CD automation |
+| SP | Yes | Services and Application automated access |
+| MI | No | Services and Application automated access |
+
+Typical use column only describes the most common reason for using the specific method, but actual usage can vary depending on context.
 
 ## Azure Virtual Machines
 - Azure allows different types of VMs, see [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) for more info.
