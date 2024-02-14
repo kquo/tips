@@ -1,6 +1,22 @@
 # Terraform
 [Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
 
+
+## Moving Resources in Terraform State
+1. First you have to update your infrastructure files, but before running `terraform apply`, do the following:
+2. Below command will print of list ot lines to check for moving desired resources:
+```
+temp1=$(mktemp) && temp_from=$(mktemp) && temp_to=$(mktemp) && \
+terraform plan | grep "will be" > "$temp1" && \
+grep destroyed "$temp1" | awk '{print $3}' | sed "s/.*/'&'/" > "$temp_from" && \
+grep created "$temp1" | awk '{print $3}' | sed "s/.*/'&'/" > "$temp_to" && \
+paste -d' ' "$temp_from" "$temp_to" | sed "s;^;terraform state mv -dry-run ;" && \
+rm "$temp1" "$temp_from" "$temp_to"
+```
+3. **Carefully** inspect and run each `terraform state mv -dry-run From To` line that is printed above to make 100% sure it's what you want.
+4. Remove the `-dry-run` in each line and re-run to move the resource.
+5. After doing all the moves, you can do a `terraform plan` and a `terraform apply` to confirm everything is good.
+
 ## Manage Azure With Terraform
 Tips on managing your Azure tenant with Terraform.
 
