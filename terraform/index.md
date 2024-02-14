@@ -12,7 +12,7 @@ It is an open-source tool for provisioning and managing cloud infrastructure as 
 ## Moving Resources in Terraform State
 1. First you have to update your infrastructure files, but before running `terraform apply`, do the following:
 2. Below command will print of list ot lines to check for moving desired resources:
-```
+```bash
 temp1=$(mktemp) && temp_from=$(mktemp) && temp_to=$(mktemp) && \
 terraform plan | grep "will be" > "$temp1" && \
 grep destroyed "$temp1" | awk '{print $3}' | sed "s/.*/'&'/" > "$temp_from" && \
@@ -31,7 +31,7 @@ See <https://stackoverflow.com/questions/69283041/terraform-move-entire-resource
 
 If you were able to move it, now you can proceed by getting a list of all respective IDs from the TF state: 
 
-```
+```bash
 terraform state pull | grep "<RG-NAME>"
 <LIST of IDs>
 ```
@@ -40,7 +40,7 @@ You'll also need to list their addresses with `terraform state list`
 
 Next, carefully remove each of the respective resources using their addresses, for example: 
 
-```
+```bash
 terraform state rm azurerm_dns_zone.mydomain
 terraform state rm azurerm_dns_a_record.mydomain-apex
 terraform state rm azurerm_dns_cname_record.mydomain-www
@@ -48,7 +48,7 @@ terraform state rm azurerm_dns_cname_record.mydomain-www
 
 Now import the new ones, using the IDs from the LIST of IDs command above and changing the resource group nane, for example: 
 
-```
+```bash
 terraform import azurerm_dns_zone.mydomain "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com"
 terraform import azurerm_dns_a_record.mydomain-apex "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/A/@"
 terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/CNAME/www"
@@ -60,7 +60,7 @@ terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/re
 - Of course you can do the same on a Windows host running GitBASH, or a Linux host using regular BASH, making the necessary adjustments
 - Install Terraform and Azure CLI on *macOs*: 
 
-  ```
+  ```bash
   brew tap hashicorp/tap
   brew install hashicorp/tap/terraform
   brew install azure-cli
@@ -75,7 +75,7 @@ terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/re
 - Managing access with an AZ group instead of doing assignments directly to a single SP is a good industry practice.
 - Capture and set below 4 parameters accordingly: 
 
-```
+```bash
 export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
 export ARM_TENANT_ID="<azure_subscription_tenant_id>"
 export ARM_CLIENT_ID="<service_principal_appid>"
@@ -85,14 +85,14 @@ export ARM_CLIENT_SECRET="<service_principal_password>"
  
 - Manually via the Azure portal create an Azure Storage Account (SA) to have Terraform store its "state" there. Or you can do so from the shell terminal, using Azure CLI tool :
 
-```
+```bash
     az group create --name mytfstates --location eastus
     az storage account create --resource-group mytfstates --name mytf --sku Standard_LRS --encryption-services blob
 ```
 - NOTE: Another way to store TF state is to use Terraform Cloud (https://cloud.hashicorp.com/products/terraform), which is a paid service 
 - Next, create a container within this storage account and set up its access key password: 
 
-```
+```bash
     az storage container create --name mytfstate --account-name mytf
     az storage account keys list --resource-group mytfstates --account-name mytf --query '[0].value' -o tsv
     export ARM_ACCESS_KEY="use_above_storage_account_container_access_key"
@@ -101,7 +101,7 @@ export ARM_CLIENT_SECRET="<service_principal_password>"
 - WARNING! Again, exposing secrets via BASH variables is poor security, and should only be done for testing. For production systems make sure you do this more securely.
 - Checkout/clone mytf repo mentioned above and create `main.tf` with these recommended initial values: 
 
-```
+```hcl
 # main.tf
 
 terraform {
@@ -131,7 +131,7 @@ provider "azurerm" {
 
 - Create a test Resource Group as an example of how to use TF to create Azure resources
 - Create file `rg-myaz01.tf`: 
-```
+```hcl
     resource "azurerm_resource_group" "my-test-rg" {
         name     = "my-test-rg01"
         location = "eastus"
@@ -149,7 +149,7 @@ provider "azurerm" {
 - You can then recreate the minimalist config file, based on above fuller details, removing IDs, etc
 - As an example, to import an existing RBAC role *definition*, edit `my-rbac-role.tf`: 
 
-```
+```hcl
 # my-rbac-role.tf
 
 # Minimalist file for existing "my-rbac-role" to be imported
@@ -256,7 +256,7 @@ The alternative is a multi-repo structure where each of the submodules under abo
 
 1. For a **mono** repo setup the `main.tf` file would look like something like this: 
 
-```
+```hcl
 # main.tf
 # terraform-managed-infra
 # This is the calling module defining a specific Azure infrastructure to be
@@ -281,7 +281,7 @@ This infrastructure module would then call the single terraform-azure-core modul
 
 2. For a **multi** repo setup the `main.tf` file would look like something like this: 
 
-```
+```hcl
 # main.tf
 # terraform-managed-infra
 # This is the calling module defining a specific Azure infrastructure to be managed,
