@@ -1,5 +1,12 @@
 # Terraform
-[Hashicorp Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services - by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
+Tips on [Hashicorp Terraform](https://www.terraform.io/).
+
+It is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
+
+
+## Module Definitions
+1. A Terraform module is a container for multiple resources that are used together, allowing for reuse, simplification, and management of Terraform configurations.
+2. One thing to remember about a terraform module is that it should be for a _composite of resources_, not a single resource.
 
 
 ## Moving Resources in Terraform State
@@ -17,10 +24,38 @@ rm "$temp1" "$temp_from" "$temp_to"
 4. Remove the `-dry-run` in each line and re-run to move the resource.
 5. After doing all the moves, you can do a `terraform plan` and a `terraform apply` to confirm everything is good.
 
-## Manage Azure With Terraform
-Tips on managing your Azure tenant with Terraform.
+### Moving Terraform-managed Azure resources from one Resource Group to another (OLD)
+See <https://stackoverflow.com/questions/69283041/terraform-move-entire-resource-group-to-new-azure-subscription>
 
-### Getting Started
+*First*, you'll need to confirm the resource can actually be moved via the portal, by actually attempting to do the move.
+
+If you were able to move it, now you can proceed by getting a list of all respective IDs from the TF state: 
+
+```
+terraform state pull | grep "<RG-NAME>"
+<LIST of IDs>
+```
+
+You'll also need to list their addresses with `terraform state list`
+
+Next, carefully remove each of the respective resources using their addresses, for example: 
+
+```
+terraform state rm azurerm_dns_zone.mydomain
+terraform state rm azurerm_dns_a_record.mydomain-apex
+terraform state rm azurerm_dns_cname_record.mydomain-www
+```
+
+Now import the new ones, using the IDs from the LIST of IDs command above and changing the resource group nane, for example: 
+
+```
+terraform import azurerm_dns_zone.mydomain "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com"
+terraform import azurerm_dns_a_record.mydomain-apex "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/A/@"
+terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/CNAME/www"
+```
+
+
+## Manage Azure With Terraform
 - These particular instructions assume you will be managing your Azure tenant from an Apple Mac host, using BASH as a shell terminal
 - Of course you can do the same on a Windows host running GitBASH, or a Linux host using regular BASH, making the necessary adjustments
 - Install Terraform and Azure CLI on *macOs*: 
@@ -140,7 +175,7 @@ resource "azurerm_role_definition" "my-rbac-role" {
   - This article is a helpful intro into this <https://blog.devgenius.io/beginners-guide-to-using-terraform-for-azure-90861bc8b9cf>
   - To create more resources see the more detailed tutorial at <https://learn.hashicorp.com/collections/terraform/azure-get-started>
 
-### Automated workflow with Terraform and Github
+## Manage Terraform with Github Actions
 In general, the typical options when using Terraform are the following: 
     1. Deploy locally via Terraform CLI
     2. Deploy using Terraform Cloud/Enterprise
@@ -171,91 +206,104 @@ Integrate TF state into Github Action workflow:
 
 (Needs clean up)
 
-### Moving Terraform-managed Azure resources from one Resource Group to another
-See <https://stackoverflow.com/questions/69283041/terraform-move-entire-resource-group-to-new-azure-subscription>
 
-*First*, you'll need to confirm the resource can actually be moved via the portal, by actually attempting to do the move.
-
-If you were able to move it, now you can proceed by getting a list of all respective IDs from the TF state: 
-
-```
-terraform state pull | grep "<RG-NAME>"
-<LIST of IDs>
-```
-
-You'll also need to list their addresses with `terraform state list`
-
-Next, carefully remove each of the respective resources using their addresses, for example: 
-
-```
-terraform state rm azurerm_dns_zone.mydomain
-terraform state rm azurerm_dns_a_record.mydomain-apex
-terraform state rm azurerm_dns_cname_record.mydomain-www
-```
-
-Now import the new ones, using the IDs from the LIST of IDs command above and changing the resource group nane, for example: 
-
-```
-terraform import azurerm_dns_zone.mydomain "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com"
-terraform import azurerm_dns_a_record.mydomain-apex "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/A/@"
-terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/resourceGroups/<NEW-RG-NAME>/providers/Microsoft.Network/dnsZones/mydomain.com/CNAME/www"
-```
-
-## Additional Notes
-Some additional notes regarding Terraform.
-
-### Extent of Terraform Privileges
+## Extent of Terraform Privileges
 It's wise to limit and isolate the scope and roles of the security context under which Terraform operates. This reduces the potential blast-radius if the Terraform credentials may happen to be compromised.
 
-### Single vs Multi-states
+
+## Single vs Multi-states
 At some point you'll need to decide whether you will only have a single state file (local or remote). A single state file works fine for very small setups, but can quickly become cumbersome for larger infrastructure. Particularly if there are many different teams submitting changes to an environment and the state gets locked while each change is being applied. That is when having multiple states or workspaces will come in handy. It gives an organization more flexibility by allowing changes to be independently deployed without locking their separate workflows.
 
-### Mono-repo vs Multi-repo
-When working with Terraform there will come a point where you will need to decide whether to use a mono-repo versus a multi-repo _IaC_ structure for your source code repository. The common analogy is the monolithic project type a opposed to the micro-services project design. There is no right or wrong in this debate. The answer will depend on many different factors, such as how tightly-coupled your project and the development and operation teams are.
+
+## Mono vs Multi-repo
+When working with Terraform there will come a point where you will need to decide whether to use a mono-repo versus a multi-repo _IaC_ structure for your source code repository. The common analogy is the monolithic project type as opposed to the micro-services project design. There's no right or wrong in this. The answer will depend on different factors, such as how tightly-coupled your project and the development and operation teams are.
 
 The typical mono-repo repository structure looks like the following: 
 
 ```
-terraform-azure-mymodule
-  +- examples
-  |   +- simple
-  |      + main.tf
-  +- modules
-  |   +- virtual_machine
-  |       + main.tf
-  |       + variables.tf
-  |       + outputs.tf
-  |   +- dns
-  |       + main.tf
-  |       + variables.tf
-  |       + outputs.tf
-  + main.tf
-  + variables.tf
-  + outputs.tf
-  + README.md
+terraform-azure-core/
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── README.md
+├── modules/
+│   ├── terraform-azure-dir-group/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── terraform-azure-dns-zone/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── terraform-azure-vm/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+├── examples/
+│   ├── example1/
+│   │   ├── main.tf
+│   │   ├── terraform.auto.tfvars
+│   │   └── outputs.tf
+│   └── example2/
+│       ├── main.tf
+│       ├── terraform.auto.tfvars
+│       └── outputs.tf
+└── tests/
+    ├── test_main.tf
+    └── test_terraform.auto.tfvars
 ```
+The alternative is a multi-repo structure where each of the submodules under above `modules` subdirectory would instead reside in their own repository.
 
-The `main.tf` file would look like something like this: 
+1. For a **mono** repo setup the `main.tf` file would look like something like this: 
 
 ```
 # main.tf
-module "az-module-vm" {
+# terraform-managed-infra
+# This is the calling module defining a specific Azure infrastructure to be
+# managed, which leverages the terraform-azure-core.
 
-  # Source examples
-  source = "git@github.com:myrog/az-module-iaas.git?ref=1.0.0"            # Your own Github repo
-  # source = "./modules/vm"                                               # Your own local directory
-  # source = "<registry address/<organization>/<provider>/<module name>"  # A module registry
-  # .. example = "spacelift.io/your-organization/vpc-module-name/aws"
-  version = "1.0.0"
-
-  argument_1                     = var.test_1
-  argument_2                     = var.test_2
-  argument_3                     = var.test_3
+module "azure_core" {
+  # This module would manage ALL Azure resources in the infra, and they would
+  # all be defined in the terraform.auto.tfvars file.
+  source = "github.com/myorg/terraform-azure-core?ref=1.0.0"
+    # "?ref-1.0.0" specifies the GH tag or branch of the repo
+    # source = "./modules/vm" # For local directory testing
+    # version = "1.0.0"    # This is only needed if you're referencing a
+    # Terraform Cloud or Terraform Enterprise registry as in:
+    # source = "<REGISTRY_URL/<organization>/<provider>/<module name>"
+    # for example "spacelift.io/your-organization/vpc-module-name/aws"
+  dir_groups = var.dir_groups  # Defined in the terraform.auto.tfvars
+  dns_zonnes = var.dns_zones
+  resource_n = var.var_n       # And so on
 }
 ```
+This infrastructure module would then call the single terraform-azure-core module to manage the Azure infrastructure.
 
-For an example of multi-repo structure you would follow the same as above, but without the `modules` directory. Each module would then have its own separate repo. The `main.tf` would then reference the remo repo module using the `github.com` example or the special registry.
+2. For a **multi** repo setup the `main.tf` file would look like something like this: 
 
-### What's a Module
-One thing to remember about a terraform module is that it should be for a _composite of resources_, not a single resource.
+```
+# main.tf
+# terraform-managed-infra
+# This is the calling module defining a specific Azure infrastructure to be managed,
+# which leverages all the different terraform-azure-X submodules.
 
+module "azure_dir_groups" {
+  # This module would manage all directory groups in the infra as defined in
+  # variable 'dir_groups' in terraform.auto.tfvars
+  source = "github.com/myorg/terraform-azure-dir-group?ref=1.0.0"
+  # Above module sits in a separate repo in Github
+
+  dir_groups = var.dir_groups
+}
+
+module "azure_dns_zones" {
+  # This module would manage all DNS zones in the infra as defined in variable
+  # 'dns_zones' in terraform.auto.tfvars
+  source = "github.com/myorg/terraform-azure-dns-zones"  # Defaults to main branch
+  # Above module sits in a separate repo in Github
+
+  dns_zonnes = var.dns_zones
+}
+
+# Other modules can be defined below to manage other resources with their respective separate module
+```
