@@ -127,15 +127,15 @@ git push
 
 ## Tags
 ```
-git tag                               # List tags
-git tag -l "v1.8.5*"                  # Search tags
-git tag -a v1.4 -m "my version 1.4"   # Create/annotate a tag
-git tag -a v1.2 9fceb02               # Tag existing commit
-git push origin v1.5                  # Share tag by pushing to origin
-git push origin --tags                # Share all tags
-git checkout -b v2.0.0 v2.0.0         # Checkout a tag (it actually creates a new branch)
-git tag -d v2.0.0                     # Delete a tag locally ...
-git push origin :refs/tags/v2.0.0     # ... and remotely
+git tag                                 # List tags
+git tag -l "v1.8.5*"                    # Search tags
+git tag -a v1.4 -m "my version 1.4"     # Create/annotate a tag
+git tag -a v1.2 9fceb02                 # Tag existing commit
+git push origin v1.5                    # Share tag by pushing to origin
+git push origin --tags                  # Share all tags
+git checkout tags/v2.0.0 -b NEW_BRANCH  # Create new branch from a tag
+git tag -d v2.0.0                       # Delete a tag locally ...
+git push origin :refs/tags/v2.0.0       # ... and remotely
 ```
 
 
