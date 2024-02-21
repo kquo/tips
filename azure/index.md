@@ -271,3 +271,72 @@ Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to 
 - Will ARM ever get its own internal infrastructure as code (Iac) framework? Is that what Bicep was meant for? Why not use Bicep (or whatever declarative/configuration DSL) to drive the Azure Portal Web UI? That way everything one does via the Portal UI is natively and immediately kept as an IaC footprint?
 
 
+## OIDC Github Action for Azure
+OIDC allows workflows to authenticate and interact with Azure using short-lived tokens. This eliminates the need for long-lived personal access tokens (PAT) or service principaa with a secrets, providing a more secure and manageable approach to accessing cloud resources directly from GitHub Actions.
+
+### How It Works
+1. Configuration: You configure your Azure AD App Registration to trust an external identity provider by setting up a federation with that IdP. This involves specifying details about the IdP, such as the issuer URL, and possibly uploading metadata documents for SAML-based federations.
+
+2. Authentication Flow: A user or service attempts to access an application protected by Azure AD and is redirected to sign in. Instead of presenting Azure AD credentials, the user or service presents credentials from the federated IdP. The federated IdP authenticates the user or service and issues a token. This token is presented to Azure AD, which validates it based on the trust configuration. Upon successful validation, Azure AD issues its own token to the user or service, granting access to the application.
+
+### Setting Up
+1. Enable OIDC in Azure
+    - You still need an App Registration and Service Principal
+    - Assign it the required Azure RBAC and Entra roles, at the required scope, to be able to do what you want it to do
+    - But instead of configuring a **secret**, you configure a "federated" credential
+    - [Configure a federated identity credential on an app](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#github-actions)
+    - click "Certificates & secrets" -> "Federated credentials", and "Add credential" and select "Github Actions deploying Azure resources"
+    - Enter the Github Organization
+    - The Github Repository name
+    - The Entity type = "Branch"
+    - And Based on selection = "main", or whatever that may be
+
+2. Set below variables as secrets in your GitHub repository:
+    - AZURE_AD_APPLICATION_CLIENT_ID: The client ID of the Azure AD application
+    - AZURE_TENANT_ID: Your Azure tenant ID
+    - AZURE_SUBSCRIPTION_ID: Your Azure subscription ID (may not be needed)
+
+3. Setup a workflow that authenticates to Azure using OIDC, does something useful
+    - Can be used with [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_oidc)
+    - Requires azurerm provider version 3.7.0 or higher
+    - Azure CLI is set up with the token automatically, of course
+    - Terraform picks up the token automatically also
+    - Anything running within the Github Action job can use Azure CLI to get respective API tokens, as shown below
+    - Example OIDC Github Action job:
+    ```yaml 
+      jobs:
+        task_leveraging_oidc_login:
+          runs-on: ubuntu-latest
+          permissions:
+            id-token: write  # This is required for requesting the JWT
+            contents: read   # This is required for actions/checkout
+          steps:
+            - name: checkout_github_action_code
+              uses: actions/checkout@v4
+              with:
+                ref: main
+            - name: azure_oidc_login
+              uses: azure/login@v1
+              with:
+                client-id: ${{ secrets.ARM_CLIENT_ID }}
+                tenant-id: ${{ secrets.ARM_TENANT_ID }}
+                allow-no-subscriptions: true
+            - name: capture_azure_tokens
+              run: |
+                # https://learn.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-get-access-token
+                # [--resource-type {aad-graph, arm, batch, data-lake, media, ms-graph, oss-rdbms}]
+                export MG_TOKEN="$(az account get-access-token --resource-type ms-graph --query accessToken -o tsv)"
+                export AZ_TOKEN="$(az account get-access-token --resource-type arm --query accessToken -o tsv)"
+                echo "MG_TOKEN=$MG_TOKEN" >> $GITHUB_ENV  # To use in another step 
+                echo "AZ_TOKEN=$AZ_TOKEN" >> $GITHUB_ENV
+                curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${AZ_TOKEN}" -X GET "https://management.azure.com/subscriptions?api-version=2022-12-01" | jq
+            - name: some_other_step
+              run: |
+                curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${{ env.MG_TOKEN }}" -X GET "https://graph.microsoft.com/v1.0/users" | jq
+  ```
+
+### References
+- [What is Github Action for Azure](https://learn.microsoft.com/en-us/azure/developer/github/github-actions) 
+- [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- [Azure login action](https://github.com/marketplace/actions/azure-login)
+
