@@ -302,7 +302,7 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
     - Azure CLI is set up with the token automatically, of course
     - Terraform picks up the token automatically also
     - Anything running within the Github Action job can use Azure CLI to get respective API tokens, as shown below
-    - Example OIDC Github Action job:
+    - Example OIDC Github Action job using Azure CLI:
     ```yaml 
       jobs:
         task_leveraging_oidc_login:
@@ -333,7 +333,31 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
             - name: some_other_step
               run: |
                 curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${{ env.MG_TOKEN }}" -X GET "https://graph.microsoft.com/v1.0/users" | jq
-  ```
+    ```
+    - Using PowerShell above 2 sample steps would become:
+    ```yaml
+            - name: capture_azure_tokens
+              shell: pwsh
+              run: |
+                # PowerShell equivalent of az account get-access-token command
+                $env:MG_TOKEN = (az account get-access-token --resource-type ms-graph --query accessToken -o tsv)
+                $env:AZ_TOKEN = (az account get-access-token --resource-type arm --query accessToken -o tsv)
+                echo "MG_TOKEN=$env:MG_TOKEN" | Out-File -Append -FilePath $Env:GITHUB_ENV  # To use in another step 
+                echo "AZ_TOKEN=$env:AZ_TOKEN" | Out-File -Append -FilePath $Env:GITHUB_ENV
+                $headers = @{
+                  "Content-Type" = "application/json"
+                  "Authorization" = "Bearer $($env:AZ_TOKEN)"
+                }
+                Invoke-RestMethod -Uri "https://management.azure.com/subscriptions?api-version=2022-12-01" -Method Get -Headers $headers | ConvertTo-Json
+            - name: some_other_step
+              shell: pwsh
+              run: |
+                $headers = @{
+                  "Content-Type" = "application/json"
+                  "Authorization" = "Bearer $env:MG_TOKEN"  # Assuming you want to use the Microsoft Graph token here
+                }
+                Invoke-RestMethod -Uri "https://graph.microsoft.com/v1.0/users" -Method Get -Headers $headers | ConvertTo-Json
+    ```
 
 ### References
 - [What is Github Action for Azure](https://learn.microsoft.com/en-us/azure/developer/github/github-actions) 
