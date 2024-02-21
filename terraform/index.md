@@ -55,6 +55,23 @@ terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/re
 ```
 
 
+## Terraform Workflow
+Below ASCII diagram depicts the typical Terraform workflow: 
+ 
+```
+                         Update code
+                        ┌───────────────┐
+                        ▼               │
+     ┌────────┐     ┌────────┐     ┌────┴────┐     ┌──────────┐
+     │        │     │        │     │         │     │          │
+     │  init  ├────►│  plan  │     │  apply  ├────►│ destroy  │
+     │        │     │        │     │         │     │          │
+     └────────┘     └───┬────┘     └─────────┘     └──────────┘
+                        │               ▲
+                        └───────────────┘
+                         Deploy infra
+```
+
 ## Manage Azure With Terraform
 - These particular instructions assume you will be managing your Azure tenant from an Apple Mac host, using BASH as a shell terminal
 - Of course you can do the same on a Windows host running GitBASH, or a Linux host using regular BASH, making the necessary adjustments
