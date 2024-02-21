@@ -3,10 +3,10 @@ Useful GoLang tips.
 
 
 ## References
-- Usefule examples = <https://gobyexample.com/>
+- Useful examples = <https://gobyexample.com/>
 - Static analysis = <https://github.com/analysis-tools-dev/static-analysis#go>
 
-## Point to Local Package
+## Point to Local
 While refactoring and troubleshooting code it is sometimes necessary to point to the local version of a package.
 
 You can do this by modifying the `go.mod` file as follows:
@@ -27,13 +27,8 @@ go: go.mod file not found in current directory or any parent directory; see 'go 
 ```
 Do this
 ```
-go mod init <prg_name|mod_name> # Simple name or github.com/git719/maz
+go mod init <package_name>   # For example, this would be 'zls' for github.com/git719/zls
 go mod tidy
-```
-Or if you don't want to build as a module, this:
-```
-go env -w GO111MODULE=auto
-go env # To view all Go variables
 ```
 
 
