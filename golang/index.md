@@ -39,6 +39,7 @@ Use the [`install-golang.sh`](https://github.com/git719/tools/blob/main/bash/ins
 2. Edit the script and change the line `GOVER="1.21.1"` to the version you want
 3. `./install-golang.sh`
 4. It tries to install at `$HOME/go`, so if you have a previous version you'll need to first back it up
+5. Finally, set `GOPATH` variable to `~/go`; add it in your `PATH`; and also add `$GOPATH/bin` to it
 
 This script can install Go on Windows within a GitBASH shell, or macos, or Linux Redhat (For RHEL `shasum` command is in package `perl-Digest-SHA``)
 
