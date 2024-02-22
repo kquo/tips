@@ -32,12 +32,15 @@ go mod tidy
 ```
 
 
-## Install Go on macOS
-- Use BASH script `install-golang.sh` at <https://github.com/git719/tools/blob/main/bash/install-golang.sh>
-- Modify the script's line: `GOVER="1.21.1"` for the version you want
-- It tries to install at `$HOME/go`, so if you have a previous version you'll need to first back it up
-- Script can install Go in Red Hat Linux, Windows GitBASH, or macos environment
-- Note, RHEL `shasum` command is in package perl-Digest-SHA
+## Install Go
+Use the [`install-golang.sh`](https://github.com/git719/tools/blob/main/bash/install-golang.sh) BASH script
+
+1. `curl -LO https://raw.githubusercontent.com/git719/tools/main/bash/install-golang.sh`
+2. Edit the script and change the line `GOVER="1.21.1"` to the version you want
+3. `./install-golang.sh`
+4. It tries to install at `$HOME/go`, so if you have a previous version you'll need to first back it up
+
+This script can install Go on Windows within a GitBASH shell, or macos, or Linux Redhat (For RHEL `shasum` command is in package `perl-Digest-SHA``)
 
 
 ## Reduce Binary Executable Size
