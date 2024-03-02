@@ -3,52 +3,49 @@ macOS tips.
 
 
 ## Homebrew
-- Command commands:
-```
-brew cleanup -ns                    # See what you'd be cleaning up 
-brew cleanup -s                     # Clean it all up, including cache
-brew remove  <package name>         # Uninstall/remove
-brew uninstall <package name>       # Uninstall/remove
-brew leaves                         # List all installed top-level packages, that are not dependencies
-brew list                           # List all install packages
-brew deps --tree --installed        # List all with deps
-```
-
-- Uninstall Homebrew -- **review link before running!**:
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
-```
+1. Installation: Follow instructions at <https://brew.sh/>
+2. Install the usual suspects:
+    `brew install coreutils iterm2 keepassxc vscodium duckduckgo fd jq git`
+3. Common usage:
+    ```
+    brew cleanup -ns                    # See what you'd be cleaning up 
+    brew cleanup -s                     # Clean it all up, including cache
+    brew remove  <package name>         # Uninstall/remove
+    brew uninstall <package name>       # Uninstall/remove
+    brew leaves                         # List all installed top-level packages, that are not dependencies
+    brew list                           # List all install packages
+    brew deps --tree --installed        # List all with deps
+   ```
+4. Uninstalling:
+   **Review link before running**!:
+   `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"`
 
 
 ## Mac Migration
-- Update hostname: `sudo scutil --set HostName MyHostName`
-- Follow instructions at <https://brew.sh/>
-- Then do: `brew install coreutils iterm2 keepassxc vscodium duckduckgo fd jq git`
-- For iTerm2 use the saved preferences under `~/data/etc/iTerm2/`
+- Update hostname:
+    ```
+    sudo scutil --set HostName <new_name>
+    sudo scutil --set LocalHostName <new_name>
+    sudo scutil --set ComputerName <new_name>
+    dscacheutil -flushcache`
+    ```
+- Install Homebrew
+- iTerm2: Use the saved preferences under `~/data/etc/iTerm2/`
+- KeePassXC:
+    - Important, ensure KeePassXC is **NOT** running on both
+    - On SRC: `cd && data/etc/bakup_kpxc 1`
+    - On DST: `cd && data/etc/bakup_kpxc 2`
 - VSCodium
-  - Make sure VSCodium is **NOT** running on neither machines
-  - On SOURCE machine:
-    `cd`
-    `tar czf codium.tar.gz Library/Application\ Support/VSCodium`
-  - SSH copy `codium.tar.gz` to `$HOME` on NEW machine, and:
-    `cd`
-    `tar xzf codium.tar.gz`
-- KeePassXC
-  - Important, make sure KeePassXC is **NOT** running on neither machines
-  - On SOURCE:
-    `cd`
-    `ls -l Library/Application\ Support/KeePassXC/keepassxc.ini`
-    `ls -l Library/Preferences/org.keepassxc.keepassxc.plist`
-  - SSH copy `keepassxc.ini` to NEW_MACHINE: `$HOME/Library/Application\ Support/KeePassXC/keepassxc.ini` 
-  - SSH copy `org.keepassxc.keepassxc.plist` to NEW_MACHINE: `$HOME/Library/Preferences/org.keepassxc.keepassxc.plist` 
-- Install others:
-
-```
-brew install ffmpeg dos2unix pwgen nmap iperf3 gnutls python go
-brew install imagemagick appcleaner kindle youtube-dl
-```
-- Switch to `bash`: `chsh -s /bin/bash`
-- Update screencapture behaviour: `.../tools/macos/screencapture`
+    - On SRC: `cd && tar czf codium.tar.gz Library/Application\ Support/VSCodium`
+    - Copy `codium.tar.gz` to `$HOME`
+    - On DST: `cd && tar xzf codium.tar.gz`
+- Install others: 
+    ```
+    brew install ffmpeg dos2unix pwgen nmap iperf3 gnutls python go
+    brew install imagemagick appcleaner kindle youtube-dl
+    ```
+- Switch to BASH: `chsh -s /bin/bash`
+- Update screencapture behaviour: `./tools/macos/screencapture`
 
 
 ## BASHRC
