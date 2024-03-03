@@ -7,17 +7,23 @@ Human behavior is largely influenced by our genetic makeup, accounting for more 
 
 Sometimes, individuals may seem stubborn because their brains are wired in specific ways, akin to a computer program that can only produce one result. Recognizing this makes it unreasonable to expect people to easily change their thoughts or actions.
 
+We are riddled with a built-in [list of cognitive biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases), and the grandaddy of them all is probably [cognitive dissonance](https://en.wikipedia.org/wiki/Cognitive_dissonance)): the psychological discomfort we experience when holding two or more conflicting beliefs, ideas, or values at the same time. This tendency to reduce the cognitive discomfort often makes us change or justify our beliefs and/or actions by compartmentalizing them to avoid directly addressing the contradictions that others point out.
+
 However, it's not all gloomy. Despite our inherent limitations, there's still room for improvement. Progress may be slow, but with patience, we can make strides forward.
 
 
 ## The Social Problem
 Humanity's two biggest *core* problems are: (1) the **Biological Problem**, the limited cranial capacity due to the haphazard inheritance from evolution; and (2) the **Social Problem**, its faulty social structures stemming from the Biological Problem. The late biologist [Edward O. Wilson](https://en.wikipedia.org/wiki/E._O._Wilson) hinted of this in his 2009 book [Consilience](https://en.wikipedia.org/wiki/Consilience_%28book%29) when he said, "the real problem of humanity is the following: we have paleolithic emotions; medieval institutions; and god-like technology." With technological ingenuity being a possitive result of human biology.
 
-Remarkably, history shows progress in solving the Social problem, and we have also gained a great deal of understanding around the Biological problem. Advanced nations in the world have achieved what any reasonable person would call fairly stable societies. And scientific understanding of how our brains work, its limitations, is undoubtedly getting us closer to fully appreciating who we really are. Hopefully, this progress will continue and someday help in overcoming these problems.
+Remarkably, history shows progress in solving the Social problem, and we have also gained a great deal of understanding around the Biological Problem. Advanced nations in the world have achieved what any reasonable person would call fairly stable societies, compared to the "solitary, poor, nasty, brutish, and short" ones we otherwise seem to default to follow in the absence of societal structures, at least as per [Thomas Hobbes](https://en.wikipedia.org/wiki/Thomas_Hobbes). And scientific understanding of how our brains work, its limitations, is undoubtedly getting us closer to fully appreciating who we really are. Hopefully, this progress will continue and someday help in overcoming these problems.
 
-All other problems confronting humanity sit on top of these 2 *core* problems.
 
-Is the pace of progress limited to the slow, gradual change we have been seeing? Can solutions be accellerated? These are essential questions for humanity.
+## The Entropy Problem
+The fact that the **Entropy Problem** is one of our greatest challenges remains largely unnoticed by most people, yet it is undeniably our most significant **issue**. The unintentional concealment of this problem may stem from its formal definition and explanation, which is indeed a bit too technical: the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics). This is why I prefer [Steven Pinkers](https://en.wikipedia.org/wiki/Steven_Pinker)'s more intuitive mnemonic "things fall apart". The natural state of the universe and the world we live is that **all** things, our bodies, our societies, our planet, all eventually wither and therefore need constant attention and upkeep, if we **care** about them. As all our parents remind us, life is a constant struggle in survival and flourishing.
+
+All other problems confronting humanity sit on top of these 3 *core* problems.
+
+Is the pace of progress limited to the slow, gradual change we have been seeing? Can solutions be accelerated? These are essential questions for humanity.
 
 
 ## Misguided Libertarianism
@@ -50,7 +56,7 @@ In his 1989 book [The Emperor's New Mind](https://en.wikipedia.org/wiki/The_Empe
 ## Computation
 [Stephen Wolfram](https://en.wikipedia.org/wiki/Stephen_Wolfram), amongst others, mentions that we used to compartamentalized computational problems. For instance, we used to think that sorting a list of words, or computing square roots, or determining if a particular phrase is palindromic were three different things. However, since [Kurt Gödel](https://en.wikipedia.org/wiki/Kurt_G%C3%B6del) and [Alan Turing](https://en.wikipedia.org/wiki/Alan_Turing) we now know that they are computationally the same problems, universal computation.
 
-One interesting implication from this revelation is that technically we can compute _anything_, once we have the newest and greatest models and the most powerlful enough machinery. Wolfram uses the term _computational irreducibility_ to say this is perhaps mistaken. Maybe there is no easy theory for any behavior that seems complex. You cannot __predict__ the outcome beforehand, and the program must still be **run**, for us to get an answer.
+One interesting implication from this revelation is that technically we can compute _anything_, once we have the newest and greatest models and the most powerlful enough machinery. Wolfram uses the term _computational irreducibility_ to say this is perhaps mistaken. Maybe there is no easy theory for any behavior that seems complex. You cannot __predict__ the outcome beforehand, and the program must still be **run**, for us to get an answer. However, isn't all this a predicate of complexity theory, and also related implications of [Gödel's incompleteness theorems](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems), especially regarding [the halting problem](https://en.wikipedia.org/wiki/Halting_problem), ideas which are almost 100 years old?
 
 By the way, caring about computation is essential because it leads us to paradigm shifts. One of the most famous example was [Copernicus](https://en.wikipedia.org/wiki/Nicolaus_Copernicus)'s notion that we're not at the center of the universe. Before and after Copernicus, computing planetary positions with [Ptolemy](https://en.wikipedia.org/wiki/Ptolemy)'s epicycles was and is adequate for most situations, albeit not as accurate. So, we care about paradigm shifts because they usually bring forth more accuracy to our understanding.
 
@@ -112,20 +118,20 @@ He explains that there are mutually exclusive bounds of possibilities in the way
 
 
 ## Steven Pinker
-Steven Pinker first gained my attention when I encountered his book [The Language Instinct](https://en.wikipedia.org/wiki/The_Language_Instinct) during the mid-1990s. Chomsky's name caught my eye as I perused the back cover, having already delved into his linguistics works. Like many others, I found Pinker's writing style to be approachable and enjoyable.
+Steven Pinker first gained my attention when I encountered his book [The Language Instinct](https://en.wikipedia.org/wiki/The_Language_Instinct) during the mid-1990s. Chomsky's name caught my eye as I perused the back cover, having already delved into some of his linguistics works. Like others, I found Pinker's writing style to be very approachable and enjoyable.
 
-Pinker has a knack for making scientific concepts engaging and memorable, which has aided in solidifying understanding, particularly in linguistics and broader scientific topics. Similar to Chomsky, Pinker equips readers with tools to defend their beliefs using reason.
+Pinker has a knack for making scientific concepts engaging and memorable, and personally it has helped me solidify my understanding of linguistics and other cognitive fields. Similar to Chomsky, Pinker equips readers with tools to defend their beliefs using reason.
 
 Despite being published in the late 1990s, Pinker's [How the Mind Works](https://en.wikipedia.org/wiki/How_the_Mind_Works) remains a standout comprehensive volume on how evolution has shaped human cognition. Described by The New York Review of Books as "a model of scientific writing: erudite, witty, and clear," Pinker's work continues to receive acclaim.
 
 I could dedicate an entire book to reviewing Pinker's extensive body of work. He serves as my primary reference in the field of psychology.
 
-In 2011 he wrote [The Better Angels of Our Nature](https://en.wikipedia.org/wiki/The_Better_Angels_of_Our_Nature), in which he meticulously documents and shows how much progress humanity has made as a species. Admitting that there's obviously a lot more to be done, the point was that progress is being made gradually, and that the trends could be reversed if we let things slip. But the truly incredible thing about this book is how many intelligent folks still (it's 2023) **refuse** to accept the obvious evidence.
+In 2011 he wrote [The Better Angels of Our Nature](https://en.wikipedia.org/wiki/The_Better_Angels_of_Our_Nature), in which he meticulously documents and shows how much progress humanity has made as a species. Admitting that there's obviously a lot more to be done, the point is that progress is being made gradually, and that the trends could be reversed if we let things slip. But the truly incredible thing about this book is how many folks still (it's 2023) **refuse** to accept the obvious evidence.
 
 Bill Gates aptly lauded Pinker's [Enlightenment Now: The Case for Reason, Science, Humanism, and Progress](https://en.wikipedia.org/wiki/Enlightenment_Now) declaring it his "new favorite book of all time."
 
 While I admire Pinker's insights, there are some aspects of his views that I find a bit challenging to reconcile. His recognition of the positive impact of capitalism and market economies, for instance, definitely shifted my earlier perspective on the subject, although I don't fully share his loftier regard for it.
 
-Additionally, I've observed a tendency in Pinker's writing, notably in "Enlightenment Now," to overlook certain underlying motives in human behavior. For example, his discussion of weapons of mass destruction as a rationale for the Iraq War fails to acknowledge potential profit-driven agendas behind such conflicts. Similarly, his analysis of Y2K paranoia attributes it solely to human biases, neglecting the role of profit motives in stoking fear.
+Additionally, I've observed a tendency in Pinker's writing, notably in "Enlightenment Now," to overlook certain underlying motives in human behavior. For example, his discussion of weapons of mass destruction as a rationale for the Iraq War fails to acknowledge potential profit-driven agendas behind such conflicts. Similarly, his analysis of Y2K paranoia attributes it solely to human biases, which seems to disregard the role of profit motives in stoking fear.
 
 In [Rationality](https://en.wikipedia.org/wiki/Rationality_(book)) he lays down the incontrovertible reasons why rationality is really important to humanity, and how it is the essential driver of moral and social progress.
