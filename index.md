@@ -1,4 +1,4 @@
-Quick and useful tips and suggestions.
+Quick and useful tips.
 
 <html lang="en">
 <head>
@@ -65,5 +65,7 @@ Quick and useful tips and suggestions.
 </body>
 
 </html>
-
-These pages are dedicated to the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) and everyone who cherishes the pursuit of reason, science, humanism, and progress. For feedback and/or suggestions write to <7fqdora6@duck.com>
+<br>
+These pages are dedicated to the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) and everyone who cherishes the pursuit of reason, science, humanism, and progress.<br>
+<br>
+For feedback and/or suggestions write to <7fqdora6@duck.com>
