@@ -65,7 +65,9 @@ Quick and useful tips.
 </body>
 
 </html>
+
 <br>
 These pages are dedicated to the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) and everyone who cherishes the pursuit of reason, science, humanism, and progress.<br>
+
 <br>
 For feedback and/or suggestions write to <7fqdora6@duck.com>
