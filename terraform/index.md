@@ -3,6 +3,8 @@ Tips on [Hashicorp Terraform](https://www.terraform.io/).
 
 It is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
 
+Side note
+
 
 ## Module Definitions
 1. A Terraform module is a container for multiple resources that are used together, allowing for reuse, simplification, and management of Terraform configurations.
@@ -231,7 +233,6 @@ It's wise to limit and isolate the scope and roles of the security context under
 ## Single vs Multi-states
 At some point you'll need to decide whether you will only have a single state file (local or remote). A single state file works fine for very small setups, but can quickly become cumbersome for larger infrastructure. Particularly if there are many different teams submitting changes to an environment and the state gets locked while each change is being applied. That is when having multiple states or workspaces will come in handy. It gives an organization more flexibility by allowing changes to be independently deployed without locking their separate workflows.
 
-
 ## Mono vs Multi-repo
 When working with Terraform there will come a point where you will need to decide whether to use a mono-repo versus a multi-repo _IaC_ structure for your source code repository. The common analogy is the monolithic project type as opposed to the micro-services project design. There's no right or wrong in this. The answer will depend on different factors, such as how tightly-coupled your project and the development and operation teams are.
 
@@ -324,3 +325,6 @@ module "azure_dns_zones" {
 
 # Other modules can be defined below to manage other resources with their respective separate module
 ```
+
+## See also
+* [The Problem with Infrastructure-as-Code](problem-with-iac.md)
