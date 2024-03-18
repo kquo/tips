@@ -20,16 +20,17 @@ replace github.com/git719/utl => /Users/myuser/mycode/utl
 ```
 
 ## Common Build Errors
-When you get:
+1. If you get:
 ```bash
 $ go build
 go: go.mod file not found in current directory or any parent directory; see 'go help modules'
 ```
-Do this
+Try this
 ```
 go mod init <package_name>   # For example, this would be 'zls' for github.com/git719/zls
 go mod tidy
 ```
+2. If you get incompatible modules, try `go clean -modcache`
 
 
 ## Install Go
