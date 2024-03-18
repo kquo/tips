@@ -13,13 +13,13 @@ You can do this by modifying the `go.mod` file as follows:
 
 ```bash
 require (
-    github.com/git719/utl v1.1.11
+    github.com/queone/utl v1.0.0
 )
 
-replace github.com/git719/utl => /Users/myuser/mycode/utl
+replace github.com/queone/utl => /Users/myuser/mycode/utl
 ```
 
-## Common Build Errors
+## Build Issues
 1. If you get:
 ```bash
 $ go build
@@ -31,7 +31,12 @@ go mod init <package_name>   # For example, this would be 'zls' for github.com/g
 go mod tidy
 ```
 2. If you get incompatible modules, try `go clean -modcache`
-
+3. You may also want to install `staticcheck` and run:
+```
+go vet ./...
+staticcheck ./...
+```
+This will check for common code issues.
 
 ## Install Go
 Use the [`install-golang.sh`](https://github.com/git719/tools/blob/main/bash/install-golang.sh) BASH script
