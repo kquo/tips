@@ -492,3 +492,13 @@ CHECK EXISTING   system_profiler SPInstallHistoryDataType | grep -A5 MRTConfigDa
 SPECIFIC         softwareupdate -i MRTConfigData_10_14-1.45 --include-config-data
 ALL              softwareupdate -ia --include-config-data
 ```
+
+## DVD Copying
+```
+Insert DVD
+diskutil list                                                 # To identify disk =  /dev/disk4
+diskutil unmountDisk /dev/disk4                               # Unmount
+sudo dd if=/dev/disk4 of=dvd_1.iso bs=2048 status=progress    # Record DVD into dvd_1.iso
+diskutil eject /dev/disk4                                     # Eject disk
+```
+
