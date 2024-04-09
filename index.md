@@ -55,8 +55,12 @@ Quick and useful tips.
 
 <tr>
 <td> <a href="streaming/">streaming</a> </td>
+<td> <a href="surveillance/">surveillance</a> </td>
 <td> <a href="terraform/">terraform</a> </td>
 <td> <a href="thinking/">thinking</a> </td>
+</tr>
+
+<tr>
 <td> <a href="twitter/">twitter</a> </td>
 </tr>
 
