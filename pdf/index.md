@@ -16,9 +16,10 @@ where 72 is the target DPI.
 Best option is to use `pdfunite`, from `brew install poppler` which also installs other useful PDF tools:
 
 ```
-pdfunit one.pdf sub/*.pdf merged.pdf
+pdfunite another.pdf subdir/others_0*.pdf new_target.pdf
 ```
+- Above will create a new PDF called `new_target.pdf` with the total content of `another.pdf` and all the individual PDFs under `subdir/` named as such.
 
-- **References**:
-  - <https://apple.stackexchange.com/questions/230437/how-can-i-combine-multiple-pdfs-using-the-command-line>
-  - <https://www.mankier.com/package/poppler-utils>
+## References
+- <https://apple.stackexchange.com/questions/230437/how-can-i-combine-multiple-pdfs-using-the-command-line>
+- <https://www.mankier.com/package/poppler-utils>
