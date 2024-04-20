@@ -135,3 +135,12 @@ While I admire Pinker's insights, there are some aspects of his views that I fin
 Additionally, I've observed a tendency in Pinker's writing, notably in "Enlightenment Now," to overlook certain underlying motives in human behavior. For example, his discussion of weapons of mass destruction as a rationale for the Iraq War fails to acknowledge potential profit-driven agendas behind such conflicts. Similarly, his analysis of Y2K paranoia attributes it solely to human biases, which seems to disregard the role of profit motives in stoking fear.
 
 In [Rationality](https://en.wikipedia.org/wiki/Rationality_(book)) he lays down the incontrovertible reasons why rationality is really important to humanity, and how it is the essential driver of moral and social progress.
+
+
+## Daniel Dennett
+"One of the surprising discoveries of modern psychology is how easy it is to be ignorant of your own ignorance."
+
+Daniel Dennett passed on yesterday, April 20th, 2024, which, in the universe's irony, was also the same day that Charles Darwin also passed on in 1882. Dennet was a brilliant philosopher, and I loved his "intuition pumps" to help you think more clearly about certain issues. I also like that as a philosopher he respected science and engineering.
+
+Dennett, in his book [Darwin’s Dangerous Idea](https://en.wikipedia.org/wiki/Darwin%27s_Dangerous_Idea) explains that natural selection unified the world of mechanism/material/physical and the world of meaning/purpose/goals which, until Darwin, seemed to be unbridgeable. He believed that Darwin’s idea was perhaps the greatest idea ever.
+ 
