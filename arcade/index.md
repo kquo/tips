@@ -24,19 +24,18 @@ To set up MAME, do the following:
 [GroovyArcade](http://wiki.arcadecontrols.com/index.php/GroovyArcade) is an all-in-one OS based on Arch Linux aiming perfect [MAME](https://en.wikipedia.org/wiki/MAME) emulation on CRT screens. It can be installed from the LiveCD onto the hard drive, or booted from a USB flash drive. To set up GroovyArcade do the following:
 
 * Download and create the GroovyArcade USB installer
-* Check for latest release at <https://github.com/substring/os>.
-* As of this writing it was <https://github.com/substring/os/releases/download/2022.01/groovyarcade-2022.01-x86_64.iso.xz>.
+* Check for latest release at <https://github.com/substring/os/releases>.
 * Download above ISO using `curl -LO` (see below).
 * You will need an empty USB drive of 8GB or more in size.
 * Create the USB using below instructions, which are for macOS, and therefor require the ISO be converted to DMG format: 
 
 ```
-curl -LO https://github.com/substring/os/releases/download/2022.01/groovyarcade-2022.01-x86_64.iso.xz
-xz -d groovyarcade-2022.01-x86_64.iso.xz
-hdiutil convert groovyarcade-2022.01-x86_64.iso -format UDRW -o groovyarcade-2022.01-x86_64
+curl -LO https://github.com/substring/os/releases/download/2023.11/groovyarcade-2023.11-x86_64.iso.xz
+xz -d groovyarcade-2023.11-x86_64.iso.xz
+hdiutil convert groovyarcade-2023.11-x86_64.iso -format UDRW -o groovyarcade-2023.11-x86_64
 diskutil list 
 diskutil unmountDisk /dev/disk4
-sudo dd status=progress bs=1m if=groovyarcade-2022.01-x86_64.dmg of=/dev/rdisk4
+sudo dd status=progress bs=1m if=groovyarcade-2023.11-x86_64.dmg of=/dev/rdisk4
 diskutil unmountDisk /dev/disk4
 ```
 
