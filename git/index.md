@@ -80,11 +80,19 @@ git remote set-url --add origin https://github.com/user/repo3   # Add another or
 ```
 
 
-## Squash or Clump Commits
+## Squash Commits
+Squash or clump commits by moving to a new branch:
+
 ```
-git rebase -i HEAD~<number-of-previous-commits>
-  eg: git rebase -i HEAD~15
-When vi comes up, change all leading 'pick' entries to 'squash', EXCEPT for the top one
+   git checkout OLD_BRANCH
+   git diff main > ../changes.diff
+   git checkout main
+   git pull
+   git checkout -b NEW_BRANCH
+   git apply ../changes.diff
+   git commit -m "Squashed OLD_BRANCH changes"
+   git push
+   # Delete OLD_BRANCH locally and remotely
 ```
 
 
