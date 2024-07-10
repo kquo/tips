@@ -318,8 +318,8 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
             - name: azure_oidc_login
               uses: azure/login@v1
               with:
-                client-id: $ {{ secrets.CLIENT_ID }}
-                tenant-id: $ {{ secrets.TENANT_ID }}
+                client-id: ${{secrets.CLIENT_ID}}
+                tenant-id: ${{secrets.TENANT_ID}}
                 allow-no-subscriptions: true
             - name: capture_azure_tokens
               run: |
@@ -332,7 +332,7 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
                 curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${AZ_TOKEN}" -X GET "https://management.azure.com/subscriptions?api-version=2022-12-01" | jq
             - name: some_other_step
               run: |
-                curl -sH "Content-Type: application/json" -H "Authorization: Bearer $ {{ env.MG_TOKEN }}" -X GET "https://graph.microsoft.com/v1.0/users" | jq
+                curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${{env.MG_TOKEN}}" -X GET "https://graph.microsoft.com/v1.0/users" | jq
     ```
     - Using PowerShell above 2 sample steps would become:
     ```yaml
