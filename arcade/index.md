@@ -62,9 +62,11 @@ To have AttractMode re-read the ROMs directory after you update the list of game
 To update GroovyArcade, including OS, MAME, etc., via CLI shell, do: 
 
 ```
-sudo pacman -Syu                     # But it seems to fail .. so then do ..
-sudo pacman -S archlinux-keyring
 sudo pacman -Syu
+
+# If you get signature errors do ...
+pacman-key --init
+pacman-key --populate archlinux
 ```
 
 To configure GroovyArcade for a vertical monitor, press ESCAPE from Attrach-Mode then exit into the GroovyArcade UI. There you will find configuration options to do that.
