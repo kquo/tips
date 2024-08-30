@@ -41,14 +41,15 @@ This will check for common code issues.
 ## Install Go
 Use the [`install-golang.sh`](https://github.com/git719/tools/blob/main/bash/install-golang.sh) BASH script
 
-1. `curl -LO https://raw.githubusercontent.com/git719/tools/main/bash/install-golang.sh`
-2. Edit the script and change the line `GOVER="1.21.1"` to the version you want
-3. `./install-golang.sh`
-4. It tries to install at `$HOME/go`, so if you have a previous version you'll need to first back it up
-5. Finally, set `GOPATH` variable to `~/go`; add it in your `PATH`; and also add `$GOPATH/bin` to it
+1. `curl -LO https://raw.githubusercontent.com/git719/tools/main/bash/install-golang.sh` to download the script
+2. `./install-golang.sh 1.22.0` to install GoLang version `1.22.0`
+3. Above tries to install at `$HOME/go`, so if you have a previous version there you will first need to back that up
+4. Finally, set `GOPATH` variable to `~/go`; add it in your `PATH`; and also add `$GOPATH/bin` to it
 
-This script can install Go on Windows within a GitBASH shell, or macos, or Linux Redhat (For RHEL `shasum` command is in package `perl-Digest-SHA``)
-
+This script can be used to install Go on:
+  - Within a Windows GitBASH shell
+  - On macOS, or
+  - On Linux Redhat (Note that RHEL `shasum` command is in package `perl-Digest-SHA`)
 
 ## Reduce Binary Executable Size
 To reduce binary executable sizes:
