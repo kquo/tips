@@ -1,78 +1,156 @@
 # Arcade
-Nowadays there are many ways to play the old-style, coin-operated video arcade games:
+Tips on playing the old-style coin-operated video arcade games. You can buy the actual old game cabinets from eBay and other places. Or you can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legally own. Or you can build you own game cabinet, with a small dedicated computer running running MAME.
 
-- You can buy the actual old game cabinets from eBay and other places.
-- You can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legitimately own.
-- You can set up a small form-factor PC with [GroovyArcade](http://wiki.arcadecontrols.com/index.php/GroovyArcade) as a dedicated arcade machine, again using ROMs you own.
+## MAME on Your Desktop
+MAME originally stood for Multiple Arcade Machine Emulator, but nowadays it means much more than that. As its website states: 
 
-The rest of these tips are general notes on setting up either or the last two.
-
-
-## MAME
-MAME originally stood for Multiple Arcade Machine Emulator, but nowadays it means much more than that. Now it is a project to preserve the code that ran on those old machines. My all time personal favorites video arcade games are: Williams **Stargate** Defender, **Mrs. Pacman**, **Galaga**, and **1942**. More information on these games ROMs can be found at <https://edgeemu.net/browse-mame-num.htm>.
+    MAME is a hardware emulator: it faithfully reproduces the behavior of many
+    arcade machines (it is not a simulation). This program is not a game but can
+    directly, through ROM images, run the complete system of these old arcade
+    machines. These ROMs are subject to copyright and it is in most of the cases
+    illegal to use them if you do not own the arcade machine.
 
 To set up MAME, do the following:
-- Install the latest MAME binary using your OS package installer. On macOS you can just do `brew install mame`.
-- Copy the ROM zip files into the `~/.mame/roms/` directory and `cd` to it.
+- Install the latest MAME binary using your OS package installer. On macOS you can just do `brew install mame`
+- Copy the ROM zip files into the `~/.mame/roms/` directory
 - Run any specific game from the CLI with `mame stargate`
+- Install [`manu`](https://github.com/git719/manu), a small Go util that reas above roms directory and prompts for what game to run 
 
 **MAME References**:
 - <https://docs.mamedev.org/index.html>
 
 
-## GroovyArcade
-[GroovyArcade](http://wiki.arcadecontrols.com/index.php/GroovyArcade) is an all-in-one OS based on Arch Linux aiming perfect [MAME](https://en.wikipedia.org/wiki/MAME) emulation on CRT screens. It can be installed from the LiveCD onto the hard drive, or booted from a USB flash drive. To set up GroovyArcade do the following:
+## MAME on Ubuntu 24.10 on a Raspberry Pi 5 
 
-* Download and create the GroovyArcade USB installer
-* Check for latest release at <https://github.com/substring/os/releases>.
-* Download above ISO using `curl -LO` (see below).
-* You will need an empty USB drive of 8GB or more in size.
-* Create the USB using below instructions, which are for macOS, and therefor require the ISO be converted to DMG format: 
+**Requirements:** 
 
-```
-curl -LO https://github.com/substring/os/releases/download/2023.11/groovyarcade-2023.11-x86_64.iso.xz
-xz -d groovyarcade-2023.11-x86_64.iso.xz
-hdiutil convert groovyarcade-2023.11-x86_64.iso -format UDRW -o groovyarcade-2023.11-x86_64
-diskutil list 
-diskutil unmountDisk /dev/disk4
-sudo dd status=progress bs=1m if=groovyarcade-2023.11-x86_64.dmg of=/dev/rdisk4
-diskutil unmountDisk /dev/disk4
-```
+a. Set up your Raspberry Pi 5 hardware as you wish
+b. These tips assume the Pi5 with 8GB of RAM, with an M.2 HAT with an NVMe SSD
+c. All this is done from an Apple Mac
+d. You need a USB drive/stick of at least 16GB in size
 
-- Now remove USB from your Mac, and [follow the installation instructions](http://wiki.arcadecontrols.com/index.php/Groovy_Arcade_Installation_Guide).
+**Basic setup:** 
+    
+    Insert the USB driver on your Mac
+    brew install raspberry-pi-imager
+    Run the Imager and burn the latest Ubuntu Desktop 24.10 image
+    Once done, insert on your Pi5 and install Ubuntu on the NVMe drive. (May need more details here).
 
-In short, you'll need to:
+**Additional configurations and settings follow below:** 
 
-- Ensure that the target system allows booting off of a USB drive.
-- Insert USB into target system and follow wiki instructions above.
-- Once Groovy Arcade is up and running, the primary frontend display is always available via virtual console 1 **(CTRL+ALT+1)**
-- And **CTRL+ALT+7** will always shows current system logs.
-- You can also switch to console mode display via **CTRL+ALT+2**, and login with username `arcade` and the password `arcade`.
-- You can then copy your ROM files to the `/home/roms/MAME/roms/` directory, and do other types of configurations. 
+1. Adjust CLI Console Character size: 
+    sudo mount -o remount,rw /boot/firmware
+    sudo vi /boot/firmware/cmdline.txt
+    Remove the 'quiet splash' at the end, and add 'video=800x600' or 1024x768 ; 1280x720 ; 1920x1080
+    sudo vi /boot/firmware/config.txt
+    Add below
+    hdmi_group=2
+    hdmi_mode=16  # 9=800x600 ; 16=1024x768 ; 4=1280x720 ; 82=1920x1080
+    dtparam=pciex1_gen=2
 
-GroovyArcade allows the use of multiple different frontends to manage MAME. I prefer to use the **Attract-Mode** frontend. It seems easier to follow visually, and allows simple configuration via the TAB key.
+If necessary, you can make further adjustments via `dpkg-reconfigure` utility: 
 
-To have AttractMode re-read the ROMs directory after you update the list of games, do the following: 
-- See <https://gitlab.com/groovyarcade/support/-/wikis/3-Post-Installation-and-Maintenance/3.3-Adding-MAME-ROMs>
-- Pressing TAB from Attract-Mode default screen
-- Select "Emulators"
-- Then "Generate Collection/Rom List" to have Attract-Mode create the new index of ROM games.
-- To setup EXIT button; using keyboard hit TAB within MAME, then general configuration, then press ENTER and hold on "UI Cancel" option
+    sudo apt install console-setup kbd   # To optionally install addtional Font Sizes
+    sudo dpkg-reconfigure console-setup
+    Select Terminus (default is VGA)
+    Select Font Size 16x32 or whatever
 
-To update GroovyArcade, including OS, MAME, etc., via CLI shell, do: 
+2. Setup SSH: 
 
-```
-sudo pacman -Syu
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
 
-# If you get signature errors do ...
-pacman-key --init
-pacman-key --populate archlinux
-```
+3. Updated Boot Order: 
 
-To configure GroovyArcade for a vertical monitor, press ESCAPE from Attrach-Mode then exit into the GroovyArcade UI. There you will find configuration options to do that.
+    sudo apt update
+    sudo apt install -y rpi-eeprom
+    sudo rpi-eeprom-config
+    sudo EDITOR=vi rpi-eeprom-config --edit
+    Set BOOT_ORDER=0x6 to only boot off NVMe or 0x4 to only boot off USB
+    (Trying to set it to conditionally boot off USB is a nightmare)
+    sudo reboot
+
+4. Disable desktop: 
+
+    sudo systemctl set-default multi-user.target
+    sudo reboot
+    sudo systemctl start graphical.target        # To manually start the Graphical Desktop
+    sudo systemctl set-default graphical.target  # To re-enable Graphical Desktop
+
+5. Auto-login setup. To set default user for automatic login, edit the getty service: 
+
+    sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
+    sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf
+    Add:
+    [Service]
+    ExecStart=
+    ExecStart=-/sbin/agetty --autologin <USERNAME> --noclear %I $TERM
+    sudo systemctl daemon-reload
+    sudo systemctl restart getty@tty1.service
+    sudo reboot
+
+6. Issues
+If keyboard does not respond, you can try `sudo usermod -a -G input $USER` it's not a permission issue with current user.
+
+### Set New Hostname
+
+    sudo hostnamectl set-hostname <new-hostname>
+    sudo vi /etc/hosts  # Change it here too
+    sudo reboot
+
+### Ensure Sound is Working
+
+Plug a USB-to-3.5mm audio connector to the Raspberry Pi 5 and connect that to your speakers. Test sound system with below steps: 
+
+    sudo apt update
+    sudo apt install --reinstall pipewire pipewire-pulse wireplumber pipewire-audio-client-libraries
+    sudo apt install --reinstall libspa-0.2-bluetooth
+    pactl info | grep "Server Name"
+    pactl list short sinks
+    aplay /usr/share/sounds/alsa/Front_Center.wav  # To test speaker
+
+### Compile MAME
+
+You can also compile MAME yourself, which allows you to select only the machines you are interested in. Follow below instructions to do so on the Raspberry Pi 5 running Ubuntu:  
+
+    sudo apt update
+    sudo apt install build-essential libsdl2-dev libfontconfig1-dev libpulse-dev \
+        qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5opengl5-dev \
+        libasound2-dev libxinerama-dev libxi-dev libgl1-mesa-dev python3
+    sudo apt install libsdl2-ttf-dev
+
+    git clone https://github.com/mamedev/mame.git
+    cd mame
+
+    make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
+
+    Confirm version and list of supported games
+    ./mame -version
+    ./mame -listfull
+
+### Boot into manu Binary
+
+Boot into default `manu` Game Menu binary - See <https://github.com/git719/manu>
 
 To configure MAME with a specific USB controller, you'll need configure within MAME itself, by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
 
-**GroovyArcade References**:
-- <https://gitlab.com/groovyarcade/support/-/wikis/home>
+
+## Creating USB Installers
+
+* Download the desired ISO using `curl -LO` (see below).
+* You will need an empty USB drive of 16GB or more in size.
+* Create the USB using below instructions, which are for macOS, and therefore require the ISO be converted to DMG format: 
+
+    curl -LO https://github.com/substring/os/releases/download/2023.11/groovyarcade-2023.11-x86_64.iso.xz
+    xz -d groovyarcade-2023.11-x86_64.iso.xz
+    hdiutil convert groovyarcade-2023.11-x86_64.iso -format UDRW -o groovyarcade-2023.11-x86_64
+    diskutil list 
+    diskutil unmountDisk /dev/disk4
+    sudo dd status=progress bs=1m if=groovyarcade-2023.11-x86_64.dmg of=/dev/rdisk4
+    diskutil unmountDisk /dev/disk4
+
+- Now remove USB from your Mac, and in short, you'll need to:
+
+- Ensure that the target system allows booting off of a USB drive
+- Insert USB into target system and follow the OS installation instructions
 
