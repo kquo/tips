@@ -3,10 +3,9 @@ macOS tips.
 
 
 ## Homebrew
-1. Installation: Follow instructions at <https://brew.sh/>
-2. Install the usual suspects:
-    `brew install coreutils iterm2 keepassxc vscodium duckduckgo fd jq git`
-3. Common usage:
+1. Install
+   - Follow instructions at <https://brew.sh/>
+2. Common usage
     ```
     brew cleanup -ns                    # See what you'd be cleaning up 
     brew cleanup -s                     # Clean it all up, including cache
@@ -16,7 +15,7 @@ macOS tips.
     brew list                           # List all install packages
     brew deps --tree --installed        # List all with deps
    ```
-4. Uninstalling:
+3. Uninstall
    **Review link before running**!:
    `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"`
 
@@ -29,21 +28,13 @@ macOS tips.
     sudo scutil --set ComputerName <new_name>
     dscacheutil -flushcache`
     ```
-- Install Homebrew
-- iTerm2: Use the saved preferences under `~/data/etc/iTerm2/`
-- KeePassXC:
-    - Important, ensure KeePassXC is **NOT** running on both
-    - On SRC: `cd && data/etc/bakup_kpxc 1`
-    - On DST: `cd && data/etc/bakup_kpxc 2`
+- Install Homebrew and the usual suspects
+    `brew install iterm2 coreutils fd jq git vscodium duckduckgo imagemagick appcleaner ffmpeg dos2unix pwgen nmap iperf3 gnutls python go`
+- iTerm2
+    - Use the saved preferences under `~/data/etc/term/`
 - VSCodium
-    - On SRC: `cd && tar czf codium.tar.gz Library/Application\ Support/VSCodium`
-    - Copy `codium.tar.gz` to `$HOME`
-    - On DST: `cd && tar xzf codium.tar.gz`
-- Install others: 
-    ```
-    brew install ffmpeg dos2unix pwgen nmap iperf3 gnutls python go
-    brew install imagemagick appcleaner kindle youtube-dl
-    ```
+    - On SRC: `cd && tar czf data/codium.tar.gz --exclude='*.sock' Library/Application\ Support/VSCodium`
+    - On DST: `cd && tar xzf data/codium.tar.gz`
 - Switch to BASH: `chsh -s /bin/bash`
 - Update screencapture behaviour: `./tools/macos/screencapture`
 
