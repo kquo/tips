@@ -4,7 +4,7 @@ macOS tips.
 
 ## Homebrew
 1. Install
-   - Follow instructions at <https://brew.sh/>
+    - Follow instructions at <https://brew.sh/>
 2. Common usage
     ```
     brew cleanup -ns                    # See what you'd be cleaning up 
@@ -16,8 +16,8 @@ macOS tips.
     brew deps --tree --installed        # List all with deps
    ```
 3. Uninstall
-   **Review link before running**!:
-   `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"`
+    - **Review link before running**!:
+    - `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"`
 
 
 ## Mac Migration
@@ -29,7 +29,7 @@ macOS tips.
     dscacheutil -flushcache`
     ```
 - Install Homebrew and the usual suspects
-    `brew install iterm2 coreutils fd jq git vscodium duckduckgo imagemagick appcleaner ffmpeg dos2unix pwgen nmap iperf3 gnutls python go`
+    - `brew install iterm2 coreutils fd jq git vscodium duckduckgo imagemagick appcleaner ffmpeg dos2unix pwgen nmap iperf3 gnutls python go tree`
 - iTerm2
     - Use the saved preferences under `~/data/etc/term/`
 - VSCodium
