@@ -14,38 +14,38 @@ While refactoring and troubleshooting code it is sometimes necessary to point to
 
 You can do this by modifying the `go.mod` file as follows: 
 
-    ```bash
-    require (
-        github.com/queone/utl v1.0.0
-    )
+```bash
+require (
+    github.com/queone/utl v1.0.0
+)
 
-    replace github.com/queone/utl => /Users/myuser/mycode/utl
-    ```
+replace github.com/queone/utl => /Users/myuser/mycode/utl
+```
 
 
 ## Build Issues
 
 1. If you get: 
 
-    ```bash
-    $ go build
-    go: go.mod file not found in current directory or any parent directory; see 'go help modules'
-    ```
+```bash
+$ go build
+go: go.mod file not found in current directory or any parent directory; see 'go help modules'
+```
 
 Try this 
 
-    ```bash
-    go mod init <package_name>   # For example, this would be 'zls' for github.com/git719/zls
-    go mod tidy
-    ```
+```bash
+go mod init <package_name>   # For example, this would be 'zls' for github.com/git719/zls
+go mod tidy
+```
 
 2. If you get incompatible modules, try `go clean -modcache`
 3. You may also want to install `staticcheck` and run: 
 
-    ```bash
-    go vet ./...
-    staticcheck ./...
-    ```
+```bash
+go vet ./...
+staticcheck ./...
+```
 
 This will check for common code issues.
 
@@ -75,7 +75,7 @@ for _, i := range someList {
     
     // Skip processing if this resourceId is already in the set
     if _, seen := uniqueIds[resourceId]; seen {
-        fmt.Printf("Id %s has already been see.\n", resourceId)
+        fmt.Printf("Id %s has already been seen.\n", resourceId)
         continue
     }
 
@@ -106,96 +106,96 @@ To reduce binary executable sizes:
 1. Always compile with `-ldflags "-s -w"`
 2. And use UPX: 
 
-    ```bash
-    brew install upx
-    upx -9 <binary>
-    ```
+```bash
+brew install upx
+upx -9 <binary>
+```
 
 
 ## Useful Code Snippets
 
 - Check if field exists in given struct 
 
-    ```go
-    func FieldInStruct(Field string, Struct interface{}) bool {
-        val := reflect.ValueOf(Struct)
-        for i := 1; i < val.Type().NumField(); i++ {
-            if val.Type().Field(i).Name == Field {
-                return true
-            }
+```go
+func FieldInStruct(Field string, Struct interface{}) bool {
+    val := reflect.ValueOf(Struct)
+    for i := 1; i < val.Type().NumField(); i++ {
+        if val.Type().Field(i).Name == Field {
+            return true
         }
-        return false
     }
-    ```
+    return false
+}
+```
 
 - Return list of JSON objects in local data file 
 
-    ```go
-    func GetListFromLocalFile(storeFile string) interface{} {
-        localFile := filepath.Join(progConfDir, storeFile)  // Note progConfDir is global
-        JSONData, err := ioutil.ReadFile(localFile)
-        if err != nil {
-            panic(err)
-        }
-
-        switch storeFile {
-        case InstanceDataFile:                     // Return list of instance records
-            var list []InstanceType
-            err = json.Unmarshal(JSONData, &list)
-            if err != nil { panic(err) }
-            return list
-        case DNSDataFile:                          // Return list of DNS records
-            var list []ResourceRecordSetType
-            err = json.Unmarshal(JSONData, &list)
-            if err != nil { panic(err) }
-            return list
-        case ELBDatafile:                          // Return list of ELB records
-            var list []LoadBalancerDescriptionType
-            err = json.Unmarshal(JSONData, &list)
-            if err != nil { panic(err) }
-            return list
-        case ZoneDataFile:                         // Return list of zone records
-            var list []HostedZoneType
-            err = json.Unmarshal(JSONData, &list)
-            if err != nil { panic(err) }
-            return list
-        case StackDataFile:                        // Return list of stack records
-            var list []StackType
-            err = json.Unmarshal(JSONData, &list)
-            if err != nil { panic(err) }
-            return list
-        default:                                   // Return list of generic JSON records
-            var list interface{}
-            err = json.Unmarshal(JSONData, &list)
-            if err != nil { panic(err) }
-            return list
-        }
+```go
+func GetListFromLocalFile(storeFile string) interface{} {
+    localFile := filepath.Join(progConfDir, storeFile)  // Note progConfDir is global
+    JSONData, err := ioutil.ReadFile(localFile)
+    if err != nil {
+        panic(err)
     }
-    ```
+
+    switch storeFile {
+    case InstanceDataFile:                     // Return list of instance records
+        var list []InstanceType
+        err = json.Unmarshal(JSONData, &list)
+        if err != nil { panic(err) }
+        return list
+    case DNSDataFile:                          // Return list of DNS records
+        var list []ResourceRecordSetType
+        err = json.Unmarshal(JSONData, &list)
+        if err != nil { panic(err) }
+        return list
+    case ELBDatafile:                          // Return list of ELB records
+        var list []LoadBalancerDescriptionType
+        err = json.Unmarshal(JSONData, &list)
+        if err != nil { panic(err) }
+        return list
+    case ZoneDataFile:                         // Return list of zone records
+        var list []HostedZoneType
+        err = json.Unmarshal(JSONData, &list)
+        if err != nil { panic(err) }
+        return list
+    case StackDataFile:                        // Return list of stack records
+        var list []StackType
+        err = json.Unmarshal(JSONData, &list)
+        if err != nil { panic(err) }
+        return list
+    default:                                   // Return list of generic JSON records
+        var list interface{}
+        err = json.Unmarshal(JSONData, &list)
+        if err != nil { panic(err) }
+        return list
+    }
+}
+```
 
 
 ## Common Makefile
 
 Makefiles are usually not needed with Go, but if you must, this one for macOS and Linux will build target binaries for multiple OSes. 
 
-    ```makefile
-    # Makefile
-    # Assumes GOPATH is already set up properly, e.g., $HOME/go
+```makefile
+# Makefile
+# Assumes GOPATH is already set up properly, e.g., $HOME/go
 
-    default:
-    GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o build/macos/awsinfo
-    all:
-    rm -rf build
-    mkdir -p build/{macos,centos,windows}
-    go get -u github.com/aws/aws-sdk-go/...
-    go get -u github.com/vaughan0/go-ini
-    GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o build/macos/awsinfo
-    GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o build/centos/awsinfo
-    GOOS=windows GOARCH=amd64 go build -ldflags "-s -w" -o build/windows/awsinfo.exe
+default:
+GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o build/macos/awsinfo
+all:
+rm -rf build
+mkdir -p build/{macos,centos,windows}
+go get -u github.com/aws/aws-sdk-go/...
+go get -u github.com/vaughan0/go-ini
+GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o build/macos/awsinfo
+GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o build/centos/awsinfo
+GOOS=windows GOARCH=amd64 go build -ldflags "-s -w" -o build/windows/awsinfo.exe
 
-    # Modify below target to where you keep your binaries
-    install:
-    cp build/macos/awsinfo $(HOME)/data/bin
-    clean:
-    rm -rf build
-    ```
+# Modify below target to where you keep your binaries
+install:
+cp build/macos/awsinfo $(HOME)/data/bin
+clean:
+rm -rf build
+```
