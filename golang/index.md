@@ -3,10 +3,13 @@ Useful GoLang tips.
 
 
 ## References
+
 - Useful examples = <https://gobyexample.com/>
 - Static analysis = <https://github.com/analysis-tools-dev/static-analysis#go>
 
+
 ## Point to Local
+
 While refactoring and troubleshooting code it is sometimes necessary to point to the local version of a package.
 
 You can do this by modifying the `go.mod` file as follows:
@@ -19,7 +22,9 @@ require (
 replace github.com/queone/utl => /Users/myuser/mycode/utl
 ```
 
+
 ## Build Issues
+
 1. If you get:
 ```bash
 $ go build
@@ -38,7 +43,46 @@ staticcheck ./...
 ```
 This will check for common code issues.
 
+
+## Using `struct{}` for Efficient Maps
+
+In Go, you can optimize memory usage when you need a "set" data structure by using a map where the keys represent the elements of the set, and the value is of type `struct{}`.
+
+Why?
+
+- **Zero Memory Overhead**: `struct{}` is an empty struct type in Go, and it occupies **0 bytes of memory**.
+- **Efficiency**: By using `struct{}` as the map value, you avoid unnecessary memory consumption compared to using `bool` or other types.
+- **Simplicity**: This approach naturally creates a set-like behavior, where only the keys are significant.
+
+For example: 
+
+    ```go
+    // Create a set using a map with struct{} as the value type
+    uniqueIds := make(map[string]struct{})
+
+    // You can add some items to the set
+    uniqueIds["uuid-1"] = struct{}{}
+    uniqueIds["uuid-2"] = struct{}{}
+    uniqueIds["uuid-3"] = struct{}{}
+
+    for _, i := range someList {
+        item := i.(map[string]interface{})  // Assert as JSON object
+        resourceId := utl.Str(item["id"])   // Get UUID string value
+        
+        // Skip processing if this resourceId is already in the set
+        if _, seen := uniqueIds[resourceId]; seen {
+            fmt.Printf("Id %s has already been see.\n", resourceId)
+            continue
+        }
+
+        // Add it to the set (mark it as seen)
+        uniqueIds[resourceId] = struct{}{}
+    }
+    ```
+
+
 ## Install Go
+
 Use the [`install-golang.sh`](https://github.com/git719/tools/blob/main/bash/install-golang.sh) BASH script
 
 1. `curl -LO https://raw.githubusercontent.com/git719/tools/main/bash/install-golang.sh` to download the script
@@ -51,7 +95,9 @@ This script can be used to install Go on:
   - On macOS, or
   - On Linux Redhat (Note that RHEL `shasum` command is in package `perl-Digest-SHA`)
 
+
 ## Reduce Binary Executable Size
+
 To reduce binary executable sizes:
 1. Always compile with `-ldflags "-s -w"`
 2. And use UPX:
@@ -122,6 +168,7 @@ func GetListFromLocalFile(storeFile string) interface{} {
 
 
 ## Common Makefile
+
 Makefiles are usually not needed with Go, but if you must, this one for macOS and Linux will build target binaries for multiple OSes.
 ```makefile
 # Makefile
