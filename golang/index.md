@@ -1,4 +1,5 @@
 # Go
+
 Useful GoLang tips.
 
 
@@ -6,6 +7,34 @@ Useful GoLang tips.
 
 - Useful examples = <https://gobyexample.com/>
 - Static analysis = <https://github.com/analysis-tools-dev/static-analysis#go>
+
+
+## Install Go
+
+1. On macOS 
+
+```bash
+brew install go
+
+# Then update essential system variables 
+export GOPATH=~/go                # Create this dir if nece
+export PATH=$PATH:$GOPATH/bin 
+```
+
+2. On Windows/GitBASH and Linux 
+
+```bash
+curl -kLo /tmp/install-golang.sh https://raw.githubusercontent.com/git719/tools/refs/heads/main/go/install-golang.sh
+/tmp/install-golang.sh            # To install latest Go version OR
+/tmp/install-golang.sh go1.23.3   # To install this specific Go version
+
+# Note that above script will try to install things in `/usr/local/go`, so you may need to fiddle with `sudo`
+
+# Then update essential system variables 
+export GOROOT=/usr/local/go       # You may need to create this dir as root
+export GOPATH=~/go                # Create this dir if nece
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+```
 
 
 ## Point to Local
@@ -83,21 +112,6 @@ for _, i := range someList {
     uniqueIds[resourceId] = struct{}{}
 }
 ```
-
-
-## Install Go
-
-Use the [`install-golang.sh`](https://github.com/git719/tools/blob/main/bash/install-golang.sh) BASH script
-
-1. `curl -LO https://raw.githubusercontent.com/git719/tools/main/bash/install-golang.sh` to download the script
-2. `./install-golang.sh 1.22.0` to install GoLang version `1.22.0`
-3. Above tries to install at `$HOME/go`, so if you have a previous version there you will first need to back that up
-4. Finally, set `GOPATH` variable to `~/go`; add it in your `PATH`; and also add `$GOPATH/bin` to it
-
-This script can be used to install Go on:
-  - Within a Windows GitBASH shell
-  - On macOS, or
-  - On Linux Redhat (Note that RHEL `shasum` command is in package `perl-Digest-SHA`)
 
 
 ## Reduce Binary Executable Size
