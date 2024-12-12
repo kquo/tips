@@ -25,10 +25,10 @@ export PATH=$PATH:$GOPATH/bin
 
 ```bash
 curl -kLo /tmp/install-go.sh https://raw.githubusercontent.com/git719/tools/refs/heads/main/go/install-go.sh
-sudo /tmp/install-go.sh            # To install latest Go version OR
-sudo /tmp/install-go.sh go1.23.3   # To install this specific Go version
+/tmp/install-go.sh            # To install latest Go version ... or 
+/tmp/install-go.sh go1.23.3   # To install this specific Go version
 
-# Needs to be run with sudo in order to install under `/usr/local/`
+# Root/sudo privilege needed in order to install under `/usr/local/`
 
 # Then update essential system variables 
 export GOROOT=/usr/local/go
