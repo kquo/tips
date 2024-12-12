@@ -17,22 +17,22 @@ Useful GoLang tips.
 brew install go
 
 # Then update essential system variables 
-export GOPATH=~/go                # Create this dir if nece
+export GOPATH=~/go  # Create this dir if nece
 export PATH=$PATH:$GOPATH/bin 
 ```
 
-2. On Windows/GitBASH and Linux 
+2. On Linux and Windows/GitBASH 
 
 ```bash
-curl -kLo /tmp/install-golang.sh https://raw.githubusercontent.com/git719/tools/refs/heads/main/go/install-golang.sh
-/tmp/install-golang.sh            # To install latest Go version OR
-/tmp/install-golang.sh go1.23.3   # To install this specific Go version
+curl -kLo /tmp/install-go.sh https://raw.githubusercontent.com/git719/tools/refs/heads/main/go/install-go.sh
+sudo /tmp/install-go.sh            # To install latest Go version OR
+sudo /tmp/install-go.sh go1.23.3   # To install this specific Go version
 
-# Note that above script will try to install things in `/usr/local/go`, so you may need to fiddle with `sudo`
+# Needs to be run with sudo in order to install under `/usr/local/`
 
 # Then update essential system variables 
-export GOROOT=/usr/local/go       # You may need to create this dir as root
-export GOPATH=~/go                # Create this dir if nece
+export GOROOT=/usr/local/go
+export GOPATH=~/go  # Create this dir if nece
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
