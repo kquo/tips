@@ -34,7 +34,7 @@ This strain often aligns with the concept of **[cold logic](cold-logic.md)**, wh
 This extreme form of rationality overrides common sense and leads to anti-social tendencies when these social media personalities prioritize strict adherence to ideological principles over empathetic understanding or cooperative behavior in society. One example of that was Rogan's push-back to COVID vaccines, insisting that his personal prerogative was more important.
 
 The problem with this kind of libertarianism is that it doesn't consider that not everyone can understand or have the capacity to follow their ideals. A decent political philosophy should recognize that people have limitations. Not everyone has the knowledge and resource wherewithal to manage their own body like a rich Joe Rogan, and to promote the body-sovereignty ideal to an audience of millions is incredibly irresponsible when it comes to viruses that affect millions of other humans.
-Proponents of this ideology, such as Ayn Rand, Paul Rand, Elon Musk, Ben Shapiro, and Joe Rogan, often serve as archetypes of this coldly logical yet socially detached worldview.
+Advocates of this worldview, such as [Ayn Rand](https://en.wikipedia.org/wiki/Ayn_Rand), [Rand Paul](https://en.wikipedia.org/wiki/Rand_Paul), [Elon Musk](https://en.wikipedia.org/wiki/Elon_Musk), [Ben Shapiro](https://en.wikipedia.org/wiki/Ben_Shapiro), and [Joe Rogan](https://en.wikipedia.org/wiki/Joe_Rogan), often echo elements of this coldly logical perspective, though their positions may vary in nuance and intent.
 
 
 ## Answer Patterns
