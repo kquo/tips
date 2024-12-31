@@ -277,19 +277,28 @@ The alternative is a multi-repo structure where each of the submodules under abo
 ```hcl
 # main.tf
 # terraform-managed-infra
-# This is the calling module defining a specific Azure infrastructure to be
-# managed, which leverages the terraform-azure-core.
+# This is the calling module, defining a specific Azure infrastructure to be managed with module 'azure=core'
 
-module "azure_core" {
-  # This module would manage ALL Azure resources in the infra, and they would
-  # all be defined in the terraform.auto.tfvars file.
+module "azure-core" {
+
+  # Another option  
+  # version = "1.0.0" # This is needed only when hitting a TFE/Cloud registry
+  # source = "spacelift.io/YOUR-ORG/module-name/azure"
+    # Normal pattern is '<REGISTRY_URL/<org>/<module_name>/<provider>', but if it's
+    # a submodule then it's '<REGISTRY_URL/<org>/<module_name>/<provider>//modules/<sub-mod-name>'
+
+  # Working option  
   source = "github.com/myorg/terraform-azure-core?ref=1.0.0"
-    # "?ref-1.0.0" specifies the GH tag or branch of the repo
-    # source = "./modules/vm" # For local directory testing
-    # version = "1.0.0"    # This is only needed if you're referencing a
-    # Terraform Cloud or Terraform Enterprise registry as in:
-    # source = "<REGISTRY_URL/<organization>/<provider>/<module name>"
-    # for example "spacelift.io/your-organization/vpc-module-name/aws"
+    # The "?ref-1.0.0" specifies the repo tag or branch
+
+  # Another option  
+  # source = "github.com/myorg/terraform-azure-core//some-subdir?ref=1.0.0"
+    # Note the '//' if module is in some subdirectory
+
+  # Another option  
+  # source = "./modules/vm"
+    # For local CLI testing
+
   dir_groups = var.dir_groups  # Defined in the terraform.auto.tfvars
   dns_zonnes = var.dns_zones
   resource_n = var.var_n       # And so on
