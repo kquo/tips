@@ -1,0 +1,20 @@
+#!/bin/bash
+# webm2mp4.sh
+# Convert WEBM file to MP4
+
+Gre='\e[1;32m'
+Red='\e[1;31m'
+Pur='\e[1;35m'
+Yel='\e[1;33m'
+Blu='\e[1;34m'
+Rst='\e[0m'
+
+set -euo pipefail
+if [[ -z "${1:-}" ]]; then
+    printf "Usage: %s FILENAME\n" "${Yel}$0${Rst}" && exit
+    exit 1
+fi
+
+Filename="$1"
+ffmpeg -i $Filename -c:v libx264 -crf 23 -preset fast -c:a aac ${Filename}.mp4
+exit 0
