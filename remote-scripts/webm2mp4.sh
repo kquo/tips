@@ -11,7 +11,7 @@ Rst='\e[0m'
 
 set -euo pipefail
 if [[ -z "${1:-}" ]]; then
-    printf "Usage: %s FILENAME\n" "${Yel}$0${Rst}" && exit
+    printf "Usage: %s FILENAME\n" "${Yel}$0${Rst}"
     exit 1
 fi
 
