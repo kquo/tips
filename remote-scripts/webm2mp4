@@ -1,5 +1,5 @@
 #!/bin/bash
-# webm2mp4.sh
+# webm2mp4
 # Convert WEBM file to MP4
 
 Gre='\e[1;32m'
