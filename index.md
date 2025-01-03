@@ -49,18 +49,19 @@ Quick and useful tips.
 <tr>
 <td> <a href="python/">python</a> </td>
 <td> <a href="science/">science</a> </td>
+<td> <a href="scripts/">scripts</a> </td>
 <td> <a href="security/">security</a> </td>
-<td> <a href="shell/">shell</a> </td>
 </tr>
 
 <tr>
+<td> <a href="shell/">shell</a> </td>
 <td> <a href="streaming/">streaming</a> </td>
 <td> <a href="surveillance/">surveillance</a> </td>
 <td> <a href="terraform/">terraform</a> </td>
-<td> <a href="thinking/">thinking</a> </td>
 </tr>
 
 <tr>
+<td> <a href="thinking/">thinking</a> </td>
 <td> <a href="twitter/">twitter</a> </td>
 </tr>
 
