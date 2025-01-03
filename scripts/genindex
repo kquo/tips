@@ -7,7 +7,7 @@ output_file="index.md"
 
 # Start the Markdown table header
 echo "# Scripts" > "$output_file"
-printf "Useful shell scripts that can be called & run by copying the 'runner' script locally, and renaming it as the script you want to call. For instance, to run \`buildgo\`, download the \`runner\` script and rename it \`buildgo\`. Then when you run \`buildgo\` locally it will download the version here.\n\n" >> "$output_file"
+printf "Useful shell scripts that can be called and run by copying the \`runner\` script locally, then renaming it as the script you want to call here. For instance, to run \`buildgo\` locally, download the \`runner\` script and rename it \`buildgo\`. When you run \`buildgo\` locally it will download and run the version here.\n\nThe advantage of this methodology is that you are always running the latest version of the script. To view the actual, raw script, you can click on the respective link.\n\n" >> "$output_file"
 
 echo "| Script Name | Version    | Comment               |" >> "$output_file"
 echo "|-------------|------------|-----------------------|" >> "$output_file"
@@ -21,8 +21,8 @@ for script in *.sh *.bash *; do
             version=$(sed -n '2p' "$script" | awk '{print $NF}')
             comment=$(sed -n '3p' "$script" | sed 's/# //')
             
-            # Make script name a Markdown link
-            script_link="[$script_name]($script)"
+            # Make script name a Markdown link for raw text viewing
+            script_link="[$script_name](./$script)"
             
             # Append to the Markdown table
             printf "| %-11s | %-10s | %-21s |\n" "$script_link" "$version" "$comment" >> "$output_file"
