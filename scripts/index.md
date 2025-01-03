@@ -1,8 +1,9 @@
-# Script Index
+# Scripts
+Useful shell scripts that can be called & run by copying the 'runner' script locally, and renaming it as the script you want to call. For instance, to run `buildgo`, download the `runner` script and rename it `buildgo`. Then when you run `buildgo` locally it will download the version here.
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
-| RUNNER      | 1.0.4      | Runner script to run scripts hosted here <https://que.one/scripts/SCRIPT> |
 | buildgo     | 1.0.1      | Generic script to compile Go programs |
-| genindex    | 1.0.0      | Generates the index.md to list all the scripts at https://que.one/scripts |
+| genindex    | 1.0.0      | Generates this table of scripts here |
+| runner      | 1.0.4      | Runner script to run scripts hosted here |
 | webm2mp4    | 1.0.0      | Converts WEBM format files to MP4 format |
