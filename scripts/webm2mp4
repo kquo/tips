@@ -1,5 +1,5 @@
 #!/bin/bash
-# webm2mp4 1.0.0
+# webm2mp4 1.0.1
 # Converts WEBM format files to MP4 format
 
 set -euo pipefail

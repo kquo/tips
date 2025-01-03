@@ -1,5 +1,5 @@
 #!/bin/bash
-# genindex 1.0.0
+# genindex 1.0.1
 # Generates this table of scripts here
 
 # Define the output file
@@ -7,7 +7,7 @@ output_file="index.md"
 
 # Start the Markdown table header
 echo "# Scripts" > "$output_file"
-printf "Useful shell scripts that can be called and run by copying the \`runner\` script locally, then renaming it as the script you want to call here. For instance, to run \`buildgo\` locally, download the \`runner\` script and rename it \`buildgo\`. When you run \`buildgo\` locally it will download and run the version here.\n\nThe advantage of this methodology is that you are always running the latest version of the script. To view the actual, raw script, you can click on the respective link.\n\n" >> "$output_file"
+printf "Useful shell scripts.\n\nThese can easily be called and run locally, by simply copying the \`runner\` script below, renaming it to the script you want to call from below list. For instance, to run \`buildgo\`, download \`runner\` and rename it to \`buildgo\`. Then when you run \`buildgo\` locally it will download and run the version hosted here.\n\nThe advantage of this methodology is that you are always running _the latest version of the script_.\n\nClick on the respective link below to download and view the target script. Note: You can also do this via the Github repo at <https://github.com/git719/tips/tree/main/scripts>.\n\n" >> "$output_file"
 
 echo "| Script Name | Version    | Comment               |" >> "$output_file"
 echo "|-------------|------------|-----------------------|" >> "$output_file"
@@ -22,15 +22,13 @@ for script in *.sh *.bash *; do
             comment=$(sed -n '3p' "$script" | sed 's/# //')
             
             # Make script name a Markdown link for raw text viewing
-            script_link="[$script_name](./$script)"
+            script_link="[$script_name]($script)"
             
             # Append to the Markdown table
             printf "| %-11s | %-10s | %-21s |\n" "$script_link" "$version" "$comment" >> "$output_file"
         fi
     fi
 done
-
-printf "\nThis is my Github Pages view, which is plain and simple. If you prefer the source repo view please visit <https://github.com/git719/tips/tree/main/scripts>.\n\n" >> "$output_file"
 
 # Confirm completion
 echo "Generated $output_file with script details."
