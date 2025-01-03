@@ -1,5 +1,5 @@
 #!/bin/bash
-# genindex 1.0.1
+# gen_index 1.0.1
 # Generates this table of scripts here
 
 # Define the output file
@@ -7,7 +7,7 @@ output_file="index.md"
 
 # Start the Markdown table header
 echo "# Scripts" > "$output_file"
-printf "Useful shell scripts.\n\nThese can easily be called and run locally, by simply copying the \`runner\` script below, renaming it to the script you want to call from below list. For instance, to run \`buildgo\`, download \`runner\` and rename it to \`buildgo\`. Then when you run \`buildgo\` locally it will download and run the version hosted here.\n\nThe advantage of this methodology is that you are always running _the latest version of the script_.\n\nClick on the respective link below to download and view the target script. Note: You can also do this via the Github repo at <https://github.com/git719/tips/tree/main/scripts>.\n\n" >> "$output_file"
+printf "Useful shell scripts.\n\nThese can easily be called and run locally, by simply copying the \`runner\` script below, renaming it to the script you want to call from below list. For instance, to run \`build_go\`, download \`runner\` and rename it to \`build_go\`. Then when you run \`build_go\` locally it will download and run the version hosted here.\n\nThe advantage of this methodology is that you are always running _the latest version of the script_.\n\nClick on the respective link below to download and view the target script. Note: You can also do this via the Github repo at <https://github.com/git719/tips/tree/main/scripts>.\n\n" >> "$output_file"
 
 echo "| Script Name | Version    | Comment               |" >> "$output_file"
 echo "|-------------|------------|-----------------------|" >> "$output_file"
