@@ -1,7 +1,8 @@
 #!/bin/bash
-# RUNNER 1.0.3
-# This is the generic remote script runner. Copy this file and name it exactly
-# the same as the published script in below repo/folder that you want it to call.
+# RUNNER 1.0.4
+# The content of these RUNNER scripts is always the same for the released version.
+# The only difference is the filename it is under, which coincides with the script
+# it calls from the remote Github repository.
 
 set -euo pipefail
 Gre='\e[1;32m' Red='\e[1;31m' Pur='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
@@ -17,7 +18,6 @@ ExitFunc() {
     rm -rf "$TempDir"
 }
 trap ExitFunc EXIT
-
 
 # Fetch the script into the temp directory
 TempFile="$TempDir/$Utility"
