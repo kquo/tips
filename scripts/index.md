@@ -9,3 +9,6 @@ The advantage of this methodology is that you are always running the latest vers
 | [genindex](./genindex) | 1.0.0      | Generates this table of scripts here |
 | [runner](./runner) | 1.0.4      | Runner script to run scripts hosted here |
 | [webm2mp4](./webm2mp4) | 1.0.0      | Converts WEBM format files to MP4 format |
+
+This is my Github Pages view, which is plain and simple. If you prefer the source repo view please visit <https://github.com/git719/tips/tree/main/scripts>.
+
