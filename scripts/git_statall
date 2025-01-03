@@ -1,0 +1,20 @@
+#!/bin/bash
+# git_statall 1.0.1
+# Run status on all git repos
+
+set -euo pipefail
+
+for r in $(ls -1) ; do
+    if [[ -d "$r/.git" ]]; then
+        (
+            printf "%-50s" "$r"
+            cd $r
+            Branch="$(git branch --show-current)"
+            if [[ "$(git status | grep 'working tree clean')" ]]; then
+                printf "👍 $Branch\n"
+            else
+                printf "❌ $Branch\n"
+            fi
+        )
+    fi
+done
