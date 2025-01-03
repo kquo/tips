@@ -1,0 +1,10 @@
+#!/bin/bash
+# mac_screencap 1.0.1
+# Adjusts macOS SHIFT-CMD-4 screen capture settings
+
+defaults write com.apple.screencapture location ~/Downloads
+defaults write com.apple.screencapture type jpg
+defaults write com.apple.screencapture name "screenshot"
+defaults write com.apple.screencapture include-date -bool false
+defaults write com.apple.screencapture disable-shadow -bool false
+killall SystemUIServer

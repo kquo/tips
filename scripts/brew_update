@@ -1,0 +1,10 @@
+#!/bin/bash
+# brew_update 1.0.1
+# Does a thorough update of all installed Homebrew packages
+
+printf "==> bash $BASH_VERSION\n==> "
+brew --version
+brew update
+brew upgrade
+brew list --cask | xargs brew upgrade
+brew cleanup

@@ -1,0 +1,29 @@
+#!/bin/bash
+# dl 1.0.1
+# A simple yt-dlp, the famous video downloader, stub driver
+
+# Install yt-dl:
+#   curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp \
+#     -o /usr/local/bin/yt-dlp && chmod a+rx /usr/local/bin/yt-dlp
+#
+#   Upgrade yt-dl:
+#     yt-dlp --update-to nightly
+#     yt-dlp --version
+#   
+
+if [[ "$#" -ne 2 ]]; then
+    printf "Usage: $0 FILENAME \"URL\"\n" && exit
+fi
+Filename="$1"
+Url="$2"
+Ext=`echo ${Filename##*.} | awk '{print tolower($0)}'` # Extension in lowercase
+
+# Download as MP4
+yt-dlp -o "$Filename" --recode mp4 "$Url"
+
+# Add MP4 extension if missing
+if [[ "mp4" != *"$Ext"* ]]; then
+    Filename="${Filename}.mp4"
+fi
+
+exit 0

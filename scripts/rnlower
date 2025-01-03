@@ -1,0 +1,20 @@
+#!/bin/bash
+# rnlower 1.0.1
+# Lowercases each file in current working directory
+
+MSG="Rename ALL filenames in CWD to lowercase? Y/N "
+read -p "$MSG" -n 1 && [[ ! $REPLY =~ ^[Yy]$ ]] && printf "\nAborted.\n" && exit 1
+printf "\n\n"
+
+OS=`uname | tr [A-Z] [a-z]`
+
+for OLDNAME in * ; do
+   NEWNAME=`echo "$OLDNAME/" | tr '[:upper:]' '[:lower:]'`
+   # Note: The slash prevent trailing newlines from being removed by command substitution
+   NEWNAME=${NEWNAME%/}          # Now remove trailing slash
+   [[ "$OS" = "linux" ]]  && mv -nuv "$OLDNAME" "$NEWNAME"
+   [[ "$OS" = "darwin" ]] && mv "$OLDNAME" "$NEWNAME" && echo "'$OLDNAME' -> '$NEWNAME'"
+done
+
+printf "\n"
+exit 0

@@ -1,0 +1,41 @@
+#!/bin/bash
+# certls 1.0.1
+# Given an FQDN show all assigned SSL certificates 
+
+set -euo pipefail  # Fail immediately if any errors
+Blu='\x1b[1;34m' Gre='\x1b[32m' Red='\x1b[31m' Yel='\x1b[1;33m' Rst='\x1b[0m'
+
+if [[ -z "$(which openssl)" ]]; then
+    printf "Missing 'openssl' binary\n"
+    exit 1
+fi
+
+function print_usage {
+    printf "Print SSL certificate details for given FDQN:Port.\n\n"
+    printf "Usage: $(basename $0) FQDN[:PORT]\n"
+    printf "  Examples:\n"
+    printf "    $(basename $0) microsoft.com     Uses 443 by default\n"
+    printf "    $(basename $0) mysite.com:1473   Uses port 1473\n"
+    exit 1
+}
+
+[[ $# -lt 1 || $# -gt 1 ]] && print_usage
+SITE=$1
+FQDN=${SITE%%:*} 
+Port=${SITE##*:}
+[[ "$Port" == "$SITE" ]] && Port=443  # Default to port 443
+#printf "DEBUG       : [$FQDN][$Port]\n"
+if [[ -z "$FQDN" || -z "$(echo $Port | grep '^[[:digit:]]*$')" ]]; then
+    print_usage
+fi
+
+printf "==> OpenSSL version ${Gre}$(openssl version)${Rst}\n"
+printf "==> FQDN:Port ${Gre}${FQDN}:${Port}${Rst}\n"
+DETAILS="$(echo -n | openssl s_client -connect $FQDN:$Port 2>/dev/null)"
+EXPIRY_START=$(echo "$DETAILS" | openssl x509 -in /dev/stdin -noout -dates | head -n 1)
+EXPIRY_END=$(echo "$DETAILS" | openssl x509 -in /dev/stdin -noout -dates | tail -n 1)
+printf "==> EXPIRY: ${Gre}${EXPIRY_START}${Rst} ${Red}${EXPIRY_END}${Rst}\n"
+printf "==> LIST\n"
+echo "$DETAILS" | openssl x509 -in /dev/stdin -noout -text | grep DNS: | tr -d ' DNS:' | tr ',' '\n'
+
+exit 0

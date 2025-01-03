@@ -1,0 +1,30 @@
+#!/bin/bash
+# bak 1.0.1
+# Backs up given file or directory
+
+if [[ ! -d "$1" && ! -f "$1" ]]; then
+    printf "Usage: `basename $0` <File|Directory>\n"
+    exit 1
+fi
+
+nextLetter() {
+    local Rest Letters=abcdefghijklmnopqrstuvwxyz
+    Rest=${Letters#*$1}
+    echo ${Rest:0:1}
+}
+
+DateStr="$(date +%Y%m%d)"
+Target="${1}.${DateStr}a"
+
+while [[ -d "$Target" || -e "$Target" ]]; do
+    Letter=${Target:(-1)}
+    if [[ "$Letter" == "z" ]]; then
+        printf "Too many backups (z).\n"
+        exit 1
+    fi
+    Target="${1}.${DateStr}$(nextLetter $Letter)"
+done
+
+cp -a "$1" "$Target"
+exit 0
+
