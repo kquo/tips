@@ -1,5 +1,7 @@
 #!/bin/bash
 # RUNNER 1.0.4
+# Runner script to run scripts hosted here <https://que.one/scripts/SCRIPT>
+
 # The content of these RUNNER scripts is always the same for the released version.
 # The only difference is the filename it is under, which coincides with the script
 # it calls from the remote Github repository.

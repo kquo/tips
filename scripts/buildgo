@@ -1,6 +1,6 @@
 #!/bin/bash
 # buildgo 1.0.1
-# Generic script to compile my programs
+# Generic script to compile Go programs
 
 set -euo pipefail
 Gre='\e[1;32m' Red='\e[1;31m' Pur='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
