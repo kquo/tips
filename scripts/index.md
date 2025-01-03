@@ -5,7 +5,7 @@ These can easily be called and run locally, by simply copying the `runner` scrip
 
 The advantage of this methodology is that you are always running _the latest version of the script_.
 
-Click on the respective link below to download and view the target script. Note: You can also do this via the Github repo at <https://github.com/git719/tips/tree/main/scripts>.
+Click on the respective link below to download and view the target script, or view source directly at <https://github.com/git719/tips/tree/main/scripts>.
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
@@ -22,7 +22,7 @@ Click on the respective link below to download and view the target script. Note:
 | [install_tf](install_tf) | 1.0.1      | Install Terraform binary |
 | [mac_screencap](mac_screencap) | 1.0.1      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
 | [prepublish_go](prepublish_go) | 1.0.1      | Tidy up and run checks before publishing Go pkg |
-| [resize_image](resize_image) | 1.0.1      | Resizes given HEIC|JPEG|JPG image file by 10% or compresses MP4 video file |
+| [resize_image](resize_image) | 1.0.1      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
 | [rn](rn)    | 1.0.1      | Renames all files in current directory |
 | [rncap](rncap) | 1.0.1      | Capitalizes each filename in current working directory |
 | [rnlower](rnlower) | 1.0.1      | Lowercases each file in current working directory |
