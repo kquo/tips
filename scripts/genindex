@@ -21,8 +21,11 @@ for script in *.sh *.bash *; do
             version=$(sed -n '2p' "$script" | awk '{print $NF}')
             comment=$(sed -n '3p' "$script" | sed 's/# //')
             
+            # Make script name a Markdown link
+            script_link="[$script_name]($script)"
+            
             # Append to the Markdown table
-            printf "| %-11s | %-10s | %-21s |\n" "$script_name" "$version" "$comment" >> "$output_file"
+            printf "| %-11s | %-10s | %-21s |\n" "$script_link" "$version" "$comment" >> "$output_file"
         fi
     fi
 done
