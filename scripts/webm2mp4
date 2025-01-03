@@ -1,6 +1,6 @@
 #!/bin/bash
 # webm2mp4 1.0.0
-# Convert WEBM file to MP4
+# Converts WEBM format files to MP4 format
 
 set -euo pipefail
 Gre='\e[1;32m' Red='\e[1;31m' Pur='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'

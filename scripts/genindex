@@ -1,0 +1,30 @@
+#!/bin/bash
+# genindex 1.0.0
+# Generates the index.md to list all the scripts at https://que.one/scripts
+
+# Define the output file
+output_file="index.md"
+
+# Start the Markdown table header
+echo "# Script Index" > "$output_file"
+echo "" >> "$output_file"
+echo "| Script Name | Version    | Comment               |" >> "$output_file"
+echo "|-------------|------------|-----------------------|" >> "$output_file"
+
+# Loop through all scripts in the directory
+for script in *.sh *.bash *; do
+    if [[ -f $script && $(head -n 1 "$script") == "#!/bin/bash" ]]; then
+        if [[ $(head -n 3 "$script" | wc -l) -ge 3 ]]; then
+            # Extract details from the first 3 lines of the script
+            script_name=$(basename "$script")
+            version=$(sed -n '2p' "$script" | awk '{print $NF}')
+            comment=$(sed -n '3p' "$script" | sed 's/# //')
+            
+            # Append to the Markdown table
+            printf "| %-11s | %-10s | %-21s |\n" "$script_name" "$version" "$comment" >> "$output_file"
+        fi
+    fi
+done
+
+# Confirm completion
+echo "Generated $output_file with script details."
