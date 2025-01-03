@@ -11,6 +11,9 @@ Click on the respective link below to download and view the target script. Note:
 |-------------|------------|-----------------------|
 | [build_go](build_go) | 1.0.2      | Generic script to compile Go programs |
 | [gen_index](gen_index) | 1.0.1      | Generates this table of scripts here |
+| [git_pullall](git_pullall) | 1.0.1      | Do pull on all git repos |
+| [git_remotev](git_remotev) | 1.0.1      | List remote sources of all git repos |
+| [git_statall](git_statall) | 1.0.1      | Run status on all git repos |
 | [install_go](install_go) | 1.0.1      | Install and setup Go  |
 | [install_tf](install_tf) | 1.0.1      | Install Terraform binary |
 | [prepublish_go](prepublish_go) | 1.0.1      | Tidy up and run checks before publishing Go pkg |
