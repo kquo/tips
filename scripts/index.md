@@ -21,6 +21,7 @@ Click on the respective link below to download and view the target script, or vi
 | [install_go](install_go) | 1.0.1      | Install and setup Go  |
 | [install_tf](install_tf) | 1.0.1      | Install Terraform binary |
 | [mac_screencap](mac_screencap) | 1.0.1      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
+| [pman](pman) | 1.1.2      | Azure REST API caller |
 | [prepublish_go](prepublish_go) | 1.0.1      | Tidy up and run checks before publishing Go pkg |
 | [resize_image](resize_image) | 1.0.1      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
 | [rn](rn)    | 1.0.1      | Renames all files in current directory |
