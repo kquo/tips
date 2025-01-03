@@ -1,13 +1,14 @@
 #!/bin/bash
 # genindex 1.0.0
-# Generates the index.md to list all the scripts at https://que.one/scripts
+# Generates this table of scripts here
 
 # Define the output file
 output_file="index.md"
 
 # Start the Markdown table header
-echo "# Script Index" > "$output_file"
-echo "" >> "$output_file"
+echo "# Scripts" > "$output_file"
+printf "Useful shell scripts that can be called & run by copying the 'runner' script locally, and renaming it as the script you want to call. For instance, to run \`buildgo\`, download the \`runner\` script and rename it \`buildgo\`. Then when you run \`buildgo\` locally it will download the version here.\n\n" >> "$output_file"
+
 echo "| Script Name | Version    | Comment               |" >> "$output_file"
 echo "|-------------|------------|-----------------------|" >> "$output_file"
 
