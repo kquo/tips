@@ -1,74 +1,80 @@
 Quick and useful tips.
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <title>Index</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .link {
+      text-align: center;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .link:hover {
+      background-color: #e0e0e0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
-<h4>
-<table>
-
-<tr>
-<td> <a href="activism/">activism</a> </td>
-<td> <a href="arcade/">arcade</a> </td>
-<td> <a href="aws/">aws</a> </td>
-<td> <a href="azure/">azure</a> </td>
-</tr>
-
-<tr>
-<td> <a href="containers">containers</a> </td>
-<td> <a href="devops">devops</a> </td>
-<td> <a href="discourse/">discourse</a> </td>
-<td> <a href="dns">dns</a> </td>
-</tr>
-
-<tr>
-<td> <a href="editors/">editors</a> </td>
-<td> <a href="email">email</a> </td>
-<td> <a href="git">git</a> </td>
-<td> <a href="golang">golang</a> </td>
-</tr>
-
-<tr>
-<td> <a href="hobbies/">hobbies</a> </td>
-<td> <a href="linux/">linux</a> </td>
-<td> <a href="macos/">macos</a> </td>
-<td> <a href="optimism/">optimism</a> </td>
-</tr>
-
-<tr>
-<td> <a href="pdf/">pdf</a> </td>
-<td> <a href="politics/">politics</a> </td>
-<td> <a href="privacy/">privacy</a> </td>
-<td> <a href="pseudoscience/">pseudoscience</a> </td>
-</tr>
-
-<tr>
-<td> <a href="python/">python</a> </td>
-<td> <a href="science/">science</a> </td>
-<td> <a href="scripts/">scripts</a> </td>
-<td> <a href="security/">security</a> </td>
-</tr>
-
-<tr>
-<td> <a href="shell/">shell</a> </td>
-<td> <a href="streaming/">streaming</a> </td>
-<td> <a href="surveillance/">surveillance</a> </td>
-<td> <a href="terraform/">terraform</a> </td>
-</tr>
-
-<tr>
-<td> <a href="thinking/">thinking</a> </td>
-<td> <a href="twitter/">twitter</a> </td>
-</tr>
-
-</table>
-</h4>
+<h4>Index</h4>
+<div class="container">
+  <div class="link"><a href="activism/">activism</a></div>
+  <div class="link"><a href="arcade/">arcade</a></div>
+  <div class="link"><a href="aws/">aws</a></div>
+  <div class="link"><a href="azure/">azure</a></div>
+  <div class="link"><a href="containers/">containers</a></div>
+  <div class="link"><a href="desire/">desire</a></div>
+  <div class="link"><a href="devops/">devops</a></div>
+  <div class="link"><a href="discourse/">discourse</a></div>
+  <div class="link"><a href="dns/">dns</a></div>
+  <div class="link"><a href="editors/">editors</a></div>
+  <div class="link"><a href="email/">email</a></div>
+  <div class="link"><a href="git/">git</a></div>
+  <div class="link"><a href="golang/">golang</a></div>
+  <div class="link"><a href="hobbies/">hobbies</a></div>
+  <div class="link"><a href="linux/">linux</a></div>
+  <div class="link"><a href="macos/">macos</a></div>
+  <div class="link"><a href="optimism/">optimism</a></div>
+  <div class="link"><a href="pdf/">pdf</a></div>
+  <div class="link"><a href="politics/">politics</a></div>
+  <div class="link"><a href="privacy/">privacy</a></div>
+  <div class="link"><a href="pseudoscience/">pseudoscience</a></div>
+  <div class="link"><a href="python/">python</a></div>
+  <div class="link"><a href="science/">science</a></div>
+  <div class="link"><a href="scripts/">scripts</a></div>
+  <div class="link"><a href="security/">security</a></div>
+  <div class="link"><a href="shell/">shell</a></div>
+  <div class="link"><a href="streaming/">streaming</a></div>
+  <div class="link"><a href="surveillance/">surveillance</a></div>
+  <div class="link"><a href="terraform/">terraform</a></div>
+  <div class="link"><a href="thinking/">thinking</a></div>
+  <div class="link"><a href="twitter/">twitter</a></div>
+</div>
 </body>
-
 </html>
 
 <br>
