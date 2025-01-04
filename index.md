@@ -73,6 +73,8 @@ Quick and useful tips.
 
 <tr>
 <td> <a href="twitter/">twitter</a> </td>
+<td> </td>
+<td> </td>
 </tr>
 
 </table>
