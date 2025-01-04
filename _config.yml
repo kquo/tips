@@ -1,7 +1,3 @@
 title: Tips
 theme: jekyll-theme-primer
 
-plugins:
-  - jekyll-data
-links: links.yml
-
