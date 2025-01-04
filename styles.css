@@ -20,6 +20,7 @@ body {
   background-color: #f9f9f9;
 }
 
+/* Specific styles for the index page */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Dynamic grid */
@@ -43,7 +44,7 @@ body {
 
 a {
   text-decoration: none;
-  color: blue; /* Default blue */
+  color: blue; /* Default blue for links */
   font-size: 16px;
   font-weight: bold;
 }

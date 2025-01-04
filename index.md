@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 Quick and useful tips.
 
 <link rel="stylesheet" href="styles.css">
