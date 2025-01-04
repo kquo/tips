@@ -1,10 +1,6 @@
----
-layout: default
----
+Quick and useful tips.
 
 <link rel="stylesheet" href="styles.css">
-
-Quick and useful tips.
 
 <div class="container">
   <div class="link"><a href="activism/">activism</a></div>
