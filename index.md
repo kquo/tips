@@ -1,3 +1,9 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="styles.css">
+
 Quick and useful tips.
 
 <div class="container">
@@ -35,7 +41,5 @@ Quick and useful tips.
 </div>
 
 <br>
-These pages are dedicated to the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) 
-and anyone who values the pursuit of reason, humanism, and progress.<br>
-&mdash; <taco-crowd-crib@duck.com><br>
-
+To the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) and anyone who values humanism and progress.<br>
+&mdash; <taco-crowd@que.one><br>
