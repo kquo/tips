@@ -1,3 +1,4 @@
+/* Existing styles remain as they are */
 table {
   border-collapse: collapse;
   border: none;
@@ -9,4 +10,44 @@ td, th {
 
 table tr td, table tr th {
   border: none !important;
+}
+
+/* New styles for the link grid */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.link {
+  flex: 1 1 calc(25% - 30px); /* Adjusts for dynamic resizing */
+  max-width: 200px; /* Caps the size for readability */
+  min-width: 120px; /* Ensures a minimum size */
+  text-align: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.link:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px; /* Increased font size */
+  font-weight: bold; /* Optional: Makes text slightly more prominent */
 }

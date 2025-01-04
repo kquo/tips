@@ -1,50 +1,5 @@
 Quick and useful tips.
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-
-    h4 {
-      margin-bottom: 15px;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 15px;
-    }
-
-    .link {
-      text-align: center;
-      padding: 10px;
-      background-color: #ffffff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, background-color 0.3s;
-    }
-
-    .link:hover {
-      background-color: #f0f0f0;
-      transform: scale(1.05);
-    }
-
-    a {
-      text-decoration: none;
-      color: #333;
-      font-size: 14px;
-    }
-  </style>
-</head>
-
-<h4>Index</h4>
 <div class="container">
   <div class="link"><a href="activism/">activism</a></div>
   <div class="link"><a href="arcade/">arcade</a></div>
@@ -78,7 +33,6 @@ Quick and useful tips.
   <div class="link"><a href="thinking/">thinking</a></div>
   <div class="link"><a href="twitter/">twitter</a></div>
 </div>
-
 
 <br>
 These pages are dedicated to the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) 
