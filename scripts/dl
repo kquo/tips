@@ -1,5 +1,5 @@
 #!/bin/bash
-# dl 1.0.1
+# dl 1.0.2
 # A simple yt-dlp, the famous video downloader, stub driver
 
 # Install yt-dl:
@@ -23,7 +23,7 @@ yt-dlp -o "$Filename" --recode mp4 "$Url"
 
 # Add MP4 extension if missing
 if [[ "mp4" != *"$Ext"* ]]; then
-    Filename="${Filename}.mp4"
+    mv $Filename ${Filename}.mp4
 fi
 
 exit 0
