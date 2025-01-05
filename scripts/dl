@@ -1,5 +1,5 @@
 #!/bin/bash
-# dl 1.0.2
+# dl 1.0.3
 # A simple yt-dlp, the famous video downloader, stub driver
 
 # Install yt-dl:
@@ -21,9 +21,9 @@ Ext=`echo ${Filename##*.} | awk '{print tolower($0)}'` # Extension in lowercase
 # Download as MP4
 yt-dlp -o "$Filename" --recode mp4 "$Url"
 
-# Add MP4 extension if missing
-if [[ "mp4" != *"$Ext"* ]]; then
-    mv $Filename ${Filename}.mp4
+# Ensure the file ends with .mp4
+if [[ "$Filename" != *.mp4 ]]; then
+    mv "$Filename" "${Filename}.mp4"
 fi
 
 exit 0
