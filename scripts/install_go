@@ -1,5 +1,5 @@
 #!/bin/bash
-# install_go 1.0.1
+# install_go 1.0.2
 # Install and setup Go
 
 set -euo pipefail  # Fail immediately on any error
@@ -85,7 +85,7 @@ fi
 
 cd $TargetDir
 
-Files=$(curl -sk "https://go.dev/dl/?mode=json")
+Files=$(curl -ks "https://go.dev/dl/?mode=json")
 printf "==> Downloading ${Blu}https://go.dev/dl/${Filename}${Rst}\n\n"
 DownloadFile="/tmp/${Filename}"
 curl -# -kLo $DownloadFile https://go.dev/dl/${Filename}

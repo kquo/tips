@@ -1,5 +1,5 @@
 #!/bin/bash
-# runner 1.0.4
+# runner 1.0.5
 # Runner script to run scripts hosted remotely
 
 set -euo pipefail
@@ -20,7 +20,7 @@ trap ExitFunc EXIT
 
 # Fetch the script into the temp directory
 TempFile="$TempDir/$Utility"
-curl -s "$Remote" -o "$TempFile"
+curl -kso "$TempFile" "$Remote"
 chmod +x "$TempFile"
 
 # Execute the fetched script with only the user-provided arguments
