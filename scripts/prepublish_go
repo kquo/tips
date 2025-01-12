@@ -1,5 +1,5 @@
 #!/bin/bash
-# prepublish_go 1.0.1
+# prepublish_go 1.0.2
 # Tidy up and run checks before publishing Go pkg
 
 set -euo pipefail  # Fail on any error
@@ -31,6 +31,6 @@ printf "\n==> Last 5 tag versions:\n"
 git tag | sort -V | tail -5
 CurrentTag=`git tag | sort -V | tail -1`
 printf "\n==> To publish, do below one-liner, advancing Tag version:\n\n"
-printf "  Tag=$CurrentTag && git add . && git commit -m \"x updates\" && git tag \$Tag && git push origin \$Tag && git push\n\n"
+printf "    Tag=$CurrentTag && git add . && git commit -m \"x updates\" && git tag \$Tag && git push origin \$Tag && git push\n\n"
 
 exit 0
