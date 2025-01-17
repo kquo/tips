@@ -4,8 +4,9 @@ Container tips.
 ## Install Docker on Ubuntu
 Based on <https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04>
 
-- To install Docker on Ubuntu 20.04:
-```
+- To install Docker on Ubuntu 20.04: 
+
+```bash
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -18,7 +19,8 @@ sudo docker run hello-world
 ```
 
 - After installation, trying `docker ps` will show an error, so to run Docker **without** having to use sudo:
-```
+
+```bash
 sudo usermod -aG docker ${USER}
 # Log out then back in
 docker run hello-world
@@ -34,7 +36,8 @@ This is based on <https://linuxize.com/post/how-to-install-and-use-docker-compos
 - Ensure Docker is already installed
 
 - Check latest release at <https://github.com/docker/compose/releases>
-```
+
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
@@ -46,7 +49,8 @@ To login using your own Docker Hub username (cannot use email from CLI) simply d
 
 ## Build an Almost Empty Image
 To build an almost empty container image, build using `FROM scratch`, for example:
-```
+
+```bash
 $ vi hello.sh
 #!/bin/bashd
 echo Hello
@@ -59,23 +63,23 @@ $ docker build .
 ```
 
 ## Command Docker Commands
-```
-docker search jenkins                     # Sample search
-docker run -ti centos                     # Run image with interactive terminal shell
-docker stop ID                            # Stop running container
-docker ps [-a]                            # Lists running containers [non running ones]
-docker rm ID                              # Delete container
-docker image ls                           # List all images
-docker rmi ID                             # Delete image
-docker logs -f ID                         # Show standard output, tail option
-docker tag centos centos:7.1.1503         # Add a tag to existing image
-docker cp foo.txt mycontainer:/foo.txt    # Copy file to container
-docker run -ti -v ./scimsession:/scimsession centos bash  # Mount local file on container
-docker container prune                    # Remove all old containers
-docker system prune                       # Remove all old settings
-docker container exec -it CONTA_NAME /bin/bash   # Attach to running container
-docker top hungry_brahmagupta             # Show container process list
-docker exec -it c44b36e02322 /bin/bash    # Open bash on/connect to running container
+```bash
+docker search jenkins                                     # Sample search
+docker run -it centos                                     # Run image with interactive terminal shell
+docker stop ID                                            # Stop running container
+docker ps [-a]                                            # Lists running containers [non running ones]
+docker rm ID                                              # Delete container
+docker image ls                                           # List all images
+docker rmi ID                                             # Delete image
+docker logs -f ID                                         # Show standard output, tail option
+docker tag centos centos:7.1.1503                         # Add a tag to existing image
+docker cp foo.txt mycontainer:/foo.txt                    # Copy file to container
+docker run -it -v ./scimsession:/scimsession centos bash  # Mount local file on container
+docker container prune                                    # Remove all old containers
+docker system prune                                       # Remove all old settings
+docker container exec -it CONTA_NAME /bin/bash            # Attach to running container
+docker top hungry_brahmagupta                             # Show container process list
+docker exec -it c44b36e02322 /bin/bash                    # Open bash on/connect to running container
 
 # Instantiate image, put in background, and expose ports to local random ports
 docker run -d -P training/webapp python app.py
@@ -88,7 +92,7 @@ docker run -d -p 6379:6379 redis
 
 # Instantiate simple python HTTP server, expose port 8000 on 80 local
 # Browsing http://192.168.99.100/ will show centos container file system
-docker run -ti -p 80:8000 centos:7.1.1503 python -m SimpleHTTPServer
+docker run -it -p 80:8000 centos:7.1.1503 python -m SimpleHTTPServer
 
 # Instantiate image, and join to specific network
 docker run -d --net=my-bridge-network --name db training/postgres
@@ -108,7 +112,8 @@ docker run -d --volumes-from dbdata --name db1 training/postgres
 
 ## Docker Networking
 To create an external network with a specific IP CIDR range:
-```
+
+```bash
 docker network create --gateway 10.10.4.1 --subnet 10.10.4.0/24 NETNAME
 ```
 
@@ -117,7 +122,8 @@ Docker volumes are usually kept under `/var/lib/docker/volumes/` and by default 
 
 ## Docker for Mac
 HyperKit VM Shell
-```
+
+```bash
 screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
 linuxkit-025000000001:~# 
 ```
@@ -157,7 +163,8 @@ Because you can install kubeadm on various types of machine (e.g. laptop, server
 
 ## kubectl Common Commands
 `kubectl` is Kubernetes's Swiss Army knife. Command commands are:
-```
+
+```bash
 kns kube-system
 kubectl get all 
 kubectl describe pod calico-kube-controllers-5d94b577bb-jp5hz
