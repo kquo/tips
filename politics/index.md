@@ -72,9 +72,9 @@ Are social medial architectures destroying civil and rational political discussi
 Is this crazy hype or should we be worried? Should we start to address this problem?
 
 
-## Dark Side of Politics
+## Dark Sentiments
 
-This is tip is worth remembering, in any language.
+Politics gets really, really ugly when people begin to subscribe to darker sentiments. This tip is worth remembering in any language.
 
 Beware of blinding, hateful feelings. Such emotions have fueled countless atrocities throughout history, causing immense suffering. The Dark Side is more real than we think and often leads us to turn against one another and harm each other.
 
