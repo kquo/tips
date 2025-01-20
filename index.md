@@ -36,7 +36,7 @@ Quick and useful tips.
 </tr>
 
 <tr>
-<td> <a href="golang">golang</a> </td>
+<td> <a href="go">go</a> </td>
 <td> <a href="hobbies/">hobbies</a> </td>
 <td> <a href="linux/">linux</a> </td>
 </tr>

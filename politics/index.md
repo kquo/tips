@@ -72,6 +72,15 @@ Are social medial architectures destroying civil and rational political discussi
 Is this crazy hype or should we be worried? Should we start to address this problem?
 
 
+## Dark Side of Politics
+
+This is tip is worth remembering, in any language.
+
+Beware of blinding, hateful feelings. Such emotions have fueled countless atrocities throughout history, causing immense suffering. The Dark Side is more real than we think and often leads us to turn against one another and harm each other.
+
+Cuidado con sentimientos cegadores y llenos de odio. Tales emociones han alimentado innumerables atrocidades a lo largo de la historia, causando un sufrimiento inmenso. El Lado Oscuro es más real de lo que creemos y suelen llevarnos a volvernos unos contra otros y hacernos daño mutuamente.
+
+
 ## The Two Visions
 Why seem to keep reinventing the wheel when it comes to analyzing politics. Why not just start off from the shoulders of giants? The psychologist [Steve Pinker](https://en.wikipedia.org/wiki/Steven_Pinker) is one of those giants, and in his book [The Blank Slate](https://en.wikipedia.org/wiki/The_Blank_Slate) he talks about the two poles of the political spectrum. The sociological tradition and the economic (social contract) tradition, or _The Tragic Vision_ and the _Utopian Vision_, that as Pinker points out were originally formed by yet another important intellectual, [Thomas Sowell](https://en.wikipedia.org/wiki/Thomas_Sowell).
 

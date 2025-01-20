@@ -79,6 +79,15 @@ staticcheck ./...
 This will check for common code issues.
 
 
+## Generate Functions Hierarchy Graph
+Use `go-callvis` for that: 
+
+```bash
+go install github.com/ofabry/go-callvis@latest
+go-callvis -focus main ./...
+```
+
+
 ## Using `struct{}` for Efficient Maps
 
 Optimize Go memory usage when you need a "set" data structure, by using a map where the keys represent the elements of the set, and the value is of type `struct{}`. Why?
