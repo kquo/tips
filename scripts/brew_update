@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # brew_update 1.0.1
 # Does a thorough update of all installed Homebrew packages
 
