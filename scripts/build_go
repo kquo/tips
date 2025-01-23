@@ -1,5 +1,5 @@
-#!/bin/bash
-# build_go 1.0.3
+#!/usr/bin/env bash
+# build_go 1.1.0
 # Generic script to compile Go programs
 
 set -euo pipefail

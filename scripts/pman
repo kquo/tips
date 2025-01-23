@@ -1,5 +1,5 @@
-#!/bin/bash
-# pman 1.1.2
+#!/usr/bin/env bash
+# pman 1.2.0
 # Azure REST API caller
 
 PrgName="pman"

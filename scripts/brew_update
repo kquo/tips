@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# brew_update 1.0.1
+# brew_update 1.1.0
 # Does a thorough update of all installed Homebrew packages
 
 printf "==> bash $BASH_VERSION\n==> "

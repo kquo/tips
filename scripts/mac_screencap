@@ -1,5 +1,5 @@
-#!/bin/bash
-# mac_screencap 1.0.1
+#!/usr/bin/env bash
+# mac_screencap 1.1.0
 # Adjusts macOS SHIFT-CMD-4 screen capture settings
 
 defaults write com.apple.screencapture location ~/Downloads

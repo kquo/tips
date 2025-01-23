@@ -1,5 +1,5 @@
-#!/bin/bash
-# rn 1.0.1
+#!/usr/bin/env bash
+# rn 1.1.0
 # Renames all files in current directory
 
 set -euo pipefail  # Fail on any error

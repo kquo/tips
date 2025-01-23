@@ -1,5 +1,5 @@
-#!/bin/bash
-# rncap 1.0.1
+#!/usr/bin/env bash
+# rncap 1.1.0
 # Capitalizes each filename in current working directory
 
 MSG="Capitalize every file in CWD? Y/N "

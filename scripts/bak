@@ -1,5 +1,5 @@
-#!/bin/bash
-# bak 1.0.1
+#!/usr/bin/env bash
+# bak 1.1.0
 # Backs up given file or directory
 
 if [[ ! -d "$1" && ! -f "$1" ]]; then
