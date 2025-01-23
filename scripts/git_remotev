@@ -1,5 +1,5 @@
-#!/bin/bash
-# git_remotev 1.0.1
+#!/usr/bin/env bash
+# git_remotev 1.1.0
 # List remote sources of all git repos
 
 set -euo pipefail

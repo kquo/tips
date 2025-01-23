@@ -1,5 +1,5 @@
-#!/bin/bash
-# install_tf 1.0.1
+#!/usr/bin/env bash
+# install_tf 1.1.0
 # Install Terraform binary
 
 set -euo pipefail  # Fail immediately on any error

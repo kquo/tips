@@ -1,5 +1,5 @@
-#!/bin/bash
-# resize_image 1.0.1
+#!/usr/bin/env bash
+# resize_image 1.1.0
 # Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file
 
 F=$1       # Full filename

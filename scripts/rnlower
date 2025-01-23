@@ -1,5 +1,5 @@
-#!/bin/bash
-# rnlower 1.0.1
+#!/usr/bin/env bash
+# rnlower 1.1.0
 # Lowercases each file in current working directory
 
 MSG="Rename ALL filenames in CWD to lowercase? Y/N "

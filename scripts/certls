@@ -1,5 +1,5 @@
-#!/bin/bash
-# certls 1.0.1
+#!/usr/bin/env bash
+# certls 1.1.0
 # Given an FQDN show all assigned SSL certificates 
 
 set -euo pipefail  # Fail immediately if any errors

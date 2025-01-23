@@ -1,5 +1,5 @@
-#!/bin/bash
-# git_statall 1.0.1
+#!/usr/bin/env bash
+# git_statall 1.1.0
 # Run status on all git repos
 
 set -euo pipefail

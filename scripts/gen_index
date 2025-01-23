@@ -1,5 +1,5 @@
-#!/bin/bash
-# gen_index 1.0.1
+#!/usr/bin/env bash
+# gen_index 1.1.0
 # Generates this table of scripts here
 
 # Define the output file
@@ -14,7 +14,7 @@ echo "|-------------|------------|-----------------------|" >> "$output_file"
 
 # Loop through all scripts in the directory
 for script in *.sh *.bash *; do
-    if [[ -f $script && $(head -n 1 "$script") == "#!/bin/bash" ]]; then
+    if [[ -f $script && $(head -n 1 "$script") == "#!/usr/bin/env bash" ]]; then
         if [[ $(head -n 3 "$script" | wc -l) -ge 3 ]]; then
             # Extract details from the first 3 lines of the script
             script_name=$(basename "$script")

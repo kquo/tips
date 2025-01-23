@@ -1,5 +1,5 @@
-#!/bin/bash
-# git_pullall 1.0.1
+#!/usr/bin/env bash
+# git_pullall 1.1.0
 # Do pull on all git repos
 
 set -euo pipefail
