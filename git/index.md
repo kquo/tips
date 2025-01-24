@@ -1,8 +1,12 @@
 # git
+
 Version control tips with `git` and <https://github.com>.
 
+- [Github Workflow OIDC Access to Vault](oidc-vault.md)
+- [Github Workflow OIDC Access to Azure](oidc-azure.md)
 
 ## Remove Branches
+
 ```
 git branch -d MY_BRANCH                      # Delete local MY_BRANCH
 git push origin :MY_BRANCH                   # Delete remote MY_BRANCH
@@ -12,6 +16,7 @@ git remote prune origin                      # Remove them from local
 
 
 ## Basic Usage
+
 ```
 git checkout MASTER-BRANCH                   # Checkout the canonical source
 git pull --rebase                            # Ensure most recent changes are in
@@ -26,6 +31,7 @@ git commit -m "my changes"                   # Commit your changes
 
 
 ## General
+
 ```
 git diff branch_A branch_B                   # Compare two branches
 git config user.email <email>
@@ -53,6 +59,7 @@ git config --global credential.helper osxkeychain  # Store Credentials on macOS 
 ```
 
 ## Switch from master to main
+
 ```
 git branch -m master main
 git push -u origin main
@@ -62,6 +69,7 @@ git push origin --delete master
 
 
 ## Fork and Sync Repositories
+
 ```
 git remote -v                                               # List the current remotes
 git remote add upstream https://github.com/user/repo        # Add remote upstream of fork
@@ -72,8 +80,8 @@ git merge upstream/master                                   # Merge upstream mas
 git push
 ```
 
-
 ## Additional Origins
+
 ```
 git remote set-url origin git@github.com:user/repo2             # Replace origin
 git remote set-url --add origin https://github.com/user/repo3   # Add another origin
@@ -81,6 +89,7 @@ git remote set-url --add origin https://github.com/user/repo3   # Add another or
 
 
 ## Squash Commits
+
 Squash or clump commits by moving to a new branch:
 
 ```
@@ -97,6 +106,7 @@ Squash or clump commits by moving to a new branch:
 
 
 ## Revert to a Previous Commit
+
 When you absolutely need to revert last commits.
 
 * **Warning**: Know what you're doing. There's no way back.
@@ -113,6 +123,7 @@ git push origin [branch Name] -f
 
 
 ## Create new Git Origin Repo, Local or Remote
+
 ```
 # Populate myproject directory with initial required files to be commited
 cd myproject
@@ -134,6 +145,7 @@ git push
 
 
 ## Tags
+
 ```
 git tag                                 # List tags
 git tag -l "v1.8.5*"                    # Search tags
@@ -148,6 +160,7 @@ git push origin :refs/tags/v2.0.0       # ... and remotely
 
 
 ## Markdown Choice List
+
 ```
     * [ ] Is it still in use?
     * [ ] Should it be maintained and kept active?
@@ -157,12 +170,14 @@ git push origin :refs/tags/v2.0.0       # ... and remotely
 
 
 ## List Repos Using Github Token:
+
 ```
 curl -u lencap:TOKEN https://api.github.com/orgs/:ORGNAME/repos?type=private
 ```
 
 
 ## Show Branch in Shell Prompt
+
 To show current git branch in BASH PS1 prompt, do the following: 
 
 1. Create this `~/.fast-git-prompt.sh` script: 
@@ -238,6 +253,7 @@ The script above has been slightly reformated from [the original Github Gist](ht
 
 
 ## Host Static Site on Github Repo
+
 Host a simple static *public* document web site based on [Markdown](https://www.markdownguide.org/cheat-sheet) on Github by doing the following:
 1. Create a **public** Github repo with at least 2 files: An `index.md` and a `_config.yml`
 2. Your repo name *must be named* `<username>.github.io`, but if you have your own domain to use for this, then the repo can be named anything
@@ -255,4 +271,5 @@ www.mydomain.com    CNAME    git719.github.io.   # Where git719 is your Github u
 @                   A        185.199.109.153
 @                   A        185.199.108.153
 ```
+
 
