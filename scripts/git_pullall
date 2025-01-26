@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
-# git_pullall 1.1.0
+# git_pullall 1.1.1
 # Do pull on all git repos
 
 set -euo pipefail
-for r in `ls -1` ; do
+Gre='\e[1;32m' Red='\e[1;31m' Pur='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
+
+for r in $(ls -1); do
     if [[ -d "$r/.git" ]]; then
         (
-            printf "===> $r\n"
-            cd $r
-            git config pull.rebase false
-            git pull
-            printf "\n"
+            cd "$r"
+            output=$(git pull 2>&1)
+
+            if echo "$output" | grep -q "Already up to date."; then
+                # Print repo name with "Already up to date" aligned at column 40
+                printf "==> ${Yel}%-35s${Rst} %s\n" "$r" "Already up to date"
+            else
+                # Print repo name and output
+                printf "==> ${Yel}$r${Rst}\n"
+                printf "%s\n" "$output"
+            fi
         )
     fi
 done
