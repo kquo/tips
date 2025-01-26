@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# git_remotev 1.1.0
+# git_remotev 1.1.1
 # List remote sources of all git repos
 
 set -euo pipefail
@@ -7,9 +7,9 @@ for r in `ls -d */` ; do
     r=${r%?}
     if [[ -d "$r/.git" ]]; then
         (
-            cd $r
-            git remote -v | tail -1 | awk '{print $2}'
+            cd "$r"
+            git remote -v | awk '{print $2}'
         )
     fi
-done
+done | sort | uniq
 exit 0
