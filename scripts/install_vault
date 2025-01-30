@@ -15,14 +15,14 @@ check_binary() {
     fi
 }
 
-# Run commands with sudo
+# Run commands with sudo if available
 run_with_sudo() {
-    if [[ "$OSTYPE" == "msys"* ]]; then
-        # GitBASH doesn't use sudo
-        "$@"
-    else
+    if command -v sudo &>/dev/null; then
         printf "==> Running command with sudo: ${Yel}%s${Rst}\n" "$*"
         sudo "$@"
+    else
+        printf "==> Running command without sudo: ${Yel}%s${Rst}\n" "$*"
+        "$@"
     fi
 }
 
