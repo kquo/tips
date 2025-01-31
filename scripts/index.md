@@ -9,6 +9,7 @@ Click on the respective link below to download and view the target script, or vi
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
+| [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [bak](bak)  | 1.1.0      | Backs up given file or directory |
 | [brew_update](brew_update) | 1.1.0      | Does a thorough update of all installed Homebrew packages |
 | [build_go](build_go) | 1.1.0      | Generic script to compile Go programs |
@@ -18,6 +19,7 @@ Click on the respective link below to download and view the target script, or vi
 | [git_pullall](git_pullall) | 1.1.1      | Do pull on all git repos |
 | [git_remotev](git_remotev) | 1.1.1      | List remote sources of all git repos |
 | [git_statall](git_statall) | 1.1.0      | Run status on all git repos |
+| [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [install_go](install_go) | 1.1.0      | Install and setup Go  |
 | [install_tf](install_tf) | 1.1.0      | Install Terraform binary |
 | [install_vault](install_vault) | 1.0.0      | Install HashiCorp Vault binary |
