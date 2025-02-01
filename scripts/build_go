@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# build_go 1.1.0
+# build_go 1.1.1
 # Generic script to compile Go programs
 
 set -euo pipefail
@@ -34,7 +34,7 @@ printf "\n"
 ls -l $GOPATH/bin/$Prg | grep $Prg
 
 printf "\n==> grep replace go.mod:\n$Red$(grep replace go.mod)$Rst"
-printf "\n==> grep prgver main.go:\n$Gre$(grep 'prgver.*=' main.go)$Rst"
+printf "\n==> grep version in main.go:\n$Gre$(grep 'prgver.*=' main.go || grep 'program_version.*=' main.go)$Rst"
 printf "\n==> Last 5 tag versions:\n"
 git tag | sort -V | tail -5
 CurrentTag=`git tag | sort -V | tail -1`

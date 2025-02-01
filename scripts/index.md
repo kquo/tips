@@ -12,7 +12,7 @@ Click on the respective link below to download and view the target script, or vi
 | [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [bak](bak)  | 1.1.0      | Backs up given file or directory |
 | [brew_update](brew_update) | 1.1.0      | Does a thorough update of all installed Homebrew packages |
-| [build_go](build_go) | 1.1.0      | Generic script to compile Go programs |
+| [build_go](build_go) | 1.1.1      | Generic script to compile Go programs |
 | [certls](certls) | 1.1.0      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.1.0      | A simple yt-dlp, the famous video downloader, stub driver |
 | [gen_index](gen_index) | 1.1.0      | Generates this table of scripts here |
