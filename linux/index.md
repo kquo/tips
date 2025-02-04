@@ -1,9 +1,22 @@
 # Linux
 Useful Linux tips.
 
+## Install Homebrew for Linux
+At the moment Homebrew doesn't support Linux on ARM64
+
+```bash
+sudo dnf install -y curl git gcc make procps file
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+brew --version
+brew install htop
+htop
+```
 
 ## Log Rotate
-```
+```bash
 Setup rotation for example Java app name hal-linker:
 $ cat /etc/logrotate.d/hal-linker
 # This file is managed by Puppet, changes may be overwritten
@@ -80,8 +93,10 @@ to prevent no shell from SFTP you have to use /usr/bin/scponly as the shell
 ```
 
 
-## Scrap/Mirror a Site With WGET
-```
+## Mirror a Site With Wget
+Scrape an entire site with `wget`:
+
+```bash
 wget -mkEpnp https://www.google.com/
 ```
 

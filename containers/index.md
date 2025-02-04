@@ -1,7 +1,22 @@
 # Containers
 Container tips.
 
-## Install Docker on Ubuntu
+## Install Docker
+
+### On RedHat/Alma Linux
+
+```bash
+sudo dnf update -y
+sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+```
+
+Logout and log back in for group changes to take effect.
+
+### On Ubuntu
 Based on <https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04>
 
 - To install Docker on Ubuntu 20.04: 
@@ -28,13 +43,12 @@ docker run hello-world
 
 - To add additional users: `sudo usermod -aG docker USERNAME`
 
-## Install Docker Compose on Ubuntu
+**Also install Docker Compose**
+
 Docker Compose allows one to define and run multi-container applications with Docker. A multi-container application can be defined in a single file (usually called `docker-compose.yaml`), then spun up with a single command (usually `docker-compose up`) and that gets everything running.
 
 This is based on <https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-20-04/>.
-
 - Ensure Docker is already installed
-
 - Check latest release at <https://github.com/docker/compose/releases>
 
 ```bash
@@ -62,7 +76,7 @@ CMD ["/hello.sh"]
 $ docker build .
 ```
 
-## Command Docker Commands
+## Command Commands
 ```bash
 docker search jenkins                                     # Sample search
 docker run -it centos                                     # Run image with interactive terminal shell
