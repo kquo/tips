@@ -45,13 +45,19 @@ else
 fi
 
 # Determine the GoLang file package to be downloaded for this OS
+ARCH=$(uname -m)
+case "$ARCH" in
+    "x86_64") ARCH="amd64" ;;
+    "aarch64") ARCH="arm64" ;;
+    *) printf "==> Unsupported architecture: ${Red}$ARCH${Rst}\n" && exit 1 ;;
+esac
 case "$OSTYPE" in
     "msys"*)
-        Filename="go${GOVER}.windows-amd64.zip"
+        Filename="go${GOVER}.windows-${ARCH}.zip"
         printf "==> OS is ${Blu}Windows/GitBASH${Rst}\n"
         ;;
     "linux-gnu"*)
-        Filename="go${GOVER}.linux-amd64.tar.gz"
+        Filename="go${GOVER}.linux-${ARCH}.tar.gz"
         printf "==> OS is ${Blu}Linux${Rst}\n"
         ;;
     "darwin"*)
