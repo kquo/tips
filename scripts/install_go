@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install_go 1.1.0
+# install_go 1.1.1
 # Install and setup Go
 
 set -euo pipefail  # Fail immediately on any error
@@ -37,7 +37,7 @@ run_with_sudo() {
 
 # Determine the GoLang version to be downloaded
 if [[ -z "${1:-}" ]]; then
-    GOVER=$(curl -ks https://go.dev/dl/ | grep -o 'go[0-9]\+\.[0-9]\+\(\.[0-9]\+\)\?' | grep -vE 'beta|rc' | sort -V | tail -n 2 | head -n 1)
+    GOVER=$(curl -ks https://go.dev/dl/?mode=json | jq -r '.[].version' | grep -vE 'beta|rc' | sed 's/^go//' | sort -V | tail -n 1)
     printf "==> No version provided, installing 2nd to last latest version ${Yel}$GOVER${Rst}\n"
 else
     GOVER="$1"
@@ -47,11 +47,11 @@ fi
 # Determine the GoLang file package to be downloaded for this OS
 case "$OSTYPE" in
     "msys"*)
-        Filename="${GOVER}.windows-amd64.zip"
+        Filename="go${GOVER}.windows-amd64.zip"
         printf "==> OS is ${Blu}Windows/GitBASH${Rst}\n"
         ;;
     "linux-gnu"*)
-        Filename="${GOVER}.linux-amd64.tar.gz"
+        Filename="go${GOVER}.linux-amd64.tar.gz"
         printf "==> OS is ${Blu}Linux${Rst}\n"
         ;;
     "darwin"*)

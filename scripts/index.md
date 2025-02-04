@@ -20,7 +20,7 @@ Click on the respective link below to download and view the target script, or vi
 | [git_remotev](git_remotev) | 1.1.1      | List remote sources of all git repos |
 | [git_statall](git_statall) | 1.1.0      | Run status on all git repos |
 | [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
-| [install_go](install_go) | 1.1.0      | Install and setup Go  |
+| [install_go](install_go) | 1.1.1      | Install and setup Go  |
 | [install_tf](install_tf) | 1.1.0      | Install Terraform binary |
 | [install_vault](install_vault) | 1.0.0      | Install HashiCorp Vault binary |
 | [mac_screencap](mac_screencap) | 1.1.0      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
