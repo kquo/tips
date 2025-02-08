@@ -21,7 +21,7 @@ check_binary() {
 }
 
 # Check if an argument is provided
-if [ -z "$1" ]; then
+if [[ -z "${1:-}" ]]; then
     usage
 fi
 ORG_USERNAME=$1
@@ -36,7 +36,7 @@ repos=$(gh repo list "$ORG_USERNAME" --json name --jq '.[].name')
 # Loop through each repository
 for repo in $repos; do
     # Check if the directory already exists
-    if [ -d "$repo" ]; then
+    if [[ -d "$repo" ]]; then
         printf "==> ${Yel}Warning: Directory '$repo' already exists. Skipping...${Rst}"
     else
         printf "==> ${Yel}Cloning '$repo'...${Rst}"
