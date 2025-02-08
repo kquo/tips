@@ -16,6 +16,7 @@ Click on the respective link below to download and view the target script, or vi
 | [certls](certls) | 1.1.0      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.1.0      | A simple yt-dlp, the famous video downloader, stub driver |
 | [gen_index](gen_index) | 1.1.0      | Generates this table of scripts here |
+| [git_cloneall](git_cloneall) | 1.0.0      | Clone all repos for given Github Org or Username |
 | [git_pullall](git_pullall) | 1.1.1      | Do pull on all git repos |
 | [git_remotev](git_remotev) | 1.1.1      | List remote sources of all git repos |
 | [git_statall](git_statall) | 1.1.0      | Run status on all git repos |
