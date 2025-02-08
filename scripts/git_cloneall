@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# git_cloneall 1.0.0
+# git_cloneall 1.0.1
 # Clone all repos for given Github Org or Username
 
 set -euo pipefail
 Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
 
 usage() {
-    echo "Usage: $0 <org/username>"
+    echo "Usage: $(basename $0) <org/username>"
     exit 1
 }
 

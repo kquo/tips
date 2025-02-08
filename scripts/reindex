@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# gen_index 1.1.0
+# reindex 1.2.0
 # Generates this table of scripts here
 
 # Define the output file

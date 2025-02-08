@@ -15,8 +15,7 @@ Click on the respective link below to download and view the target script, or vi
 | [build_go](build_go) | 1.1.1      | Generic script to compile Go programs |
 | [certls](certls) | 1.1.0      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.1.0      | A simple yt-dlp, the famous video downloader, stub driver |
-| [gen_index](gen_index) | 1.1.0      | Generates this table of scripts here |
-| [git_cloneall](git_cloneall) | 1.0.0      | Clone all repos for given Github Org or Username |
+| [git_cloneall](git_cloneall) | 1.0.1      | Clone all repos for given Github Org or Username |
 | [git_pullall](git_pullall) | 1.1.1      | Do pull on all git repos |
 | [git_remotev](git_remotev) | 1.1.1      | List remote sources of all git repos |
 | [git_statall](git_statall) | 1.1.0      | Run status on all git repos |
@@ -27,6 +26,7 @@ Click on the respective link below to download and view the target script, or vi
 | [mac_screencap](mac_screencap) | 1.1.0      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
 | [pman](pman) | 1.2.0      | Azure REST API caller |
 | [prepublish_go](prepublish_go) | 1.1.0      | Tidy up and run checks before publishing Go pkg |
+| [reindex](reindex) | 1.2.0      | Generates this table of scripts here |
 | [resize_image](resize_image) | 1.1.0      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
 | [rn](rn)    | 1.1.0      | Renames all files in current directory |
 | [rncap](rncap) | 1.1.0      | Capitalizes each filename in current working directory |
