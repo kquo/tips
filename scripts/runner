@@ -1,27 +1,16 @@
 #!/usr/bin/env bash
-# runner 1.1.0
-# Runner script to run scripts hosted remotely
+# runner 1.2.0
+# Run scripts hosted remotely, executing the latest version locally
 
-set -euo pipefail
-Gre='\e[1;32m' Red='\e[1;31m' Pur='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
+set -euo pipefail  # Exit immediately on error
 
-Utility="$(basename $0)" # This script filename
+# Set up a temp directory, to be deleted at exit
+TempDir=$(mktemp -d); trap 'rm -rf "${TempDir}"' EXIT
 
-#BaseSite="https://raw.githubusercontent.com/git719/tips/refs/heads/main"
-BaseSite="https://que.one"
-Remote="${BaseSite}/scripts/${Utility}"
-
-# Create a temporary directory
-TempDir=$(mktemp -d)
-ExitFunc() {
-    rm -rf "$TempDir"
-}
-trap ExitFunc EXIT
-
-# Fetch the script into the temp directory
-TempFile="$TempDir/$Utility"
-curl -kso "$TempFile" "$Remote"
-chmod +x "$TempFile"
-
-# Execute the fetched script with only the user-provided arguments
-"$TempFile" "$@"
+# Download and execute the remote script. Note that the name of
+# this local runner script determines the remote script to fetch
+Script="$(basename $0)"
+curl -kso "${TempDir}/${Script}" "https://que.one/scripts/${Script}"
+chmod +x "${TempDir}/${Script}"
+"${TempDir}/${Script}" "$@"
+exit 0

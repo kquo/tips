@@ -31,5 +31,5 @@ Click on the respective link below to download and view the target script, or vi
 | [rn](rn)    | 1.1.0      | Renames all files in current directory |
 | [rncap](rncap) | 1.1.0      | Capitalizes each filename in current working directory |
 | [rnlower](rnlower) | 1.1.0      | Lowercases each file in current working directory |
-| [runner](runner) | 1.1.0      | Runner script to run scripts hosted remotely |
+| [runner](runner) | 1.2.0      | Run scripts hosted remotely, executing the latest version locally |
 | [webm2mp4](webm2mp4) | 1.1.0      | Converts WEBM format files to MP4 format |
