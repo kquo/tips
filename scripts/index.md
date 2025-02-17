@@ -12,7 +12,7 @@ Click on the respective link below to download and view the target script, or vi
 | [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [bak](bak)  | 1.1.0      | Backs up given file or directory |
 | [brew_update](brew_update) | 1.1.0      | Does a thorough update of all installed Homebrew packages |
-| [build_go](build_go) | 1.1.1      | Generic script to compile Go programs |
+| [build_go](build_go) | 1.2.0      | Generic script to compile Go programs |
 | [certls](certls) | 1.1.0      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.1.0      | A simple yt-dlp, the famous video downloader, stub driver |
 | [git_cloneall](git_cloneall) | 1.0.1      | Clone all repos for given Github Org or Username |
@@ -25,7 +25,7 @@ Click on the respective link below to download and view the target script, or vi
 | [install_vault](install_vault) | 1.0.0      | Install HashiCorp Vault binary |
 | [mac_screencap](mac_screencap) | 1.1.0      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
 | [pman](pman) | 1.2.0      | Azure REST API caller |
-| [prepublish_go](prepublish_go) | 1.1.0      | Tidy up and run checks before publishing Go pkg |
+| [prepublish_go](prepublish_go) | 1.2.0      | Tidy up and run checks before publishing Go pkg |
 | [reindex](reindex) | 1.2.0      | Generates this table of scripts here |
 | [resize_image](resize_image) | 1.1.0      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
 | [rn](rn)    | 1.1.0      | Renames all files in current directory |
