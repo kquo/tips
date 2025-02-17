@@ -2,7 +2,7 @@
 # gitbranch.sh 1.0.0
 # Fast git branch PS1 indicator in bash
 
-# EXAPLE USAGE:
+# EXAMPLE USAGE:
 # export Grn='\[\e[1;32m\]' Yel='\[\e[1;33m\]' Rst='\[\e[0m\]'
 # if [[ -f "/path/to/gitbranch.sh" ]]; then
 #     source "path/to/gitbranch.sh"
