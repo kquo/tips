@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
-# runner 1.2.0
+# runner 1.3.0
 # Run scripts hosted remotely, executing the latest version locally
 
-set -euo pipefail  # Exit immediately on error
+set -euo pipefail  # Fail on any error
+Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
+
+check_version() {
+    LocalVer=$(sed -n '2p' "$0" | awk '{print $NF}')
+    LatestVer=$(curl -ks "https://que.one/scripts/$(basename $0)" 2>/dev/null | sed -n '2p' | awk '{print $NF}')
+    if [[ -n "$LatestVer" && "$LocalVer" < "$LatestVer" ]]; then
+        printf "${Yel}==> Warning: Running older ${Rst}${Red}v${LocalVer}${Rst} ${Yel}version "
+        printf "of this script. Please update to latest${Rst} ${Gre}v${LatestVer}${Rst}\n"
+    fi
+}
+
+check_version
 
 # Set up a temp directory, to be deleted at exit
 TempDir=$(mktemp -d); trap 'rm -rf "${TempDir}"' EXIT
