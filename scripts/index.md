@@ -1,11 +1,7 @@
-# Scripts
+## Scripts
 Useful shell scripts.
 
-These can easily be called and run locally, by simply copying the `runner` script below, renaming it to the script you want to call from below list. For instance, to run `build_go`, download `runner` and rename it to `build_go`. Then when you run `build_go` locally it will download and run the version hosted here.
-
-The advantage of this methodology is that you are always running _the latest version of the script_.
-
-Click on the respective link below to download and view the target script, or view source directly at <https://github.com/git719/tips/tree/main/scripts>.
+To use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. All scripts include a `check_version()` function, which checks if you're running the latest version available on this site. You can also view the source code of these scripts directly on [Github](https://github.com/git719/tips/tree/main/scripts).
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
@@ -33,3 +29,6 @@ Click on the respective link below to download and view the target script, or vi
 | [rnlower](rnlower) | 1.2.0      | Lowercases each file in current working directory |
 | [runner](runner) | 1.3.0      | Run scripts hosted remotely, executing the latest version locally |
 | [webm2mp4](webm2mp4) | 1.2.0      | Converts WEBM format files to MP4 format |
+
+( REMINDER: Don't edit this `index.md` file directly -- run the `reindex` script instead. )
+
