@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
-# git_remotev 1.1.1
+# git_remotev 1.1.2
 # List remote sources of all git repos
 
-set -euo pipefail
+set -euo pipefail  # Fail immediately on any error
+Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
+
+check_version() {
+    LocalVer=$(sed -n '2p' "$0" | awk '{print $NF}')
+    LatestVer=$(curl -ks "https://que.one/scripts/$(basename $0)" | sed -n '2p' | awk '{print $NF}')
+    [[ "$LocalVer" < "$LatestVer" ]] && printf "${Yel}==> Warning: Running older ${Rst}${Mag}v${LocalVer}${Rst} ${Yel}version of this script. Run with '-u' argument to upgrade to latest${Rst} ${Mag}v${LatestVer}${Rst}\n"
+}
+
+check_version
+
 for r in `ls -d */` ; do
     r=${r%?}
     if [[ -d "$r/.git" ]]; then

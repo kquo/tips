@@ -177,20 +177,18 @@ for (( i=1 ; i<=$Count ; i++ )) ; do
 done
 ```
 
-## Bash Parameter Substitution
+## Bash Parameter Expansion
 
 ```bash
-A="30.0.2.15,"         # Variable itself
-A=${A#?}               # 0.0.2.15,
-A=${A%?}               # 30.0.2.15
-A=${A:0:1}             # 3
-A=${A:(-1)}            # ,
-A=${A#*.}              # .0.2.15,
-A=${A##*.}             # 15,
-A=${A%.*}              # 30.0.2
-A=${A%%.*}             # 30
-
-A="   10.0.2.16,   "
+INPUT             EXPANSION      RESULT       NOTE
+A="30.0.2.15,"    A=${A#?}       0.0.2.15,    Removes the first character from the beginning.
+A="30.0.2.15,"    A=${A%?}       30.0.2.15    Removes the last character from the end.
+A="30.0.2.15,"    A=${A:0:1}     3            Extracts the first character (index 0).
+A="30.0.2.15,"    A=${A:(-1)}    ,            Extracts the last character using negative indexing.
+A="30.0.2.15,"    A=${A#*.}      .0.2.15,     Removes everything up to and including the first `.`.
+A="30.0.2.15,"    A=${A##*.}     15,          Removes everything up to and including the last `.`.
+A="30.0.2.15,"    A=${A%.*}      30.0.2       Removes the shortest match of `.*` from the end.
+A="30.0.2.15,"    A=${A%%.*}     30           Removes the longest match of `.*` from the end.   
 ```
 
 ## Date Format Text Adjustment
