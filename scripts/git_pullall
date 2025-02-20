@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
-# git_pullall 1.1.2
+# git_pullall 1.3.0
 # Do pull on all git repos
 
-set -euo pipefail  # Fail on any error
+set -euo pipefail  # Fail immediately on any error
 Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
-
 check_version() {
     LocalVer=$(sed -n '2p' "$0" | awk '{print $NF}')
-    LatestVer=$(curl -ks "https://que.one/scripts/$(basename $0)" 2>/dev/null | sed -n '2p' | awk '{print $NF}')
-    if [[ -n "$LatestVer" && "$LocalVer" < "$LatestVer" ]]; then
-        printf "${Yel}==> Warning: Running older ${Rst}${Red}v${LocalVer}${Rst} ${Yel}version "
-        printf "of this script. Please update to latest${Rst} ${Gre}v${LatestVer}${Rst}\n"
+    LatestVerFile=$(curl -ks "https://que.one/scripts/$(basename $0)" 2>/dev/null)
+    if [[ "$LatestVerFile" =~ ^\#\! ]]; then
+        LatestVer=$(echo "$LatestVerFile" | sed -n '2p' | awk '{print $NF}')
+        if [[ -n "$LatestVer" && "$LocalVer" < "$LatestVer" ]]; then
+            printf "${Yel}==> Warning: Running older ${Rst}${Red}v${LocalVer}${Rst} ${Yel}version "
+            printf "of this script. Please update to latest${Rst} ${Gre}v${LatestVer}${Rst}\n"
+        fi
     fi
 }
-
 check_version
 
 for r in $(ls -1); do
