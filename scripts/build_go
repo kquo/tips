@@ -17,6 +17,7 @@ check_version() {
 }
 check_version
 
+# ==== main
 Prg=`head -1 go.mod | awk -F'/' '{print $NF}' | awk '{print $NF}'`
 case "$OSTYPE" in
     "linux-gnu"* ) printf "==> Linux\n" && BIN=$GOPATH/bin/${Prg} ;;

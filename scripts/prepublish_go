@@ -17,19 +17,7 @@ check_version() {
 }
 check_version
 
-check_script_version() {
-    Script="$(basename $0)"
-    LocalVer=$(sed -n '2p' "$0" | awk '{print $NF}')
-    LatestVer=$(curl -ks "https://que.one/scripts/${Script}" | sed -n '2p' | awk '{print $NF}')
-
-    if [[ "$LocalVer" < "$LatestVer" ]]; then
-        printf "${Yel}==> Warning: Running older ${Rst}${Mag}v${LocalVer}${Rst} ${Yel}version of this script. "
-        printf "Run with '-u' argument to upgrade to latest${Rst} ${Mag}v${LatestVer}${Rst}\n"
-    fi
-}
-
-check_script_version
-
+# ==== main
 Prg=`head -1 go.mod | awk -F'/' '{print $NF}' | awk '{print $NF}'`
 case "$OSTYPE" in
     "linux-gnu"* ) printf "==> Linux\n" ;;
