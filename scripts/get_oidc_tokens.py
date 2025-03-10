@@ -1,8 +1,9 @@
-# get_oidc_tokens.py
-# 1.0.0
+#!/usr/bin/env python
+# get_oidc_tokens.py 1.0.1
 # See https://que.one/git/oidc-azure.html
 
 import os
+import sys
 import requests
 import msal
 import base64
@@ -63,6 +64,18 @@ def decode_oidc_token(oidc_token):
         raise ValueError(f"Failed to decode OIDC token: {str(e)}")
 
 def get_github_oidc_token():
+    # Validate the special Github variables
+    if not gh_oidc_req_token:
+        printc(RED, "==> Error. Variable 'ACTIONS_ID_TOKEN_REQUEST_TOKEN' is empty or null")
+        print("Have you enabled right workflow permissions?")
+        sys.exit(1)
+    if not gh_oidc_req_url:
+        printc(RED, "==> Error. Variable 'ACTIONS_ID_TOKEN_REQUEST_URL' is empty or null")
+        print("Have you enabled right workflow permissions?")
+        sys.exit(1)
+    printc(YELLOW, f"==> ACTIONS_ID_TOKEN_REQUEST_TOKEN Hint = {gh_oidc_req_token[0:4]}******")
+    printc(YELLOW, f"==> ACTIONS_ID_TOKEN_REQUEST_URL        = {gh_oidc_req_url}")
+
     # Fetch Github OIDC token
     headers = {
         "Authorization": f"Bearer {gh_oidc_req_token}",

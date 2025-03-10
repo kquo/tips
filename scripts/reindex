@@ -1,21 +1,6 @@
 #!/usr/bin/env bash
-# reindex 1.4.0
-# Generates this table of scripts here
-
-set -euo pipefail  # Fail immediately on any error
-Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
-check_version() {
-    LocalVer=$(sed -n '2p' "$0" | awk '{print $NF}')
-    LatestVerFile=$(curl -ks "https://que.one/scripts/$(basename $0)" 2>/dev/null)
-    if [[ "$LatestVerFile" =~ ^\#\! ]]; then
-        LatestVer=$(echo "$LatestVerFile" | sed -n '2p' | awk '{print $NF}')
-        if [[ -n "$LatestVer" && "$LocalVer" < "$LatestVer" ]]; then
-            printf "${Yel}==> Warning: Running older ${Rst}${Red}v${LocalVer}${Rst} ${Yel}version "
-            printf "of this script. Please update to latest${Rst} ${Gre}v${LatestVer}${Rst}\n"
-        fi
-    fi
-}
-check_version
+# reindex 1.5.0
+# Generates table of scripts
 
 # Define the output file
 output_file="index.md"
@@ -28,8 +13,8 @@ echo "| Script Name | Version    | Comment               |" >> "$output_file"
 echo "|-------------|------------|-----------------------|" >> "$output_file"
 
 # Loop through all scripts in the directory
-for script in *.sh *.bash *; do
-    if [[ -f $script && $(head -n 1 "$script") == "#!/usr/bin/env bash" ]]; then
+for script in * ; do
+    if [[ -f $script && $(head -n 1 "$script") == "#!/"* ]]; then
         if [[ $(head -n 3 "$script" | wc -l) -ge 3 ]]; then
             # Extract details from the first 3 lines of the script
             script_name=$(basename "$script")

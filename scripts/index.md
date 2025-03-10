@@ -5,12 +5,12 @@ To use a script, download it locally by clicking on its respective link below. Y
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
-| [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [bak](bak)  | 1.2.0      | Backs up given file or directory |
 | [brew_update](brew_update) | 1.3.0      | Does a thorough update of all installed Homebrew packages |
 | [build_go](build_go) | 1.3.0      | Generic script to compile Go programs |
 | [certls](certls) | 1.2.0      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.2.0      | A simple yt-dlp, the famous video downloader, stub driver |
+| [get_oidc_tokens.py](get_oidc_tokens.py) | 1.0.1      | See https://que.one/git/oidc-azure.html |
 | [git_cloneall](git_cloneall) | 1.3.0      | Clone all repos for given Github Org or Username |
 | [git_pullall](git_pullall) | 1.3.0      | Do pull on all git repos |
 | [git_remotev](git_remotev) | 1.3.0      | List remote sources of all git repos |
@@ -22,7 +22,7 @@ To use a script, download it locally by clicking on its respective link below. Y
 | [mac_screencap](mac_screencap) | 1.2.0      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
 | [pman](pman) | 1.4.0      | Azure REST API caller |
 | [prepublish_go](prepublish_go) | 1.4.0      | Tidy up and run checks before publishing Go pkg |
-| [reindex](reindex) | 1.4.0      | Generates this table of scripts here |
+| [reindex](reindex) | 1.5.0      | Generates table of scripts |
 | [resize_image](resize_image) | 1.3.0      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
 | [rn](rn)    | 1.3.0      | Renames all files in current directory |
 | [rncap](rncap) | 1.3.0      | Capitalizes each filename in current working directory |
