@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# reindex 1.5.0
+# reindex 1.5.1
 # Generates table of scripts
 
 # Define the output file
@@ -7,7 +7,7 @@ output_file="index.md"
 
 # Start the Markdown table header
 echo "## Scripts" > "$output_file"
-printf "Useful shell scripts.\n\nTo use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. All scripts include a \`check_version()\` function, which checks if you're running the latest version available on this site. You can also view the source code of these scripts directly on [Github](https://github.com/git719/tips/tree/main/scripts).\n\n" >> "$output_file"
+printf "Useful shell scripts.\n\nTo use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. To view the source code of these scripts directly go to [Github](https://github.com/git719/tips/tree/main/scripts).\n\n" >> "$output_file"
 
 echo "| Script Name | Version    | Comment               |" >> "$output_file"
 echo "|-------------|------------|-----------------------|" >> "$output_file"
