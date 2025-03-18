@@ -1,8 +1,27 @@
 ## Github Workflow OIDC Access to Azure
 
-**[ NEEDS REWRITE ]**
+**NEEDS REWRITE**
 
 OIDC allows workflows to authenticate and interact with Azure using short-lived tokens. This eliminates the need for long-lived personal access tokens (PAT) or service principal with a secrets, providing a more secure and manageable approach to accessing cloud resources directly from GitHub Actions.
+
+- [Github Workflow OIDC Access to Azure](#github-workflow-oidc-access-to-azure)
+  - [How It Works](#how-it-works)
+  - [Setting Up](#setting-up)
+  - [Overview](#overview)
+  - [OIDC Flow Diagram](#oidc-flow-diagram)
+  - [References](#references)
+- [Using OIDC for Authentication with Azure](#using-oidc-for-authentication-with-azure)
+  - [1. How GitHub Workflows Use OIDC to Authenticate with Azure](#1-how-github-workflows-use-oidc-to-authenticate-with-azure)
+  - [2. Can Any Program Do the Same?](#2-can-any-program-do-the-same)
+    - [a. The Program Must Be Able to Generate an OIDC Token](#a-the-program-must-be-able-to-generate-an-oidc-token)
+    - [b. Azure Must Trust the OIDC Token Issuer](#b-azure-must-trust-the-oidc-token-issuer)
+    - [c. The Program Must Have the Correct Configuration in Azure AD](#c-the-program-must-have-the-correct-configuration-in-azure-ad)
+  - [3. What Makes Azure Trust the GitHub OIDC Token?](#3-what-makes-azure-trust-the-github-oidc-token)
+  - [4. What Does It Take for Any Program to Be Trusted by Azure?](#4-what-does-it-take-for-any-program-to-be-trusted-by-azure)
+  - [5. Example: Custom Program Using OIDC with Azure](#5-example-custom-program-using-oidc-with-azure)
+  - [Summary](#summary)
+  - [Roles in the OIDC Flow](#roles-in-the-oidc-flow)
+    - [Why This Works](#why-this-works)
 
 ### How It Works
 1. **Configuration**: You configure your Azure AD App Registration to trust an external identity provider by setting up a federation with that IdP. This involves specifying details about the IdP, such as the issuer URL, and possibly uploading metadata documents for SAML-based federations.
@@ -75,7 +94,7 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
                 curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${{env.MG_TOKEN}}" -X GET "https://graph.microsoft.com/v1.0/users" | jq
     ```
 
-## Overview
+### Overview
 
 A Github workflow action can be setup to You can - Using Azure as a sample cloud provider
 - At high level
@@ -139,17 +158,13 @@ MS Graph                    │                         Azure ARM
 - [Create ASCII Diagrams](https://asciiflow.com/#/)
 
 
----
-
-** ADDITIONAL INFO FOR THAT REWRITE **
-
-# Using OIDC for Authentication with Azure
+## Using OIDC for Authentication with Azure
 
 This document explains how **OpenID Connect (OIDC)** authentication works between a program (like a GitHub workflow) and Azure, and what it takes for any program to be trusted by Azure.
 
 ---
 
-## 1. How GitHub Workflows Use OIDC to Authenticate with Azure
+### 1. How GitHub Workflows Use OIDC to Authenticate with Azure
 
 When a GitHub workflow authenticates with Azure, it follows these steps:
 
@@ -166,19 +181,18 @@ When a GitHub workflow authenticates with Azure, it follows these steps:
 4. **Azure Issues an Access Token**:
    - If the OIDC token is valid and the claims match the configuration, Azure issues an access token to the workflow. This access token allows the workflow to perform actions in Azure based on the assigned permissions.
 
----
 
-## 2. Can Any Program Do the Same?
+### 2. Can Any Program Do the Same?
 
 Yes, **any program** can use OIDC to authenticate with Azure, provided it meets the following requirements:
 
-### a. The Program Must Be Able to Generate an OIDC Token
+#### a. The Program Must Be Able to Generate an OIDC Token
    - The program must act as an **OIDC identity provider** or integrate with one. For example:
      - GitHub Actions generates OIDC tokens for workflows.
      - Other CI/CD tools (e.g., GitLab, Jenkins) or custom programs can also generate OIDC tokens if they implement the OIDC standard.
    - The OIDC token must include the necessary claims (e.g., issuer, subject, audience) that Azure can validate.
 
-### b. Azure Must Trust the OIDC Token Issuer
+#### b. Azure Must Trust the OIDC Token Issuer
    - Azure AD must be configured to trust the OIDC token issuer (e.g., GitHub, GitLab, or your custom issuer).
    - This involves:
      1. **Registering the Issuer's Public Key**:
@@ -186,7 +200,7 @@ Yes, **any program** can use OIDC to authenticate with Azure, provided it meets 
      2. **Configuring a Federated Identity**:
         - In Azure AD, you create a **federated identity credential** that maps the OIDC token's claims (e.g., issuer, subject) to an Azure AD application or service principal.
 
-### c. The Program Must Have the Correct Configuration in Azure AD
+#### c. The Program Must Have the Correct Configuration in Azure AD
    - The program's OIDC token must include claims that match the federated identity configuration in Azure AD.
    - For example:
      - The `issuer` claim must match the trusted issuer (e.g., `https://token.actions.githubusercontent.com` for GitHub).
@@ -194,7 +208,7 @@ Yes, **any program** can use OIDC to authenticate with Azure, provided it meets 
 
 ---
 
-## 3. What Makes Azure Trust the GitHub OIDC Token?
+### 3. What Makes Azure Trust the GitHub OIDC Token?
 
 Azure trusts the GitHub OIDC token because:
 
@@ -210,7 +224,7 @@ Azure trusts the GitHub OIDC token because:
 
 ---
 
-## 4. What Does It Take for Any Program to Be Trusted by Azure?
+### 4. What Does It Take for Any Program to Be Trusted by Azure?
 
 For any program to be trusted by Azure, you need to:
 
@@ -230,7 +244,7 @@ For any program to be trusted by Azure, you need to:
 
 ---
 
-## 5. Example: Custom Program Using OIDC with Azure
+### 5. Example: Custom Program Using OIDC with Azure
 
 If you want to write a custom program that uses OIDC to authenticate with Azure, here’s what you’d do:
 
@@ -250,9 +264,7 @@ If you want to write a custom program that uses OIDC to authenticate with Azure,
    - Present the OIDC token to Microsoft Identity Platform to request an Azure access token.
    - Use the access token to interact with Azure resources.
 
----
-
-## Summary
+### Summary
 
 - **Any program** can use OIDC to authenticate with Azure, provided it generates valid OIDC tokens and Azure is configured to trust the token issuer.
 - Azure trusts GitHub's OIDC tokens because:
@@ -262,3 +274,24 @@ If you want to write a custom program that uses OIDC to authenticate with Azure,
   - Set up your program as an OIDC identity provider.
   - Register your program's public key in Azure AD.
   - Configure federated identity credentials in Azure AD.
+
+
+### Roles in the OIDC Flow
+
+In the OIDC authentication flow between GitHub and Azure, **GitHub** acts as the **Identity Provider (IdP)**, while **Azure** acts as the **Relying Party (RP)** or **Service Provider (SP)**.
+
+- **GitHub's Role**:
+  - Issues OIDC tokens for workflow runs, containing claims about the workflow (e.g., repository, branch, job name).
+  - Signs the OIDC token using its private key to ensure authenticity.
+  - Exposes a discovery endpoint (e.g., `https://token.actions.githubusercontent.com/.well-known/openid-configuration`) for Azure to retrieve public keys and configuration details.
+  - Is trusted by Azure to issue valid OIDC tokens for federated identity scenarios.
+
+- **Azure's Role**:
+  - Validates the OIDC token's signature using GitHub's public key and checks its claims (e.g., `issuer`, `subject`, `audience`) against the configured federated identity credentials.
+  - Issues an **access token** to the GitHub workflow if the OIDC token is valid, enabling interaction with Azure resources.
+  - Enforces **Role-Based Access Control (RBAC)** by mapping the OIDC token's claims to specific roles or permissions in Azure AD (e.g., contributor, reader).
+
+#### Why This Works
+- **Trust**: Azure trusts GitHub to issue valid OIDC tokens because GitHub's public keys are registered in Azure AD.
+- **Security**: The OIDC token is signed and contains claims that Azure validates, ensuring only authorized workflows can access Azure resources.
+- **Automation**: This flow enables secure, automated authentication for CI/CD pipelines without the need for long-lived secrets.
