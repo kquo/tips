@@ -11,6 +11,13 @@ chsh -s "$(brew --prefix)/bin/bash"
 chsh -s /bin/bash
 ```
 
+## Unix Text Filters
+Some common text filtering commands:
+- Search files recursively for any text with `ByName(`, as in functions ending with that name: 
+```bash
+ggrep -roP '[[:alnum:]_]+ByName(?=\()' . | awk -F':' '{print $2}' | sort -u
+```
+
 ## Postman REST API Caller
 The simplest shell alias to call a REST API can be:
 
@@ -619,23 +626,59 @@ Command line sine wave function to play with
 
 ```bash
 sinewave() {
-Width=$(tput cols)                                     # Get width of screen
-Middle=$((Width/2))
-Count=1
-while true ; do                                        # Infinity loop - CNTRL-C to exit
+  Width=$(tput cols)                                     # Get width of screen
+  Middle=$((Width/2))
+  Count=1
+  while true ; do                                        # Infinity loop - CNTRL-C to exit
     Shift=$(echo "s($Count * 0.02) * $Middle" | bc -l)   # bc's sine function
     printf -v Shift %.0f "$Shift"                        # Convert float to integer
     ((Indent=Middle+Shift))
     printf -v CH $(printf '\%o' $((33 + RANDOM % 94)))   # Select a random ASCII char
     printf "%*s\n" $Indent "$CH"                         # Print it in sine wave indentation
     ((Count++))
-done
+  done
 }
 
 # Define the function as a one-liner, then run it:
 sinewave() { Width=$(tput cols) ; Middle=$((Width/2)) ; Count=1 ; while true ; do  Shift=$(echo "s($Count * 0.02) * $Middle" | bc -l) ; printf -v Shift %.0f "$Shift" ; ((Indent=Middle+Shift)) ; printf -v CH $(printf '\%o' $((33 + RANDOM % 94))) ; printf "%*s\n" $Indent "$CH" ; ((Count++)) ; done ; }
 
 sinewave
+```
+
+For kicks, here's the Python version: 
+
+```python
+import math
+import random
+import shutil
+import time
+
+def sinewave():
+    while True:
+        width = shutil.get_terminal_size().columns  # Get terminal width
+        middle = width // 2
+        count = 1
+
+        try:
+            while True:
+                # Calculate sine wave shift
+                shift = math.sin(count * 0.02) * middle
+                indent = middle + int(round(shift))
+
+                # Generate a random printable ASCII character
+                char = chr(random.randint(33, 126))
+
+                # Print the character at the calculated indentation
+                print(" " * indent + char)
+
+                count += 1
+                time.sleep(0.05)  # Control animation speed
+        except KeyboardInterrupt:
+            print("\nSine wave stopped.")
+            break
+
+if __name__ == "__main__":
+    sinewave()
 ```
 
 ## wget vs curl
