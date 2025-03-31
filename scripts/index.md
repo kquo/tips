@@ -8,6 +8,7 @@ To use a script, download it locally by clicking on its respective link below. Y
 | [bak](bak)  | 1.2.1      | Backs up given file or directory |
 | [brew_update](brew_update) | 1.3.1      | Does a thorough update of all installed Homebrew packages |
 | [build_go](build_go) | 1.3.1      | Generic script to compile Go programs |
+| [certgen](certgen) | 1.0.0      | Generates a standard 10-year self-signed SSL .crt with a .key file. |
 | [certls](certls) | 1.2.1      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.2.1      | A simple yt-dlp, the famous video downloader, stub driver |
 | [get_oidc_tokens.py](get_oidc_tokens.py) | 1.0.1      | See https://que.one/git/oidc-azure.html |
