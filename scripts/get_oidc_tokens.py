@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# get_oidc_tokens.py 1.0.1
+# get_oidc_tokens.py 1.0.2
 # See https://que.one/git/oidc-azure.html
 
 import os
@@ -11,25 +11,24 @@ import json
 import datetime
 
 # Global constants and variables
-BLUE      = '\x1b[1;34m'
-CYAN      = '\x1b[1;36m'
-GREEN     = '\x1b[32m'
-LIGHTGREY = '\x1b[37m'
-MAGENTA   = '\x1b[1;35m'
-RED       = '\x1b[31m'
-WHITE     = '\x1b[1;37m'
-YELLOW    = '\x1b[1;33m'
-RESET     = '\x1b[0m'
+BLUE      = Blu = "\033[1;34m"
+CYAN      = Cya = "\033[1;36m"
+GREEN     = Grn = "\033[1;32m"
+LIGHTGRAY = Gra = "\033[37m"
+MAGENTA   = Mag = "\033[1;35m"
+RED       = Red = "\033[1;31m"
+WHITE     = Whi = "\033[1;37m"
+YELLOW    = Yel = "\033[1;33m"
+RESET     = Rst = "\033[0m"
 
-# Github or workflow caller MUST define below variables
+# Github actions caller MUST define below variables
 CLIENT_ID         = os.getenv("CLIENT_ID")  # Client ID of the Azure AD app
 TENANT_ID         = os.getenv("TENANT_ID")  # Tenant ID of the Azure AD app
 gh_oidc_req_token = os.getenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN")
 gh_oidc_req_url   = os.getenv("ACTIONS_ID_TOKEN_REQUEST_URL")
 
-# Standard OAuth 2.0 Scopes for Microsoft Azure Services
-# These scopes are used to request permissions for accessing various Azure APIs.
-# Each scope corresponds to a specific Azure service and defines the level of access granted.
+# Standard OAuth 2.0 Scopes for Microsoft Azure Services. These are used to
+# request tokens for accessing the specific service API with default permissions.
 AZ_SCOPES    = ["https://management.azure.com/.default"]               # arm:       Azure Resource Manager
 MG_SCOPES    = ["https://graph.microsoft.com/.default"]                # ms-graph:  MS Graph
 AAD_SCOPES   = ["https://graph.windows.net/.default"]                  # aad-graph: Azure AD Graph API
@@ -134,6 +133,7 @@ def set_api_token(oidc_token, scopes, env_var_name):
     :param scopes: The scopes for which to request the token.
     :param env_var_name: The name of the environment variable to set.
     """
+    global ERROR_ENCOUNTERED
     try:
         # Get the token for the specified scopes
         api_token = get_microsoft_token(oidc_token, scopes)
@@ -143,13 +143,19 @@ def set_api_token(oidc_token, scopes, env_var_name):
         with open(os.getenv("GITHUB_ENV"), "a") as f:
             f.write(f"{env_var_name}={api_token}\n")
     except Exception as e:
-        printc(RED, f"Error setting {env_var_name}: {str(e)}")
+        printc(RED, f"==> Error setting {env_var_name}: {str(e)}")
+        ERROR_ENCOUNTERED = True
 
 def main():
+    global ERROR_ENCOUNTERED
+    ERROR_ENCOUNTERED = False
     oidc_token = get_github_oidc_token()  # Fetch the Github OIDC_TOKEN
     set_api_token(oidc_token, AZ_SCOPES, 'AZ_TOKEN')  # Set the ARM API AZ token
     set_api_token(oidc_token, MG_SCOPES, 'MG_TOKEN')  # Set the MS Graph API token
     # You can do additional Microsoft Azure Services API tokens below ...
+
+    if ERROR_ENCOUNTERED:
+        print(f"{Red}==> There were errors acquiring and setting the tokens.{Rst}")
 
 if __name__ == "__main__":
     main()
