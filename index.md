@@ -73,7 +73,7 @@ Quick and useful tips.
 
 <tr>
 <td> <a href="thinking/">thinking</a> </td>
-<td> <a href="twitter/">twitter</a> </td>
+<td> <a href=""></a> </td>
 <td> <a href="video/">video</a> </td>
 <td> </td>
 </tr>
