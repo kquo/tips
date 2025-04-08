@@ -1,8 +1,8 @@
 # Azure 
-
 Helpful Microsoft Azure cloud tips.
 
 - [Github Workflow OIDC Access to Azure](../git/oidc-azure.md)
+- [Understanding Microsoft Access Token Validation](ms-token-validation.md)
 
 ## Azure Cloud
 
