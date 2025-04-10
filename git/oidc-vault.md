@@ -47,29 +47,24 @@ on:
 jobs:
   oidc-to-vault:
     runs-on: ubuntu-latest
-
     permissions:
       id-token: write  # Required for OIDC
       contents: read   # Default read permissions
-
     steps:
-      # Step 1: Set up Vault OIDC Authentication and Retrieve Secret
-      - name: Authenticate with Vault and Retrieve Secret
-        id: vault
-        uses: hashicorp/vault-action@3.1.0
+
+      - name: Retrieve Vault Objects
+        uses: hashicorp/vault-action@3
         with:
           url: https://vault.example.com
-          method: oidc
-          role: github-actions
+          method: jwt
+          path: jwt_mypath
+          role: my-github-actions
           secrets: |
-            github_token=some/path/github/sub/folder/read-access-file:github_token
+            some/data/path/github/sub/folder/target-object Field_Within_Object | MYSECRET1 ;
 
-      # Step 2: Use the Retrieved Secret
       - name: Use the secret
         run: |
-          echo "GitHub Token: $GITHUB_TOKEN"
-        env:
-          GITHUB_TOKEN: ${{ steps.vault.outputs.github_token }}
+          printf "MYSECRET1 hint = ${MYSECRET1:0:4}"
 ```
 
 ### Key Details
@@ -83,7 +78,7 @@ jobs:
 
 2. **`hashicorp/vault-action` Configuration**:
    - The `method: oidc` input specifies OIDC authentication.
-   - `role: github-actions` maps to the Vault role created earlier (`auth/jwt/role/github-actions`).
+   - `role: my-github-actions` maps to the Vault role created earlier (`auth/jwt/role/github-actions`).
    - Secrets mapping works the same way as in other Vault authentication methods.
 
 3. **OIDC Authentication**:
@@ -98,7 +93,7 @@ To recap, ensure the following is configured in Vault:
 
 2. Write the GitHub OIDC role:
    ```bash
-   vault write auth/jwt/role/github-actions \
+   vault write auth/jwt/role/my-github-actions\
        bound_issuer=https://token.actions.githubusercontent.com \
        user_claim=repository \
        bound_claims_format=glob \
