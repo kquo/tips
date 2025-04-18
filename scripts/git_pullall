@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
-# git_pullall 1.3.2
+# git_pullall 1.3.4
 # Do pull on all git repos
 
-set -euo pipefail  # Fail immediately on any error
+set -euo pipefail
 Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
 
-for r in $(ls -1); do
+for r in */; do
+    repo="${r%/}"  # Remove trailing slash for display
     if [[ -d "$r/.git" ]]; then
         (
             cd "$r"
+            if ! git ls-remote &>/dev/null; then
+                printf "==> ${Red}%-35s${Rst} %s\n" "$repo" "Repository not found, skipping..."
+                exit 0
+            fi
+
             output=$(git pull 2>&1)
 
             if echo "$output" | grep -q "Already up to date."; then
-                # Print repo name with "Already up to date" aligned at column 40
-                printf "==> ${Yel}%-35s${Rst} %s\n" "$r" "Already up to date"
+                printf "==> ${Yel}%-35s${Rst} %s\n" "$repo" "Already up to date"
             else
-                # Print repo name and output
-                printf "==> ${Yel}$r${Rst}\n"
+                printf "==> ${Yel}%-35s${Rst}\n" "$repo"
                 printf "%s\n" "$output"
             fi
         )
