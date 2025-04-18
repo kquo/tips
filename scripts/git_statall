@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
-# git_statall 1.3.1
+# git_statall 1.3.2
 # Run status on all git repos
 
 set -euo pipefail  # Fail immediately on any error
 Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
 
 # ==== main
-for r in $(ls -1) ; do
+for r in $(ls -1); do
     if [[ -d "$r/.git" ]]; then
         (
-            printf "%-50s" "$r"
-            cd $r
+            cd "$r"
             Branch="$(git branch --show-current)"
-            if [[ "$(git status | grep 'working tree clean')" ]]; then
-                printf "👍 $Branch\n"
+            if git status | grep -q 'working tree clean'; then
+                printf "==> ${Yel}%-35s${Rst} 👍 %s\n" "$r" "$Branch"
             else
-                printf "❌ $Branch\n"
+                printf "==> ${Yel}%-35s${Rst} ❌ %s\n" "$r" "$Branch"
             fi
         )
     fi

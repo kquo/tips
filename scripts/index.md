@@ -11,11 +11,11 @@ To use a script, download it locally by clicking on its respective link below. Y
 | [certgen](certgen) | 1.0.0      | Generates a standard 10-year self-signed SSL .crt with a .key file. |
 | [certls](certls) | 1.2.1      | Given an FQDN show all assigned SSL certificates  |
 | [dl](dl)    | 1.2.1      | A simple yt-dlp, the famous video downloader, stub driver |
-| [get_oidc_tokens.py](get_oidc_tokens.py) | 1.0.1      | See https://que.one/git/oidc-azure.html |
+| [get_oidc_tokens.py](get_oidc_tokens.py) | 1.0.2      | See https://que.one/git/oidc-azure.html |
 | [git_cloneall](git_cloneall) | 1.3.1      | Clone all repos for given Github Org or Username |
-| [git_pullall](git_pullall) | 1.3.1      | Do pull on all git repos |
-| [git_remotev](git_remotev) | 1.3.1      | List remote sources of all git repos |
-| [git_statall](git_statall) | 1.3.1      | Run status on all git repos |
+| [git_pullall](git_pullall) | 1.3.2      | Do pull on all git repos |
+| [git_remotev](git_remotev) | 1.3.2      | List remote sources of all git repos |
+| [git_statall](git_statall) | 1.3.2      | Run status on all git repos |
 | [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [install_go](install_go) | 1.3.1      | Install and setup Go  |
 | [install_tf](install_tf) | 1.3.1      | Install Terraform binary |
