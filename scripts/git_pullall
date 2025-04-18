@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# git_pullall 1.3.1
+# git_pullall 1.3.2
 # Do pull on all git repos
 
 set -euo pipefail  # Fail immediately on any error
