@@ -31,102 +31,121 @@ d. You need a USB drive/stick of at least 16GB in size
 
 **Basic setup:** 
     
-    Insert the USB driver on your Mac
-    brew install raspberry-pi-imager
-    Run the Imager and burn the latest Ubuntu Desktop 24.10 image
-    Once done, insert on your Pi5 and install Ubuntu on the NVMe drive. (May need more details here).
+- Insert the USB driver on your Mac
+- `brew install raspberry-pi-imager`
+- Run the Imager and burn the latest Ubuntu Desktop 24.10 image
+- Once done, insert on your Pi5 and install Ubuntu on the NVMe drive. (May need more details here).
 
 **Additional configurations and settings follow below:** 
 
 1. Adjust CLI Console Character size: 
-    sudo mount -o remount,rw /boot/firmware
-    sudo vi /boot/firmware/cmdline.txt
-    Remove the 'quiet splash' at the end, and add 'video=800x600' or 1024x768 ; 1280x720 ; 1920x1080
-    sudo vi /boot/firmware/config.txt
-    Add below
-    hdmi_group=2
-    hdmi_mode=16  # 9=800x600 ; 16=1024x768 ; 4=1280x720 ; 82=1920x1080
-    dtparam=pciex1_gen=2
+
+```bash
+sudo mount -o remount,rw /boot/firmware
+sudo vi /boot/firmware/cmdline.txt
+Remove the 'quiet splash' at the end, and add 'video=800x600' or 1024x768 ; 1280x720 ; 1920x1080
+sudo vi /boot/firmware/config.txt
+Add below
+hdmi_group=2
+hdmi_mode=16  # 9=800x600 ; 16=1024x768 ; 4=1280x720 ; 82=1920x1080
+dtparam=pciex1_gen=2
+```
 
 If necessary, you can make further adjustments via `dpkg-reconfigure` utility: 
 
-    sudo apt install console-setup kbd   # To optionally install addtional Font Sizes
-    sudo dpkg-reconfigure console-setup
-    Select Terminus (default is VGA)
-    Select Font Size 16x32 or whatever
+```bash
+sudo apt install console-setup kbd   # To optionally install addtional Font Sizes
+sudo dpkg-reconfigure console-setup
+Select Terminus (default is VGA)
+Select Font Size 16x32 or whatever
+```
 
-2. Setup SSH: 
+1. Setup SSH: 
 
-    sudo systemctl enable ssh
-    sudo systemctl start ssh
+```bash
+sudo systemctl enable ssh
+sudo systemctl start ssh
+```
 
-3. Updated Boot Order: 
+1. Updated Boot Order: 
 
-    sudo apt update
-    sudo apt install -y rpi-eeprom
-    sudo rpi-eeprom-config
-    sudo EDITOR=vi rpi-eeprom-config --edit
-    Set BOOT_ORDER=0x6 to only boot off NVMe or 0x4 to only boot off USB
-    (Trying to set it to conditionally boot off USB is a nightmare)
-    sudo reboot
+```bash
+sudo apt update
+sudo apt install -y rpi-eeprom
+sudo rpi-eeprom-config
+sudo EDITOR=vi rpi-eeprom-config --edit
+Set BOOT_ORDER=0x6 to only boot off NVMe or 0x4 to only boot off USB
+(Trying to set it to conditionally boot off USB is a nightmare)
+sudo reboot
+```
 
-4. Disable desktop: 
+1. Disable desktop: 
 
-    sudo systemctl set-default multi-user.target
-    sudo reboot
-    sudo systemctl start graphical.target        # To manually start the Graphical Desktop
-    sudo systemctl set-default graphical.target  # To re-enable Graphical Desktop
+```bash
+sudo systemctl set-default multi-user.target
+sudo reboot
+sudo systemctl start graphical.target        # To manually start the Graphical Desktop
+sudo systemctl set-default graphical.target  # To re-enable Graphical Desktop
+```
 
-5. Auto-login setup. To set default user for automatic login, edit the getty service: 
+1. Auto-login setup. To set default user for automatic login, edit the getty service: 
 
-    sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
-    sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf
-    Add:
-    [Service]
-    ExecStart=
-    ExecStart=-/sbin/agetty --autologin <USERNAME> --noclear %I $TERM
-    sudo systemctl daemon-reload
-    sudo systemctl restart getty@tty1.service
-    sudo reboot
+```bash
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
+sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf
+Add:
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin <USERNAME> --noclear %I $TERM
+sudo systemctl daemon-reload
+sudo systemctl restart getty@tty1.service
+sudo reboot
+```
 
-6. Issues
+1. Issues
 If keyboard does not respond, you can try `sudo usermod -a -G input $USER` it's not a permission issue with current user.
 
 ### Set New Hostname
 
-    sudo hostnamectl set-hostname <new-hostname>
-    sudo vi /etc/hosts  # Change it here too
-    sudo reboot
+```bash
+sudo hostnamectl set-hostname <new-hostname>
+sudo vi /etc/hosts  # Change it here too
+sudo reboot
+```
 
 ### Ensure Sound is Working
 
 Plug a USB-to-3.5mm audio connector to the Raspberry Pi 5 and connect that to your speakers. Test sound system with below steps: 
 
-    sudo apt update
-    sudo apt install --reinstall pipewire pipewire-pulse wireplumber pipewire-audio-client-libraries
-    sudo apt install --reinstall libspa-0.2-bluetooth
-    pactl info | grep "Server Name"
-    pactl list short sinks
-    aplay /usr/share/sounds/alsa/Front_Center.wav  # To test speaker
+```bash
+sudo apt update
+sudo apt install --reinstall pipewire pipewire-pulse wireplumber pipewire-audio-client-libraries
+sudo apt install --reinstall libspa-0.2-bluetooth
+pactl info | grep "Server Name"
+pactl list short sinks
+aplay /usr/share/sounds/alsa/Front_Center.wav  # To test speaker
+```
 
 ### Compile MAME
 
 You can also compile MAME yourself, which allows you to select only the machines you are interested in. Follow below instructions to do so on the Raspberry Pi 5 running Ubuntu:  
 
-    sudo apt update
-    sudo apt install build-essential libsdl2-dev libfontconfig1-dev libpulse-dev \
-        qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5opengl5-dev \
-        libasound2-dev libxinerama-dev libxi-dev libgl1-mesa-dev python3
-    sudo apt install libsdl2-ttf-dev
+```bash
+sudo apt update
+sudo apt install build-essential libsdl2-dev libfontconfig1-dev libpulse-dev \
+  qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5opengl5-dev \
+  libasound2-dev libxinerama-dev libxi-dev libgl1-mesa-dev python3
+sudo apt install libsdl2-ttf-dev
 
-    git clone https://github.com/mamedev/mame.git
-    cd mame
+git clone https://github.com/mamedev/mame.git
+cd mame
 
-    make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
+make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
 
-    Confirm version and list of supported games
-    ./mame -version
-    ./mame -listfull
+Confirm version and list of supported games
+./mame -version
+./mame -listfull
+```
 
 ### Boot into manu Binary
 
@@ -141,13 +160,15 @@ To configure MAME with a specific USB controller, you'll need configure within M
 * You will need an empty USB drive of 16GB or more in size.
 * Create the USB using below instructions, which are for macOS, and therefore require the ISO be converted to DMG format: 
 
-    curl -LO https://github.com/substring/os/releases/download/2023.11/groovyarcade-2023.11-x86_64.iso.xz
-    xz -d groovyarcade-2023.11-x86_64.iso.xz
-    hdiutil convert groovyarcade-2023.11-x86_64.iso -format UDRW -o groovyarcade-2023.11-x86_64
-    diskutil list 
-    diskutil unmountDisk /dev/disk4
-    sudo dd status=progress bs=1m if=groovyarcade-2023.11-x86_64.dmg of=/dev/rdisk4
-    diskutil unmountDisk /dev/disk4
+```bash
+curl -LO https://github.com/substring/os/releases/download/2023.11/groovyarcade-2023.11-x86_64.iso.xz
+xz -d groovyarcade-2023.11-x86_64.iso.xz
+hdiutil convert groovyarcade-2023.11-x86_64.iso -format UDRW -o groovyarcade-2023.11-x86_64
+diskutil list 
+diskutil unmountDisk /dev/disk4
+sudo dd status=progress bs=1m if=groovyarcade-2023.11-x86_64.dmg of=/dev/rdisk4
+diskutil unmountDisk /dev/disk4
+```
 
 - Now remove USB from your Mac, and in short, you'll need to:
 
