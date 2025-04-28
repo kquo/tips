@@ -1,9 +1,41 @@
 # Containers
 Container tips.
 
-## Install Docker
+## Install Docker - Ubuntu 25.04
 
-### On RedHat/Alma Linux
+Below steps are based on <https://linuxiac.com/how-to-install-docker-on-ubuntu-24-04-lts/> : 
+
+```bash
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+This installs the following Docker components: 
+- **docker-ce**: The Docker engine itself.
+- **docker-ce-cli**: A command line tool that lets you talk to the Docker daemon.
+- **containerd.io**: A container runtime that manages the container’s lifecycle.
+- **docker-buildx-plugin**: This extension for Docker enhances the capabilities of building images, mainly focusing on multi-platform builds.
+- **docker-compose-plugin**: A configuration management plugin that helps manage multi-container Docker applications using a single YAML file.
+
+```bash
+sudo systemctl is-active docker
+sudo docker run hello-world
+sudo usermod -aG docker ${USER} # To allow running without 'sudo'
+```
+
+If for whatever reason you need to uninstall: 
+
+```bash
+sudo apt purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+```
+
+## Install Docker - RedHat/AlmaLinux
 
 ```bash
 sudo dnf update -y
@@ -16,119 +48,11 @@ sudo usermod -aG docker $USER
 
 Logout and log back in for group changes to take effect.
 
-### On Ubuntu
-Based on <https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04>
-
-- To install Docker on Ubuntu 20.04: 
-
-```bash
-sudo apt update
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt update
-apt-cache policy docker-ce
-sudo apt install docker-ce
-sudo systemctl status docker
-sudo docker run hello-world
-```
-
-- After installation, trying `docker ps` will show an error, so to run Docker **without** having to use sudo:
-
-```bash
-sudo usermod -aG docker ${USER}
-# Log out then back in
-docker run hello-world
-```
-
-- To add additional users: `sudo usermod -aG docker USERNAME`
-
-**Also install Docker Compose**
-
-Docker Compose allows one to define and run multi-container applications with Docker. A multi-container application can be defined in a single file (usually called `docker-compose.yaml`), then spun up with a single command (usually `docker-compose up`) and that gets everything running.
-
-This is based on <https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-20-04/>.
-- Ensure Docker is already installed
-- Check latest release at <https://github.com/docker/compose/releases>
-
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
-```
+Above does not install `docker-compose-plugin`.
 
 ## Public Docker Registry Logon
 To login using your own Docker Hub username (cannot use email from CLI) simply do: `docker login`
 
-
-## Docker Images
-
-### Very Small Image
-To build an almost empty container Docker image, build using `FROM scratch`, for example:
-
-```bash
-$ vi hello.sh
-#!/bin/bashd
-echo Hello
-$ chmod 755 hello.sh
-$ vi Dockerfile
-FROM scratch
-ADD hello.sh /
-CMD ["/hello.sh"]
-$ docker build .
-```
-
-### Docker Multi-Stage Builds for Standalone Go Binaries
-
-Docker multi-stage builds offer several key advantages for **standalone Go binaries**, combining build-time flexibility with minimal final images:
-
-**Core Benefits**:
-1. **Tiny Production Images** (~10-20MB)
-   - Final image contains *only* the binary (no compiler, SDK, or build tools)
-   - Example: `FROM scratch` images for truly minimal deployments
-
-2. **Build-Time Isolation**
-   - Complex build dependencies (like CGO, code generators) stay in build stage
-   - No risk of build tools ending up in production
-
-3. **Security Hardening**
-   - No unnecessary packages = smaller attack surface
-   - Can use `distroless` or `scratch` as final base
-
-4. **Single Dockerfile Workflow**
-   ```bash
-   # Stage 1: Build
-   FROM golang:1.21 as builder
-   WORKDIR /app
-   COPY . .
-   RUN CGO_ENABLED=0 go build -o /bin/app ./cmd/main.go
-
-   # Stage 2: Runtime  
-   FROM scratch
-   COPY --from=builder /bin/app /app
-   ENTRYPOINT ["/app"]
-   ```
-5. **Build Cache Optimization**
-   - Dependency downloads cached separately from code changes
-   - Faster rebuilds when only source files change
-
-**Go-Specific Advantages**:
-   - **Static Binaries Work Perfectly**  
-     `CGO_ENABLED=0` builds run natively in `scratch` images
-   - **No Runtime Dependencies**  
-     Go binaries include everything needed (unlike Python/Java)
-   - **Cross-Compilation Support**  
-     Build for Linux AMD64 from macOS/Windows in CI
-
-**Real-World Impact**:
-   | Metric       | Single-Stage | Multi-Stage |
-   |--------------|--------------|-------------|
-   | Image Size   | ~800MB       | ~10MB       |
-   | CVEs         | 100+         | 0           |
-   | Build Time   | 2min         | 1min (cached)|
-
-**When Not To Use**:
-   - If you need shell access for debugging in production, swap `scratch` for `alpine` (still only ~5MB).
 
 ## Command Commands
 ```bash
@@ -256,7 +180,10 @@ kubectl get systemnetworkpolicy.alpha --all-namespaces --export -o yaml > system
 ```
 
 ## Docker Compose
-Two very rough examples of using **docker compose**.
+
+Docker Compose allows one to define and run multi-container applications with Docker. A multi-container application can be defined in a single file (usually called `docker-compose.yaml`), then spun up with a single command (usually `docker-compose up`) and that gets everything running. Check the version: `docker-compose --version`.
+
+Two very rough examples of using **docker compose**: 
 
 1. **Testing a Go Binary**:
   - This example builds an multi-state image with the `azm` utility as a sole binary:
@@ -468,3 +395,71 @@ Two very rough examples of using **docker compose**.
      if __name__ == "__main__":
          main()
      ```
+
+## Docker Images
+
+To build a very small, almost empty container Docker image, build using `FROM scratch`, for example: 
+
+```bash
+$ vi hello.sh
+#!/bin/bashd
+echo Hello
+$ chmod 755 hello.sh
+$ vi Dockerfile
+FROM scratch
+ADD hello.sh /
+CMD ["/hello.sh"]
+$ docker build .
+```
+
+## Docker Multi-Stage Builds for Standalone Go Binaries
+
+Docker multi-stage builds offer several key advantages for **standalone Go binaries**, combining build-time flexibility with minimal final images:
+
+**Core Benefits**:
+1. **Tiny Production Images** (~10-20MB)
+   - Final image contains *only* the binary (no compiler, SDK, or build tools)
+   - Example: `FROM scratch` images for truly minimal deployments
+
+2. **Build-Time Isolation**
+   - Complex build dependencies (like CGO, code generators) stay in build stage
+   - No risk of build tools ending up in production
+
+3. **Security Hardening**
+   - No unnecessary packages = smaller attack surface
+   - Can use `distroless` or `scratch` as final base
+
+4. **Single Dockerfile Workflow**
+   ```bash
+   # Stage 1: Build
+   FROM golang:1.21 as builder
+   WORKDIR /app
+   COPY . .
+   RUN CGO_ENABLED=0 go build -o /bin/app ./cmd/main.go
+
+   # Stage 2: Runtime  
+   FROM scratch
+   COPY --from=builder /bin/app /app
+   ENTRYPOINT ["/app"]
+   ```
+5. **Build Cache Optimization**
+   - Dependency downloads cached separately from code changes
+   - Faster rebuilds when only source files change
+
+**Go-Specific Advantages**:
+   - **Static Binaries Work Perfectly**  
+     `CGO_ENABLED=0` builds run natively in `scratch` images
+   - **No Runtime Dependencies**  
+     Go binaries include everything needed (unlike Python/Java)
+   - **Cross-Compilation Support**  
+     Build for Linux AMD64 from macOS/Windows in CI
+
+**Real-World Impact**:
+   | Metric       | Single-Stage | Multi-Stage |
+   |--------------|--------------|-------------|
+   | Image Size   | ~800MB       | ~10MB       |
+   | CVEs         | 100+         | 0           |
+   | Build Time   | 2min         | 1min (cached)|
+
+**When Not To Use**:
+   - If you need shell access for debugging in production, swap `scratch` for `alpine` (still only ~5MB).
