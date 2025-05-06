@@ -9,7 +9,7 @@ Version control tips with `git` and <https://github.com>.
 
 ## Remove Branches
 
-```
+```bash
 git branch -d MY_BRANCH                      # Delete local MY_BRANCH
 git push origin :MY_BRANCH                   # Delete remote MY_BRANCH
 git remote prune origin --dry-run            # Confirm which branches have been removed from remote
@@ -19,7 +19,7 @@ git remote prune origin                      # Remove them from local
 
 ## Basic Usage
 
-```
+```bash
 git checkout MASTER-BRANCH                   # Checkout the canonical source
 git pull --rebase                            # Ensure most recent changes are in
 git checkout -b MY_BRANCH                    # Create a local branch
@@ -34,7 +34,7 @@ git commit -m "my changes"                   # Commit your changes
 
 ## General
 
-```
+```bash
 git diff branch_A branch_B                   # Compare two branches
 git config user.email <email>
 git clone git@github.com:Org/MyRepo.git      # Clone via SSH
@@ -60,9 +60,21 @@ git mergetool                                      # Resolve Conflicts
 git config --global credential.helper osxkeychain  # Store Credentials on macOS Keychain
 ```
 
+## Rebase Current Branch
+Step-by-step to rebase your current branch onto main: 
+
+```bash
+git checkout your-feature-branch
+git fetch origin
+git rebase origin/main
+git add <conflicted-files>
+git rebase --continue         # Repeat these last 2 steps until rebase is complete
+git push --force-with-lease
+```
+
 ## Switch from master to main
 
-```
+```bash
 git branch -m master main
 git push -u origin main
 # Now go to the SCM UI and change to main branch
@@ -72,7 +84,7 @@ git push origin --delete master
 
 ## Fork and Sync Repositories
 
-```
+```bash
 git remote -v                                               # List the current remotes
 git remote add upstream https://github.com/user/repo        # Add remote upstream of fork
 git remote set-url --push upstream DISABLE                  # Disable pushes for above (since you can't anyway)
@@ -84,7 +96,7 @@ git push
 
 ## Additional Origins
 
-```
+```bash
 git remote set-url origin git@github.com:user/repo2             # Replace origin
 git remote set-url --add origin https://github.com/user/repo3   # Add another origin
 ```
@@ -94,7 +106,7 @@ git remote set-url --add origin https://github.com/user/repo3   # Add another or
 
 Squash or clump commits by moving to a new branch:
 
-```
+```bash
    git checkout OLD_BRANCH
    git diff main > ../changes.diff
    git checkout main
@@ -114,7 +126,7 @@ When you absolutely need to revert last commits.
 * **Warning**: Know what you're doing. There's no way back.
 * RECENT VERSIONS OF `git` HAVE EASIER WAY OF DOING THIS.
 
-```
+```bash
 git reset --hard HEAD~1  # Change '1' to '2' or however many commits you want to revert back
 git push -f
 
@@ -126,7 +138,7 @@ git push origin [branch Name] -f
 
 ## Create new Git Origin Repo, Local or Remote
 
-```
+```bash
 # Populate myproject directory with initial required files to be commited
 cd myproject
 git init
@@ -148,7 +160,7 @@ git push
 
 ## Tags
 
-```
+```bash
 git tag                                 # List tags
 git tag -l "v1.8.5*"                    # Search tags
 git tag -a v1.4 -m "my version 1.4"     # Create/annotate a tag
@@ -163,7 +175,7 @@ git push origin :refs/tags/v2.0.0       # ... and remotely
 
 ## Markdown Choice List
 
-```
+```bash
     * [ ] Is it still in use?
     * [ ] Should it be maintained and kept active?
     * [ ] Should it be archived for future reference?
@@ -173,7 +185,7 @@ git push origin :refs/tags/v2.0.0       # ... and remotely
 
 ## List Repos Using Github Token:
 
-```
+```bash
 curl -u lencap:TOKEN https://api.github.com/orgs/:ORGNAME/repos?type=private
 ```
 
@@ -266,7 +278,7 @@ Host a simple static *public* document web site based on [Markdown](https://www.
 7. Under *Source* select your main or master branch
 8. If using your own DNS domain, say `mydomain.com`, then set up the `www` CNAME and Anycast IP addresses as follows: 
 
-```
+```bash
 www.mydomain.com    CNAME    git719.github.io.   # Where git719 is your Github username
 @                   A        185.199.111.153     # These 4 are Github's Anycast IP addresses
 @                   A        185.199.110.153
