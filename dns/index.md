@@ -4,7 +4,7 @@ Useful DNS tips.
 ## Speed Up Initial Record Creation
 To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone:
 
-```
+```bash
 Format:
     [authority-domain] [domain-of-zone-admin]
     [zone-serial-number] [refresh-time] [retry-time]
@@ -23,31 +23,24 @@ Example:
 - Try to avoid long CNAME chains (try to avoid them at all if possible)
 - Use a long Time To Live (TTL) on your records so they can be cached by the ISPs and users
 
-## Configure NextDNS on pfSense
-There are *several options*, but using the [NextDNS CLI client (DoH Proxy)](https://github.com/nextdns/nextdns) is the easiest.
+## NextDNS on OPNsense
+Use the [NextDNS CLI client (DoH Proxy) installer](https://github.com/nextdns/nextdns/wiki/Installer):
 
-To install it, do the following:
-
-1. As per instructions at <https://github.com/nextdns/nextdns/wiki/Installer>, just open a shell and:
-```
+```bash
 sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
 ```
-then follow the prompts.
+and follow the prompts.
 
-2. Then, via web UI, go to _Services / DNS Resolver_ and make sure it is **NOT Enabled**!
+Ensure all other DNS resolvers are **NOT Enabled**
 
-3. Next, go to _System / General Setup / DNS Server Settings_ 
-- Ensure **DNS Servers** boxes are both empty/blank
-- Uncheck **DNS Server Override**
-- Set **DNS Resolution Behavior** to _Use local DNS (127.0.0.1), ignore remote DNS Servers_ 
+Uncheck **DHCP DNS Server Override**
 
-4. Additional interfaces to listen on
-There are times when listening on `localhost:53` is not enough and you have to add all other interfaces on the router. See <https://help.nextdns.io/t/x2hft9v/pfsense-v2-5>
-```
+Add additional interfaces to listen on:
+```bash
 nextdns stop 
-vi /usr/local/etc/nextdns.conf  # and update/add below lines
-setup-router false   # From 'true'
-listen localhost:53  # Should already be there
+vi /usr/local/etc/nextdns.conf  # Adjust lines
+setup-router false
+listen localhost:53
 listen 10.10.1.1:53  # Sample 3 additions
 listen 10.10.2.1:53
 listen 10.10.3.1:53
@@ -55,7 +48,7 @@ nextdns start
 ```
 
 ## PowerShell DNS Command Commands
-```
+```bash
 # Show A record
 Get-DnsServerResourceRecord -ComputerName ns1.mydomain.com -ZoneName mydomain.com -Name myhost
 
@@ -98,7 +91,7 @@ Remove-DnsServerResourceRecord -ComputerName ns1.mydomain.com -ZoneName "mydomai
 PowerShell scripts to perform several different functions on DNS zone records hosted in AD. These scripts need to be moved to a repo.
 
 - Input file:
-```
+```bash
 # FQDN,IP
 eth3-12-450-acbj-campus-z1wtc20c02.mydomain.com,10.19.0.179
 eth4-3-450-acbj-core-z1wtc20c01.mydomain.com,10.19.0.172
@@ -109,7 +102,7 @@ po3-450-dc-core-z1wtc20c01.mydomain.com,10.19.3.5
 
 - Records verifier: 
 
-```
+```bash
 # chk.ps1
 # This script verifies A/PTR records from DNS records in input file. Needs DNS admin privileges.
 # Input file must be formatted as follows:
@@ -150,7 +143,7 @@ ForEach ($rec in $records) {
 
 - Records creator: 
 
-```
+```bash
 # add.ps1
 # This script create all DNS records as per input file. Requires DNS admin privileges.
 # Input file must be formatted as follows:
@@ -200,7 +193,7 @@ ForEach ($rec in $records) {
 
 - Records deleter: 
 
-```
+```bash
 # del.ps1
 # This script deletes DNS records in input file. Needs DNS admin privileges.
 # Input file must be formatted as follows:
@@ -270,7 +263,7 @@ ForEach ($rec in $records) {
 
 - Records creator/updater: 
 
-```
+```bash
 # upsert.ps1
 # This script creates/updates DNS records in input file. Needs DNS admin privileges.
 # Input file must be formatted as follows:
