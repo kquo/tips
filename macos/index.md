@@ -42,9 +42,11 @@ macOS tips.
 ## BASHRC
 - `.bashrc` for a user: 
 
-```
-ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
-trap ExitFunc EXIT
+```bash
+echo "history -c" > ~/.bash_logout
+on_exit() { rm ~/.bash_history && sh ~/.bash_logout ; }
+trap on_exit EXIT
+
 export GOPATH=~/go
 export PATH=$PATH:/usr/local/bin:$GOPATH/bin:$GOROOT/bin
 export HISTCONTROL=ignoreboth  # Ignore both duplicates and space-prefixed commands
@@ -66,9 +68,11 @@ export HOMEBREW_NO_ANALYTICS=1    # Disable homebrew Google Analytics collection
 ```
 - `.bashrc` for root: 
 
-```
-ExitFunc() { sh ~/.bash_logout ; } # Save ~/.bash_logout with "history -c"
-trap ExitFunc EXIT
+```bash
+echo "history -c" > ~/.bash_logout
+on_exit() { rm ~/.bash_history && sh ~/.bash_logout ; }
+trap on_exit EXIT
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export HISTCONTROL=ignoreboth
 export HISTIGNORE='ls:cd:ll:h'
@@ -91,8 +95,9 @@ Check network quality => `networkQuality -v`
 Awesome macOS Command-Line = <https://git.herrbischoff.com/awesome-macos-command-line/about/>
 
 ## Export iCloud Photos Locally
-Use [iCloud Photo Downloader](https://github.com/icloud-photos-downloader/icloud_photos_downloader) Python utility - `icloudpd`. It downloads all photos from your iCloud account via the CLI. This means *all* photos as well as *all* videos.
-```
+Use [iCloud Photo Downloader](https://github.com/icloud-photos-downloader/icloud_photos_downloader) Python utility - `icloudpd`. It downloads all photos from your iCloud account via the CLI. This means *all* photos as well as *all* videos. 
+
+```bash
 mkdir photos
 icloud -d photos -u <your-icloud-id>
 ```
@@ -101,15 +106,17 @@ then follow prompts.
 
 ## Recover Deleted Files
 Use known recovery tools like `testdisk` and `photorec` that are part of the the popular System Rescue CD.
-Insert USB disk, or more dangerously, scan your OS HDD.
-```
+Insert USB disk, or more dangerously, scan your OS HDD. 
+
+```bash
 brew install testdisk
 sudo photorec              # Then pick drive to scan, and destination folder for scanned files
 ```  
 
 
 ## Adding macOS Static Routes
-```
+
+```bash
 # Check existing routes on "wifi" interface
 networksetup -getadditionalroutes wifi
 
@@ -127,7 +134,7 @@ sudo route -n add -net 10.67.0.0/16 192.168.120.254      # Add a network route
 
 
 ### Set Mac as Router
-```
+```bash
 sudo sysctl -w net.inet.ip.forwarding=1                  # Enable IP forwarding
 ```
 
@@ -141,7 +148,8 @@ sudo sysctl -w net.inet.ip.forwarding=1                  # Enable IP forwarding
 
 If you update the kernel, remember to add the required drivers again.
 The easy way:
-```
+
+```bash
 sudo apt install dkms
 sudo apt install linux-headers-<mbp-kernel-release>-mbp linux-image-<mbp-kernel-release>-mbp
 sudo git clone --branch mbp15 https://github.com/roadrunner2/macbook12-spi-driver.git /usr/src/apple-ibridge-0.1
@@ -160,7 +168,8 @@ For an alternate way see <https://github.com/marcosfad/mbp-ubuntu/blob/master/fi
 - <https://askubuntu.com/questions/831161/dual-booting-os-x-or-macos-with-linux-without-refind>
 
 - If you booted into Ubuntu already
-```
+
+```bash
 cp /boot/efi/EFI/ubuntu/grubx64.efi /boot/efi/EFI/Boot/bootx64.efi
 # Note the destination filename changes
 ```
@@ -176,7 +185,8 @@ cp /boot/efi/EFI/ubuntu/grubx64.efi /boot/efi/EFI/Boot/bootx64.efi
 
 
 ## What TCP Ports Are Listening
-```
+
+```bash
 sudo lsof -iTCP -sTCP:LISTEN -n -P    # List what TCP ports apps are listening on
 ```
 
@@ -188,24 +198,28 @@ Use Blackmagic Disk Speed Test app
 
 ## Post-Upgrade OS Issues
 - The error:
-```
+
+```bash
 xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 ```
 
-- The fix:
-```
+- The fix
+
+```bash
 xcode-select --install   # To accept Xcode License agreement
 ```
 
 ## Turn Off IPV6
-```
+
+```bash
 sudo networksetup -setv6off "Wi-Fi"
 sudo networksetup -setv6off "Thunderbolt Ethernet"
 sudo networksetup -setv6off "Ethernet"
 ```
 
 To re- enable
-```
+
+```bash
 sudo networksetup -setv6automatic "Wi-Fi"
 sudo networksetup -setv6automatic "Thunderbolt Ethernet"
 sudo networksetup -setv6automatic "Ethernet"
@@ -213,7 +227,8 @@ sudo networksetup -setv6automatic "Ethernet"
 
 
 ## DNS
-```
+
+```bash
 FLUSH
 sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache
 
@@ -245,7 +260,7 @@ scutil --dns | grep 'nameserver\[[0-9]*\]'
 ## Image Conversion
 - JPEG 
 
-```
+```bash
 # Resize all files to 1024 pixels at their largest side (the other side proportionately)
 for N in *.jpg ; do sips -Z 1024 $N ; done
 
@@ -258,7 +273,8 @@ for N in *.pdf ; do sips -s format jpeg $N -o ${N}.jpg ; done
 ```
 
 - PGN
-```
+
+```bash
 # Resize file in place by 60%, replaces original
 magick mogrify -resize 60% yul.png 
 ```
@@ -266,14 +282,16 @@ magick mogrify -resize 60% yul.png
 
 ## Clear ACL
 As root
-```
+
+```bash
 find . -flags uchg
 find . -flags uchg -exec chflags nouchg {} \;
 ```
 
 
 ## View Hardware Information
-```
+
+```bash
 # NUMBER OF CPUs, etc. Equivalent commands to Linux's nproc and free, etc
 sysctl -n hw.ncpu
 python -c 'import multiprocessing as mp; print(mp.cpu_count())'
@@ -308,14 +326,16 @@ Hardware:
 
 
 ## WiFi Info
-```
+
+```bash
 networksetup -listpreferredwirelessnetworks en0       # List networks
 sudo wdutil log -wifi                                 # disable wifi logging
 ```
 
 
 ## Use iCloud For Login
-```
+
+```bash
 sudo dscl . append /Users/someuser AuthenticationAuthority ";AppleID;leo@tek.uno"
 ```
 Above will append the specific AppleID as an Authentication Authority to authenticate against.
@@ -336,7 +356,8 @@ Complete the setup process, creating a new admin account
 
 ## macOS VNC Trix
 Enabling VNC connection to a Mac via SSH
-```
+
+```bash
 Step A: Server side (SSH to your mac):
 $ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -allowAccessFor -allUsers -privs -all
 $ sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -configure -clientopts -setvnclegacy -vnclegacy yes
@@ -347,7 +368,8 @@ Step B: Install VNC Viewer on you PC then connect to Mac host using IP address.
 ```
 
 ## Disk Trix
-```
+
+```bash
 FORMAT
 sudo newfs_msdos -F 16 /dev/disk2
 
@@ -385,7 +407,8 @@ sudo rmdir /Volumes/centos
 
 
 ## Convert ISO to IMG
-```
+
+```bash
 hdiutil convert ubuntu-20.04-desktop-amd64.iso -format UDRW -o ubuntu-20.04-desktop-amd64
 # Will automatically add the .dmg extension = ubuntu-20.04-desktop-amd64.dmg
 ```
@@ -400,20 +423,23 @@ From recovery Terminal: `gpt destroy /dev/disk1`
 See <https://github.com/lencap/homebrew-tools>
 
 - Create a tap repo on GitHub. The repo should be named homebrew-{mytapname}, where {mytapname} is the name you want to give your tap (which will contain all your Homebrew formulae). I call mine 'tools', so:
-```
+
+```bash
   My tap repo    = <https://github.com/lencap/homebrew-tools>
   My tap name    = `lencap/tools`
   Sample install = `brew install lencap/tools/awslogin`
 ```
 
 - Tar and upload your formula binary somewhere. Using the GitHub Releases feature of this very same repo is a good place because of its proximity to the source code. A good naming convention for your tar file is {appname}-{version}.tar.gz, e.g. delta-0.5.0.tar.gz. This allows Homebrew to infer your app's version. Create the gzipped file and generate SHA rum:
-```
+
+```bash
   tar czf awsinfo-2.0.11.tar.gz awsinfo
   shasum -a 256 awsinfo-2.0.11.tar.gz
 ```
 
 - In your tap repo, create a Formula for your app, using the URL and SHA from above. This is a ruby file of the format {appname}.rb. For example:
-```
+
+```bash
   class Awsinfo < Formula
     desc "AWS CLI Information Utility"
     homepage "https://github.com/lencap/awsinfo"
@@ -437,7 +463,8 @@ See <https://github.com/lencap/homebrew-tools>
 
 ## Install MS PowerShell
 See <https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-powershell-core-on-macos?view=powershell-6>
-```
+
+```bash
 brew install powershell 
 pwsh                                          # Test
 brew update && brew upgrade powershell        # Upgrade
@@ -464,7 +491,8 @@ brew update && brew upgrade powershell        # Upgrade
   Switch on your Mac device with the Power Button and do not stop pressing the power button until you see a window that displays a list of drives connected to your Mac.
 
 - For older Apple Intel CPU machines:
-```
+
+```bash
 Options-Command-R    Boot into Recovery Mode with latest OS for this hardware
 Command-R            Boot into Recovery Mode with original OS
 Options              Access Mac Startup Manager
@@ -478,14 +506,16 @@ T                    Enable Target Disk Mode
 ```
 
 ## Systems Updates
-```
+
+```bash
 CHECK EXISTING   system_profiler SPInstallHistoryDataType | grep -A5 MRTConfigData
 SPECIFIC         softwareupdate -i MRTConfigData_10_14-1.45 --include-config-data
 ALL              softwareupdate -ia --include-config-data
 ```
 
 ## DVD Copying
-```
+
+```bash
 Insert DVD
 diskutil list                                                 # To identify disk =  /dev/disk4
 diskutil unmountDisk /dev/disk4                               # Unmount
