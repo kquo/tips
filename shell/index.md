@@ -598,10 +598,10 @@ Useful exit function to clean up during a runtime trap signal event
 ```bash
 trap "{ sh /root/.bash_logout ; }" EXIT
 trap "{ stop_node ; stop_nginx ; exit 0 ; }" EXIT SIGHUP SIGINT SIGQUIT SIGILL SIGSTOP SIGTERM
-exit_func() {
+on_exit_func() {
     # Clean up code here
 }
-trap exit_func EXIT SIGHUP SIGINT SIGQUIT SIGILL SIGSTOP SIGTERM
+trap on_exit_func EXIT SIGHUP SIGINT SIGQUIT SIGILL SIGSTOP SIGTERM
 ```
 
 ## Random
