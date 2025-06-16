@@ -6,6 +6,7 @@ Version control tips with `git` and <https://github.com>.
 - [Github Actions Workflow General](github-actions.md)
 - [Github Actions Workflow OIDC Access to Vault](oidc-vault.md)
 - [Github Actions Workflow OIDC Access to Azure](oidc-azure.md)
+- [GitHub App Installation Permissions](app-inst-perms.md)
 
 ## Remove Branches
 
