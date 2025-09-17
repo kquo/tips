@@ -56,18 +56,18 @@ If necessary, you can make further adjustments via `dpkg-reconfigure` utility:
 ```bash
 sudo apt install console-setup kbd   # To optionally install addtional Font Sizes
 sudo dpkg-reconfigure console-setup
-Select Terminus (default is VGA)
-Select Font Size 16x32 or whatever
+Select Terminus                      # Default is VGA
+Select Font Size 8x14, or whatever
 ```
 
-1. Setup SSH: 
+2. Setup SSH: 
 
 ```bash
 sudo systemctl enable ssh
 sudo systemctl start ssh
 ```
 
-1. Updated Boot Order: 
+3. Updated Boot Order: 
 
 ```bash
 sudo apt update
@@ -79,7 +79,7 @@ Set BOOT_ORDER=0x6 to only boot off NVMe or 0x4 to only boot off USB
 sudo reboot
 ```
 
-1. Disable desktop: 
+4. Disable desktop: 
 
 ```bash
 sudo systemctl set-default multi-user.target
@@ -88,21 +88,26 @@ sudo systemctl start graphical.target        # To manually start the Graphical D
 sudo systemctl set-default graphical.target  # To re-enable Graphical Desktop
 ```
 
-1. Auto-login setup. To set default user for automatic login, edit the getty service: 
+5. Auto-login setup. To set default user for automatic login, edit the getty service: 
 
 ```bash
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
 sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf
-Add:
+
+Add below:
+
 [Service]
 ExecStart=
-ExecStart=-/sbin/agetty --autologin <USERNAME> --noclear %I $TERM
+ExecStart=-/sbin/agetty --autologin USERNAME --noclear %I $TERM
+
+# Note: Replace USERNAME with the actual username
+
 sudo systemctl daemon-reload
 sudo systemctl restart getty@tty1.service
 sudo reboot
 ```
 
-1. Issues
+6. Issues
 If keyboard does not respond, you can try `sudo usermod -a -G input $USER` it's not a permission issue with current user.
 
 ### Set New Hostname
