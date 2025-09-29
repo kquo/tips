@@ -22,23 +22,23 @@ To set up MAME, do the following:
 
 ## MAME on Ubuntu 24.10 on a Raspberry Pi 5 
 
-**Requirements:** 
+### Requirements
 
 a. Set up your Raspberry Pi 5 hardware as you wish
 b. These tips assume the Pi5 with 8GB of RAM, with an M.2 HAT with an NVMe SSD
 c. All this is done from an Apple Mac
 d. You need a USB drive/stick of at least 16GB in size
 
-**Basic setup:** 
+### Basic setup
     
 - Insert the USB driver on your Mac
 - `brew install raspberry-pi-imager`
 - Run the Imager and burn the latest Ubuntu Desktop 24.10 image
 - Once done, insert on your Pi5 and install Ubuntu on the NVMe drive. (May need more details here).
 
-**Additional configurations and settings follow below:** 
+### Additional configurations and settings follow below
 
-1. Adjust CLI Console Character size: 
+#### Adjust CLI Console Character size
 
 ```bash
 sudo mount -o remount,rw /boot/firmware
@@ -60,14 +60,14 @@ Select Terminus                      # Default is VGA
 Select Font Size 8x14, or whatever
 ```
 
-2. Setup SSH: 
+#### Setup SSH
 
 ```bash
 sudo systemctl enable ssh
 sudo systemctl start ssh
 ```
 
-3. Updated Boot Order: 
+#### Updated Boot Order
 
 ```bash
 sudo apt update
@@ -79,7 +79,7 @@ Set BOOT_ORDER=0x6 to only boot off NVMe or 0x4 to only boot off USB
 sudo reboot
 ```
 
-4. Disable desktop: 
+#### Disable desktop
 
 ```bash
 sudo systemctl set-default multi-user.target
@@ -88,7 +88,9 @@ sudo systemctl start graphical.target        # To manually start the Graphical D
 sudo systemctl set-default graphical.target  # To re-enable Graphical Desktop
 ```
 
-5. Auto-login setup. To set default user for automatic login, edit the getty service: 
+#### Auto-login setup
+
+To set default user for automatic login, edit the getty service: 
 
 ```bash
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
@@ -107,8 +109,12 @@ sudo systemctl restart getty@tty1.service
 sudo reboot
 ```
 
-6. Issues
-If keyboard does not respond, you can try `sudo usermod -a -G input $USER` it's not a permission issue with current user.
+#### Issues
+- If keyboard does not respond when the **manu** menu comes up, try: 
+  
+```bash
+sudo usermod -a -G input $USER
+```
 
 ### Set New Hostname
 
@@ -175,8 +181,7 @@ sudo dd status=progress bs=1m if=groovyarcade-2023.11-x86_64.dmg of=/dev/rdisk4
 diskutil unmountDisk /dev/disk4
 ```
 
-- Now remove USB from your Mac, and in short, you'll need to:
+Now remove USB from your Mac, and in short, you'll need to:
 
 - Ensure that the target system allows booting off of a USB drive
 - Insert USB into target system and follow the OS installation instructions
-
