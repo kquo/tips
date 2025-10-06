@@ -214,7 +214,18 @@ time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga
 
 Boot into default `manu` Game Menu binary - See <https://github.com/git719/manu>
 
-To configure MAME with a specific USB controller, you'll need configure within MAME itself, by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
+### Configure MAME USB Controller
+
+To configure MAME with a specific USB controller, you'll need to configure this within MAME itself...
+
+1. Install the JoyStick reader, then run it to read the controler: 
+
+```bash
+sudo apt-get install joystick   # includes 'jstest' (old Linux joystick test)`
+jstest /dev/input/js0
+```
+
+by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
 
 
 ## Creating USB Installers
