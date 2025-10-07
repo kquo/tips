@@ -139,7 +139,9 @@ aplay /usr/share/sounds/alsa/Front_Center.wav  # To test speaker
 
 ### Compile MAME
 
-You can also compile MAME yourself, which allows you to select only the machines you are interested in. Follow below instructions to do so on the Raspberry Pi 5 running Ubuntu:  
+You can also compile MAME yourself, which allows you to select only the machines you are interested in, thus keeping things as simple as possible. Follow below instructions to do so on the Raspberry Pi 5 running Ubuntu.
+
+#### Install required packages and clone MAME repo 
 
 ```bash
 sudo apt update
@@ -150,10 +152,60 @@ sudo apt install libsdl2-ttf-dev
 
 git clone https://github.com/mamedev/mame.git
 cd mame
+```
 
-make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
+#### Clean out stale objects and headers 
 
-Confirm version and list of supported games
+```bash
+time make clean
+rm -rf obj
+```
+
+#### Run a regular make
+
+This build build the needed `emu.h` and other core headers: 
+
+```bash
+time make SUBTARGET=mame SOURCES="src/mame/skeleton/testpat.cpp" REGENIE=1 NOWERROR=1 -j$(nproc)
+```
+
+Note that `emu.h` and the `.pch` files aren’t part of the source tree, and they are ONLY generated during regular build. In order to restrict SOURCES to build a "tiny" MAME binary with only selected games, as we do below, this pre-step is a requirement.
+
+#### Prepare the needed source files
+
+From the root of the checked out `mame` directory: 
+
+```bash
+$ cat src/mame/custom/custom.mak
+# Custom build for specific games
+
+SOURCES += src/mame/capcom/1942.cpp
+SOURCES += src/mame/namco/galaga.cpp
+SOURCES += src/mame/pacman/pacman.cpp
+SOURCES += src/mame/midway/williams.cpp
+
+$ cat src/mame/custom.lst
+@source:capcom/1942.cpp
+1942            // (c) Capcom
+
+@source:namco/galaga.cpp
+galaga          // (c) Namco
+galagamf        // (c) Namco
+galagamk        // (c) Namco
+
+@source:pacman/pacman.cpp
+mspacman        // (c) Namco/Midway
+
+@source:midway/williams.cpp
+stargate        // (c) Williams
+```
+
+#### Now rebuild with only your games 
+
+```bash
+time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
+
+# Confirm version and list of supported games
 ./mame -version
 ./mame -listfull
 ```
@@ -162,7 +214,18 @@ Confirm version and list of supported games
 
 Boot into default `manu` Game Menu binary - See <https://github.com/git719/manu>
 
-To configure MAME with a specific USB controller, you'll need configure within MAME itself, by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
+### Configure MAME USB Controller
+
+To configure MAME with a specific USB controller, you'll need to configure this within MAME itself...
+
+1. Install the JoyStick reader, then run it to read the controler: 
+
+```bash
+sudo apt-get install joystick   # includes 'jstest' (old Linux joystick test)`
+jstest /dev/input/js0
+```
+
+by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
 
 
 ## Creating USB Installers
