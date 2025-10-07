@@ -137,7 +137,9 @@ While I admire Pinker's insights, there are some aspects of his views that I fin
 
 Additionally, I've observed a tendency in Pinker's writing, notably in "Enlightenment Now," to overlook certain underlying motives in human behavior. For example, his discussion of weapons of mass destruction as a rationale for the Iraq War fails to acknowledge potential profit-driven agendas behind such conflicts. Similarly, his analysis of Y2K paranoia attributes it solely to human biases, which seems to disregard the role of profit motives in stoking fear.
 
-In [Rationality](https://en.wikipedia.org/wiki/Rationality_(book)) he lays down the incontrovertible reasons why rationality is really important to humanity, and how it is the essential driver of moral and social progress.
+[George Monbiot](https://en.wikipedia.org/wiki/George_Monbiot), the English journalist, also pointed out [some environmental concerns in **Englightenment Now**](https://bsky.app/profile/georgemonbiot.bsky.social/post/3m2m3mfff622e), but he never received any responses from Pinker, despite several attempts. I wish Pinker would offer a quick response to Monbiot, whom I regard as a serious journalist and an environmental and political activist.
+
+In [Rationality](https://en.wikipedia.org/wiki/Rationality_(book)) Pinker lays down the incontrovertible reasons why rationality is really important to humanity, and how it is the essential driver of moral and social progress.
 
 
 ## Daniel Dennett
