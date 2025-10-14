@@ -1,46 +1,50 @@
 #!/usr/bin/env bash
-# rn 1.3.1
-# Renames all files in current directory
+# rn 1.4.1
+# Renames all files in current directory, supports empty replacement string.
 
-set -euo pipefail  # Fail immediately on any error
+set -euo pipefail
 Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
 
 PrintUsage() {
-    printf "Bulk file re-namer v1.7.4\nUsage: `basename $0` \"OldString\" \"NewString\" -f\n"
+    printf "Bulk file re-namer v1.4.1\nUsage: %s \"OldString\" \"NewString\" -f\n" "$(basename "$0")"
+    printf "Use empty \"\" NewString to remove OldString from filenames.\n"
     exit 1
 }
 
-OSTYPE=`uname | tr [A-Z] [a-z]`
+OSTYPE=$(uname | tr 'A-Z' 'a-z')
 
-[[ $# -lt 2 || $# -gt 3 ]] && PrintUsage # Accept 2 or 3 arguments
-Oldstr="${1:-DEFAULT1}" ; Newstr="${2:-DEFAULT2}" ; Option="${3:-DEFAULT3}"
+# Require at least OldString, at most OldString NewString -f
+[[ $# -lt 1 || $# -gt 3 ]] && PrintUsage
+
+Oldstr="$1"
+Newstr="${2-}"   # empty string if not provided
+Option="${3-}"   # optional -f flag
 
 [[ "$Option" != "-f" ]] && echo "DRY RUN: Re-run with '-f' option to execute."
 
 OLDIFS="$IFS"
 IFS=$'\n'
 NonMatching=0
-for Oldname in `ls -1` ; do
+for Oldname in $(ls -1); do
     # Skip if existing name doesn't have a literal match to OldString
-    [[ -z `echo "$Oldname" | grep -F "$Oldstr"` ]] && continue
+    [[ -z "$(echo "$Oldname" | grep -F "$Oldstr")" ]] && continue
     NonMatching=1
 
     Newname="${Oldname//$Oldstr/$Newstr}"
 
     if [[ "$Option" == "-f" ]]; then
-        # Rename this file
         if [[ "$OSTYPE" = "linux" ]]; then
-            mv -nuv "$Oldname" "$Newname" 
+            mv -nuv "$Oldname" "$Newname"
         else
-            mv "$Oldname" "$Newname" && echo "\"$Oldname\" -> \"$Newname\"" 
+            mv "$Oldname" "$Newname" && echo "\"$Oldname\" -> \"$Newname\""
         fi
     else
-        # Default behaviour is to show what will happen
         printf "%-60s  =>  %s\n" "\"$Oldname\"" "\"$Newname\""
     fi
-
 done
 IFS="$OLDIFS"
-[[ $NonMatching -eq 0 ]] && printf "No filename has string '$Oldstr'.\n" && exit 1
+
+[[ $NonMatching -eq 0 ]] && printf "No filename has string '%s'.\n" "$Oldstr" && exit 1
 
 exit 0
+
