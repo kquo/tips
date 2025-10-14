@@ -14,29 +14,26 @@ To set up MAME, do the following:
 - Install the latest MAME binary using your OS package installer. On macOS you can just do `brew install mame`
 - Copy the ROM zip files into the `~/.mame/roms/` directory
 - Run any specific game from the CLI with `mame stargate`
-- Install [`manu`](https://github.com/git719/manu), a small Go util that reas above roms directory and prompts for what game to run 
+- Install [`manu`](https://github.com/git719/manu), a small Go util that reads above roms directory and prompts for what game to run 
 
-**MAME References**:
-- <https://docs.mamedev.org/index.html>
+Read more in the [MAME Reference](https://docs.mamedev.org/index.html).
 
+## MAME on Raspberry Pi
 
-## MAME on Ubuntu 24.10 on a Raspberry Pi 5 
-
-### Requirements
-
-a. Set up your Raspberry Pi 5 hardware as you wish
-b. These tips assume the Pi5 with 8GB of RAM, with an M.2 HAT with an NVMe SSD
-c. All this is done from an Apple Mac
-d. You need a USB drive/stick of at least 16GB in size
-
-### Basic setup
-    
-- Insert the USB driver on your Mac
+- Install Ubuntu 24.04 desktop on Raspberry Pi 5
+- This assumes you're using Apple **macOS** to do all this
+- Use an SD card of at least 16GB in size
+- Insert the SD card on your Mac
 - `brew install raspberry-pi-imager`
-- Run the Imager and burn the latest Ubuntu Desktop 24.10 image
-- Once done, insert on your Pi5 and install Ubuntu on the NVMe drive. (May need more details here).
+- Run the Imager and burn the latest Ubuntu Desktop image
+- Once done, insert the SD card on your Pi5 and install Ubuntu
+  
+### Ideal Arcade Monitor
+The ideal arcade computer monitor is the **ViewSonic** 4/3 aspect ratio **VG939Sm** monitor. The Model No = VS15843.
 
 ### Additional configurations and settings follow below
+
+Below are some general guidelines and configuration settings for such a setup, but you'll need to improvise where necessary.
 
 #### Adjust CLI Console Character size
 
@@ -65,18 +62,6 @@ Select Font Size 8x14, or whatever
 ```bash
 sudo systemctl enable ssh
 sudo systemctl start ssh
-```
-
-#### Updated Boot Order
-
-```bash
-sudo apt update
-sudo apt install -y rpi-eeprom
-sudo rpi-eeprom-config
-sudo EDITOR=vi rpi-eeprom-config --edit
-Set BOOT_ORDER=0x6 to only boot off NVMe or 0x4 to only boot off USB
-(Trying to set it to conditionally boot off USB is a nightmare)
-sudo reboot
 ```
 
 #### Disable desktop
@@ -110,23 +95,19 @@ sudo reboot
 ```
 
 #### Issues
-- If keyboard does not respond when the **manu** menu comes up, try: 
-  
-```bash
-sudo usermod -a -G input $USER
-```
+- If keyboard does not respond when the **manu** menu comes up, ensure that the user you're running all this under has the correct permissions by doing `sudo usermod -a -G input $USER`
 
 ### Set New Hostname
 
 ```bash
-sudo hostnamectl set-hostname <new-hostname>
+sudo hostnamectl set-hostname <NEW-HOSTNAME>
 sudo vi /etc/hosts  # Change it here too
 sudo reboot
 ```
 
 ### Ensure Sound is Working
 
-Plug a USB-to-3.5mm audio connector to the Raspberry Pi 5 and connect that to your speakers. Test sound system with below steps: 
+Plug a USB-to-3.5mm audio connector to the Raspberry Pi 5 and connect that to your speakers. Test with below steps: 
 
 ```bash
 sudo apt update
@@ -137,9 +118,23 @@ pactl list short sinks
 aplay /usr/share/sounds/alsa/Front_Center.wav  # To test speaker
 ```
 
-### Compile MAME
+### Install MAME
 
-You can also compile MAME yourself, which allows you to select only the machines you are interested in, thus keeping things as simple as possible. Follow below instructions to do so on the Raspberry Pi 5 running Ubuntu.
+To download and install the latest MAME binary. Use the binaries located at <https://stickfreaks.com/>. Note that they use **7 Zip** for compression. Note also, that this setup puts certain binaries under the `$HOME/bin/` directory.
+
+```bash
+cd ~/bin
+curl -LO https://stickfreaks.com/mame/mame_0.281_debian_13_trixie_arm64.7z
+sudo apt install 7zip
+7z x mame_0.281_debian_13_trixie_arm64.7z -omame_0.281
+ln -sf mame_0.281/mame mame
+```
+
+So the **mame** binary will reside at `$HOME/bin/mame`, and remember that the standard MAME configurations normally reside under the `$HOME/.mame` directory.
+
+### Compile MAME?
+
+If you decide to compile MAME yourself, which allows you to select only the machines you are interested in, follow below instructions.
 
 #### Install required packages and clone MAME repo 
 
@@ -154,24 +149,19 @@ git clone https://github.com/mamedev/mame.git
 cd mame
 ```
 
-#### Clean out stale objects and headers 
+#### Initial Compilation
+
+You will need to do a **full compilation** first, in roder to build the needed `emu.h` and other core headers. This ***can take a long time**: 
 
 ```bash
 time make clean
 rm -rf obj
-```
-
-#### Run a regular make
-
-This build build the needed `emu.h` and other core headers: 
-
-```bash
 time make SUBTARGET=mame SOURCES="src/mame/skeleton/testpat.cpp" REGENIE=1 NOWERROR=1 -j$(nproc)
 ```
 
-Note that `emu.h` and the `.pch` files aren’t part of the source tree, and they are ONLY generated during regular build. In order to restrict SOURCES to build a "tiny" MAME binary with only selected games, as we do below, this pre-step is a requirement.
+Note that `emu.h` and the `.pch` files aren’t part of the source tree, and they are ONLY generated during a **full regular build**. This pre-step is a requirement in order to later do a restricted SOURCES build of a "tiny" MAME binary with only selected games.
 
-#### Prepare the needed source files
+#### Prepare Source Files
 
 From the root of the checked out `mame` directory: 
 
@@ -200,7 +190,7 @@ mspacman        // (c) Namco/Midway
 stargate        // (c) Williams
 ```
 
-#### Now rebuild with only your games 
+#### Tiny Compilation
 
 ```bash
 time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
@@ -214,25 +204,33 @@ time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga
 
 Boot into default `manu` Game Menu binary - See <https://github.com/git719/manu>
 
-### Configure MAME USB Controller
-
-To configure MAME with a specific USB controller, you'll need to configure this within MAME itself...
-
-1. Install the JoyStick reader, then run it to read the controler: 
+You may also want to update your `$HOME/.bashrc` file with below snippet, so that this special menu utility always run: 
 
 ```bash
-sudo apt-get install joystick   # includes 'jstest' (old Linux joystick test)`
-jstest /dev/input/js0
+# Always run manu menu binary. See https://github.com/git719/manu
+while true; do
+    manu
+done
 ```
 
-by selecting the game from the Attract-Mode menu, then pressing TAB, then configuring the buttons. There's more info on page <https://docs.mamedev.org/index.html>.
+### Configure MAME USB Controller
+
+Before configuring MAME, make sure the OS is able to read the joystick controller and buttons:
+
+```bash
+sudo apt-get install joystick
+jstest /dev/input/js0
+# Then press the buttons and joystick controls to confirm
+```
+
+Once you know the OS is able to read the controller, configure it **within** MAME itself by pressing **TAB** from an attached keyboard, and MAME will allow you to configure the buttons accordingly. For more info see the [MAME documenation pages](https://docs.mamedev.org/index.html).
 
 
 ## Creating USB Installers
 
-* Download the desired ISO using `curl -LO` (see below).
-* You will need an empty USB drive of 16GB or more in size.
-* Create the USB using below instructions, which are for macOS, and therefore require the ISO be converted to DMG format: 
+- Download the desired ISO using `curl -LO` (see below).
+- You will need an empty USB drive of 16GB or more in size.
+- Create the USB using below instructions, which are for macOS, and therefore require the ISO be converted to DMG format: 
 
 ```bash
 curl -LO https://github.com/substring/os/releases/download/2023.11/groovyarcade-2023.11-x86_64.iso.xz

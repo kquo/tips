@@ -48,32 +48,32 @@ Quick and useful tips.
 </tr>
 
 <tr>
+<td> <a href="media/">media</a> </td>
 <td> <a href="optimism/">optimism</a> </td>
 <td> <a href="pdf/">pdf</a> </td>
-<td> <a href="politics/">politics</a> </td>
 </tr>
 
 <tr>
+<td> <a href="politics/">politics</a> </td>
 <td> <a href="privacy/">privacy</a> </td>
 <td> <a href="pseudoscience/">pseudoscience</a> </td>
-<td> <a href="python/">python</a> </td>
 </tr>
 
 <tr>
+<td> <a href="python/">python</a> </td>
 <td> <a href="science/">science</a> </td>
 <td> <a href="scripts/">scripts</a> </td>
-<td> <a href="security/">security</a> </td>
 </tr>
 
 <tr>
+<td> <a href="security/">security</a> </td>
 <td> <a href="shell/">shell</a> </td>
 <td> <a href="surveillance/">surveillance</a> </td>
-<td> <a href="terraform/">terraform</a> </td>
 </tr>
 
 <tr>
+<td> <a href="terraform/">terraform</a> </td>
 <td> <a href="thinking/">thinking</a> </td>
-<td> <a href=""></a> </td>
 <td> <a href="video/">video</a> </td>
 <td> </td>
 </tr>
