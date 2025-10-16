@@ -85,5 +85,5 @@ Quick and useful tips.
 </html>
 
 <br>
-To [progress and humanism](https://en.wikipedia.org/wiki/Age_of_Enlightenment) &mdash; <redacted@example.com>
+Dedicated to [progress and humanism](https://en.wikipedia.org/wiki/Age_of_Enlightenment) &mdash; <redacted@example.com>
 <br>
