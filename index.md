@@ -85,5 +85,5 @@ Quick and useful tips.
 </html>
 
 <br>
-To the ideas of [the Enlightenment](https://en.wikipedia.org/wiki/Age_of_Enlightenment) and those who values humanism and progress.<br>
-&mdash; <redacted@example.com><br>
+To [progress and humanism](https://en.wikipedia.org/wiki/Age_of_Enlightenment) &mdash; <redacted@example.com>
+<br>
