@@ -1,9 +1,9 @@
 # Thinking
 Tips on general thinking and thinkers.
 
-- **[Basic Biases](basic-biases.jpg)**: Table of biases and the fundamental beliefs on which they might be based
-- **[Cold Logic](cold-logic.md)**: Rigid reasoning that sacrifices empathy and human dignity for strict efficiency
-- **[Detecting Baloney](detecting-baloney.md)**: Detecting baloney
+- [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims
+- [Basic Biases](basic-biases.md): Table of biases and the fundamental beliefs on which they might be based
+- [Cold Logic](cold-logic.md): Rigid reasoning that sacrifices empathy and human dignity for strict efficiency
 
 
 ## The Biological Problem
