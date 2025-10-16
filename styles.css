@@ -45,11 +45,6 @@ body {
 a {
   text-decoration: none;
   color: #1d50e8;
-  font-size: 16px;
+  font-size: 20px;  /* increase link text size */
 }
 
-/* Slightly larger heading font */
-h4 {
-  font-size: 1.5rem;  /* consistent across browsers */
-  /* font-weight: 600;    /* optional: make it a bit bolder */
-}
