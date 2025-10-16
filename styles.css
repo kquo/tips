@@ -47,3 +47,9 @@ a {
   color: #1d50e8;
   font-size: 16px;
 }
+
+/* Slightly larger heading font */
+h4 {
+  font-size: 1.25rem;  /* consistent across browsers */
+  /* font-weight: 600;    /* optional: make it a bit bolder */
+}
