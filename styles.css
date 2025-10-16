@@ -50,6 +50,6 @@ a {
 
 /* Slightly larger heading font */
 h4 {
-  font-size: 1.25rem;  /* consistent across browsers */
+  font-size: 1.5rem;  /* consistent across browsers */
   /* font-weight: 600;    /* optional: make it a bit bolder */
 }
