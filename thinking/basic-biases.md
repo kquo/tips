@@ -1,5 +1,7 @@
 # Basic Biases
 
+Be vigilant: our own thinking is constantly shaped by biases, and failing to notice them can lead to serious errors.
+
 A study mentioned by [Steve Stewart-Williams](https://www.stevestewartwilliams.com/p/one-bias-to-rule-them-all) indicate that a small set of core beliefs drive most cognitive biases: 
 
 > "... a fascinating recent paper by **Aileen Oeberst** and **Roland Imhoff** argues that all our cognitive biases boil down to one of **a handful of fundamental beliefs**, coupled with just **one** '*ultimate*' bias. The fundamental beliefs include such ideas as '*I make correct assessments*' and '*I am good*'." And the ultimate bias is **[confirmation bias](https://en.wikipedia.org/wiki/Confirmation_bias)**: the tendency to seek and favor information consistent with one’s preexisting views.
