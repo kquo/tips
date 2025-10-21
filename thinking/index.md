@@ -147,6 +147,9 @@ Additionally, I've observed a tendency in Pinker's writing, notably in "Enlighte
 
 In [Rationality](https://en.wikipedia.org/wiki/Rationality_(book)) Pinker lays down the incontrovertible reasons why rationality is really important to humanity, and how it is the essential driver of moral and social progress.
 
+My favorite Pinker quote is: 
+
+> Martin Luther King Jr. once said that ‘the arc of the moral universe is long, but it bends toward justice.’ In the same spirit, we can say that the arc of history bends toward progress &mdash; that is, toward greater reason, knowledge, and well‑being. &mdash; Steven Pinker
 
 ## Daniel Dennett
 "One of the surprising discoveries of modern psychology is how easy it is to be ignorant of your own ignorance."
