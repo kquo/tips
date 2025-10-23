@@ -1,6 +1,7 @@
 # Politics
 Tips on politics.
 
+- [Constitutional Republic](constitutional-republic.md): A type of democracy, but often a misleadingly used term.
 
 ## Voting
 One should vote for politicians whose views and policies most closely represent one's own views.
