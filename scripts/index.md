@@ -25,7 +25,7 @@ To use a script, download it locally by clicking on its respective link below. Y
 | [prepublish_go](prepublish_go) | 1.4.1      | Tidy up and run checks before publishing Go pkg |
 | [reindex](reindex) | 1.5.1      | Generates table of scripts |
 | [resize_image](resize_image) | 1.3.1      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
-| [rn](rn)    | 1.3.1      | Renames all files in current directory |
+| [rn](rn)    | 1.4.1      | Renames all files in current directory, supports empty replacement string. |
 | [rncap](rncap) | 1.3.1      | Capitalizes each filename in current working directory |
 | [rnlower](rnlower) | 1.3.1      | Lowercases each file in current working directory |
 | [runner](runner) | 1.4.1      | Run scripts hosted remotely, executing the latest version locally |
