@@ -85,5 +85,5 @@ Quick and useful tips.
 </html>
 
 <br>
-Dedicated to [progress and humanism](https://en.wikipedia.org/wiki/Age_of_Enlightenment) &mdash; <tips@que.one>
+Dedicated to [progress and universal compassion](https://en.wikipedia.org/wiki/Age_of_Enlightenment) &mdash; <tips@que.one>
 <br>
