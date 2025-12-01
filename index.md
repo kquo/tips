@@ -42,40 +42,46 @@ Quick and useful tips.
 </tr>
 
 <tr>
+<td> <a href="health/">health</a> </td>
 <td> <a href="hobbies/">hobbies</a> </td>
 <td> <a href="linux/">linux</a> </td>
-<td> <a href="macos/">macos</a> </td>
 </tr>
 
 <tr>
+<td> <a href="macos/">macos</a> </td>
 <td> <a href="media/">media</a> </td>
 <td> <a href="optimism/">optimism</a> </td>
-<td> <a href="pdf/">pdf</a> </td>
 </tr>
 
 <tr>
+<td> <a href="pdf/">pdf</a> </td>
 <td> <a href="politics/">politics</a> </td>
 <td> <a href="privacy/">privacy</a> </td>
-<td> <a href="pseudoscience/">pseudoscience</a> </td>
 </tr>
 
 <tr>
+<td> <a href="pseudoscience/">pseudoscience</a> </td>
 <td> <a href="python/">python</a> </td>
 <td> <a href="science/">science</a> </td>
-<td> <a href="scripts/">scripts</a> </td>
 </tr>
 
 <tr>
+<td> <a href="scripts/">scripts</a> </td>
 <td> <a href="security/">security</a> </td>
 <td> <a href="shell/">shell</a> </td>
-<td> <a href="surveillance/">surveillance</a> </td>
 </tr>
 
 <tr>
+<td> <a href="surveillance/">surveillance</a> </td>
 <td> <a href="terraform/">terraform</a> </td>
 <td> <a href="thinking/">thinking</a> </td>
-<td> <a href="video/">video</a> </td>
 <td> </td>
+</tr>
+
+<tr>
+<td> <a href="video/">video</a> </td>
+<td> <a href="_/">_</a> </td>
+<td> <a href="_/">_</a> </td>
 </tr>
 
 </table>
