@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# brew_update 1.3.2
+# brew_update 1.3.3
 # Does a thorough update of all installed Homebrew packages
 
 set -euo pipefail  # Fail immediately on any error
 Gre='\e[1;32m' Red='\e[1;31m' Mag='\e[1;35m' Yel='\e[1;33m' Blu='\e[1;34m' Rst='\e[0m'
 
-printf "==> ${Gre}brew update${Rst}\n"
-brew update
-printf "==> ${Gre}brew upgrade${Rst}\n"
-brew upgrade
+printf "==> ${Gre}HOMEBREW_NO_PROGRESS=1 brew update -q${Rst}\n"
+HOMEBREW_NO_PROGRESS=1 brew update -q
+printf "==> ${Gre}HOMEBREW_NO_PROGRESS=1 brew upgrade -q${Rst}\n"
+HOMEBREW_NO_PROGRESS=1 brew upgrade  -q
 brew list --cask | xargs brew upgrade
-printf "==> ${Gre}brew cleanup${Rst}\n"
-brew cleanup
+printf "==> ${Gre}HOMEBREW_NO_PROGRESS=1 brew cleanup -q${Rst}\n"
+HOMEBREW_NO_PROGRESS=1 brew cleanup  -q
