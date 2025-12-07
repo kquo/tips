@@ -277,10 +277,11 @@ Host a simple static *public* document web site based on [Markdown](https://www.
 5. You can use [this very same site](https://que.one) as an example
 6. Go to *Settings* section of your repo, then click on *Pages* under *Code and automation*
 7. Under *Source* select your main or master branch
-8. If using your own DNS domain, say `mydomain.com`, then set up the `www` CNAME and Anycast IP addresses as follows: 
+8. If using your own DNS domain, say `mydomain.com`, then set up a CNAME record for the `www`, and an A record for the Anycast IP addresses as follows: 
 
 ```bash
 www.mydomain.com    CNAME    git719.github.io.   # Where git719 is your Github username
+
 @                   A        185.199.111.153     # These 4 are Github's Anycast IP addresses
 @                   A        185.199.110.153
 @                   A        185.199.109.153
