@@ -275,7 +275,7 @@ Host a simple static *public* document web site based on [Markdown](https://www.
 3. `index.md` is the home page, equivalent to a `README.md` or `index.html` file 
 4. `_config.yml` tells [Github Pages](https://pages.github.com/) how to render your site, e.g. what theme to use, etc.
 5. You can use [this very same site](https://que.one) as an example
-6. Go to *Settings* section of your repo, then click on *Pages* under *Code and automation*
+6. Go to the *Settings* section of your repo, then under the *Code and automation*, click on *Pages*
 7. Under *Source* select your main or master branch
 8. If using your own DNS domain, say `mydomain.com`, then set up a CNAME record for the `www`, and an A record for the Anycast IP addresses as follows: 
 
