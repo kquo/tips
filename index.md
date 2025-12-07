@@ -76,7 +76,3 @@ Quick and useful tips.
 </body>
 
 </html>
-
-<br>
-Dedicated to [progress and universal compassion](https://en.wikipedia.org/wiki/Age_of_Enlightenment) &mdash; <me@que.one>
-<br>
