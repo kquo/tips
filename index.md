@@ -74,7 +74,7 @@ Quick and useful tips.
 <tr>
 <td> <a href="surveillance/">surveillance</a> </td>
 <td> <a href="terraform/">terraform</a> </td>
-<td> <a href="video/">video</a> </td>
+<td> <a href="_">media</a> </td>
 </tr>
 
 </table>
