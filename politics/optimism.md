@@ -1,4 +1,5 @@
 # Optimism 
+Some famous optimism quotes, en Español.
 
 ## El Optimismo
 No hay nada más viral que la enfermedad mental del pesimismo, y esto tiene que ver más con la mente que con las circunstancias que pasas.

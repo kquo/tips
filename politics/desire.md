@@ -1,5 +1,4 @@
 # Desire
-
 Some thoughts on human desire.
 
 **Desire Spectrum**

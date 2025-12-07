@@ -12,43 +12,37 @@ Quick and useful tips.
 <table>
 
 <tr>
-<td> <a href="activism/">activism</a> </td>
 <td> <a href="ai/">ai</a> </td>
 <td> <a href="arcade/">arcade</a> </td>
+<td> <a href="aws/">aws</a> </td>
 </tr>
 
 <tr>
-<td> <a href="aws/">aws</a> </td>
 <td> <a href="azure/">azure</a> </td>
 <td> <a href="containers">containers</a> </td>
-</tr>
-
-<tr>
-<td> <a href="desire">desire</a> </td>
 <td> <a href="devops">devops</a> </td>
-<td> <a href="discourse/">discourse</a> </td>
 </tr>
 
 <tr>
+<td> <a href="discourse/">discourse</a> </td>
 <td> <a href="dns">dns</a> </td>
 <td> <a href="editors/">editors</a> </td>
-<td> <a href="email">email</a> </td>
 </tr>
 
 <tr>
+<td> <a href="email">email</a> </td>
 <td> <a href="git">git</a> </td>
 <td> <a href="go">go</a> </td>
-<td> <a href="health/">health</a> </td>
 </tr>
 
 <tr>
+<td> <a href="health/">health</a> </td>
 <td> <a href="hobbies/">hobbies</a> </td>
 <td> <a href="macos/">macos</a> </td>
-<td> <a href="media/">media</a> </td>
 </tr>
 
 <tr>
-<td> <a href="optimism/">optimism</a> </td>
+<td> <a href="media/">media</a> </td>
 <td> <a href="pdf/">pdf</a> </td>
 <td> <a href="politics/">politics</a> </td>
 </tr>

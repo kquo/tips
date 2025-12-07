@@ -1,7 +1,11 @@
 # Politics
-Tips on politics.
+Tips on politics and related topics.
 
+- [Activism](activism.md): Some presumptuous tips on making a difference.
 - [Constitutional Republic](constitutional-republic.md): A type of democracy, but often a misleadingly used term.
+- [Desire](desire.md): Some thoughts on human desire.
+- [Optimism](optimism.md): Some famous optimism quotes, en Español.
+  
 
 ## Voting
 One should vote for politicians whose views and policies most closely represent one's own views.
