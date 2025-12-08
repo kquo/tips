@@ -1,5 +1,4 @@
 ## Computing
-Computing tips.
 
 - [AI](ai.md): Tips on artificial intelligence.
 - [Arcade](arcade.md): Tips on old coin-operated video arcade games.

@@ -1,5 +1,4 @@
-# Intellectual
-Intellectual tips.
+## Intellectual
 
 - [Discourse](discourse/index.md): Tip for making discussions more fruitful and enjoyable.
 - [Politics](politics/index.md): Tips on politics and related topics.
