@@ -1,5 +1,5 @@
 # Discourse
-A simple tip for improving discussions and making them more fruitful and enjoyable.
+Tips for improving discussions and making them more fruitful and enjoyable.
 
 Based on the ideas of experts like [Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), [Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett), and others in this field, we can say that people have mostly figured out __how to argue properly__ with other **_reasonable_** people.
 

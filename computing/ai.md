@@ -1,7 +1,7 @@
-# AI
+## AI
 AI tips.
 
-## Run DeepSeek Locally
+### Run DeepSeek Locally
 
 Use [ollama](https://github.com/ollama/ollama) for this.
 
@@ -14,8 +14,3 @@ ollama pull deepseek-r1:7b            # Pull deepseek-r1:7b
 ollama run deepseek-r1:7b             # Run it
 alias r1='ollama run deepseek-r1:7b'  # Setup a shell alias to prompt question
 ```
-
-## Train With Your Own Data
-
-How to train a model with your own own data?
-

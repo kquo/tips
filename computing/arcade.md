@@ -1,7 +1,7 @@
-# Arcade
+## Arcade
 Tips on playing the old-style coin-operated video arcade games. You can buy the actual old game cabinets from eBay and other places. Or you can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legally own. Or you can build you own game cabinet, with a small dedicated computer running running MAME.
 
-## MAME on Your Desktop
+### MAME on Your Desktop
 MAME originally stood for Multiple Arcade Machine Emulator, but nowadays it means much more than that. As its website states: 
 
     MAME is a hardware emulator: it faithfully reproduces the behavior of many
@@ -18,7 +18,7 @@ To set up MAME, do the following:
 
 Read more in the [MAME Reference](https://docs.mamedev.org/index.html).
 
-## MAME on Raspberry Pi
+### MAME on Raspberry Pi
 
 - Install Ubuntu 24.04 desktop on Raspberry Pi 5
 - This assumes you're using Apple **macOS** to do all this
@@ -28,14 +28,14 @@ Read more in the [MAME Reference](https://docs.mamedev.org/index.html).
 - Run the Imager and burn the latest Ubuntu Desktop image
 - Once done, insert the SD card on your Pi5 and install Ubuntu
   
-### Ideal Arcade Monitor
+#### Ideal Arcade Monitor
 The ideal arcade computer monitor is the **ViewSonic** 4/3 aspect ratio **VG939Sm** monitor. The Model No = VS15843.
 
-### Additional configurations and settings follow below
+#### Additional configurations and settings follow below
 
 Below are some general guidelines and configuration settings for such a setup, but you'll need to improvise where necessary.
 
-#### Adjust CLI Console Character size
+##### Adjust CLI Console Character size
 
 ```bash
 sudo mount -o remount,rw /boot/firmware
@@ -57,14 +57,14 @@ Select Terminus                      # Default is VGA
 Select Font Size 8x14, or whatever
 ```
 
-#### Setup SSH
+##### Setup SSH
 
 ```bash
 sudo systemctl enable ssh
 sudo systemctl start ssh
 ```
 
-#### Disable desktop
+##### Disable desktop
 
 ```bash
 sudo systemctl set-default multi-user.target
@@ -73,7 +73,7 @@ sudo systemctl start graphical.target        # To manually start the Graphical D
 sudo systemctl set-default graphical.target  # To re-enable Graphical Desktop
 ```
 
-#### Auto-login setup
+##### Auto-login setup
 
 To set default user for automatic login, edit the getty service: 
 
@@ -94,10 +94,10 @@ sudo systemctl restart getty@tty1.service
 sudo reboot
 ```
 
-#### Issues
+##### Issues
 - If keyboard does not respond when the **manu** menu comes up, ensure that the user you're running all this under has the correct permissions by doing `sudo usermod -a -G input $USER`
 
-### Set New Hostname
+#### Set New Hostname
 
 ```bash
 sudo hostnamectl set-hostname <NEW-HOSTNAME>
@@ -105,7 +105,7 @@ sudo vi /etc/hosts  # Change it here too
 sudo reboot
 ```
 
-### Ensure Sound is Working
+#### Ensure Sound is Working
 
 Plug a USB-to-3.5mm audio connector to the Raspberry Pi 5 and connect that to your speakers. Test with below steps: 
 
@@ -118,7 +118,7 @@ pactl list short sinks
 aplay /usr/share/sounds/alsa/Front_Center.wav  # To test speaker
 ```
 
-### Install MAME
+#### Install MAME
 
 To download and install the latest MAME binary. Use the binaries located at <https://stickfreaks.com/>. Note that they use **7 Zip** for compression. Note also, that this setup puts certain binaries under the `$HOME/bin/` directory.
 
@@ -132,11 +132,11 @@ ln -sf mame_0.281/mame mame
 
 So the **mame** binary will reside at `$HOME/bin/mame`, and remember that the standard MAME configurations normally reside under the `$HOME/.mame` directory.
 
-### Compile MAME?
+#### Compile MAME?
 
 If you decide to compile MAME yourself, which allows you to select only the machines you are interested in, follow below instructions.
 
-#### Install required packages and clone MAME repo 
+##### Install required packages and clone MAME repo 
 
 ```bash
 sudo apt update
@@ -149,7 +149,7 @@ git clone https://github.com/mamedev/mame.git
 cd mame
 ```
 
-#### Initial Compilation
+##### Initial Compilation
 
 You will need to do a **full compilation** first, in roder to build the needed `emu.h` and other core headers. This ***can take a long time**: 
 
@@ -161,7 +161,7 @@ time make SUBTARGET=mame SOURCES="src/mame/skeleton/testpat.cpp" REGENIE=1 NOWER
 
 Note that `emu.h` and the `.pch` files aren’t part of the source tree, and they are ONLY generated during a **full regular build**. This pre-step is a requirement in order to later do a restricted SOURCES build of a "tiny" MAME binary with only selected games.
 
-#### Prepare Source Files
+##### Prepare Source Files
 
 From the root of the checked out `mame` directory: 
 
@@ -190,7 +190,7 @@ mspacman        // (c) Namco/Midway
 stargate        // (c) Williams
 ```
 
-#### Tiny Compilation
+##### Tiny Compilation
 
 ```bash
 time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga.cpp,src/mame/pacman/pacman.cpp,src/mame/midway/williams.cpp" REGENIE=1 NOWERROR=1 OPTIMIZE=3 USE_QTDEBUG=1 -j$(nproc)
@@ -200,7 +200,7 @@ time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga
 ./mame -listfull
 ```
 
-### Boot into manu Binary
+#### Boot into manu Binary
 
 Boot into default `manu` Game Menu binary - See <https://github.com/git719/manu>
 
@@ -213,7 +213,7 @@ while true; do
 done
 ```
 
-### Configure MAME USB Controller
+#### Configure MAME USB Controller
 
 Before configuring MAME, make sure the OS is able to read the joystick controller and buttons:
 
@@ -226,7 +226,7 @@ jstest /dev/input/js0
 Once you know the OS is able to read the controller, configure it **within** MAME itself by pressing **TAB** from an attached keyboard, and MAME will allow you to configure the buttons accordingly. For more info see the [MAME documenation pages](https://docs.mamedev.org/index.html).
 
 
-## Creating USB Installers
+### Creating USB Installers
 
 - Download the desired ISO using `curl -LO` (see below).
 - You will need an empty USB drive of 16GB or more in size.

@@ -1,10 +1,7 @@
 # Go
-
 Useful GoLang tips.
 
-
 ## References
-
 - Useful examples = <https://gobyexample.com/>
 - Static analysis = <https://github.com/analysis-tools-dev/static-analysis#go>
 

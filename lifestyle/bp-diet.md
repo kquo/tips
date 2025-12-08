@@ -1,7 +1,5 @@
-# Health
-Health tips.
-
-## Blood Pressure Diet Cheat Sheet
+## Blood Pressure Diet
+Blood pressure diet cheat-sheet.
 
 ### Quick Tips
 - Choose fresh or minimally processed foods.  
