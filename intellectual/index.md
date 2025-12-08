@@ -4,4 +4,4 @@
 - [Politics](politics/index.md): Tips on politics and related topics.
 - [Pseudoscience](pseudoscience.md): Tips on pseudoscience.
 - [Science](science.md): Tips on science.
-- [Thinking](thinking/index.md.md): Tips on thinking and prominent thinkers.
+- [Thinking](thinking/index.md): Tips on thinking and prominent thinkers.
