@@ -1,7 +1,5 @@
 ## Lifestyle
 
-Lifestyle tips.
-
 - [Blood Pressure Diet](bp-diet.md): Blood pressure diet cheat-sheet.
 - [Columbo](columbo/index.md): Listing of all 69 TV Episodes of Columbo.
 
