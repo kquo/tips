@@ -1,4 +1,4 @@
-A grab-bag of quick, useful tips, and reminders I find helpful.
+A grab-bag of tips and reminders I turn to often.
 
 ### [Computing](computing/index.md)
 ### [Intellectual](intellectual/index.md)
