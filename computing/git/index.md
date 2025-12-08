@@ -1,5 +1,4 @@
 # git
-
 Version control tips with `git` and <https://github.com>.
 
 ## Subtopics

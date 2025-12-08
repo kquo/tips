@@ -1,17 +1,17 @@
 # macOS
 macOS tips.
 
-- [iCloud Photos Backup Guide](photos.md)
+- [iCloud Photos Backup Guide](icloud-photos.md)
 
 ## Mac Migration
 - Update hostname: 
 
-    ```
-    sudo scutil --set HostName <new_name>
-    sudo scutil --set LocalHostName <new_name>
-    sudo scutil --set ComputerName <new_name>
-    dscacheutil -flushcache`
-    ```
+```
+sudo scutil --set HostName <new_name>
+sudo scutil --set LocalHostName <new_name>
+sudo scutil --set ComputerName <new_name>
+dscacheutil -flushcache`
+```
 
 - Install Homebrew as per <https://brew.sh/>
 

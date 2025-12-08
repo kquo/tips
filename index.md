@@ -1,4 +1,4 @@
-Quick and useful tips.
+A grab-bag of quick, useful tips, and reminders I find helpful.
 
 <html lang="en">
 <head>
@@ -9,63 +9,13 @@ Quick and useful tips.
 
 <body>
 <h4>
-<table>
 
-<tr>
-<td> <a href="ai/">ai</a> </td>
-<td> <a href="arcade/">arcade</a> </td>
-<td> <a href="aws/">aws</a> </td>
-</tr>
+<a href="computing">Computing</a></br>
+</br>
+<a href="intellectual/">Intellectual</a></br>
+</br>
+<a href="lifestyle/">Lifestyle</a></br>
 
-<tr>
-<td> <a href="azure/">azure</a> </td>
-<td> <a href="containers">containers</a> </td>
-<td> <a href="devops">devops</a> </td>
-</tr>
-
-<tr>
-<td> <a href="discourse/">discourse</a> </td>
-<td> <a href="dns">dns</a> </td>
-<td> <a href="editors/">editors</a> </td>
-</tr>
-
-<tr>
-<td> <a href="email">email</a> </td>
-<td> <a href="git">git</a> </td>
-<td> <a href="go">go</a> </td>
-</tr>
-
-<tr>
-<td> <a href="health/">health</a> </td>
-<td> <a href="hobbies/">hobbies</a> </td>
-<td> <a href="macos/">macos</a> </td>
-</tr>
-
-<tr>
-<td> <a href="media/">media</a> </td>
-<td> <a href="pdf/">pdf</a> </td>
-<td> <a href="politics/">politics</a> </td>
-</tr>
-
-<tr>
-<td> <a href="privacy/">privacy</a> </td>
-<td> <a href="pseudoscience/">pseudoscience</a> </td>
-<td> <a href="science/">science</a> </td>
-</tr>
-
-<tr>
-<td> <a href="scripts/">scripts</a> </td>
-<td> <a href="security/">security</a> </td>
-<td> <a href="thinking/">thinking</a> </td>
-</tr>
-
-<tr>
-<td> <a href="terraform/">terraform</a> </td>
-<td> <a href="terraform/"></a>_</td>
-<td> <a href="terraform/"></a>_</td>
-</tr>
-
-</table>
 </h4>
 </body>
 

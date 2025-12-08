@@ -1,8 +1,5 @@
-# Devops
-Useful Devops tips.
-
-## Documentation
-Below is primarily taken from <https://documentation.divio.com/>, posted in [Hacker News here](https://news.ycombinator.com/item?id=26002656). All technical documentation falls under one the following four (4) groups.
+# Devops Documentation
+All technical documentation falls under one the following four (4) groups. Below is primarily taken from <https://documentation.divio.com/>, posted in [Hacker News here](https://news.ycombinator.com/item?id=26002656). 
 
 1. **Tutorials**: Learning oriented
 2. **How-to guides**: Problem oriented

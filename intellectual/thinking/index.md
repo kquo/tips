@@ -1,5 +1,5 @@
 # Thinking
-Tips on general thinking and thinkers.
+Tips on thinking and some prominent thinkers.
 
 - [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims
 - [Basic Biases](basic-biases.md): Table of biases and the fundamental beliefs on which they might be based
