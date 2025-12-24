@@ -124,15 +124,19 @@ He doesn't seem to think that challenging incorrect religious thinking is a wort
 Speaking of tactics, during the 2020 Democratic presidential primaries, he seemed too keen to point out that [Bernie Sanders](https://en.wikipedia.org/wiki/Bernie_Sanders) was not as progressive as many would have wish for. This attitude seems to impede advancement of progressive politics in the US. Afterwards, it looked like he backed off a bit from these types of criticism, and instead pointed out how revolutionary and effective Bernie's campaign had been. In general, his occasional negative demeanor can be quite vexing and runs counter to the causes he champions.
 
 ### Limits to Human Intelligence
-Regarding *philosophy of mind*, it is still unclear to me what Chomsky means by, "if there were no limits to human intelligence, it would lack internal structure and would therefore have no scope." In [Science, Mind, and Limits of Understanding](https://chomsky.info/201401__/) he touches on this subject, as well as in this [short interview clip](https://youtu.be/XSgUCMkt8us) with [Lex Fridman](https://wikitia.com/wiki/Lex_Fridman).
+Regarding *philosophy of mind*, it was initially unclear to me what Chomsky means by:  
+
+> If there were no limits to human intelligence, it would lack internal structure and would therefore have no scope. &mdash; Noam Chomsky
+
+He touches on this idea in [Science, Mind, and Limits of Understanding](https://chomsky.info/201401__/), as well as in a [short interview](https://youtu.be/XSgUCMkt8us) with [Lex Fridman](https://wikitia.com/wiki/Lex_Fridman). Chomsky’s point is that there are mutually exclusive bounds on the ways a biological system, like the human brain, can develop and organize information. These constraints provide the internal structure that makes meaningful cognition possible. Without such structure, intelligence would have no determinate domain in which to operate.
+
+Daniel Dennett challenges Chomsky’s emphasis on innate constraints. He argues that cognitive limits need not be pre-specified or biologically hardwired; instead, intelligence can emerge through interaction with the environment, evolutionary processes, and learning. From Dennett’s perspective, structure is not a prerequisite but a product of successful cognitive operation. Intelligence is defined by what systems reliably do, rather than by fixed innate rules, and constraints emerge naturally as part of that process. This view implies that human or artificial cognition could develop flexible intelligence without requiring the strict, pre-defined limits Chomsky emphasizes.
 
 He explains that there are mutually exclusive bounds of possibilities in the way a biological system like the human brain develops, which makes sense, though not sure how that relates to this.
 
-- So is this observation only with regards to a single human individual?
-- Why is it inconceivable to imagine some sort of cognitive prosthesis to augment human intelligence?
-- Would creation of an AGI make this a moot point?
-- Continuing to digest
+A cognitive prosthesis could conceivably extend certain human capacities, but it would not fundamentally remove the underlying structural constraints of human cognition; it would only supplement them.
 
+Even the creation of an AGI would not render Chomsky’s observation moot, as AGI could operate under different principles, yet his insight remains relevant for understanding the nature and limits of human intelligence specifically.
 
 ## Steven Pinker
 Steven Pinker first gained my attention when I encountered his book [The Language Instinct](https://en.wikipedia.org/wiki/The_Language_Instinct) during the mid-1990s. Chomsky's name caught my eye as I perused the back cover, having already delved into some of his linguistics works. Like others, I found Pinker's writing style to be very approachable and enjoyable.
