@@ -5,3 +5,4 @@
 - [Pseudoscience](pseudoscience.md): Tips on pseudoscience.
 - [Science](science.md): Tips on science.
 - [Thinking](thinking/index.md): Tips on thinking and prominent thinkers.
+- [Viral Truth](viral-truth.md): Tips for ensuring truth spreads faster than misinformation.
