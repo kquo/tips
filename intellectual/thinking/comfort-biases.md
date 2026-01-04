@@ -47,10 +47,7 @@ Research discussed by [Steve Stewart-Williams](https://www.stevestewartwilliams.
 
 > “…all our cognitive biases boil down to one of a handful of fundamental beliefs, coupled with one ultimate bias.”
 
-That ultimate bias is **[confirmation bias](https://en.wikipedia.org/wiki/Confirmation_bias)** — the tendency to seek out and favor information that supports what we already believe.
-
-Confirmation bias quietly sustains many of the dynamics discussed earlier. Once a belief provides comfort, identity, or stability, we naturally pay more attention to evidence that supports it and downplay evidence that challenges it. Over time, this creates the illusion that the belief is well - supported, even when it is not.
-
+That ultimate bias is **[confirmation bias](https://en.wikipedia.org/wiki/Confirmation_bias)** — the tendency to seek out and favor information that supports what we already believe. It reflects the **[reflexivity limitation](https://que.one/intellectual/thinking/#the-reflexivity-limitation)**: *our brains cannot **fully** monitor their own reasoning*, so we naturally favor beliefs we already hold. Once a belief provides comfort, identity, or stability, we naturally pay more attention to evidence that supports it and downplay evidence that challenges it. Over time, this creates the illusion that the belief is well-supported, even when it is not, quietly sustaining many of the dynamics discussed earlier.
 
 **Table 1** below illustrates how common cognitive biases may be rooted in these deeper self-protective beliefs:
 
