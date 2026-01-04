@@ -2,7 +2,7 @@
 Tips on thinking and some prominent thinkers.
 
 - [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims
-- [Basic Biases](basic-biases.md): Table of biases and the fundamental beliefs on which they might be based
+- [Comfort and Biases](comfort-biases.md): Table of biases and the fundamental beliefs on which they might be based
 - [Cold Logic](cold-logic.md): Rigid reasoning that sacrifices empathy and human dignity for strict efficiency
 
 
@@ -23,6 +23,7 @@ Evolution has so far shaped our brains, and our minds, **only** with a __cogniti
 But how the heck would we actually redesign our minds? We don't even understand [conciousness](https://en.wikipedia.org/wiki/Consciousness) and the neural substrates that make it up, the bio-ware? Fiddling with our DNA to adjust the bioware circuitry seems too science-fiction right now, and too risky. But maybe we can create augmentation devices, like we have glasses for troubled vision?
 
 By the way, I tend to agree with [Nick Bostrom](https://en.wikipedia.org/wiki/Nick_Bostrom)'s view that consciousness as a matter of degree, and reflexivity seems to be one way of measuring degrees of what we typically refer to as consciousness.
+
 
 ## The Social Problem
 Humanity's two biggest *core* problems are: (1) the **Biological Problem**, the limited cranial capacity due to the haphazard inheritance from evolution; and (2) the **Social Problem**, its faulty social structures stemming from the Biological Problem. The late biologist [Edward O. Wilson](https://en.wikipedia.org/wiki/E._O._Wilson) hinted of this in his 2009 book [Consilience](https://en.wikipedia.org/wiki/Consilience_%28book%29) when he said, "the real problem of humanity is the following: we have paleolithic emotions; medieval institutions; and god-like technology." With technological ingenuity being a possitive result of human biology.
@@ -138,6 +139,7 @@ A cognitive prosthesis could conceivably extend certain human capacities, but it
 
 Even the creation of an AGI would not render Chomsky’s observation moot, as AGI could operate under different principles, yet his insight remains relevant for understanding the nature and limits of human intelligence specifically.
 
+
 ## Steven Pinker
 Steven Pinker first gained my attention when I encountered his book [The Language Instinct](https://en.wikipedia.org/wiki/The_Language_Instinct) during the mid-1990s. Chomsky's name caught my eye as I perused the back cover, having already delved into some of his linguistics works. Like others, I found Pinker's writing style to be very approachable and enjoyable.
 
@@ -162,6 +164,7 @@ In [Rationality](https://en.wikipedia.org/wiki/Rationality_(book)) Pinker lays d
 My favorite Pinker quote is: 
 
 > Martin Luther King Jr. once said that ‘the arc of the moral universe is long, but it bends toward justice.’ In the same spirit, we can say that the arc of history bends toward progress &mdash; that is, toward greater reason, knowledge, and well‑being. &mdash; Steven Pinker
+
 
 ## Daniel Dennett
 "One of the surprising discoveries of modern psychology is how easy it is to be ignorant of your own ignorance."
