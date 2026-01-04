@@ -24,6 +24,9 @@ But how the heck would we actually redesign our minds? We don't even understand 
 
 By the way, I tend to agree with [Nick Bostrom](https://en.wikipedia.org/wiki/Nick_Bostrom)'s view that consciousness as a matter of degree, and reflexivity seems to be one way of measuring degrees of what we typically refer to as consciousness.
 
+### Augmenting Reflexivity
+While reflexivity is limited by the brain’s structural constraints, its practical impact can be mitigated through **external scaffolds**. Social feedback—mentors, peers, or critical communities — can reveal blind spots the individual cannot see. Structured accountability, such as decision logs, checklists, or formal argumentation, externalizes reasoning and highlights inconsistencies. Exposure to diverse or contradictory inputs challenges entrenched beliefs, forcing reconsideration. Algorithmic tools or AI systems can supplement human reflection by flagging overlooked evidence or reasoning gaps. Even environmental design—policies requiring justification, multi-step approvals, or team rotations — can nudge individuals toward more reflective thinking. These methods **do not eliminate bias**, but they expand the effective range of reflexivity, helping reasoning better approximate the insights it could achieve if fully self-aware.
+
 
 ## The Social Problem
 Humanity's two biggest *core* problems are: (1) the **Biological Problem**, the limited cranial capacity due to the haphazard inheritance from evolution; and (2) the **Social Problem**, its faulty social structures stemming from the Biological Problem. The late biologist [Edward O. Wilson](https://en.wikipedia.org/wiki/E._O._Wilson) hinted of this in his 2009 book [Consilience](https://en.wikipedia.org/wiki/Consilience_%28book%29) when he said, "the real problem of humanity is the following: we have paleolithic emotions; medieval institutions; and god-like technology." With technological ingenuity being a possitive result of human biology.
