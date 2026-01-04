@@ -59,7 +59,7 @@ The takeaway is simple but uncomfortable: the same forces that keep others locke
 
 
 ## Conclusion: Practicing Epistemic Humility
-Recognizing that bias is universal is only the first step. The key is cultivating epistemic humility—the willingness to question your own beliefs and remain open to evidence, even when it challenges comfort or identity.
+Recognizing that bias is universal is only the first step. The key is cultivating epistemic humility — the willingness to question your own beliefs and remain open to evidence, even when it challenges comfort or identity.
 
 Some practical habits include:
 
@@ -70,6 +70,8 @@ Some practical habits include:
 
 These practices do not eliminate bias, but they help prevent it from silently guiding your thinking. Over time, small acts of vigilance strengthen the ability to see the world more accurately, even in the face of uncertainty and discomfort.
 
-**A cautionary note**: Even with these habits, there are limits. Successfully questioning your own beliefs depends on **[reflexivity](https://que.one/intellectual/thinking/#the-reflexivity-limitation)** — the ability to step outside your own thinking and notice assumptions. Not everyone has this capacity to the same degree, and it cannot be fully “switched on.” Without sufficient reflexivity, reasoning can easily drift into rationalization, and first impressions may feel like facts. The goal is not perfection but sustained effort: to contain bias where possible and gradually strengthen awareness over time.
+**A cautionary note**: Even with these habits, there are limits. Successfully questioning your own beliefs depends on **[reflexivity](https://que.one/intellectual/thinking/#the-reflexivity-limitation)** — the ability to step outside your own thinking and notice assumptions. Not everyone has this capacity to the same degree, and it cannot be fully “switched on.” Without sufficient reflexivity, reasoning can easily drift into rationalization, and first impressions may feel like facts.
 
-Over time, small acts of vigilance strengthen the ability to see the world more accurately, even in the face of uncertainty and discomfort.
+For practical ways to extend your reflexivity beyond its natural limits, see **[Augmenting Reflexivity](https://que.one/intellectual/thinking/#augmenting-reflexivity)**. These external scaffolds — social feedback, accountability systems, diverse inputs, AI tools, and environmental design — can complement your internal reflection, helping contain bias and gradually strengthen awareness over time.
+
+The goal is not perfection but sustained effort: to contain bias where possible and continuously improve your capacity for self-monitoring and critical thought.
