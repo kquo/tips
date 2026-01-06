@@ -7,12 +7,5 @@
 2. Convert the resulting MKV file to MP4, to be played as Home Video via Apple TV HD: 
 
 ```bash
-ffmpeg -i input.mkv \
-  -map 0:v:0 -map 0:a:0 \
-  -c:v libx264 -preset slow -crf 18 \
-  -pix_fmt yuv420p \
-  -profile:v high -level 4.1 \
-  -movflags +faststart \
-  -c:a aac -b:a 512k \
-  output.mp4
+ffmpeg -i input.mkv -map 0:v:0 -map 0:a:0 -c:v copy -c:a ac3 -b:a 640k output.mp4
 ```
