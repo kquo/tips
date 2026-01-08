@@ -1,9 +1,11 @@
 # Thinking
-Tips on thinking and some prominent thinkers.
+Tips on thinking, thinkers, and enduring questions.
 
 - [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims
 - [Comfort and Biases](comfort-biases.md): Table of biases and the fundamental beliefs on which they might be based
 - [Cold Logic](cold-logic.md): Rigid reasoning that sacrifices empathy and human dignity for strict efficiency
+- [Reflexivity Curriculum](reflexivity-curriculum.md): A minimalist, group-level approach to cultivating reflexivity
+- [Free Will](free-will.md): Examining free will through Harris vs. Dennett.
 
 
 ## The Biological Problem
@@ -38,7 +40,8 @@ While fully integrated mind-enhancement devices remain speculative, there are co
 - **Environmental design features**: Policies, workflows, or physical setups that nudge reflective behavior (e.g., multi-step approvals, peer review rotations, collaborative deliberation spaces).
 - **Augmented reality/VR reflection tools**: Speculative devices that visualize reasoning processes or cognitive patterns to externalize thought for inspection.
 
-These devices and artifacts can be combined, layered, and adapted depending on context, forming a **practical ecosystem of reflexivity augmentation** that complements the brain’s inherent capacities.
+These devices and artifacts can be combined, layered, and adapted depending on context, forming a **practical ecosystem of reflexivity augmentation** that complements the brain’s inherent capacities. For a complementary approach that emphasizes collective norms and institutional design rather than individual augmentation, see the [Reflexivity Curriculum](reflexivity-curriculum.md), which operationalizes many of these scaffolds at the group level.
+
 
 
 ## The Social Problem
@@ -97,28 +100,6 @@ By the way, caring about computation is essential because it leads us to paradig
 It seems silly when people brag about how much they know. _Knowledge bling_ makes humans look like street chimp entertainers. On the other hand, when knowledable folks get together and casually shoot the breeze about human knowlege, that can be pretty cool. And that's what <https://www.edge.org> is all about. It is the smartest, most insightful salon in the world. Worth visiting from time to time. Although lately, it's now 2023, it's been a bit quiet.
 
 It’s troubling that [The Edge website](https://www.edge.org) and several of its associated scientists have been linked to Jeffrey Epstein, the convicted financier and sex offender. Reports suggest he provided financial support for some of the scientific research these figures were involved in.
-
-
-## Free Will
-Some notes on [Free will](https://en.wikipedia.org/wiki/Free_will).
-
-After philosopher [Sam Harris](https://en.wikipedia.org/wiki/Sam_Harris) wrote his 2012 book on free will, with a forcefull stance that it is **an illusion**, there was a follow-up exchange online with [Daniel Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett) who is an eminence on the subject, but which left me with these questions and observations.
-
-First of all, I was bit dissappointed with the way Dan Dennett treated Sam Harris during the exchange. As much as anyone may disagree with Sam, one thing is for certain, he epitomizes the proper way to engage in rational discourse. In other unrelated topics, Noam Chomsky also appears to have acted the same way towards Sam, and so has Ben Affleck and others. Again, as justified as their objections may be on whatever subject, only Sam seems to have followed rational and decent conversational decorum. Their lack of discourse decorum is a terrible diservice to human progress, and it is important to note that. It is bad enough that humanity is drowning in misinformation, to have intelligent, respectable, and insightful individual acting so petty(?). That uncomfortable free will exchange between Sam and Dan was also the main inspiration for writing the [Discourse](../discourse) tip. 
-
-Coming back to the free will disagreement itself, their differences seem to have revolved around Sam's noting the challenges to [Benjaming Libet's](https://en.wikipedia.org/wiki/Benjamin_Libet) work on volitional acts and readiness potential and their implications.
-
-However, Dan (along with others) is a prominent critics of these interpretations, see <https://en.wikipedia.org/wiki/Neuroscience_of_free_will>, and he rebuttled that: 
-  - Jonathan Cohen and Joshua Greene, and lately Aaron Schurger's follow-up casts doubt on Libet's work
-  - Jacobo D. Sitt and Stanislas Dehaene also working with Schurger, produced "significant evidence that the readiness potential (RP) seen before voluntary self-initiated movements is not necessarily causal and determinative of the action."
-  - Dan also mentions that "the author of thought doesn't necessarily need *access* to how their brain runs this process"
-    - The 0.5 seconds prediction doesn't invalidate the free authorship 
-    - Also "though the sailor cannot control wind or water, she still has **_some_** control of the boat"
-  - Paraphrases Hobbes, et al., "We created moral good and evil when we formed the Social Contract"
-  - Accepts free will and determinism at the same time, he's a [compatibilist](https://en.wikipedia.org/wiki/Compatibilism)
-  - Does not believe our brains are a tool for resolving quantum indeterminancy, ushering volitional acts in a "new" universe   
-
-Sam also does not seem to see *degrees* of free will, like Dan does. Also, his take on consciousness, which is a key element with the whole discussion, is not as well-grounded as Dan's is. Finally, stating that "no one can control anything" simply seems too absolute and limited of a conclusion.
 
 
 ## Noam Chomsky
