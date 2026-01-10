@@ -1,12 +1,6 @@
 # Thinking
 Tips on thinking, thinkers, and enduring questions.
 
-- [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims
-- [Comfort and Biases](comfort-biases.md): Table of biases and the fundamental beliefs on which they might be based
-- [Cold Logic](cold-logic.md): Rigid reasoning that sacrifices empathy and human dignity for strict efficiency
-- [Reflexivity Curriculum](reflexivity-curriculum.md): A minimalist, group-level approach to cultivating reflexivity
-- [Free Will](free-will.md): Examining free will through Harris vs. Dennett.
-
 
 ## The Biological Problem
 Human behavior is largely influenced by our genetic makeup, accounting for more than half of it. [Evolutionary Psychology](https://en.wikipedia.org/wiki/Evolutionary_psychology) has been teaching us about this for years, but it's taking time for society to fully grasp these concepts. Understanding this is helping many people accept others and themselves better, be more social, and live in peace with human imperfections.
@@ -16,32 +10,6 @@ Sometimes, individuals may seem stubborn because their brains are wired in speci
 We are riddled with a built-in [list of cognitive biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases), and the grandaddy of them all is probably **[confirmation bias](https://en.wikipedia.org/wiki/Confirmation_bias)**: the tendency to seek and favor information consistent with one’s preexisting views, [see also this entry here](basic-biases.md)
 
 However, it's not all gloomy. Despite our inherent limitations, there's still room for improvement. Progress may be slow, but with patience, we can make strides forward.
-
-### The Reflexivity Limitation
-One aspect of the *Biological Problem* is a sub-problem called **The Reflexivity Limitation**. This occurs when a brain (or mind) lacks sufficient *reflexivity*—*the ability to pause, step back, and examine one’s own reasoning*. Without that mental mirror, people often mistake their __first impressions__ for facts, their __feelings__ for evidence, and their __assumptions__ for truth. Reflexivity allows us to recognize biases and ask, “Does this actually make sense?” It’s not about being smarter; it’s about being __self-aware__ enough to notice when *we might be wrong*. Without this inner feedback loop, reasoning becomes rationalization, and clarity gives way to conviction masquerading as certainty.
-
-Evolution has shaped our brains and minds **only** with a __cognitive architecture__ sufficient for survival in the environments we inhabit. Now that we understand the limitations this architecture imposes, it’s tempting to imagine auto-redesigning our minds to enhance reflexivity. To use a computer analogy: our rational thinking often runs on a single thread. What if we could add additional “threads” to monitor and check our other thinking processes?
-
-But how would we actually redesign our minds? We don’t yet fully understand [consciousness](https://en.wikipedia.org/wiki/Consciousness) or the neural substrates that underlie it. Fiddling with DNA or neural circuitry remains science fiction — and highly risky. **A more plausible path might be augmentation devices, similar to how glasses improve vision.**  
-
-I also tend to agree with [Nick Bostrom](https://en.wikipedia.org/wiki/Nick_Bostrom) that consciousness exists as a matter of degree. One practical way to think about those degrees is through reflexivity: this capacity to observe, question, and revise one’s own thinking. Reflexivity captures the meta-cognitive aspect of consciousness and exists on a spectrum, varying across individuals and situations. It manifests in observable behaviors — such as detecting contradictions, seeking disconfirming evidence, and updating beliefs in response to reflection or feedback — which makes it amenable to practical assessment. While reflexivity does not measure subjective experience itself, it provides a functional proxy for the self-monitoring dimension of consciousness.
-
-### Augmenting Reflexivity
-If augmentation devices are a plausible path, then **external scaffolds can be thought of as additional tools to enhance reflexivity**. These “prosthetic” improvements expand the effective range of self-monitoring without altering the brain’s architecture. Social feedback — from mentors, peers, or critical communities — can reveal blind spots the individual cannot see. Structured accountability, such as decision logs, checklists, or formal argumentation, externalizes reasoning and highlights inconsistencies. Exposure to diverse or contradictory inputs challenges entrenched beliefs and encourages reconsideration. Algorithmic tools or AI systems can further supplement human reflection by flagging overlooked evidence or reasoning gaps. Environmental design — policies requiring justification, multi-step approvals, or team rotations — can also nudge individuals toward more reflective thinking.
-
-These scaffolds **do not eliminate bias**, but they help reasoning approximate the insights it could achieve if fully self-aware. Combined with augmentation devices, they form a layered approach: **internal capacity enhanced by external artifacts**.
-
-While fully integrated mind-enhancement devices remain speculative, there are conceptual and practical artifacts that could serve as reflexivity aids:
-
-- **Decision journals**: Structured logs that force reflection on reasoning and assumptions.
-- **Critical feedback platforms**: Social or AI systems designed to surface blind spots and contradictory evidence.
-- **Cognitive checklists**: Standardized processes to ensure key assumptions are questioned before final judgments.
-- **AI “devil’s advocate” tools**: Algorithms that generate counter-arguments or highlight inconsistencies in reasoning.
-- **Environmental design features**: Policies, workflows, or physical setups that nudge reflective behavior (e.g., multi-step approvals, peer review rotations, collaborative deliberation spaces).
-- **Augmented reality/VR reflection tools**: Speculative devices that visualize reasoning processes or cognitive patterns to externalize thought for inspection.
-
-These devices and artifacts can be combined, layered, and adapted depending on context, forming a **practical ecosystem of reflexivity augmentation** that complements the brain’s inherent capacities. For a complementary approach that emphasizes collective norms and institutional design rather than individual augmentation, see the [Reflexivity Curriculum](reflexivity-curriculum.md), which operationalizes many of these scaffolds at the group level.
-
 
 
 ## The Social Problem
@@ -61,7 +29,7 @@ Is the pace of progress limited to the slow, gradual change we have been seeing?
 ## Misguided Libertarianism
 [Libertarianism](https://en.wikipedia.org/wiki/Libertarianism) on its own has many reasonable merits, but there is a particular modern strain, exemplified by the likes of Joe Rogan, Ben Shapiro, Elon Musk, and others, that can be harmful. While their arguments seem very logical and rational, upon closer examination they appear incompatible with fostering a just and cohesive society.
 
-This strain often aligns with the concept of **[cold logic](cold-logic.md)**, where rigid rationality and ideological purity override empathy and social responsibility. Modern Libertarians and MAGA followers often advocate policies and positions that seem rational on the surface but disregard the complexity of human limitations and the need for compassion in governance. This approach, consciously or unconsciously, prioritizes a sterile form of reason that can fracture societal cohesion.
+This strain often aligns with the concept of **[cold logic](../cold-logic.md)**, where rigid rationality and ideological purity override empathy and social responsibility. Modern Libertarians and MAGA followers often advocate policies and positions that seem rational on the surface but disregard the complexity of human limitations and the need for compassion in governance. This approach, consciously or unconsciously, prioritizes a sterile form of reason that can fracture societal cohesion.
 
 This extreme form of rationality overrides common sense and leads to anti-social tendencies when these social media personalities prioritize strict adherence to ideological principles over empathetic understanding or cooperative behavior in society. One example of that was Rogan's push-back to COVID vaccines, insisting that his personal prerogative was more important.
 
