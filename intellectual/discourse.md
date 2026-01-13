@@ -5,6 +5,7 @@ Based on the ideas of experts like [Carl Rogers](https://en.wikipedia.org/wiki/C
 
 When talking with most people, it's important to keep in mind that not everyone is **_reasonable_**. Some people, for various reasons, such as believing in [pseudoscience](pseudoscience), may not be open to discussion. In situations like these, it's best to avoid trying to have *rational* conversations altogether. As an alternative, consider the **Having Impossible Conversations** section below.
 
+
 ## Discourse Protocol
 For productive and enjoyable discussions try following the Discourse Protocol (DP):
 
@@ -19,11 +20,12 @@ For productive and enjoyable discussions try following the Discourse Protocol (D
     <li>Listen attentively and make the other side feel understood</li>
     <li>As Dennet points out, when you try to explain what the other side thinks, make it so clear that they might say, "Thanks, I wish I had said it like that!"</li>
     <li>Be humble and ask honest questions to seek understanding</li>
-    <li>Talk things over rationally, preferably using <a href="https://que.one/science/">science</a></li>
+    <li>Talk things over rationally, preferably using <a href="science.md">science</a></li>
     <li>Really think about the idea that you could be wrong and the other side could be right</li>
     <li>Remember that agreement is comparatively unimportant, as both side could easily be mistaken (<a href="popper.md">Karl Popper</a>)</li>
     </ol>
-3. Repeat items #1 and #2 until any party enacts Item #1c
+3. Repeat items #1 and #2 until any party enacts Item 1c
+
 
 ## Having Impossible Conversations
 [Peter_Boghossian](https://en.wikipedia.org/wiki/Peter_Boghossian) and [James A. Lindsay](https://en.wikipedia.org/wiki/James_A._Lindsay) wrote a great book in 2019 entitled [How to Have Impossible Conversations: A Very Practical Guide](https://a.co/d/3xpHH8x), which is a valuable source of information regarding this topic. This is a very brief, still incomplete, and probably a bit unfair take on their message, but maybe a good mnemonic for some:
