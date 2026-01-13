@@ -1,11 +1,17 @@
 # Politics
 Tips on politics and related topics.
 
-- [Activism](activism.md): Some presumptuous tips on making a difference.
-- [Constitutional Republic](constitutional-republic.md): A type of democracy, but often a misleadingly used term.
-- [Desire](desire.md): Some thoughts on human desire.
-- [Optimism](optimism.md): Some famous optimism quotes, en Español.
-  
+<ul>
+  <li><a href="#voting">Voting</a></li>
+  <li><a href="#venerable-monuments">Venerable Monuments</a></li>
+  <li><a href="#birth-lottery">Birth Lottery</a></li>
+  <li><a href="#pathological-personalities">Pathological Personalities</a></li>
+  <li><a href="#donald-trump">Donald Trump</a></li>
+  <li><a href="#digital-persuasion">Digital Persuasion</a></li>
+  <li><a href="#dark-sentiments">Dark Sentiments</a></li>
+  <li><a href="#the-two-visions">The Two Visions</a></li>
+</ul>
+
 
 ## Voting
 One should vote for politicians whose views and policies most closely represent one's own views.
@@ -78,7 +84,6 @@ Is this crazy hype or should we be worried? Should we start to address this prob
 
 
 ## Dark Sentiments
-
 Politics gets really, really ugly when people begin to subscribe to darker sentiments. This tip is worth remembering in any language.
 
 Beware of blinding, hateful feelings. Such emotions have fueled countless atrocities throughout history, causing immense suffering. The Dark Side is more real than we think and often leads us to turn against one another and harm each other.

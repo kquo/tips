@@ -1,9 +1,9 @@
 # Discourse
 Tips for improving discussions and making them more fruitful and enjoyable.
 
-Based on the ideas of experts like [Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), [Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett), and others in this field, we can say that people have mostly figured out __how to argue properly__ with other **_reasonable_** people.
+Based on the ideas of experts like [Carl Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Karl Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Anatol Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), [Daniel Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett), and others in this field, we can say that people have mostly figured out __how to argue properly__ with other **_reasonable_** people.
 
-When talking with most people, it's important to keep in mind that not everyone is **_reasonable_**. Some people, for various reasons, such as believing in [pseudoscience](../pseudoscience), may not be open to discussion. In situations like these, it's best to avoid trying to have *rational* conversations altogether. As an alternative, consider the **Having Impossible Conversations** section below.
+When talking with most people, it's important to keep in mind that not everyone is **_reasonable_**. Some people, for various reasons, such as believing in [pseudoscience](pseudoscience), may not be open to discussion. In situations like these, it's best to avoid trying to have *rational* conversations altogether. As an alternative, consider the **Having Impossible Conversations** section below.
 
 ## Discourse Protocol
 For productive and enjoyable discussions try following the Discourse Protocol (DP):
@@ -21,7 +21,7 @@ For productive and enjoyable discussions try following the Discourse Protocol (D
     <li>Be humble and ask honest questions to seek understanding</li>
     <li>Talk things over rationally, preferably using <a href="https://que.one/science/">science</a></li>
     <li>Really think about the idea that you could be wrong and the other side could be right</li>
-    <li>Remember that agreement is comparatively unimportant, as both side could easily be mistaken (<a href="https://que.one/discourse/popper/">Karl Popper</a>)</li>
+    <li>Remember that agreement is comparatively unimportant, as both side could easily be mistaken (<a href="popper.md">Karl Popper</a>)</li>
     </ol>
 3. Repeat items #1 and #2 until any party enacts Item #1c
 
