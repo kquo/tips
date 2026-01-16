@@ -11,4 +11,5 @@
 - [Poker Notes](poker.md): Poker notes and tips.
 - [Personal Growth](personal-growth.md): Tips for personal growth and well-being.
 - [Decrypt Disc to MKV](disc-to-mkv.md): Tips for how to decrypt Blu-ray/DVD disc to an MKV File.
+- [STFU](stfu.html): For those moments when somone is totally oblivious to making unwanted noise.
   
