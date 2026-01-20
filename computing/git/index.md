@@ -279,7 +279,7 @@ Host a simple static *public* document web site based on [Markdown](https://www.
 8. If using your own DNS domain, say `mydomain.com`, then set up a CNAME record for the `www`, and an A record for the Anycast IP addresses as follows: 
 
 ```bash
-www.mydomain.com    CNAME    git719.github.io.   # Where git719 is your Github username
+www.mydomain.com    CNAME    kquo.github.io.     # Where kquo is your Github username
 
 @                   A        185.199.111.153     # These 4 are Github's Anycast IP addresses
 @                   A        185.199.110.153
