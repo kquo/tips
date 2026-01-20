@@ -152,7 +152,7 @@ To speed things up, maybe use `sysctl net.isr.dispatch=deferred`? [Need sources]
 
 
 ## Memorable Password Generation
-To generate 4-word phrase memorable password use [pgen](https://github.com/git719/pgen):
+To generate 4-word phrase memorable password use [pgen](https://github.com/kquo/pgen):
 
 ```
 $ pgen

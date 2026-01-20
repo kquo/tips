@@ -1,15 +1,18 @@
 ## Scripts
 Useful shell scripts.
 
-To use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. To view the source code of these scripts directly go to [Github](https://github.com/git719/tips/tree/main/scripts).
+To use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. To view the source code of these scripts directly, go to [Github](https://github.com/kquo/tips/tree/main/scripts).
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
 | [bak](bak)  | 1.2.1      | Backs up given file or directory |
-| [brew_update](brew_update) | 1.3.1      | Does a thorough update of all installed Homebrew packages |
+| [brew_update](brew_update) | 1.3.4      | Does a thorough update of all installed Homebrew packages |
 | [build_go](build_go) | 1.3.1      | Generic script to compile Go programs |
 | [certgen](certgen) | 1.0.0      | Generates a standard 10-year self-signed SSL .crt with a .key file. |
 | [certls](certls) | 1.2.1      | Given an FQDN show all assigned SSL certificates  |
+| [checkusr-github3.go](checkusr-github3.go) | 1.0.0      | Checks available 3-letter usernames in Github.com |
+| [checkusr-github4.go](checkusr-github4.go) | 1.0.0      | Checks available 4-letter usernames in Github.com |
+| [checkusr-lichess4.go](checkusr-lichess4.go) | 1.0.0      | Checks available 4-letter usernames in liches.org |
 | [dl](dl)    | 1.2.1      | A simple yt-dlp, the famous video downloader, stub driver |
 | [get_oidc_tokens.py](get_oidc_tokens.py) | 1.0.2      | See https://que.one/git/oidc-azure.html |
 | [git_cloneall](git_cloneall) | 1.3.1      | Clone all repos for given Github Org or Username |
@@ -23,7 +26,7 @@ To use a script, download it locally by clicking on its respective link below. Y
 | [mac_screencap](mac_screencap) | 1.2.1      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
 | [pman](pman) | 1.4.1      | Azure REST API caller |
 | [prepublish_go](prepublish_go) | 1.4.1      | Tidy up and run checks before publishing Go pkg |
-| [reindex](reindex) | 1.5.1      | Generates table of scripts |
+| [reindex](reindex) | 1.6.6      | Generates table of scripts |
 | [resize_image](resize_image) | 1.3.1      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
 | [rn](rn)    | 1.4.1      | Renames all files in current directory, supports empty replacement string. |
 | [rncap](rncap) | 1.3.1      | Capitalizes each filename in current working directory |

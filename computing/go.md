@@ -21,7 +21,7 @@ export PATH=$PATH:$GOPATH/bin
 2. On Linux and Windows/GitBASH 
 
 ```bash
-curl -kLo /tmp/install-go.sh https://raw.githubusercontent.com/git719/tools/refs/heads/main/go/install-go.sh
+curl -kLo /tmp/install-go.sh https://raw.githubusercontent.com/kquo/tools/refs/heads/main/go/install-go.sh
 bash /tmp/install-go.sh            # To install latest Go version ... or 
 bash /tmp/install-go.sh go1.23.3   # To install this specific Go version
 
@@ -61,7 +61,7 @@ go: go.mod file not found in current directory or any parent directory; see 'go 
 Try this 
 
 ```bash
-go mod init <package_name>   # For example, this would be 'zls' for github.com/git719/zls
+go mod init <package_name>   # For example, this would be 'zls' for github.com/kquo/zls
 go mod tidy
 ```
 

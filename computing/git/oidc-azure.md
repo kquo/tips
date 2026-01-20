@@ -87,7 +87,7 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
                 curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${AZ_TOKEN}" -X GET "https://management.azure.com/subscriptions?api-version=2022-12-01" | jq
 
             # Option 2: Using custom Python script (RECOMMENDED)
-            # See https://github.com/git719/tips/blob/main/scripts/get_oidc_tokens.py
+            # See https://github.com/kquo/tips/blob/main/scripts/get_oidc_tokens.py
 
             - name: some_other_step
               run: |
@@ -149,7 +149,7 @@ MS Graph                    │                         Azure ARM
 ```
 
 ### References
-- [Example Python Get OIDC Token Script](https://github.com/git719/tips/blob/main/scripts/get_oidc_tokens.py)
+- [Example Python Get OIDC Token Script](https://github.com/kquo/tips/blob/main/scripts/get_oidc_tokens.py)
 - [What is Github Action for Azure](https://learn.microsoft.com/en-us/azure/developer/github/github-actions) 
 - [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
 - [Azure login action](https://github.com/marketplace/actions/azure-login)
