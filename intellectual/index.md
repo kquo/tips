@@ -14,6 +14,7 @@
 - [Reflexivity](reflexivity.md): What reflexivity is, and strategies for enhancing it.  
 - [Science](science.md): Tips on science.  
 - [Human Core Challenges](core-challenges.md): The biological, social, and entropy-based limitations that shape humanity.  
+- [US Identity Politics](identity-politics.md): How U.S. politics operates primarily through group identity rather than policy.
 - [Libertarianism](libertarianism.md): Tips Libertarianism.  
 - [Edge Website](edge-website.md): A comment on the Edge website.  
 - [Computation](computation).md): Tips on computation.  
