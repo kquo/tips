@@ -24,3 +24,5 @@
 - [Noam Chomsky](chomsky.md): Some thoughts on Noam Chomsky's work.  
 - [Roger Penrose](penrose.md): Some thoughts on Roger Penrose's work.  
 - [Steven Pinker](pinker.md): Some thoughts on Steven Pinker's work.  
+
+<me@que.one>
