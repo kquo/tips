@@ -24,7 +24,6 @@ To use a script, download it locally by clicking on its respective link below. Y
 | [install_tf](install_tf) | 1.3.1      | Install Terraform binary |
 | [install_vault](install_vault) | 1.2.1      | Install HashiCorp Vault binary |
 | [mac_screencap](mac_screencap) | 1.2.1      | Adjusts macOS SHIFT-CMD-4 screen capture settings |
-| [pman](pman) | 1.4.1      | Azure REST API caller |
 | [prepublish_go](prepublish_go) | 1.4.1      | Tidy up and run checks before publishing Go pkg |
 | [reindex](reindex) | 1.6.6      | Generates table of scripts |
 | [resize_image](resize_image) | 1.3.1      | Resizes given HEIC, JPEG, or JPG image file by 10% or compresses MP4 video file |
