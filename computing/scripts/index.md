@@ -7,8 +7,6 @@ To use a script, download it locally by clicking on its respective link below. Y
 |-------------|------------|-----------------------|
 | [brew_update](brew_update) | 1.3.4      | Does a thorough update of all installed Homebrew packages |
 | [build_go](build_go) | 1.3.1      | Generic script to compile Go programs |
-| [certgen](certgen) | 1.0.0      | Generates a standard 10-year self-signed SSL .crt with a .key file. |
-| [certls](certls) | 1.2.1      | Given an FQDN show all assigned SSL certificates  |
 | [checkusr-github3.go](checkusr-github3.go) | 1.0.0      | Checks available 3-letter usernames in Github.com |
 | [checkusr-github4.go](checkusr-github4.go) | 1.0.0      | Checks available 4-letter usernames in Github.com |
 | [checkusr-lichess4.go](checkusr-lichess4.go) | 1.0.0      | Checks available 4-letter usernames in liches.org |
