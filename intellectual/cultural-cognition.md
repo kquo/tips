@@ -1,6 +1,6 @@
 ## Cultural Cognition
 
-Cultural cognition describes a common tendency for people to interpret facts and evidence in ways that align with their existing values, identities, and group affiliations. While this effect is widespread, it is neither universal nor inevitable: many individuals — particularly those with moderate views, strong epistemic norms, or explicit awareness of the bias — can partially resist or consciously correct for it. Even so, cultural and political frameworks often exert a subtle influence on interpretation, especially in highly salient or contested domains.
+[Cultural cognition](https://en.wikipedia.org/wiki/Cultural_cognition) describes a common tendency for people to interpret facts and evidence in ways that align with their existing values, identities, and group affiliations. While this effect is widespread, it is neither universal nor inevitable: many individuals — particularly those with moderate views, strong epistemic norms, or explicit awareness of the bias — can partially resist or consciously correct for it. Even so, cultural and political frameworks often exert a subtle influence on interpretation, especially in highly salient or contested domains.
 
 ## Moving Beyond Cultural Cognition
 
