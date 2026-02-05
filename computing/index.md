@@ -18,4 +18,6 @@
 - [Security](security/index.md): Computer security tips.
 - [Terraform](terraform/index.md): Tips on Hashicorp Terraform.
 
+<br>
+<br>
 <redacted@example.com>
