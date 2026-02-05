@@ -5,17 +5,11 @@ To use a script, download it locally by clicking on its respective link below. Y
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|
-| [brew_update](brew_update) | 1.3.4      | Does a thorough update of all installed Homebrew packages |
 | [build_go](build_go) | 1.3.1      | Generic script to compile Go programs |
 | [checkusr-github3.go](checkusr-github3.go) | 1.0.0      | Checks available 3-letter usernames in Github.com |
 | [checkusr-github4.go](checkusr-github4.go) | 1.0.0      | Checks available 4-letter usernames in Github.com |
 | [checkusr-lichess4.go](checkusr-lichess4.go) | 1.0.0      | Checks available 4-letter usernames in liches.org |
-| [dl](dl)    | 1.2.1      | A simple yt-dlp, the famous video downloader, stub driver |
 | [get_oidc_tokens.py](get_oidc_tokens.py) | 1.0.2      | See https://que.one/git/oidc-azure.html |
-| [git_cloneall](git_cloneall) | 1.3.1      | Clone all repos for given Github Org or Username |
-| [git_pullall](git_pullall) | 1.3.4      | Do pull on all git repos |
-| [git_remotev](git_remotev) | 1.3.2      | List remote sources of all git repos |
-| [git_statall](git_statall) | 1.3.2      | Run status on all git repos |
 | [gitbranch.sh](gitbranch.sh) | 1.0.0      | Fast git branch PS1 indicator in bash |
 | [install_go](install_go) | 1.3.1      | Install and setup Go  |
 | [install_tf](install_tf) | 1.3.1      | Install Terraform binary |
