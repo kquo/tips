@@ -1,4 +1,4 @@
-## Intellectual
+## Ideas
 
 - [Activism](activism.md): Some presumptuous tips on making a difference and trying to fix the world.  
 - [Answer Patterns Framework](answer-patterns.md): How answers are structured and intended.  

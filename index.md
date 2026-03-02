@@ -1,8 +1,8 @@
-A collection of aphorisms and quick reminders I keep close at hand.
+Quick thoughts and reminders I keep nearby.
 
-### [Computing](computing/index.md)
-### [Intellectual](intellectual/index.md)
-### [Lifestyle](lifestyle/index.md)
+### [Tech](tech/index.md)
+### [Ideas](ideas/index.md)
+### [Life](life/index.md)
 
 <br>
 <br>

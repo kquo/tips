@@ -1,4 +1,4 @@
-## Lifestyle
+## Life
 
 - [Blood Pressure Diet](bp-diet.md): Blood pressure diet cheat-sheet.
 - [Kidneys & Blood Pressure](kidneys-bp.md): The Kidneys are the body’s primary long-term regulators of blood pressure.
