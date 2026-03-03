@@ -12,7 +12,7 @@
 - [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims.   
 - [Discourse](discourse.md): Tip for making discussions more fruitful and enjoyable.  
 - [Edge Website](edge-website.md): A comment on the Edge website.  
-- [Famous Precepts](famous-precepts.md): Collection of enduring principles and intellectual heuristics.
+- [Famous Lessons](famous-lessons.md): Smart thinking shortcuts.
 - [Free Will](free-will.md): Examining free will through Harris vs. Dennett.  
 - [Human Core Challenges](core-challenges.md): The biological, social, and entropy-based limitations that shape humanity.  
 - [Libertarianism](libertarianism.md): Tips Libertarianism.  
