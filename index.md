@@ -1,9 +1,9 @@
-Quick thoughts and reminders I keep nearby.
+Notes and reminders for easy reference.
 
-### [Tech](tech/index.md)
-### [Ideas](ideas/index.md)
 ### [Life](life/index.md)
+### [Mind](mind/index.md)
+### [Society](society/index.md)
+### [Tech](tech/index.md)
 
-<br>
 <br>
 <redacted@example.com>
