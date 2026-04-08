@@ -11,6 +11,7 @@
 - [Desire](desire.md): Some thoughts on human desire.  
 - [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims.   
 - [Edge Website](edge-website.md): A comment on the Edge website.  
+- [Famous Quotes](famous-quotes.md): Notable quotes for reflection.
 - [Famous Lessons](famous-lessons.md): Smart thinking shortcuts.
 - [Free Will](free-will.md): Examining free will through Harris vs. Dennett.  
 - [Limits of Bias](limits-of-bias.md): Recognizing that common psychological tendencies are not universal and can be resisted.  
