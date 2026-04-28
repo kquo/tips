@@ -35,3 +35,9 @@ For workflow, see `editing-cycle.md`. For release, see `release.md`.
 - Docs ship with the content change that introduces the behavior
 - If a doc references a file path or section heading, verify it still exists before publishing
 - When a decision changes, update all affected docs in the same pass — no half-migrated states
+
+## Cadence
+
+- Publish when a small coherent batch is ready; no fixed cadence is required
+- Prefer grouped updates over one-off noisy churn
+- Use tags only for notable snapshots, not for every routine content push

@@ -5,11 +5,7 @@ Use this directory for governed implementation support documents.
 ## Governance
 
 - `../AGENTS.md` — shared governance contract (symlinked as `CLAUDE.md`)
-- `roles.md` — delivery model overview and role assignment
-- `role-operator.md` — Operator role (file edits, structure, formatting)
-- `role-editor.md` — Editor role (content quality, accuracy, consistency)
-- `role-maintainer.md` — Maintainer role (combined Operator + Editor, default)
-- `role-director.md` — Director reference (human, not assignable)
+- `roles.md` — 2-role model (Operator + Director) with mandatory self-review
 
 ## Workflow
 
