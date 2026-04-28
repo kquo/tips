@@ -15,3 +15,4 @@ IE4: review incoming tips and assign one landing area and path before editing
 IE5: polish new and revised entries for clarity, structure, and link hygiene
 IE6: keep `life/index.md`, `mind/index.md`, `society/index.md`, and `tech/index.md` aligned with published pages
 IE7: split, merge, or rename pages when a topic outgrows its current structure
+IE8: split index.md into two columns
