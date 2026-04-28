@@ -1,38 +1,29 @@
-# Docs Overview
+# Docs
 
-This directory holds maintainer-facing documentation for working on `tips`.
+Use this directory for governed implementation support documents.
 
-`tips` is a public GitHub Pages site, but the root `README.md` doubles as the site homepage and intentionally stays minimal. Operational and editorial guidance belongs here instead.
+## Governance
 
-## Core Maintenance Files
+- `../AGENTS.md` — shared governance contract (symlinked as `CLAUDE.md`)
+- `roles.md` — delivery model overview and role assignment
+- `role-operator.md` — Operator role (file edits, structure, formatting)
+- `role-editor.md` — Editor role (content quality, accuracy, consistency)
+- `role-maintainer.md` — Maintainer role (combined Operator + Editor, default)
+- `role-director.md` — Director reference (human, not assignable)
 
-- `AGENTS.md`: shared governance contract for agent behavior in this repo
-- `style.md`: editorial standards, category routing, and linking rules
-- `content-plan.md`: current backlog and publishing priorities
-- `publishing-workflow.md`: intake, review, and publication flow
-- `release.md`: routine publishing and optional tagged snapshot guidance
-- `CHANGELOG.md`: human-readable history of tagged snapshots
+## Workflow
 
-## Agent Roles
+- `editing-cycle.md` — AC-first workflow and required artifacts
+- `editing-guidelines.md` — durable formatting and structural practices
+- `ac-template.md` — acceptance criteria template
+- `critique-protocol.md` — critique round structure and finding labels
 
-- `docs/agent-roles/maintainer.md`: default single-agent mode for drafting, review, and repo maintenance
-- `docs/agent-roles/dev.md`: drafting and editing mode
-- `docs/agent-roles/qa.md`: review mode focused on category fit, clarity, and factual support
+## Release
 
-Use `Maintainer` unless you explicitly want drafting and review separated.
+- `release.md` — release ceremony, pre-release checklist, CHANGELOG conventions
 
-## Workflow Summary
+## Planning
 
-1. Choose the next draft or revision from `content-plan.md` or the current working tree.
-2. Assign exactly one landing area: `Life`, `Mind`, `Society`, or `Tech`.
-3. Edit the target page to match `style.md`.
-4. Update the relevant area index and nearby links.
-5. Review category fit, clarity, support, grammar, and link correctness.
-6. Publish by committing and pushing to `main`.
-7. Create a tag only when you want a named snapshot.
+- `../plan.md` — content direction, backlog, and publishing priorities
 
-## Notes
-
-- Root `README.md` is public site content, not the operator handbook.
-- Prefer a small number of natural Wikipedia links when they improve trust and readability.
-- Keep governance and workflow docs current when the editorial process changes.
+Keep these docs aligned with the repo's actual workflow and structure.

@@ -26,5 +26,5 @@ Public static tips site organized as short reference notes
 
 ## Notes
 
-- default planning artifact: `content-plan.md`
+- default planning artifact: `plan.md`
 - useful backlog fields: status, proposed path, chosen area, short rationale

@@ -1,72 +1,91 @@
 # AGENTS.md
 
-## Purpose
-
-This file is the base governance contract for a generated repo.
-Keep it short, stable, and cross-repo only.
-Repo-specific workflow belongs in the selected overlay, not here.
-
 ## Governed Sections
 
-Only these sections may be edited through a guided update:
+`CLAUDE.md` is a symlink to this file; do not edit them independently.
 
-- `Purpose`
+Detail and rationale live in `docs/editing-guidelines.md`, `docs/release.md`, `docs/editing-cycle.md`.
+
+Sections (fixed set):
+
 - `Governed Sections`
 - `Interaction Mode`
 - `Approval Boundaries`
-- `Review Style`
 - `File-Change Discipline`
-- `Release Or Publish Triggers`
-- `Documentation Update Expectations`
+- `Review Style`
+- `Base Rules`
+- `Project Rules`
 
-Do not add new sections, reorder sections, or rewrite the whole file unless the user explicitly asks for a contract change to this template itself.
-Treat this file as a governed config artifact, not freeform prose.
-When asked to update it, propose the exact section names to change and keep edits local to those sections.
+Rules:
+
+- Preserve each section's semantic intent across edits.
+- Add new rules under the best-fit section. Do not invent top-level sections.
+- Do not reorder sections or rewrite the file unless the user requests a contract change.
+- When updating, name the exact sections to change and keep edits local.
+- Treat this file as a governed config artifact, not freeform prose.
+- Use flat `##` with inline bullets. Avoid `###` sub-subsections — split or extract instead. Exception: documented technical need (e.g., grouped domain rules in Project Rules).
 
 ## Interaction Mode
 
-- Treat requests as exploratory discussion unless the user explicitly asks for implementation or file changes.
-- Do not create artifacts or make changes unless the user explicitly authorizes them.
-- When the user authorizes changes, make the smallest concrete change that satisfies the request.
-- Surface assumptions, ambiguities, and missing context plainly before taking action that could change project direction.
-- If `docs/agent-roles/` exists and the user has not explicitly assigned a role, the agent's first substantive response must ask which role to assume. Role assignment requires an explicit instruction such as "act as DEV", "use docs/agent-roles/qa.md", or "you are QA". After assignment, read `docs/agent-roles/<role>.md` (case-insensitive lookup) and follow it alongside this file. If the requested role file does not exist, say so and continue under shared governance only.
+- Default to exploratory discussion.
+- Do not create files or make changes without explicit authorization.
+- When authorized, make the smallest change that satisfies the request.
+- Surface assumptions, ambiguities, and missing context before any direction-changing action.
+- **Role assignment** (if `docs/role-*.md` files exist):
+  - If `docs/role-maintainer.md` exists and no role is assigned, default to maintainer and announce it in the first response (e.g., "Operating as maintainer (default).").
+  - Otherwise, ask which role to assume. Require explicit assignment ("act as Operator", "you are Editor", etc.).
+  - On assignment, read `docs/role-<role>.md` (case-insensitive) and follow it alongside `AGENTS.md`. Role persists for the session until explicitly switched.
+  - If the role file is missing, say so and continue under shared governance only.
+  - `role-director.md` is reference, not assignable. Decline "act as director" and ask for a valid agent role.
 
 ## Approval Boundaries
 
-- Do not create, delete, rename, publish, release, or perform destructive changes without explicit user approval.
-- Do not change governance files, CI/release configuration, secrets handling, or external integrations without explicit user approval.
-- Normal in-scope edits to existing project files are allowed once the user has asked for implementation.
-- If a request is ambiguous and the change would be hard to reverse, stop and ask.
-
-## Review Style
-
-- Default to a review mindset when the user asks for review: prioritize bugs, regressions, missing tests, and drift from documented behavior.
-- Present findings before summaries.
-- Prefer concrete evidence: file paths, behavior, and missing coverage.
-- If no issues are found, say so directly and note any residual risk or verification gap.
+- Authorization is per-scope. Prior approval does not extend by analogy.
+- Require explicit approval for: create, delete, rename, publish, release, or any destructive change.
+- Require explicit approval for: governance files, CI/release config, secrets handling, external integrations.
+- In-scope edits to existing files are allowed once the user has authorized implementation.
+- Stop and ask when a request is ambiguous and the change is hard to reverse.
+- Do not prepare, execute, publish, deploy, or distribute without explicit user request.
+- **Never run `git commit`. Draft the message; present the command for the user to run.** No EXCEPTION.
+- Do not start release-prep bookkeeping early. Begin only when the user asks to prep for release.
+- Never run the release command. Present it for the user to run. Follow the Pre-Release Checklist in `docs/release.md`.
+- **AC-first workflow** (non-trivial changes):
+  - Draft `docs/ac<N>-<slug>.md` before implementation, using `docs/ac-template.md` if available. Define scope, out-of-scope, objective fit, required tests.
+  - Objective Fit must answer: (1) what outcome this serves, (2) why this beats competing work, (3) what decisions/constraints it depends on, (4) direct roadmap work or intentional pivot.
+  - Do not implement until the AC is critiqued and the user confirms it is implementation-ready.
+- **AC critique gate:** After drafting, ask the user to initiate external critique. Proceed only when (1) findings are integrated into `## Critique` (Editor content transcribed by Operator; Operator responses become AC revisions + `### Disposition Log` entries), and (2) the user explicitly confirms ready. See `docs/critique-protocol.md`.
 
 ## File-Change Discipline
 
 - Prefer targeted edits over broad rewrites.
 - Preserve user changes and unrelated local modifications.
-- Update only the files required for the task, plus directly affected docs.
-- When follow-on improvements are discovered but are not part of the current authorized change, record them in `plan.md` or the repo's planning artifact instead of expanding scope ad hoc.
-- Do not commit personal absolute filesystem paths in docs, templates, config, or generated artifacts; use repo-relative paths or clear placeholders such as `<template-root>`.
-- Keep generated repos self-contained; do not introduce runtime dependence on this template repo.
-- Follow existing repo conventions unless the user asks to change them.
+- Update only files required for the task, plus directly affected docs. Keep docs current in the same pass — no silent drift, no deferral.
+- When a change adds a file or major decision, update affected docs in the same pass.
+- When a decision changes mid-implementation, complete the migration in one pass: files, docs together. No half-migrated states.
+- Update user-facing docs when workflows, outputs, published structure, or operating instructions change.
+- Update planning or style docs only when materially affected.
+- Every AC doc ends with `## Status`. Valid states: `PENDING`, `IN PROGRESS`, `DEFERRED` (with reason). Use per-phase status for partial completion. Do not set DONE — completed ACs are deleted per the editing cycle.
+- Record follow-on improvements in `plan.md` or the repo's planning artifact. If neither exists, note them to the user. Do not expand scope ad hoc.
+- Do not commit personal absolute filesystem paths. Use repo-relative paths or placeholders like `<project-root>`.
+- **Codify corrections about repo behavior in the appropriate governance doc — not in agent-local memory. Refine existing rules in place; add new ones to the best-fit section. Agent memory is not a shadow governance system.**
 
-## Release Or Publish Triggers
+## Review Style
 
-- Do not prepare or execute a release, publish, deploy, or distribution step unless the user explicitly asks for it.
-- Bootstrap and maintain a root `CHANGELOG.md` for release-bearing repos. Keep it current as the human-readable release history.
-- Do not start release-prep bookkeeping early. Only begin the repo's documented pre-release checklist when the user explicitly asks to prep for release or equivalent.
-- Version bumps, changelog/release-note updates, tag prep, and publish workflows are release-scoped work, not routine edits.
-- When release prep is explicitly requested, run the documented pre-release checklist, prepare the exact version and release message, and then present only the canonical release command for the user to run or approve unless the user explicitly asks for the full git sequence.
-- When the user does trigger a release or publish flow, update the required release artifacts in the same pass.
+- Lead with findings, not summaries. Cite file paths and concrete behavior.
+- Prioritize regressions, broken links, missing cross-references, and drift from documented behavior.
+- If no issues found, say so directly. Note residual risk or verification gaps.
+- Keep completions terse: what changed, flat bullets, one-sentence next step. No "What's in it" / "Main conclusion" / "Next steps" headers unless asked.
+- Prefer plain text and simple bullets. Use tables or richer structure only when content clearly benefits.
+- Do not note skipped checks unless the omission is unusual or affects confidence.
+- Editorial decisions to the director: present two bounded options plus a recommendation. One viable option → state as recommendation. More than two → name the best two, note the rest in one sentence.
 
-## Documentation Update Expectations
+## Base Rules
 
-- Keep documentation aligned with behavior in the same change that introduces the behavior.
-- Update user-facing docs when commands, setup, workflows, outputs, published content structure, or operating instructions change.
-- Update architecture, planning, or style docs only when the change materially affects them.
-- Do not let docs silently drift from the implemented or published reality.
+- Follow semver. PATCH: invisible to users (fixes, refactors, formatting). MINOR: user-visible (structure, navigation, schema). Batch PATCH-level changes.
+- Every AC labels each acceptance test `[Automated]` or `[Manual]`. See `docs/ac-template.md`.
+- Follow existing repo patterns unless an approved improvement says otherwise.
+- Prefer dedicated tools: `fd` (files), `rg` (text), `jq` (JSON), `pup` (HTML), `sd` (in-place replace). Batch independent shell calls. Do not re-read files already in context.
+
+## Project Rules
+
+- Follow existing repo patterns unless an approved improvement says otherwise.
