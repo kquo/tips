@@ -6,6 +6,8 @@ Reference for this repo's release ceremony, pre-release checklist, and acceptanc
 
 This repo uses `./rel.sh vX.Y.Z "release message"` to cut releases. `rel.sh` is a thin Bash dispatcher that calls `go run ./cmd/rel`. The release tool shows `git status --short`, lists every git step it will execute, and prompts for interactive confirmation. On approval it orchestrates `git add → commit → tag → push tag → push branch`.
 
+**Stdlib-only inline tool.** The DOC-flavor `cmd/rel` is intentionally stdlib-only with no external dependencies — content repos shouldn't need to become Go modules just to run a release script. CODE overlay uses a different shape (library wrapper around `github.com/queone/governa-reltool`); that's correct for CODE-flavor consumers (Go projects with `go.mod`) and wrong for DOC. The divergence is intentional and load-bearing.
+
 Release messages must be 80 characters or fewer.
 
 ## Acceptance Tests
@@ -42,3 +44,4 @@ The agent never runs `./rel.sh` — only the director does. Do not add trailing 
 - Summaries are single-line, ≤ 500 characters; lead with the AC reference if any.
 - Versions are unprefixed (`0.29.0`, not `v0.29.0`).
 - Do not backfill historical tags or invent alternative shapes (Keep-a-Changelog, sectioned `## vX.Y.Z`, etc.).
+- When an AC locks a local form against canon (preserves a customization, declares intentional divergence, blocks a sync), include an explicit `preserve <path> <qualifier>` phrase in the summary. `governa drift-scan` only recognizes explicit markers; implicit AC references won't lock the file. Recognized phrase set: `preserve <path>`, `do not sync <path>`, `intentional divergence: <path>`, `<path>: keep local`.

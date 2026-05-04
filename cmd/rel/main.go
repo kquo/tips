@@ -1,3 +1,9 @@
+// DOC-flavor inline release tool. Stdlib-only — no external dep means no
+// `go.mod` required in the consumer repo. Content repos shouldn't need to
+// become Go modules just to run a release script. CODE overlay uses the
+// library form (`github.com/queone/governa-reltool`) where the `go.mod`
+// requirement has zero friction. See `docs/release.md` for the divergence
+// rationale.
 package main
 
 import (
