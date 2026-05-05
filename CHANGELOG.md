@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.5.0 | Drift-sync from governa @ v0.115.0: add Base Rules bullet to AGENTS.md on test-name/AC-label hygiene; sync docs/release.md line 7 to canon's accurate file-list-form description (resolves doc/rel.sh internal inconsistency). |
 | 0.4.1 | Sync cmd/rel/main.go header comment from governa @ adf842e (file now byte-equal to canon); restore dropped `preserve <path>` markers guidance bullet to docs/release.md CHANGELOG Conventions; add Stdlib-only inline tool rationale paragraph to docs/release.md Release Command section. |
 | 0.4.0 | AC4: drift-sync from governa @ a674946; sync AGENTS.md + docs/ac-template.md + docs/editing-cycle.md; create .gitignore; surgical edits to docs/release.md, CHANGELOG.md, plan.md; preserve cmd/rel/main.go customization; preserve rel.sh customization; preserve README.md customization; preserve docs/README.md customization; preserve docs/editing-guidelines.md customization; preserve CHANGELOG.md customization |
 | 0.3.1 | AC3: align cmd/rel message-length cap with docs/release.md (60 → 80) and add parseRelArgs unit tests in cmd/rel/main_test.go; reframe Director Review section in docs/ac-template.md as a pending-decisions queue (resolved in conversation or by direct edit); bulletize plan.md IEs into shape (a)/(b) format |
