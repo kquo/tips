@@ -3,6 +3,7 @@
 Editorial guidance for any agent or contributor working in this repo.
 These are durable formatting and structural practices, not workflow or process rules.
 For workflow, see `editing-cycle.md`. For release, see `release.md`.
+Sections above ## Project Practices are governa-maintained canon and update via canon syncs; repo-specific practices in ## Project Practices.
 
 ## Cross-Reference Integrity
 
@@ -36,7 +37,7 @@ For workflow, see `editing-cycle.md`. For release, see `release.md`.
 - If a doc references a file path or section heading, verify it still exists before publishing
 - When a decision changes, update all affected docs in the same pass — no half-migrated states
 
-## Cadence
+## Project Practices
 
 - Publish when a small coherent batch is ready; no fixed cadence is required
 - Prefer grouped updates over one-off noisy churn

@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.6.0 | AC5: drift-sync from governa @ v0.120.1: add docs/canon-cycle.md; restore canon-zone bullets in AGENTS.md (Interaction Mode + Base Rules); restore canon/local-boundary preamble and rename ## Cadence → ## Project Practices in docs/editing-guidelines.md. |
 | 0.5.0 | Drift-sync from governa @ v0.115.0: add Base Rules bullet to AGENTS.md on test-name/AC-label hygiene; sync docs/release.md line 7 to canon's accurate file-list-form description (resolves doc/rel.sh internal inconsistency). |
 | 0.4.1 | Sync cmd/rel/main.go header comment from governa @ adf842e (file now byte-equal to canon); restore dropped `preserve <path>` markers guidance bullet to docs/release.md CHANGELOG Conventions; add Stdlib-only inline tool rationale paragraph to docs/release.md Release Command section. |
 | 0.4.0 | AC4: drift-sync from governa @ a674946; sync AGENTS.md + docs/ac-template.md + docs/editing-cycle.md; create .gitignore; surgical edits to docs/release.md, CHANGELOG.md, plan.md; preserve cmd/rel/main.go customization; preserve rel.sh customization; preserve README.md customization; preserve docs/README.md customization; preserve docs/editing-guidelines.md customization; preserve CHANGELOG.md customization |
