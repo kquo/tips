@@ -1,5 +1,5 @@
 # Terraform
-Tips on [Hashicorp Terraform](https://www.terraform.io/).
+Bits on [Hashicorp Terraform](https://www.terraform.io/).
 
 It is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
 

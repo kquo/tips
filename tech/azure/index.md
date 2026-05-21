@@ -1,5 +1,5 @@
 # Azure 
-Helpful Microsoft Azure cloud tips.
+Helpful Microsoft Azure cloud bits.
 
 - [Github Workflow OIDC Access to Azure](../git/oidc-azure.md)
 - [Understanding Microsoft Access Token Validation](ms-token-validation.md)
@@ -14,7 +14,7 @@ To avoid the hype, let's approach the Azure Cloud as revolving around two major 
 
 What we call _Azure **Resource** Services_ here is essentially the comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various services on Microsoft's Azure cloud. Institutions can access these wide array of **Azure Services** which include virtual machines (VM), databases, storage solutions, machine learning, artificial intelligence (AI), serverless computing, content delivery networks (CDN), and much more. The functions of these services are primarily managed via the Azure Resource Manager API at <https://management.azure.com>, and are detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>. Azure services are the core of the Azure ecosystem.
 
-See below pages for specific tips on specific services:
+See below pages for specific bits on specific services:
 
 - [Azure Data Factory (ADF)](adf/index.md): A cloud-based data integration service that orchestrates data movement and transformation between direct data compute resources.
 

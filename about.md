@@ -1,6 +1,6 @@
 # About
 
-`Tips` is a personal reference site.
+`Bits` is a personal reference site for short, atomic notes.
 
 It exists primarily as a place to keep short notes, reminders, and working views organized for easy reuse. Some entries are practical, some are reflective, and some are argumentative. All of them are snapshots of current thinking rather than final declarations.
 

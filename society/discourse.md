@@ -1,5 +1,5 @@
 # Discourse
-Tips for improving discussions and making them more fruitful and enjoyable.
+Bits on improving discussions and making them more fruitful and enjoyable.
 
 Based on the ideas of experts like [Carl Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Karl Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Anatol Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), [Daniel Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett), and others in this field, we can say that people have mostly figured out __how to argue properly__ with other **_reasonable_** people.
 

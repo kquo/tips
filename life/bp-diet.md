@@ -1,7 +1,7 @@
 ## Blood Pressure Diet
 Blood pressure diet cheat-sheet.
 
-### Quick Tips
+### Quick Bits
 - Remember that the [kidneys are the body’s primary long-term regulators of blood pressure](kidneys-bp.md).
 - Choose fresh or minimally processed foods.
 - Rinse canned beans and vegetables to reduce sodium.

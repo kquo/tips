@@ -1,5 +1,5 @@
 # DNS
-Useful DNS tips.
+Useful DNS bits.
 
 ## Speed Up Initial Record Creation
 To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone:

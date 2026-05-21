@@ -1,5 +1,5 @@
 # PDF
-PDF tips.
+PDF bits.
 
 ## Size Reduction
 You can use ImageMagick to reduce the size of a PDF by lowering its resolution.

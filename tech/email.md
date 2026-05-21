@@ -1,5 +1,5 @@
 # Email
-Email tips.
+Email bits.
 
 ## Email DMARC
 [DMARC](https://dmarc.org/) is an open email Internet standard detailed in [RFC 7489](https://datatracker.ietf.org/doc/html/rfc7489). 

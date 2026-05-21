@@ -1,5 +1,5 @@
 # git
-Version control tips with `git` and <https://github.com>.
+Version control bits with `git` and <https://github.com>.
 
 ## Subtopics
 - [Github Actions Workflow General](github-actions.md)

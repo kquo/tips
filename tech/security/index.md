@@ -1,5 +1,5 @@
 # Security
-Computer security tips.
+Computer security bits.
 
 ## Subtopics
 - [Access Control Models](access-models.md)

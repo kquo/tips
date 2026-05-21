@@ -1,6 +1,6 @@
 # Detecting Baloney
 
-Some tips for how to detect **baloney** (foolish words or ideas that are nonsensical or absurd). This ought to be part of every person's *intellectual self-defense toolkit*.
+Some bits for how to detect **baloney** (foolish words or ideas that are nonsensical or absurd). This ought to be part of every person's *intellectual self-defense toolkit*.
 
 - Listen to or read folks like the late [Carl Sagan](https://en.wikipedia.org/wiki/Carl_Sagan) and [Michael Shermer](https://en.wikipedia.org/wiki/Michael_Shermer)
 - A good starting point is [Carl Sagan's Baloney Detection Kit](https://themindcollection.com/baloney-detection-kit/)

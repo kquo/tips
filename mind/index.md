@@ -4,7 +4,7 @@
 - [Noam Chomsky](chomsky.md): Some thoughts on Noam Chomsky's work.  
 - [Cold Logic](cold-logic.md): Rigid reasoning that sacrifices empathy and human dignity for strict efficiency.  
 - [Comfort and Biases](comfort-biases.md): Table of biases and the fundamental beliefs on which they might be based.  
-- [Computation](computation.md): Tips on computation.  
+- [Computation](computation.md): Bits on computation.  
 - [Cultural Cognition](cultural-cognition.md): How cultural values and group identities shape how people interpret facts and evidence.  
 - [Human Core Challenges](core-challenges.md): The biological, social, and entropy-based limitations that shape humanity.  
 - [Daniel Dennett](dennett.md): Some thoughts on Daniel Dennett's work.  
@@ -16,12 +16,12 @@
 - [Free Will](free-will.md): Examining free will through Harris vs. Dennett.  
 - [Limits of Bias](limits-of-bias.md): Recognizing that common psychological tendencies are not universal and can be resisted.  
 - [Optimism](optimism.md): Some famous optimism quotes, en Español.  
-- [Pseudoscience](pseudoscience.md): Tips on pseudoscience.  
+- [Pseudoscience](pseudoscience.md): Bits on pseudoscience.  
 - [Reflexivity](reflexivity.md): What reflexivity is, and strategies for enhancing it.  
 - [Roger Penrose](penrose.md): Some thoughts on Roger Penrose's work.  
-- [Science](science.md): Tips on science.  
+- [Science](science.md): Bits on science.  
 - [Steven Pinker](pinker.md): Some thoughts on Steven Pinker's work.  
-- [Viral Truth](viral-truth.md): Tips for ensuring truth spreads faster than misinformation.  
+- [Viral Truth](viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  
 
 <br>
 <redacted@example.com>

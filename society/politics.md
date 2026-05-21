@@ -1,5 +1,5 @@
 # Politics
-Tips on politics and related topics.
+Bits on politics and related topics.
 
 <ul>
   <li><a href="#voting">Voting</a></li>

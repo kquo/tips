@@ -1,5 +1,5 @@
 # Privacy
-Privacy tips.
+Privacy bits.
 
 
 ## Online Basics

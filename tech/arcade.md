@@ -1,5 +1,5 @@
 ## Arcade
-Tips on playing the old-style coin-operated video arcade games. You can buy the actual old game cabinets from eBay and other places. Or you can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legally own. Or you can build you own game cabinet, with a small dedicated computer running running MAME.
+Bits on playing the old-style coin-operated video arcade games. You can buy the actual old game cabinets from eBay and other places. Or you can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legally own. Or you can build you own game cabinet, with a small dedicated computer running running MAME.
 
 ### MAME on Your Desktop
 MAME originally stood for Multiple Arcade Machine Emulator, but nowadays it means much more than that. As its website states: 

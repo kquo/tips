@@ -1,5 +1,5 @@
 # Activism
-Some presumptuous tips on making a difference and trying to fix the world.
+Some presumptuous bits on making a difference and trying to fix the world.
 
 Many of us have an innate desire to fix the things we *see wrong* in the universe, but it’s worth taking a moment to consider some obvious truths about this feeling.
 

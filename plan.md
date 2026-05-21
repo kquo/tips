@@ -2,7 +2,7 @@
 
 ## Content Direction
 
-Public static tips site organized as short reference notes, published via GitHub Pages with Jekyll.
+Public static bits site organized as short reference notes, published via GitHub Pages with Jekyll.
 
 ## Ideas To Explore
 
@@ -11,7 +11,7 @@ Ideas captured for future discussion. Each entry uses an `IE<N>:` prefix (sequen
 - IE1: polish `mind/famous-quotes.md`
 - IE2: polish `society/markets-capitalism.md`
 - IE3: polish `society/perception-management.md`
-- IE4: review incoming tips and assign one landing area and path before editing
+- IE4: review incoming bits and assign one landing area and path before editing
 - IE5: polish new and revised entries for clarity, structure, and link hygiene
 - IE6: keep `life/index.md`, `mind/index.md`, `society/index.md`, and `tech/index.md` aligned with published pages
 - IE7: split, merge, or rename pages when a topic outgrows its current structure

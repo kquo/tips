@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.8.0 | AC7: rename project Tips → Bits; update _config.yml title, README, and about.md (new positioning line); convert Tips/tips content-descriptor patterns to Bits/bits across life/, mind/, society/, tech/ indexes and page openers (36 files); update github.com/kquo/tips URLs to github.com/kquo/bits (will 404 until GitHub repo is renamed); defer GitHub repo rename and local working-dir rename. |
 | 0.7.0 | AC6: drift-sync from governa @ v0.135.0; AGENTS.md hunk-merge adds Instruction Style, Session Entry, Drift-Scan Adoption sections and restructures Approval Boundaries with ### groupings; sync docs/ac-template.md, docs/canon-cycle.md, docs/editing-cycle.md, docs/roles.md; add docs/drift-scan.md, docs/operator-contract-rationale.md. |
 | 0.6.0 | AC5: drift-sync from governa @ v0.120.1: add docs/canon-cycle.md; restore canon-zone bullets in AGENTS.md (Interaction Mode + Base Rules); restore canon/local-boundary preamble and rename ## Cadence → ## Project Practices in docs/editing-guidelines.md. |
 | 0.5.0 | Drift-sync from governa @ v0.115.0: add Base Rules bullet to AGENTS.md on test-name/AC-label hygiene; sync docs/release.md line 7 to canon's accurate file-list-form description (resolves doc/rel.sh internal inconsistency). |

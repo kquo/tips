@@ -1,5 +1,5 @@
 ## AI
-AI tips.
+AI bits.
 
 ### Run DeepSeek Locally
 

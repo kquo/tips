@@ -1,5 +1,5 @@
 # Editors
-Handy editor tips.
+Handy editor bits.
 
 ## vi
 Common commands:

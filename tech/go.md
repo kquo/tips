@@ -1,5 +1,5 @@
 # Go
-Useful GoLang tips.
+Useful GoLang bits.
 
 ## References
 - Useful examples = <https://gobyexample.com/>

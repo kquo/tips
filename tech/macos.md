@@ -1,5 +1,5 @@
 # macOS
-macOS tips.
+macOS bits.
 
 - [iCloud Photos Backup Guide](icloud-photos.md)
 

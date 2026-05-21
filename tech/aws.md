@@ -1,5 +1,5 @@
 ## AWS
-Amazon Web Services tips.
+Amazon Web Services bits.
 
 ### AWS EC2 Instance Types Comparison
 See <http://www.ec2instances.info/>

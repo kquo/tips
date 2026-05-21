@@ -1,7 +1,7 @@
 ## Scripts
 Useful shell scripts.
 
-To use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. To view the source code of these scripts directly, go to [Github](https://github.com/kquo/tips/tree/main/scripts).
+To use a script, download it locally by clicking on its respective link below. You can then run the script from its download location or move it to a directory in your system's PATH for easier access. To view the source code of these scripts directly, go to [Github](https://github.com/kquo/bits/tree/main/scripts).
 
 | Script Name | Version    | Comment               |
 |-------------|------------|-----------------------|

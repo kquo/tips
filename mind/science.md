@@ -1,5 +1,5 @@
 # Science
-Tips on science.
+Bits on science.
 
 ## Science is Good
 [Science](https://en.wikipedia.org/wiki/science) is a rigorous, systematic **endeavor** that builds and organizes knowledge in the form of testable explanations and predictions about the world.
