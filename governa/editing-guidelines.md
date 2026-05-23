@@ -39,6 +39,4 @@ Sections above ## Project Practices are governa-maintained canon and update via 
 
 ## Project Practices
 
-- Publish when a small coherent batch is ready; no fixed cadence is required
-- Prefer grouped updates over one-off noisy churn
-- Use tags only for notable snapshots, not for every routine content push
+- Follow existing repo patterns unless an approved improvement says otherwise.
