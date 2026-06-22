@@ -111,7 +111,7 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Replace canon-zone content above the boundary heading (`## Project Rules` for AGENTS.md; `## Project Practices` for `governa/development-guidelines.md` and `governa/editing-guidelines.md`).
 - Preserve the boundary heading and every line below it as repo-owned content.
 - Re-run `governa drift-scan` after the sync without editing the emitted stub; confirm each synced file no longer appears in the new emission's `## In Scope` list.
-- Run the repo's canonical validation (`./build.sh` or equivalent) before declaring the adoption complete.
+- Run any repo-owned validation command before declaring the adoption complete.
 
 Note: preserve markers in the `| Unreleased | |` row persist across releases (release prep does not modify that row); markers echoed into release-message rows are also recognized by future drift-scan runs from any CHANGELOG row. The AC stub is not a durable home because drift-scan's edit-detection guard blocks the required re-run after stub edits.
 
@@ -150,7 +150,7 @@ Note: mixed-content files (AGENTS.md, `governa/development-guidelines.md`, `gove
 ## Base Rules
 
 - Follow semver: PATCH for invisible changes (fixes, refactors, formatting), MINOR for user-visible changes (structure, navigation, schema); batch PATCH-level changes.
-- Complete the repo's canonical validation before preparing any commit handoff.
+- Complete any repo-owned validation before preparing any commit handoff.
 - Label each acceptance test with source axis (`[Automated]` / `[Manual]`) and timing axis (`[Pre-release gate]` default; `[Post-release verification]` explicit). See `governa/ac-template.md`.
 - Follow existing repo patterns unless an approved improvement says otherwise.
 - Avoid product or vendor names in identifiers.
@@ -158,7 +158,8 @@ Note: mixed-content files (AGENTS.md, `governa/development-guidelines.md`, `gove
 
 Note: `CLAUDE.md` is an example of an exempt identifier — it names the Claude Code-readable symlink that mirrors AGENTS.md.
 
-- Name tests, comments, and errors by the behavior they describe (`TestDirectionLineEmittedInDiffs`); reserve AC, AT, Class, Part, and Round numbers for CHANGELOG rows and commit messages.
+- Name test identifiers, output labels, comments, and errors by behavior.
+- Reserve AC, AT, Class, Part, and Round numbers for CHANGELOG rows, commit messages, and `Historical:` comments.
 - Use the `Historical:` prefix on a comment only when it references a shipped AC and the context aids the reader; delete the reference if no longer relevant.
 - Reach for `rg` (not `grep`/`ack`), `fd` (not `find`), `jq` (not `awk`/`python -c` on JSON), `sd` (not `sed -i`), and `pup` (not regex on HTML).
 - Send independent shell calls in a single message so they run in parallel.
