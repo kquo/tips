@@ -6,6 +6,3 @@ Notes and reminders for easy reference.
 ### [Tech](tech/index.md)
 
 #### [About](about.md)
-
-<br>
-<redacted@example.com>

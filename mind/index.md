@@ -22,6 +22,3 @@
 - [Science](science.md): Bits on science.  
 - [Steven Pinker](pinker.md): Some thoughts on Steven Pinker's work.  
 - [Viral Truth](viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  
-
-<br>
-<redacted@example.com>

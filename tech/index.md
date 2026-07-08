@@ -17,7 +17,3 @@
 - [Scripts](scripts/index.md): Useful shell scripts.
 - [Security](security/index.md): Computer security bits.
 - [Terraform](terraform/index.md): Bits on Hashicorp Terraform.
-
-<br>
-<br>
-<redacted@example.com>

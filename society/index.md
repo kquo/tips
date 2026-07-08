@@ -12,7 +12,3 @@
 - [Politics](politics.md): Bits on politics and related topics.  
 - [US Identity Politics](us-identity-politics.md): How political identity drives U.S. polarization. 
 - [Viral Truth](viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  
-
-<br>
-<redacted@example.com>
-
