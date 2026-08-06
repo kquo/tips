@@ -2,8 +2,9 @@
 
 Editorial guidance for any agent or contributor working in this repo.
 These are durable formatting and structural practices, not workflow or process rules.
-For workflow, see `editing-cycle.md`. For release, see `release.md`.
-Sections above ## Project Practices are governa-maintained canon and update via canon syncs; repo-specific practices in ## Project Practices.
+For AC workflow, see `AGENTS.md` and `editing-cycle.md`. For validation and
+Package release preparation, see `release.md`.
+Sections above ## Project Practices are govna-maintained canon and update via canon syncs; repo-specific practices in ## Project Practices.
 
 ## Cross-Reference Integrity
 
@@ -36,6 +37,7 @@ Sections above ## Project Practices are governa-maintained canon and update via 
 - Docs ship with the content change that introduces the behavior
 - If a doc references a file path or section heading, verify it still exists before publishing
 - When a decision changes, update all affected docs in the same pass — no half-migrated states
+- Propagate shared governance changes across source and flavor-equivalent overlay documents.
 
 ## Project Practices
 

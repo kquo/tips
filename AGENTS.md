@@ -4,7 +4,7 @@
 
 Edit only AGENTS.md; CLAUDE.md is a symlink that mirrors it.
 
-Detail and rationale live in `governa/editing-guidelines.md`, `governa/release.md`, `governa/editing-cycle.md`.
+Detail and rationale live in `govna/editing-guidelines.md`, `govna/release.md`, `govna/editing-cycle.md`.
 
 Sections (fixed set):
 
@@ -27,7 +27,7 @@ Rules:
 - Use `##` for top-level sections and `###` for thematic groupings inside a section; cap header nesting at `###`.
 - Apply the `## Instruction Style` section below to every new or rewritten instruction in this file.
 - Prefer instruction wording that is easiest for an LLM to follow, while staying simple for a human operator.
-- Treat AGENTS.md as the authoritative source for the rules it describes; conform overlay templates and other canon files to it (drift-scan's canon-coherence precondition catches violations).
+- Treat AGENTS.md as the authoritative source for the rules it describes; conform overlay templates and other canon files to it — `govna drift-scan` catches violations.
 
 ## Instruction Style
 
@@ -49,7 +49,7 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Create files and make repository edits only after explicit user authorization — including draft files, scratch scripts, scaffolding, and config tweaks.
 - Make the smallest change that satisfies the request once authorized.
 - Surface assumptions, ambiguities, and missing context before any direction-changing action.
-- Operate as the Operator on every interaction (per `governa/roles.md`); the role is fixed and unannounced.
+- Operate as the Operator on every interaction (per `govna/roles.md`); the role is fixed and unannounced.
 - Place each structured deliverable (AC, plan, doc draft, scope card) in its target file; never paste the full body in chat.
 - Report each written deliverable with a one-paragraph chat summary plus the file path.
 - Quote at most short, targeted snippets from a written file when discussing a specific change.
@@ -57,11 +57,11 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 ### Session Entry
 
 - Treat AGENTS.md as the active operating contract for this repository.
-- State "Governa contract loaded." before the first substantive Governa-governed action of a session, and only after internalizing AGENTS.md.
+- State "Govna contract loaded." before the first substantive govna-governed action of a session, and only after internalizing AGENTS.md.
 - Treat planning, editing, reviewing, command choice, and implementation work as substantive actions.
 - Before any file change, confirm the gate set: AC status, explicit authorization, scoped edits, tests in the same pass, and no agent-run commits.
-- Resolve instruction conflicts in this order: user instruction within authorized scope, then AGENTS.md, then referenced Governa docs, then model defaults.
-- Stop and ask when a request bypasses a required Governa gate or lacks required authorization, scope, or context.
+- Resolve instruction conflicts in this order: user instruction within authorized scope, then AGENTS.md, then referenced govna docs, then model defaults.
+- Stop and ask when a request bypasses a required govna gate or lacks required authorization, scope, or context.
 
 ## Approval Boundaries
 
@@ -71,17 +71,98 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Require explicit approval for: create, delete, rename, publish, release, or any destructive change.
 - Require explicit approval for: governance files, CI/release config, secrets handling, external integrations.
 - Edit only the files listed in the AC's `## In Scope` section, even after the user has authorized implementation.
+- Apply the drift-scan effective-scope exception in `### Drift-Scan Adoption` when a Director resolves an `ambiguity` item as `sync` (see that subsection).
+- Apply the same effective-implementation-scope principle to any other emitted-AC tool with Director-resolved routing decisions (e.g., `rm`'s Routing Decisions) — the named target is in scope once resolved, even when absent from `## In Scope`.
 - Stop and ask when a request is ambiguous, or when the change is hard to reverse.
 - Wait for explicit user request before preparing, executing, publishing, deploying, or distributing — including drafting commit messages, commit commands, version bumps, or release notes.
 - **Leave every `git commit` for the user to execute. No EXCEPTION.**
-- Treat an explicit "prep for release" request as the trigger for release-prep bookkeeping (CHANGELOG row insertion, release-tag drafting, commit-command drafting, release-command presentation).
-- Follow the Pre-Release Checklist in `governa/release.md` when executing release-prep bookkeeping.
+- Treat an explicit standalone `Package`, `package`, `pack`, or `prep` request in an active Ratified AC context as the trigger for release-prep bookkeeping (CHANGELOG row insertion, release-tag drafting, commit-command drafting, release-command presentation).
+- Follow the Pre-Release Checklist in `govna/release.md` when executing release-prep bookkeeping.
+
+### Delegation and sub-agent use
+
+- Make inline work the default for every AC phase and implementation task.
+- Do not spawn or delegate to sub-agents without explicit Director authorization for the active AC.
+- State the inline constraint, proposed bounded task split, agent count, and token/time tradeoff before requesting delegation.
+- Ask the Director to narrow the task or split the AC before proposing delegation when the task exceeds practical inline capacity.
+- Limit authorized delegation to the active AC's named scope.
+- Prevent recursive or unbounded sub-agent spawning.
+- Treat tool availability, time pressure, and task size alone as insufficient delegation authorization.
+- Keep primary-agent ownership of integration, validation, adversarial verification, and closure reporting.
+- Distinguish parallel shell commands from sub-agent spawning; this rule does not prohibit batching independent commands.
 
 ### AC-First Workflow
 
 - Treat every non-trivial change as AC-first work.
-- Draft `governa/ac<N>-<slug>.md` before implementation using `governa/ac-template.md`; define scope, out-of-scope, and acceptance tests.
+- Draft `govna/ac<N>-<slug>.md` before implementation using `govna/ac-template.md`; define scope, out-of-scope, and acceptance tests.
 - Wait for explicit user confirmation that the AC is implementation-ready before starting implementation.
+
+### Four-Phase Workflow
+
+- Follow the lifecycle `Draft → Audit → Refine → Implement → Ratify → Package` for every governed AC.
+- Treat standalone `Draft` or `draft` as the Director-authorized pre-cycle action that creates the active AC; Draft is not an AC phase.
+- Start each governed AC cycle in Audit when the AC is ready for adversarial review.
+- Challenge the AC, repository behavior, referenced documentation, scope, edge cases, omissions, and testability during Audit.
+- Keep Audit non-mutating; do not edit the AC or repository during Audit.
+- Pause after Audit and await explicit Director instruction to Refine.
+- Resolve Audit findings and incorporate settled Director decisions during Refine.
+- Pause Refine when a Director-specific decision remains unresolved.
+- Edit the AC during Refine; do not begin implementation during Refine.
+- Pause after Refine and await explicit Director implementation-ready confirmation to Implement.
+- Implement only the settled AC scope during Implement.
+- Return to Refine when Implement reveals a contract, scope, or Director decision change.
+- Return to Implement when Implement reveals an implementation-only correction.
+- Include tests, adversarial verification, and defect correction in Implement.
+- Run one exhaustive, non-mutating closure audit after Implement, validation, adversarial verification, and defect correction.
+- Keep the closure-audit working record in the active agent's session.
+- Do not create a separate closure-audit artifact.
+- Map every in-scope command entry point, provider/API fetch, normalized-table write, durable snapshot, stale fallback, freshness gate, and complete-snapshot reconciliation path in the closure audit.
+- Check every in-scope governance instruction against `## Instruction Style` during the closure audit.
+- Map every referenced governance document across applicable source, template, and rendered-consumer paths in the closure audit.
+- Compare every discovered path with the active AC `## In Scope`, `## Out Of Scope`, and `## Acceptance Tests` sections.
+- Record `Not applicable` with repository evidence when a path category is absent.
+- Record every acceptance-test disposition and residual risk in the closure audit.
+- Block Implement completion when any required implementation path is unmapped or unverified or any implementation finding remains open.
+- Record pending Director review for manual acceptance tests without treating that pending review as an implementation finding or a path gap that blocks Implement completion.
+- Return to Implement for implementation defects found by the closure audit.
+- Return to Refine for scope, contract, or Director decision changes found by the closure audit.
+- Report every acceptance-test disposition in the Implement completion report.
+- Report every residual risk in the Implement completion report.
+- State zero unresolved implementation findings in the Implement completion report before Ratify.
+- Pause after Implement and await Ratify.
+- Treat Ratify as the Director's final review of the delivered AC.
+- Return Ratify feedback to Refine for contract or scope changes.
+- Return Ratify feedback to Implement for implementation-only corrections.
+- Keep Ratify complete only after the Director accepts the delivered work.
+- Treat `Package` as the separate post-Ratify name for release preparation, not as a fifth AC phase.
+- Start `Package` only after an explicit Director request; do not infer it from Ratify acceptance.
+- Treat standalone `Package`, `package`, `pack`, and `prep` as equivalent names for `Package` only after Ratify acceptance.
+- Preserve the existing release-prep implementation, behavior, commands, ordering, and approval boundaries during `Package`.
+
+### Phase-Advancement Rules
+
+- Treat only explicit Director action language as authorization to enter the named next action.
+- Treat standalone `Draft` or `draft` as the pre-cycle action that creates the active AC; require the Director to authorize it before creating the AC.
+- Start an AC cycle only when the Director identifies the active AC and explicitly requests Audit.
+- Apply an unnumbered action instruction to the sole AC under `govna/`; require the AC number when multiple ACs are present.
+- Treat a compound request as authorization for only the named action.
+- Pause before entering any action not explicitly named by the Director.
+- Treat ambiguous, unrelated, or implicit replies as non-advancing feedback.
+- Interpret Audit, Refine, Implement, and Ratify as workflow phases only in the context of the active AC cycle.
+- Interpret `Package` as the post-Ratify release-preparation action only after Ratify acceptance and an explicit Director request.
+- Interpret standalone `Package`, `package`, `pack`, and `prep` as equivalent Package instructions only in that context.
+- Do not interpret `run ./build.sh prep ...`, `pack the binary`, `prepare the build`, or non-standalone `prep` as workflow advancement.
+- Treat ordinary language such as `build`, `package the release`, or a file-write command as unrelated to phase advancement.
+- Require explicit operational wording such as `run ./build.sh` before executing a repository command; never infer a shell command from an action name.
+
+### Primary And Ancillary Scope
+
+- Capture the resolved current working directory as the primary repository at session entry.
+- Keep the primary repository and current phase visible in every phase report.
+- Label work in another repository or path as `Ancillary work` only after the Director explicitly requests it.
+- Report the ancillary repository or path and authorization separately from the primary phase.
+- Prevent ancillary work from satisfying primary-repository scope, tests, validation, or phase gates.
+- Restate the primary repository and paused phase when returning from ancillary work.
 
 ### AC Critique Gate
 
@@ -98,24 +179,22 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 ### Drift-Scan Adoption
 
 - Apply these rules whenever implementing a drift-scan-emitted AC.
-- Render canon into a scratch directory using `governa render-canon <scratch>`.
+- Treat the named target as effective implementation scope when the Director resolves an `ambiguity` item as `sync`, even when it is absent from `## In Scope`.
+- Apply the resolved sync to the target file while leaving the emitted AC stub unchanged.
+- Render canon into a scratch directory using `govna render-canon <scratch>`.
 - Inspect changes per `## In Scope` item by running `diff -ru <scratch>/<path> <path>`.
-- Record preserve decisions in the `| Unreleased | |` row's Summary column of `CHANGELOG.md` before re-running `governa drift-scan`.
-- Use one of the marker phrases from `governa/drift-scan.md` `## Preserve-marker phrase set` for each preserve decision.
+- Record preserve decisions in the `| Unreleased | |` row's Summary column of `CHANGELOG.md` before re-running `govna drift-scan`.
+- Use one of the marker phrases from `govna/drift-scan.md` `## Preserve-marker phrase set` for each preserve decision.
 - Echo the preserve marker verbatim into the release message when the marker plus AC reference and summary fits the 80-character limit.
 - Leave the preserve marker in the `| Unreleased | |` row when the combined length exceeds 80 characters.
 - Ensure the parent directory exists for each `## In Scope` item: `mkdir -p "$(dirname <path>)"`.
 - Categorize each `## In Scope` item as pure-canon or mixed-content before applying.
 - Apply pure-canon items by copying from canon: `cp <scratch>/<path> <path>`.
 - Apply mixed-content items by hunk-merge.
-- Replace canon-zone content above the boundary heading (`## Project Rules` for AGENTS.md; `## Project Practices` for `governa/development-guidelines.md` and `governa/editing-guidelines.md`).
+- Replace canon-zone content above the boundary heading (`## Project Rules` for AGENTS.md; `## Project Practices` for `govna/development-guidelines.md` and `govna/editing-guidelines.md`).
 - Preserve the boundary heading and every line below it as repo-owned content.
-- Re-run `governa drift-scan` after the sync without editing the emitted stub; confirm each synced file no longer appears in the new emission's `## In Scope` list.
+- Re-run `govna drift-scan` after the sync without editing the emitted stub; confirm each synced file no longer appears in the new emission's `## In Scope` list.
 - Run any repo-owned validation command before declaring the adoption complete.
-
-Note: preserve markers in the `| Unreleased | |` row persist across releases (release prep does not modify that row); markers echoed into release-message rows are also recognized by future drift-scan runs from any CHANGELOG row. The AC stub is not a durable home because drift-scan's edit-detection guard blocks the required re-run after stub edits.
-
-Note: mixed-content files (AGENTS.md, `governa/development-guidelines.md`, `governa/editing-guidelines.md`, and any other file with a documented repo-owned tail section) follow the hunk-merge convention in `governa/canon-cycle.md` `## Consumer-side workflow`.
 
 ## File-Change Discipline
 
@@ -139,19 +218,22 @@ Note: mixed-content files (AGENTS.md, `governa/development-guidelines.md`, `gove
 - Treat AC-document ceremony issues as nits after implementation starts and the AC is expected to be deleted at release prep; prioritize defects that affect the delivered contract, implementation scope, tests, or release safety.
 - Report "no issues" directly when none are found; note any residual risk or verification gaps.
 - Keep completions terse — what changed, flat bullets, and a final `Awaiting <specific Director-initiated next>.` line; skip "What's in it" / "Main conclusion" / "Next steps" headers unless asked.
-- Never prescribe commit, push, or release actions in the sign-off; the Director triggers those — the sign-off names what's pending, not what to do.
+- Never prescribe commit, push, or release actions in Ratify; the Director triggers those — Ratify names what's pending, not what to do.
 - Skip settled repo mechanics in completions, including symlink behavior, mirror mechanics, governance structure, and contract conventions.
 - Default to plain text and simple bullets; reach for tables or richer structure only when content clearly benefits.
 - Note skipped checks only when the omission is unusual or affects confidence.
 - Run required validation gates, but report successful routine gates only when they materially affect confidence; always report failures and skipped required gates.
 - Present editorial decisions to the director as: a recommendation when one viable option exists; two bounded options plus a recommendation when two exist; the best two plus a one-line note on the rest when more than two exist.
-- Include the three-part self-review structure (Verified / Red-teamed / Not checked) defined in `governa/roles.md` in every substantial completion report, even when the default is terse.
+- Include the three-part self-review structure (Verified / Red-teamed / Not checked) defined in `govna/roles.md` in every substantial completion report, even when the default is terse.
+- Start every Package completion report with the plain, unbulleted, unindented line `Package complete.`.
+- Insert exactly one blank line after `Package complete.` before `Verified:`.
+- Keep `Verified:`, `Red-teamed:`, `Not checked:`, and `Run below to release:` in the Package completion report; state `No commit or release command executed.` and present the exact drafted release command.
 
 ## Base Rules
 
 - Follow semver: PATCH for invisible changes (fixes, refactors, formatting), MINOR for user-visible changes (structure, navigation, schema); batch PATCH-level changes.
 - Complete any repo-owned validation before preparing any commit handoff.
-- Label each acceptance test with source axis (`[Automated]` / `[Manual]`) and timing axis (`[Pre-release gate]` default; `[Post-release verification]` explicit). See `governa/ac-template.md`.
+- Label each acceptance test with source axis (`[Automated]` / `[Manual]`) and timing axis (`[Pre-release gate]` default; `[Post-release verification]` explicit). See `govna/ac-template.md`.
 - Follow existing repo patterns unless an approved improvement says otherwise.
 - Avoid product or vendor names in identifiers.
 - Use product or vendor names only when an identifier names a real product-specific artifact or compatibility surface.
@@ -159,7 +241,8 @@ Note: mixed-content files (AGENTS.md, `governa/development-guidelines.md`, `gove
 Note: `CLAUDE.md` is an example of an exempt identifier — it names the Claude Code-readable symlink that mirrors AGENTS.md.
 
 - Name test identifiers, output labels, comments, and errors by behavior.
-- Reserve AC, AT, Class, Part, and Round numbers for CHANGELOG rows, commit messages, and `Historical:` comments.
+- Reserve AC, AT, Class, Part, Round, and IE numbers for CHANGELOG rows, commit messages, `plan.md`'s own `IE<N>:` bullets, and `Historical:` comments.
+- Treat every Markdown documentation file as out of bounds for bare AC, AT, Class, Part, Round, and IE numbers, except `plan.md`'s own `IE<N>:` bullets.
 - Use the `Historical:` prefix on a comment only when it references a shipped AC and the context aids the reader; delete the reference if no longer relevant.
 - Reach for `rg` (not `grep`/`ack`), `fd` (not `find`), `jq` (not `awk`/`python -c` on JSON), `sd` (not `sed -i`), and `pup` (not regex on HTML).
 - Send independent shell calls in a single message so they run in parallel.

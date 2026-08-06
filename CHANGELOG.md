@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.10.2 | AC10+AC11: migrate governance tooling from governa to govna |
 | 0.10.1 | AC9: adopt DOC build.sh; retire rel.sh |
 | 0.10.0 | Incorporate an external embeddings note into tech/ai.md as a new Embeddings section; simplify to an intro (with a short vector example) plus two subsections, Common Patterns (six use-cases folded into prose) and When Embeddings Are Enough; source doc left untouched. |
 | 0.9.0 | AC8: drift-sync from governa @ v0.136.0; relocate canon docs from docs/ → governa/ (governa/README.md, governa/ac-template.md, governa/canon-cycle.md, governa/drift-scan.md, governa/editing-cycle.md, governa/editing-guidelines.md, governa/operator-contract-rationale.md, governa/release.md, governa/roles.md); AGENTS.md canon-zone path updates docs/ → governa/; delete 9 orphan docs/*.md files. |

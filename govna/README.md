@@ -2,7 +2,7 @@
 
 Use this directory for governed implementation support documents.
 
-Governa ships [`operator-contract-rationale.md`](operator-contract-rationale.md) here — read it to understand the session-entry contract that governs how agents operate in this repo. [`drift-scan.md`](drift-scan.md) describes the consumer-run `governa drift-scan` flow and the emitted AC stub.
+govna ships [`operator-contract-rationale.md`](operator-contract-rationale.md) here — read it to understand the session-entry contract that governs how agents operate in this repo. [`drift-scan.md`](drift-scan.md) documents the `govna drift-scan` command and its emitted AC stub.
 
 Recommended contents to add:
 

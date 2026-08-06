@@ -20,8 +20,8 @@ _color_init() {
   _color_on=1
   [ -n "${NO_COLOR:-}" ] && _color_on=0
   [ "${TERM:-}" = dumb ] && _color_on=0
-  if [ -n "${GOVERNA_FORCE_TTY:-}" ]; then
-    [ "$GOVERNA_FORCE_TTY" = 1 ] || _color_on=0
+  if [ -n "${GOVNA_FORCE_TTY:-}" ]; then
+    [ "$GOVNA_FORCE_TTY" = 1 ] || _color_on=0
   elif [ ! -t 1 ]; then
     _color_on=0
   fi
@@ -270,7 +270,7 @@ _prep_parse_ac_refs() {
 _prep_find_ac_files() {
   local root="$1" acnums="$2" f name num
   [ -n "$acnums" ] || return 0
-  for f in "$root"/governa/ac*.md; do
+  for f in "$root"/govna/ac*.md; do
     [ -f "$f" ] || continue
     name=$(basename "$f")
     [ "$name" = ac-template.md ] && continue
@@ -285,7 +285,7 @@ _prep_find_ie_lines() {
   [ -f "$root/plan.md" ] || return 0
   while IFS= read -r line || [ -n "$line" ]; do
     case "$line" in
-    *"→ governa/ac"[0-9]*-*) num=$(printf '%s' "$line" | sed -E 's/.*→[[:space:]]+governa\/ac([0-9]+)-.*/\1/') ;;
+    *"→ govna/ac"[0-9]*-*) num=$(printf '%s' "$line" | sed -E 's/.*→[[:space:]]+govna\/ac([0-9]+)-.*/\1/') ;;
     *) continue ;;
     esac
     if printf '%s\n' "$acnums" | grep -qx "$num"; then printf '%s\n' "$line"; fi

@@ -1,8 +1,8 @@
-Copy this file to `governa/ac<N>-<slug>.md`, where `slug` is a kebab-case identifier and `N` follows the monotonic-numbering rule below. Set the file's heading to `# AC<N> Title`.
+Copy this file to `govna/ac<N>-<slug>.md`, where `slug` is a kebab-case identifier and `N` follows the monotonic-numbering rule below. Set the file's heading to `# AC<N> Title`.
 
-AC numbering is monotonic across release-prep deletions. Determine `N` by taking the maximum of (a) AC numbers currently in `governa/` and (b) AC numbers anywhere in `git log --all --pretty=%B` output (which covers commit subject + body — count every AC reference on every line, even when a single commit names multiple, e.g., `AC53+AC54`). Prior ACs removed during release prep still count. `N` is that maximum plus one.
+AC numbering is monotonic across release-prep deletions. Determine `N` by taking the maximum of (a) AC numbers currently in `govna/` and (b) AC numbers anywhere in `git log --all --pretty=%B` output (which covers commit subject + body — count every AC reference on every line, even when a single commit names multiple, e.g., `AC<m>+AC<n>`). Prior ACs removed during release prep still count. `N` is that maximum plus one.
 
-The AC is the implementation contract for one approved roadmap item. The full editing cycle that wraps around this template lives in `governa/editing-cycle.md`. The enforceable rules around when to draft, review, and integrate an AC live in `AGENTS.md`.
+The AC is the implementation contract for one approved roadmap item. The full editing cycle that wraps around this template lives in `govna/editing-cycle.md`. The enforceable rules around when to draft, review, and integrate an AC live in `AGENTS.md`.
 
 # AC<N> Title
 
@@ -12,12 +12,12 @@ Describe the change in one short paragraph. State the nature (feature, refactor,
 
 ## In Scope
 
-List the concrete changes this AC will make. Use sub-headings for grouping (e.g. "Files to create", "Files to modify", "Schema changes"). Be specific — file paths, function names, table columns. The In Scope list is the authoritative scope contract; the agent only edits files listed here even after the Director authorizes implementation.
+List the concrete changes this AC will make. Use sub-headings for grouping (e.g. "Files to create", "Files to modify", "Schema changes"). Be specific — file paths, function names, table columns. The In Scope list is the authoritative scope contract; the agent only edits files listed here even after the Director authorizes implementation. Apply the emitted-scope exception when a Director resolves a drift-scan `ambiguity` item as `sync`, or an `rm`-emitted Routing Decision; leave the emitted stub/AC unchanged.
 
 ### Files to create
 
 - `path/to/new_file` — what it contains
-- `governa/new-doc.md` — what it documents
+- `govna/new-doc.md` — what it documents
 
 ### Files to modify
 
@@ -35,6 +35,12 @@ List things the AC explicitly does **not** do. This is as important as the In Sc
 - Things deferred to a later AC (link the deferral)
 - Adjacent improvements that would be tempting but are not required
 - Things that look in scope but aren't (called out to prevent confusion)
+
+## Migration findings
+
+- Record each `migration-required` item emitted by drift-scan under `## In Scope`.
+- State the explicit consumer action that completes each migration item.
+- Keep automatic migration or deletion out of scope unless this AC explicitly authorizes it.
 
 ## Acceptance Tests
 
