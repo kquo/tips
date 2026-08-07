@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.14.0 | AC15: adopt govna v0.9.0 actionable-only audits |
 | 0.13.0 | AC14: adopt govna v0.8.0 Ratify semantics |
 | 0.12.0 | AC13: adopt govna v0.7.0 validation disposition |
 | 0.11.0 | AC12: adopt govna audit and canon baseline |
