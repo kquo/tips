@@ -27,7 +27,7 @@ Rules:
 - Use `##` for top-level sections and `###` for thematic groupings inside a section; cap header nesting at `###`.
 - Apply the `## Instruction Style` section below to every new or rewritten instruction in this file.
 - Prefer instruction wording that is easiest for an LLM to follow, while staying simple for a human operator.
-- Treat AGENTS.md as the authoritative source for the rules it describes; conform overlay templates and other canon files to it — `govna drift-scan` catches violations.
+- Treat AGENTS.md as the authoritative source for the rules it describes; conform overlay templates and other canon files to it — `govna audit` catches violations.
 
 ## Instruction Style
 
@@ -71,7 +71,7 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Require explicit approval for: create, delete, rename, publish, release, or any destructive change.
 - Require explicit approval for: governance files, CI/release config, secrets handling, external integrations.
 - Edit only the files listed in the AC's `## In Scope` section, even after the user has authorized implementation.
-- Apply the drift-scan effective-scope exception in `### Drift-Scan Adoption` when a Director resolves an `ambiguity` item as `sync` (see that subsection).
+- Apply the audit effective-scope exception in `### Audit Adoption` when a Director resolves any routing action.
 - Apply the same effective-implementation-scope principle to any other emitted-AC tool with Director-resolved routing decisions (e.g., `rm`'s Routing Decisions) — the named target is in scope once resolved, even when absent from `## In Scope`.
 - Stop and ask when a request is ambiguous, or when the change is hard to reverse.
 - Wait for explicit user request before preparing, executing, publishing, deploying, or distributing — including drafting commit messages, commit commands, version bumps, or release notes.
@@ -116,7 +116,7 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Run one exhaustive, non-mutating closure audit after Implement, validation, adversarial verification, and defect correction.
 - Keep the closure-audit working record in the active agent's session.
 - Do not create a separate closure-audit artifact.
-- Map every in-scope command entry point, provider/API fetch, normalized-table write, durable snapshot, stale fallback, freshness gate, and complete-snapshot reconciliation path in the closure audit.
+- Map every in-scope published page, cross-reference, index entry, and editorial/structural decision in the closure audit.
 - Check every in-scope governance instruction against `## Instruction Style` during the closure audit.
 - Map every referenced governance document across applicable source, template, and rendered-consumer paths in the closure audit.
 - Compare every discovered path with the active AC `## In Scope`, `## Out Of Scope`, and `## Acceptance Tests` sections.
@@ -176,15 +176,18 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Confirm every new or rewritten instruction in AGENTS.md follows Instruction Style.
 - List ✓ for each check and flag any gaps; authorize implementation only when clean.
 
-### Drift-Scan Adoption
+### Audit Adoption
 
-- Apply these rules whenever implementing a drift-scan-emitted AC.
-- Treat the named target as effective implementation scope when the Director resolves an `ambiguity` item as `sync`, even when it is absent from `## In Scope`.
-- Apply the resolved sync to the target file while leaving the emitted AC stub unchanged.
-- Render canon into a scratch directory using `govna render-canon <scratch>`.
+- Apply these rules whenever implementing an audit-emitted AC.
+- Treat every Director-resolved routing target as effective implementation scope, even when it is absent from `## In Scope`.
+- Treat each explicitly named migration destination as effective implementation scope with its routed source.
+- Treat `CHANGELOG.md` as effective implementation scope when a preserve marker is required.
+- Require the Director to name every migration destination.
+- Apply each resolved routing action while leaving the emitted AC stub unchanged.
+- Render canon into a scratch directory using `govna render <scratch>`.
 - Inspect changes per `## In Scope` item by running `diff -ru <scratch>/<path> <path>`.
-- Record preserve decisions in the `| Unreleased | |` row's Summary column of `CHANGELOG.md` before re-running `govna drift-scan`.
-- Use one of the marker phrases from `govna/drift-scan.md` `## Preserve-marker phrase set` for each preserve decision.
+- Record preserve decisions in the `| Unreleased | |` row's Summary column of `CHANGELOG.md` before completing the audit adoption.
+- Use one of the marker phrases from `govna/audit.md` `## Preserve-marker phrase set` for each preserve decision.
 - Echo the preserve marker verbatim into the release message when the marker plus AC reference and summary fits the 80-character limit.
 - Leave the preserve marker in the `| Unreleased | |` row when the combined length exceeds 80 characters.
 - Ensure the parent directory exists for each `## In Scope` item: `mkdir -p "$(dirname <path>)"`.
@@ -193,8 +196,15 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Apply mixed-content items by hunk-merge.
 - Replace canon-zone content above the boundary heading (`## Project Rules` for AGENTS.md; `## Project Practices` for `govna/development-guidelines.md` and `govna/editing-guidelines.md`).
 - Preserve the boundary heading and every line below it as repo-owned content.
-- Re-run `govna drift-scan` after the sync without editing the emitted stub; confirm each synced file no longer appears in the new emission's `## In Scope` list.
-- Run any repo-owned validation command before declaring the adoption complete.
+- Run the repo-owned validation command after every selected sync.
+- Install or replace `govna/canon-baseline.txt` from the scratch render only after every routing decision, sync, and validation succeeds.
+- Do not re-run `govna audit` as an implementation gate for the emitted AC.
+- Verify each resolved sync target against its applicable rendered canon region.
+- Verify each migration source is absent unless the Director explicitly preserves it.
+- Verify each canon-backed migration destination against its applicable rendered canon region.
+- Verify each repo-owned migration destination against the Director's stated result.
+- Verify each resolved delete target is absent.
+- Verify each resolved preserve target remains and carries its preserve marker.
 
 ## File-Change Discipline
 

@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.11.0 | AC12: adopt govna audit and canon baseline |
 | 0.10.2 | AC10+AC11: migrate governance tooling from governa to govna |
 | 0.10.1 | AC9: adopt DOC build.sh; retire rel.sh |
 | 0.10.0 | Incorporate an external embeddings note into tech/ai.md as a new Embeddings section; simplify to an intro (with a short vector example) plus two subsections, Common Patterns (six use-cases folded into prose) and When Embeddings Are Enough; source doc left untouched. |
