@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.13.0 | AC14: adopt govna v0.8.0 Ratify semantics |
 | 0.12.0 | AC13: adopt govna v0.7.0 validation disposition |
 | 0.11.0 | AC12: adopt govna audit and canon baseline |
 | 0.10.2 | AC10+AC11: migrate governance tooling from governa to govna |
