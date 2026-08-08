@@ -183,20 +183,28 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Apply these rules whenever implementing an audit-emitted AC.
 - Treat every Director-resolved routing target as effective implementation scope, even when it is absent from `## In Scope`.
 - Treat each explicitly named migration destination as effective implementation scope with its routed source.
-- Treat `CHANGELOG.md` as effective implementation scope when a preserve marker is required.
+- Treat `govna/preserve.txt` as effective implementation scope only when a resolved routing outcome requires creating or changing it.
+- Require no second Director authorization for an effective-scope preserve-registry change.
 - Require the Director to name every migration destination.
 - Apply each resolved routing action while leaving the emitted AC stub unchanged.
 - Render canon into a scratch directory using `govna render <scratch>`.
 - Inspect changes per `## In Scope` item by running `diff -ru <scratch>/<path> <path>`.
-- Record preserve decisions in the `| Unreleased | |` row's Summary column of `CHANGELOG.md` before completing the audit adoption.
-- Use one of the marker phrases from `govna/audit.md` `## Preserve-marker phrase set` for each preserve decision.
-- Echo the preserve marker verbatim into the release message when the marker plus AC reference and summary fits the 80-character limit.
-- Leave the preserve marker in the `| Unreleased | |` row when the combined length exceeds 80 characters.
+- Add each resolved preserve target's exact path to `govna/preserve.txt`.
+- Remove each resolved sync, delete, or canon-backed migration target from `govna/preserve.txt`.
+- Create the registry with the `govna-preserve-v1` header when the first preserve entry is required.
+- Keep preserve-registry entries unique and byte-sorted.
+- Preserve unrelated preserve-registry entries.
+- Leave the registry absent or unchanged when its state already satisfies every resolved outcome.
+- Treat exact legacy preserve phrases in the Unreleased CHANGELOG Summary as migration evidence only.
+- Remove each exact legacy phrase only after verifying its resolved registry state.
+- Preserve unrelated CHANGELOG Summary text and historical rows.
 - Ensure the parent directory exists for each `## In Scope` item: `mkdir -p "$(dirname <path>)"`.
 - Categorize each `## In Scope` item as pure-canon or mixed-content before applying.
 - Apply pure-canon items by copying from canon: `cp <scratch>/<path> <path>`.
 - Apply mixed-content items by hunk-merge.
-- Replace canon-zone content above the boundary heading (`## Project Rules` for AGENTS.md; `## Project Practices` for `govna/development-guidelines.md` and `govna/editing-guidelines.md`).
+- Replace canon-zone content above each registered boundary heading.
+- Use `## Project Rules` as the AGENTS.md boundary.
+- Use `## Project Practices` as the boundary for `govna/development-guidelines.md`, `govna/editing-guidelines.md`, and CODE `govna/build-release.md`.
 - Preserve the boundary heading and every line below it as repo-owned content.
 - Confirm or override an unresolved emitted validation disposition in chat.
 - Run the resolved validation command after all selected sync, migration, and deletion work.
@@ -208,7 +216,7 @@ Note: prefer wording that is easiest for an LLM to follow, while staying simple 
 - Verify each canon-backed migration destination against its applicable rendered canon region.
 - Verify each repo-owned migration destination against the Director's stated result.
 - Verify each resolved delete target is absent.
-- Verify each resolved preserve target remains and carries its preserve marker.
+- Verify each resolved preserve target remains and its exact path occurs in `govna/preserve.txt`.
 
 ## File-Change Discipline
 
