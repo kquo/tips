@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.18.0 | AC19: adopt govna v0.24.0 canon |
 | 0.17.0 | AC18: adopt govna v0.23.0 canon |
 | 0.16.0 | AC17: adopt govna v0.13.0 preserve registry |
 | 0.15.0 | AC16: adopt govna v0.10.0 validation inference |
