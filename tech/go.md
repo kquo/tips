@@ -14,7 +14,7 @@ Useful GoLang bits.
 brew install go
 
 # Then update essential system variables 
-export GOPATH=~/go  # Create this dir if nece
+export GOPATH=~/.go  # Create this dir if nece
 export PATH=$PATH:$GOPATH/bin 
 ```
 
@@ -29,7 +29,7 @@ bash /tmp/install-go.sh go1.23.3   # To install this specific Go version
 
 # Then update essential system variables 
 export GOROOT=/usr/local/go
-export GOPATH=~/go  # Create this dir if nece
+export GOPATH=~/.go  # Create this dir if nece
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
@@ -200,7 +200,7 @@ Makefiles are usually not needed with Go, but if you must, this one for macOS an
 
 ```makefile
 # Makefile
-# Assumes GOPATH is already set up properly, e.g., $HOME/go
+# Assumes GOPATH is already set up properly, e.g., $HOME/.go
 
 default:
 GOOS=darwin GOARCH=amd64 go build -ldflags "-s -w" -o build/macos/awsinfo

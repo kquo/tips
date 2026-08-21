@@ -38,7 +38,7 @@ echo "history -c" > ~/.bash_logout
 on_exit() { rm ~/.bash_history && sh ~/.bash_logout ; }
 trap on_exit EXIT
 
-export GOPATH=~/go
+export GOPATH=~/.go
 export PATH=$PATH:/usr/local/bin:$GOPATH/bin:$GOROOT/bin
 export HISTCONTROL=ignoreboth  # Ignore both duplicates and space-prefixed commands
 export HISTIGNORE='ls:cd:ll:h' # Ignore these commands
