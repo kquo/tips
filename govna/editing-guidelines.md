@@ -7,7 +7,8 @@ Sections above ## Project Practices are govna-maintained canon and update via ca
 ## Cross-Reference Integrity
 
 - When a doc references another file, section, or heading, verify the target exists before publishing
-- When renaming or moving a file, grep the repo for all references and update them in the same pass
+- Grep the repository for all references when renaming or moving a file.
+- Update every reference in the same pass.
 - When deleting a section or heading, check for inbound links from other docs
 
 ## Link Integrity
@@ -34,6 +35,8 @@ Sections above ## Project Practices are govna-maintained canon and update via ca
 - Use consistent terminology throughout the repo
 - Define each term in one place
 - Reference the canonical definition
+- Lead each new or rewritten explanation with the concrete outcome.
+- Explain each necessary Govna label at first use.
 
 ## Documentation Alignment
 

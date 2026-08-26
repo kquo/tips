@@ -40,12 +40,10 @@ Default to Automated whenever the result is verifiable without a live external s
 
 Source axis (`[Automated]` / `[Manual]`) names who verifies. Timing axis (`[Pre-release gate]` / `[Post-release verification]`) names when verification happens. `[Pre-release gate]` is the default and may be omitted; `[Post-release verification]` is explicit. Use `[Post-release verification]` only when automated regression coverage already gates pre-release on the underlying class. The label communicates that the AT is a confidence check, not a gate, so future Operators do not promote it back into a gate.
 
-## Pre-Release Checklist (`Package`, `package`, `pack`, or `prep`)
+## Pre-Release Checklist
 
-Do not start this checklist unless the director explicitly requests standalone
-`Package`, `package`, `pack`, or `prep` in the active Ratified AC context.
-Do not treat `./build.sh prep ...` or ordinary build-preparation language as a
-workflow request.
+- Start this checklist only when the director explicitly requests standalone `Package`, `package`, `pack`, or `prep` in the active Ratified AC context.
+- Do not treat `./build.sh prep ...` or ordinary build-preparation language as a workflow request.
 
 1. **Verify completion.**
    - Verify all in-scope AC work is complete.
@@ -56,7 +54,7 @@ workflow request.
    - Use MINOR for user-visible structure, navigation, or schema changes.
    - Bump from the latest tag.
 3. **Derive the release message.**
-   - Summarize the change set in no more than 80 characters.
+   - Summarize the delivered user-visible result in no more than 80 characters.
    - Lead with the AC reference when one exists.
 4. **Run release prep.**
    - Run `./build.sh prep vX.Y.Z "derived message"`.
