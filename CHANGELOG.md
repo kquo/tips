@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.22.0 | AC23: adopt govna v0.50.0 canon |
 | 0.21.0 | AC22: adopt govna v0.39.0 canon |
 | 0.20.0 | AC21: adopt govna v0.38.0 canon |
 | 0.19.0 | AC20: adopt govna v0.29.0 canon |

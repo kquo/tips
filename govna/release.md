@@ -11,7 +11,7 @@ Require its confirmation prompt before `git add → commit → annotated tag →
 
 Keep DOC release prep repository-wide.
 Reject CODE target selection.
-Limit release messages to 80 characters.
+Limit release messages to 80 bytes.
 
 DOC repositories do not provide installable utilities, so the independent
 utility-version declaration and `--version` contract does not apply to this
@@ -42,7 +42,15 @@ Source axis (`[Automated]` / `[Manual]`) names who verifies. Timing axis (`[Pre-
 
 ## Pre-Release Checklist
 
-- Start this checklist only when the director explicitly requests standalone `Package`, `package`, `pack`, or `prep` in the active Ratified AC context.
+- Start this checklist only when the Director explicitly requests a valid Package instruction for the established Ratified release batch.
+- Map every unpackaged AC with implementation in the unreleased repository state to the complete pending release batch.
+- Require every pending release-batch member to complete Ratify before prep.
+- Reject prep while excluded implemented work remains in the unreleased repository state.
+- Require the unique release-message AC-reference set to equal the established release batch before prep.
+- Require the established release batch to equal the complete pending release batch before prep.
+- Reject a release message longer than 80 bytes before prep.
+- Prohibit a smaller release batch while excluded implemented work remains.
+- Prohibit automatic release-batch splitting.
 - Do not treat `./build.sh prep ...` or ordinary build-preparation language as a workflow request.
 
 1. **Verify completion.**
@@ -54,18 +62,25 @@ Source axis (`[Automated]` / `[Manual]`) names who verifies. Timing axis (`[Pre-
    - Use MINOR for user-visible structure, navigation, or schema changes.
    - Bump from the latest tag.
 3. **Derive the release message.**
-   - Summarize the delivered user-visible result in no more than 80 characters.
-   - Lead with the AC reference when one exists.
+   - Summarize the delivered user-visible result in no more than 80 bytes.
+   - Include every established release-batch AC reference.
+   - Exclude every AC reference outside the established release batch.
+   - Lead with the plus-joined release-batch AC references.
 4. **Run release prep.**
    - Run `./build.sh prep vX.Y.Z "derived message"`.
    - Use `--dry-run` or `-n` to inspect without writes.
-5. **Present the release command.** Print the exact command emitted by prep for the director to run:
+5. **Complete the Package report.**
+   - End the structured Package completion report with `Run below to release:`.
+   - Place the exact release command immediately after that line.
+   - Add nothing after the release command.
+
+Example release command:
 
 ```
 ./build.sh vX.Y.Z "derived message"
 ```
 
-The agent never runs the release command — only the director does. Do not add trailing commentary after presenting the command. The director already knows.
+The agent never runs the release command. Only the director does.
 
 ## CHANGELOG Conventions
 
