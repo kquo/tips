@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.23.0 | AC26: consolidate About page into a single section |
 | 0.22.2 | AC25: adopt govna v0.52.0 repo-check registry docs |
 | 0.22.1 | AC24: adopt govna v0.51.0 release-quoting fix |
 | 0.22.0 | AC23: adopt govna v0.50.0 canon |
