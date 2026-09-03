@@ -106,7 +106,7 @@ VirtualBox
   int <MAC-INTERNAL>
 ```
 
-- Confirm by checking <https://PFSENSE-IP:444/>
+- Confirm by checking `https://<PFSENSE-IP>:444/`
 
 
 ## pfSense Disk Addition

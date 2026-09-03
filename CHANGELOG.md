@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.23.2 | AC28: replace identifiers and credentials in six tech pages with placeholders |
 | 0.23.1 | AC27: adopt govna v0.53.0 companion-change release rules |
 | 0.23.0 | AC26: consolidate About page into a single section |
 | 0.22.2 | AC25: adopt govna v0.52.0 repo-check registry docs |
