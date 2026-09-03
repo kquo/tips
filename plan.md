@@ -11,8 +11,10 @@ Ideas captured for future discussion. Each entry uses an `IE<N>:` prefix (sequen
 - IE1: polish `mind/famous-quotes.md`
 - IE2: polish `society/markets-capitalism.md`
 - IE3: polish `society/perception-management.md`
-- IE4: review incoming bits and assign one landing area and path before editing
-- IE5: polish new and revised entries for clarity, structure, and link hygiene
-- IE6: keep `life/index.md`, `mind/index.md`, `society/index.md`, and `tech/index.md` aligned with published pages
-- IE7: split, merge, or rename pages when a topic outgrows its current structure
 - IE8: split index.md into two columns
+- IE9: move `tech/scripts/` to the `queone/scripts` repository and rewrite every reference
+- IE10: apply the publishing filter to Society, including its links
+- IE11: apply the publishing filter to Mind, including its links, exact-year replacement, and `era` declarations
+- IE12: apply the publishing filter to Tech, including its links
+- IE13: apply the publishing filter to Life, including its links
+- IE14: propose a pre-prep hook in govna canon so `build.sh prep` runs `check.sh`

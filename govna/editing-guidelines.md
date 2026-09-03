@@ -48,3 +48,5 @@ Sections above ## Project Practices are govna-maintained canon and update via ca
 ## Project Practices
 
 - Follow existing repo patterns unless an approved improvement says otherwise.
+- Treat `govna/publishing-filter.md` as the owning document for entry rules.
+- Run `./check.sh` to enforce those rules.

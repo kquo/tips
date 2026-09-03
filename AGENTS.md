@@ -562,3 +562,21 @@ Note: `CLAUDE.md` is an example of an exempt identifier — it names a product-s
 ## Project Rules
 
 - Follow existing repo patterns unless an approved improvement says otherwise.
+
+### Publishing Filter
+
+- Apply `govna/publishing-filter.md` to every entry created or edited under `life/`, `mind/`, `society/`, or `tech/`.
+- Declare `type` front matter on every entry created or edited.
+- Run `./check.sh` on every changed entry before Implement completion.
+- Block Implement completion on any `./check.sh` failure in a changed entry.
+- Run `./check.sh --all` during Package prep.
+- Report the `./check.sh --all` failing-entry count in the Package completion report.
+- Check every stance-bearing claim in a changed entry against `govna/stance-register.md`.
+- Return to Refine when a changed entry contradicts a registered stance.
+- Record each new or changed stance in `govna/stance-register.md` in the same pass.
+- Link to the owning entry instead of restating a concept another entry owns.
+- Criticize named people only for public positions and actions.
+- Source every factual claim about a named person.
+- Host no executable code on the site.
+- Reference only the `queone` GitHub organization.
+- Record each filter gap found in a closure audit as an `IE<N>:` item in `plan.md` in the same completion report.
