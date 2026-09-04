@@ -1,51 +1,33 @@
-# Discourse
-Bits on improving discussions and making them more fruitful and enjoyable.
+---
+type: howto
+---
+## Discourse
 
-Based on the ideas of experts like [Carl Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Karl Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Anatol Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), [Daniel Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett), and others in this field, we can say that people have mostly figured out __how to argue properly__ with other **_reasonable_** people.
+How to argue with reasonable people, drawing on [Carl Rogers](https://en.wikipedia.org/wiki/Carl_Rogers), [Karl Popper](https://en.wikipedia.org/wiki/Karl_Popper), [Anatol Rapoport](https://en.wikipedia.org/wiki/Anatol_Rapoport), and [Daniel Dennett](https://en.wikipedia.org/wiki/Daniel_Dennett). Not everyone is reasonable. Someone committed to [pseudoscience](../mind/pseudoscience.md) may not be open to discussion at all; for those cases skip to the second section.
 
-When talking with most people, it's important to keep in mind that not everyone is **_reasonable_**. Some people, for various reasons, such as believing in [pseudoscience](pseudoscience), may not be open to discussion. In situations like these, it's best to avoid trying to have *rational* conversations altogether. As an alternative, consider the **Having Impossible Conversations** section below.
+### Discourse Protocol
 
+1. Do not proceed until all sides agree on three things:
+   1. An appropriate time and place for the exchange.
+   2. Readiness to tolerate criticism.
+   3. The freedom to pause or end the debate at any time.
+2. Follow these guidelines:
+   1. Listen attentively and make the other side feel understood.
+   2. Restate their position so clearly that they might say, "Thanks, I wish I had said it like that." That is Dennett's test.
+   3. Be humble and ask honest questions to seek understanding.
+   4. Talk things over rationally, preferably using [science](../mind/science.md).
+   5. Take seriously the idea that you could be wrong and they could be right.
+   6. Remember that agreement is comparatively unimportant, since both sides could easily be mistaken, as [Popper](../mind/popper.md) held.
+3. Repeat until any party pauses or ends the exchange under step 1.
 
-## Discourse Protocol
-For productive and enjoyable discussions try following the Discourse Protocol (DP):
+### Having Impossible Conversations
 
-1. *Do not* proceed until all sides agree on below simple list:
-    <ol style="list-style-type: lower-latin">
-    <li>An appropriate time and place for the exchange</li>
-    <li>Be ready to tolerate criticism</li>
-    <li>Choose to <b>pause</b> or even <b>end</b> the debate at any time</li>
-    </ol>
-2. Follow below simple guidelines:
-    <ol style="list-style-type: lower-latin">
-    <li>Listen attentively and make the other side feel understood</li>
-    <li>As Dennet points out, when you try to explain what the other side thinks, make it so clear that they might say, "Thanks, I wish I had said it like that!"</li>
-    <li>Be humble and ask honest questions to seek understanding</li>
-    <li>Talk things over rationally, preferably using <a href="science.md">science</a></li>
-    <li>Really think about the idea that you could be wrong and the other side could be right</li>
-    <li>Remember that agreement is comparatively unimportant, as both side could easily be mistaken (<a href="popper.md">Karl Popper</a>)</li>
-    </ol>
-3. Repeat items #1 and #2 until any party enacts Item 1c
+[Peter Boghossian](https://en.wikipedia.org/wiki/Peter_Boghossian) and [James A. Lindsay](https://en.wikipedia.org/wiki/James_A._Lindsay) wrote [How to Have Impossible Conversations](https://a.co/d/3xpHH8x) in 2019. A brief, incomplete, and probably slightly unfair mnemonic of their advice:
 
-
-## Having Impossible Conversations
-[Peter_Boghossian](https://en.wikipedia.org/wiki/Peter_Boghossian) and [James A. Lindsay](https://en.wikipedia.org/wiki/James_A._Lindsay) wrote a great book in 2019 entitled [How to Have Impossible Conversations: A Very Practical Guide](https://a.co/d/3xpHH8x), which is a valuable source of information regarding this topic. This is a very brief, still incomplete, and probably a bit unfair take on their message, but maybe a good mnemonic for some:
-
-- Modeling
-  - Be/do what you want them to do
-  - Admit ignorance
-- Words
-  - Be careful
-  - Understand their definitions
-- Ask questions
-  - How/What calibrated open-ended questions, that don't lead to simple Yes/No
-- Acknowledge extremists
-  - Create a basis, a bridge
-  - Acknowledge extremists on **your side**, to help bridge the moral divide for your oponent
-    - "Antifa are a bunch of fanatics/zealots/radicals and should be arrested"
-    - "Looters are destructive whackos and need to be stopped"
-  - Don't expect reciprocation - just build trust
-  - Treat their side charitably
-- Don't blame, focus on contribution
-- Focus on epistemology
-  - How do they know what they claim to know
-- Learn what makes someone closed-minded
+- **Model it.** Be and do what you want them to do. Admit ignorance.
+- **Watch words.** Be careful, and understand their definitions.
+- **Ask questions.** Calibrated, open-ended how and what questions that do not lead to a simple yes or no.
+- **Acknowledge extremists on your own side** to build a bridge across the moral divide, with concessions such as "some on my side are fanatics who should be arrested" or "looters are destructive and need to be stopped." Do not expect reciprocation; build trust. Treat their side charitably.
+- **Do not blame.** Focus on contribution.
+- **Focus on epistemology.** How do they know what they claim to know?
+- **Learn what makes someone closed-minded.**

@@ -1,16 +1,20 @@
-# Making Truth Go Viral: Competing With Lies in the Attention Economy
-Truth does not spread by default; lies do. Lies are simpler, more emotional, and faster to produce. If truth is to compete, it must be engineered to win on the same terrain where lies thrive.
+---
+type: take
+---
+## Viral Truth
 
-| # | Principle | Key Action Points |
-|---|-----------|-----------------|
-| 1 | Speed Is Non‑Negotiable | Pre‑bunk predictable falsehoods; prepare rapid‑response summaries in advance; verify fast, not perfectly. |
-| 2 | Emotion Drives Reach | Tie truth to human stakes; use moral clarity; evoke anger, relief, pride, or urgency. |
-| 3 | Radical Simplicity Wins | One idea per message; one sentence that survives screenshots; one visual when possible. |
-| 4 | Trust Messengers, Not Institutions | Use credible insiders and local voices; former skeptics persuade better than lifelong believers. |
-| 5 | Repeat Without Apology | Repetition builds memory; silence creates space for lies; repeating truth is necessary, not propaganda. |
-| 6 | Design for Algorithms | Short beats long; visual beats text; clear framing beats nuance. |
-| 7 | Apply Social Consequences | Label falsehoods clearly; enforce consistent reputational costs; make bad ideas socially costly. |
-| 8 | Accept Asymmetry | Focus on the persuadable middle; strengthen allies so they amplify truth; accept not everyone can be persuaded. |
+[Misinformation](https://en.wikipedia.org/wiki/Misinformation) spreads faster than truth because lies are simpler, more emotional, and cheaper to produce, and the [attention economy](https://en.wikipedia.org/wiki/Attention_economy) is tuned for exactly those properties. Truth does not spread by default; if it is to compete, it has to be engineered for the same terrain.
 
-## Bottom Line
-Truth only goes viral when it is deliberately designed to compete on speed, emotion, simplicity, repetition, and social dynamics. Anything less guarantees that lies will dominate.
+### My take
+
+Five principles truth-tellers can borrow from the way lies travel, without borrowing their ethics:
+
+| # | Principle | Action |
+|---|-----------|--------|
+| 1 | Speed | [Pre-bunk](https://en.wikipedia.org/wiki/Prebunking) predictable falsehoods; prepare rapid summaries in advance; verify fast, not perfectly. |
+| 2 | Simplicity | One idea per message, one sentence that survives a screenshot, one visual when possible. |
+| 3 | Trusted messengers | Credible insiders and local voices persuade; former skeptics persuade better than lifelong believers. |
+| 4 | Repetition | Repetition builds memory and silence leaves room for lies; repeating truth is not propaganda. |
+| 5 | Asymmetry | Focus on the persuadable middle, strengthen allies who amplify, accept that not everyone can be reached. |
+
+What truth must not borrow is the rest of the playbook: manufactured anger, dehumanization, and social punishment for dissent. Those are the mechanics [perception management](perception-management.md) describes and the [Discourse Protocol](discourse.md) exists to refuse, and using them for a good cause still trains the audience to respond to outrage rather than evidence. Truth borrows distribution, not cruelty.

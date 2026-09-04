@@ -1,61 +1,18 @@
-# Israel & Hamas: War, Intent, and Proportionality
-This piece helps readers think clearly about the deep human suffering on both sides, especially innocent children, and why emotions can overpower rational judgment. It encourages balancing moral intuition with analytical reasoning to foster thoughtful, solution-oriented perspectives rather than reactive opinions.
+---
+type: note
+---
+## Israel and Hamas
 
-The debate over Israel’s response to Oct 7 often hinges on two charged claims: **genocide** and **disproportionality**. These terms carry specific legal meanings but are frequently used in broader moral and political arguments. Understanding the distinction is essential.
+The debate over Israel's response to the 7 October 2023 attack in the [Gaza war](https://en.wikipedia.org/wiki/Gaza_war) turns on two charged words, genocide and disproportionality. Both have specific legal meanings and both are used in broader moral arguments. This entry lays out the two main framings with their sources and takes no position. The human cost on both sides, above all to children, is why emotion overpowers analysis here, and why the line between legal and moral reasoning matters.
 
-## One Framing (Harris’s Argument)
-[Sam Harris](https://en.wikipedia.org/wiki/Sam_Harris) argues that the charge of genocide against Israel is **factually and legally incorrect**:
+### The legal framing
 
-- **Genocide (legal definition):** Requires intent to destroy a group “in whole or in part.”  
-  - Harris contends Israel lacks such intent.  
-  - He points to long-term population growth in Gaza as evidence inconsistent with a policy of extermination.  
-  - He characterizes genocide accusations as rhetorical misuse (“blood libel”) rather than legal analysis.
+[Sam Harris](https://en.wikipedia.org/wiki/Sam_Harris) argues in [5 Myths about Israel and the War in Gaza](https://www.samharris.org/blog/5-myths-about-israel-and-the-war-in-gaza) that the genocide charge is legally and factually wrong: the [Genocide Convention](https://en.wikipedia.org/wiki/Genocide_Convention) requires intent to destroy a group in whole or in part, he sees no such intent, and he reads Gaza's long-term population growth as inconsistent with extermination. On [proportionality](https://en.wikipedia.org/wiki/Proportionality_(international_humanitarian_law)) he notes that the standard is not a comparison of casualty counts but whether expected civilian harm is excessive relative to the concrete military advantage of a specific operation, that Hamas embedding in civilian areas raises casualties without implying genocidal intent, and that Israel is judged more harshly than other states in comparable wars.
 
-- **Proportionality (legal standard):**  
-  - Not a comparison of casualty counts.  
-  - It evaluates whether expected civilian harm is excessive relative to concrete military advantage in specific operations.  
-  - Critics, he argues, conflate this with a simplistic “equal suffering” metric.
+### The humanitarian framing
 
-- **Hamas’s tactics:**  
-  - Embedding within civilian populations increases civilian casualties.  
-  - This complicates proportionality assessments without implying genocidal intent.
+Critics answer that intent can be inferred from a pattern of conduct, that the scale of civilian harm in dense urban war raises serious legal and ethical questions on its own, and that narrow legalism separates technical compliance from humanitarian reality. [Mehdi Hasan](https://en.wikipedia.org/wiki/Mehdi_Hasan) argues in [The Guardian](https://www.theguardian.com/commentisfree/2025/aug/02/the-us-complicit-genocide-israel-gaza) that the conflict can be framed as genocide legally and morally, and that United States political and material support makes it active participation. [Amnesty International](https://www.amnesty.org/en/documents/mde15/8668/2024/en/) in December 2024, [Human Rights Watch](https://www.hrw.org/report/2024/12/19/extermination-and-acts-genocide/israel-deliberately-depriving-palestinians-gaza) the same month, and [B'Tselem](https://www.btselem.org/publications/202507_our_genocide) in July 2025 published reports concluding that Israel's conduct meets the definition of genocide or includes acts of genocide. The [Gaza genocide](https://en.wikipedia.org/wiki/Gaza_genocide) article on Wikipedia tracks the scholarly and legal record.
 
-- **Double standards claim:**  
-  - Harris argues Israel is judged more harshly than other states in comparable conflicts.  
-  - High civilian casualties alone do not establish genocide or illegality.
+### The tension
 
-
-## Counterarguments
-Critics — including human-rights organizations, legal scholars, and international commentators — dispute Harris’s framing:
-
-- **Intent inference:**  
-  - Some argue genocidal intent can be inferred from patterns of conduct, not just explicit policy.
-
-- **Proportionality concerns:**  
-  - The scale of civilian harm in dense urban warfare raises serious legal and ethical questions.  
-  - Critics reject narrow legalism that separates technical compliance from humanitarian reality.
-
-- **Moral critique:**  
-  - Commentators like [Mehdi Hasan](https://en.wikipedia.org/wiki/Mehdi_Hasan) highlight that the Gaza conflict may be **legally and morally framed as genocide**, pointing to sustained civilian suffering, structural destruction, and the role of external powers in enabling the violence.  
-  - Hasan argues that dismissing this as mere legal semantics risks minimizing real humanitarian harm.
-
-- **External complicity:**  
-  - Hasan emphasizes that U.S. political and material support for Israel constitutes **active participation**, not just passive observation, in the conflict’s destructive impact on Gaza.
-
-- **Consensus of human-rights bodies:**  
-  - Leading NGOs — Amnesty International, Human Rights Watch, and B’Tselem — have publicly stated that Israel’s actions amount to coordinated efforts to destroy Palestinian society, reinforcing the genocide characterization Hasan cites.
-
-
-## Tension: Law vs. Morality
-At the core is a persistent tension:
-
-- **Legal reasoning:** precise definitions, intent thresholds, operational constraints  
-- **Moral reasoning:** human cost, suffering, perceived injustice  
-
-Harris’s contribution is to force a distinction between these domains — and to argue that rational analysis (including strategic and game-theoretic considerations) must accompany moral judgment.
-
-
-## Sources
-For primary sources, see:  
-- Sam Harris, *[5 Myths about Israel and the War in Gaza](https://www.samharris.org/blog/5-myths-about-israel-and-the-war-in-gaza)* (2024)  
-- Mehdi Hasan, *[The US is complicit in genocide in Gaza](https://www.theguardian.com/commentisfree/2025/aug/02/the-us-complicit-genocide-israel-gaza)* (2025)
+Legal reasoning works from definitions, intent thresholds, and operational constraints. Moral reasoning works from human cost and perceived injustice. The legal framing's contribution is to force that distinction; the humanitarian framing's is to insist that the distinction not become an excuse.

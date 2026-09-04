@@ -18,7 +18,10 @@ Use this table as the list of settled positions the site holds. One line per pos
 | 12 | Quotations are prompts for reflection, not proof. | `mind/famous-quotes.md` | settled |
 | 13 | Natural selection bridged mechanism and meaning, and gradualism is the right frame for mind. | `mind/dennett.md` | settled |
 | 14 | Named living people are criticized for public positions and actions only, never for mental states. | `govna/publishing-filter.md` | settled |
-| 15 | Whether truth should be spread with the outrage and social-cost mechanics that other entries condemn. | `society/viral-truth.md` against `society/discourse.md`, `society/us-identity-politics.md` | unresolved |
+| 15 | Truth borrows distribution mechanics such as speed, simplicity, trusted messengers, and repetition, but not outrage or social punishment. | `society/viral-truth.md`, `society/discourse.md` | settled |
 | 16 | Whether people can be reasoned out of comforting beliefs, and whether trying is worth the effort. | `mind/comfort-biases.md`, `mind/pseudoscience.md` against `mind/limits-of-bias.md`, `mind/cultural-cognition.md` | unresolved |
-| 17 | Whether the cold-logic label applies to named living libertarian-leaning figures. | `society/libertarianism.md` against `mind/cold-logic.md` | unresolved |
-| 18 | A stated position on the Israel and Hamas entry, or keeping it a neutral note. | `society/israel-hamas.md` | unresolved |
+| 17 | Cold logic describes positions, not persons; named figures are criticized for sourced public positions only. | `society/libertarianism.md`, `mind/cold-logic.md` | settled |
+| 18 | The Israel and Hamas entry is deliberately neutral and presents both framings with sources. | `society/israel-hamas.md` | settled |
+| 19 | Effort on an issue should match one's actual influence over it. | `society/activism.md` | settled |
+| 20 | Apocalyptic framing in politics licenses extreme measures and forecloses compromise; the framing is the danger, not the theology. | `society/elite-rapture.md` | settled |
+| 21 | U.S. party politics is identity-first with policy rationalized afterward; the exit is a coalition that treats disagreement as information. | `society/us-identity-politics.md` | settled |

@@ -1,14 +1,16 @@
 ## Society
 
-- [Activism](activism.md): Some presumptuous bits on making a difference and trying to fix the world.  
-- [Constitutional Republic](constitutional-republic.md): A type of democracy, but often a misleadingly used term.  
-- [Discourse](discourse.md): Bits on making discussions more fruitful and enjoyable.  
-- [Elite Rapture](elite-rapture.md): How billionaires weaponize the Antichrist narrative.
-- [Israel & Hamas](israel-hamas.md): Israel & Hamas: War, Intent, and Proportionality
-- [Libertarianism](libertarianism.md): Bits on libertarianism.  
-- [Markets & Capitalism](markets-capitalism.md): Tradeoffs between efficiency and human outcomes.
-- [Monetization Model](monetization-model.md): How internet businesses turn attention into revenue.
-- [Perception Management](perception-management.md): How narratives shape mass belief.
-- [Politics](politics.md): Bits on politics and related topics.  
-- [US Identity Politics](us-identity-politics.md): How political identity drives U.S. polarization. 
-- [Viral Truth](viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  
+- [Activism](activism.md): Rules for matching effort to influence when trying to fix the world.
+- [Constitutional Republic](constitutional-republic.md): Why "republic, not democracy" is a false choice, and what is actually contested.
+- [Confederate Monuments](monuments.md): Memorials to a myth, not to history.
+- [Dealing With Difficult Personalities](difficult-personalities.md): Handling people in power who cannot be reasoned with.
+- [Discourse](discourse.md): A protocol for arguing with reasonable people, and a guide for the rest.
+- [Elite Rapture](elite-rapture.md): Apocalyptic framing from the very wealthy, and why the framing is the danger.
+- [Israel and Hamas](israel-hamas.md): The legal and humanitarian framings of genocide and proportionality, with sources.
+- [Libertarianism](libertarianism.md): Where body sovereignty stops serving people.
+- [Markets and Capitalism](markets-capitalism.md): Tools, not moral oracles; outcomes depend on the rules.
+- [Internet Monetization Model](monetization-model.md): How attention becomes revenue, and what recommendation systems optimize for.
+- [Perception Management](perception-management.md): How narratives, not facts, shape mass belief.
+- [Politics](politics.md): Reason and Compassion as the real poles, plus three smaller convictions.
+- [U.S. Identity Politics](us-identity-politics.md): Identity first, policy rationalized afterward, and the way out.
+- [Viral Truth](viral-truth.md): What truth can borrow from how lies spread, and what it must not.

@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.25.0 | AC30: Society pass, fairness rewrites, politics split, register settled |
 | 0.24.0 | AC29: publishing filter contract, check.sh gate, stance register, timeline |
 | 0.23.2 | AC28: replace identifiers and credentials in six tech pages with placeholders |
 | 0.23.1 | AC27: adopt govna v0.53.0 companion-change release rules |

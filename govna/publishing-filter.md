@@ -37,11 +37,12 @@ Note: a `take` is opinion on a subject, a `note` is an explainer, a `howto` is s
 - Replace each removed value with a placeholder in the site's `<NAME>` or `mydomain.com` style, inside a code span or fence.
 - Keep an exact year that narrows the author's age out of first-person sentences; use a decade instead.
 - Keep the private denylist outside the repository at `~/.config/bits/denylist.txt` or at the path in `BITS_DENYLIST`.
+- Keep one literal per denylist line.
 - Add every newly found personal literal to the denylist before the entry ships.
 - Treat the site's own `kquo` and `queone` handles as allowed.
 - Treat attribution through the GitHub repository as accepted, not as a leak.
 
-Note: the two blood-pressure pages stay. A generic health how-to is not personal health detail. This section is class-based on purpose. Naming an instance here would publish it.
+Note: the two blood-pressure pages stay. A generic health how-to is not personal health detail. This section is class-based on purpose. Naming an instance here would publish it. Blank lines and lines starting with `#` in the denylist are ignored.
 
 ## Voice
 

@@ -28,6 +28,8 @@ trap 'rm -rf "$TMP"' EXIT
 OUT="$TMP/findings"; : >"$OUT"
 URLCACHE="$TMP/urlcache"; : >"$URLCACHE"
 INDEXDIRS="$TMP/indexdirs"; : >"$INDEXDIRS"
+DENY_ACTIVE="$TMP/deny"; : >"$DENY_ACTIVE"
+if [ -s "$DENYLIST" ]; then rg -v -e '^[[:space:]]*(#|$)' "$DENYLIST" >"$DENY_ACTIVE" 2>/dev/null || true; fi
 
 GUID_RE='[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
 GUID_OK='1950a258-227b-4e31-a9cf-717495945fc2|00000000-0000-0000-0000-000000000000'
@@ -110,8 +112,8 @@ check_privacy() {
   if [ "$f" != CHANGELOG.md ]; then
     rg -n -e "$ORG_RE" "$f" | cut -d: -f1 | while read -r l; do emit "$f" "$l" P-ORG "reference to the retired kquo org"; done
   fi
-  if [ -s "$DENYLIST" ]; then
-    rg -n -i -F -f "$DENYLIST" "$f" | cut -d: -f1 | while read -r l; do emit "$f" "$l" P-DENY "denylisted literal"; done
+  if [ -s "$DENY_ACTIVE" ]; then
+    rg -n -i -F -f "$DENY_ACTIVE" "$f" | cut -d: -f1 | while read -r l; do emit "$f" "$l" P-DENY "denylisted literal"; done
   fi
   rg -n -e "$FP_RE" "$f" | rg -e "$YEAR_RE" | cut -d: -f1 | while read -r l; do emit "$f" "$l" W-YEAR "exact year in a first-person sentence"; done
   rg -n -e "$FP_RE" "$f" | rg -i -e "$PERSONAL_RE" | cut -d: -f1 | while read -r l; do emit "$f" "$l" W-PERSONAL "personal detail keyword in a first-person sentence"; done
@@ -149,7 +151,7 @@ check_links() {
   local f="$1" d line l t p a target src="$TMP/links.src"
   d=$(dirname "$f")
   linksrc "$f" >"$src"
-  { rg -n -o -e '\]\(([^)]+)\)' -r '$1' "$src"; rg -n -o -e 'href="([^"]+)"' -r '$1' "$src"; rg -n -o -e '<(https?://[^>]+)>' -r '$1' "$src"; } 2>/dev/null \
+  { rg -n -o -e '\]\(((?:[^()]|\([^()]*\))+)\)' -r '$1' "$src"; rg -n -o -e 'href="([^"]+)"' -r '$1' "$src"; rg -n -o -e '<(https?://[^>]+)>' -r '$1' "$src"; } 2>/dev/null \
   | sort -u | sort -t: -k1,1n | while IFS= read -r line; do
     l="${line%%:*}"; t="${line#*:}"
     t="${t%% *}"
@@ -257,7 +259,7 @@ report() {
 selftest() {
   local fx="$TMP/fx" clean="$TMP/clean" res ok=0 c
   mkdir -p "$fx/life/sub" "$fx/govna" "$clean/life" "$clean/govna"
-  printf 'secretword\n' >"$TMP/deny.txt"
+  printf '# comment line\n\nsecretword\n' >"$TMP/deny.txt"
   {
     printf -- '---\ntype: take\n---\n## Dirty\n'
     printf 'Id 12345678-abcd-4bcd-8bcd-123456789abc here.\n'
