@@ -6,7 +6,7 @@ Use this document as the owning rulebook for every entry published on the site. 
 
 - Apply this filter to every entry created or edited under `life/`, `mind/`, `society/`, or `tech/`, and to the root site pages `about.md`, `index.md`, and `timeline.md`.
 - Pass every rule below before an entry counts as implementation-complete.
-- Treat the site as a short, personal, abridged reference: a neutral summary with a marked personal take, or a practical how-to, never a full treatment.
+- Treat the site as a short, personal, abridged reference: a first-person take supported by external references, or a practical how-to, never a full treatment.
 - Prefer removing text over explaining it when an entry exceeds its budget.
 
 Note: the site is public and attributable through its GitHub repository. Anonymity is not the defense. Accuracy, fairness, and brevity are.
@@ -46,9 +46,13 @@ Note: the two blood-pressure pages stay. A generic health how-to is not personal
 
 ## Voice
 
-- Open a reflective entry with a neutral summary that links to a general reference, usually Wikipedia.
-- Follow the summary with a section headed `My take`, a few sentences at most.
-- Mark opinion as opinion.
+- Write a reflective entry as one continuous first-person argument under its page title.
+- Open with one grounding sentence in that same voice.
+- Carry the general reference, usually Wikipedia, as an inline link where the concept first appears.
+- Use external links to support the argument, never as a detached summary of what others say.
+- Use no heading that labels a passage as opinion, such as `My take`, `Opinion`, `Thoughts`, or `Verdict`.
+- Use a `###` heading only to separate distinct sub-topics, steps, or reference sections.
+- Prefer no internal heading in a `take`.
 - Condense AI-drafted text into that shape before publishing any of it.
 - Use no section headed Conclusion, Final Thoughts, Bottom Line, Key Insight, Summary, Question, or Answer.
 - Publish no question-and-answer transcript.
@@ -69,7 +73,7 @@ Note: the banned headings are the fingerprint of an unedited machine draft. The 
 - Fix or cite a disputed claim in the next release.
 - Keep the corrections channel on `about.md` pointing at the repository's Issues page.
 
-Note: the entries on the Principle of Charity, Hanlon's Razor, and Bulverism already state this standard. This section makes the site hold itself to it. A sourced fact plus labeled opinion is the defensible stance. A diagnosis of a stranger is not.
+Note: the entries on the Principle of Charity, Hanlon's Razor, and Bulverism already state this standard. This section makes the site hold itself to it. A sourced fact plus a judgment plainly in the author's own voice is the defensible stance. A diagnosis of a stranger is not.
 
 ## Consistency And The Stance Register
 

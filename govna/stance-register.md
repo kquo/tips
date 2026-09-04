@@ -13,7 +13,7 @@ Use this table as the list of settled positions the site holds. One line per pos
 | 7 | Disagreement follows the Discourse Protocol: understand first, state the strongest version, accept you may be wrong. | `society/discourse.md`, `mind/famous-lessons.md` | settled |
 | 8 | Progress is real and gradual, and reversible if neglected. | `mind/pinker.md`, `mind/core-challenges.md` | settled |
 | 9 | The political poles are better understood as Reason and Compassion, and a hybrid stance is prudent. | `society/politics.md` | settled |
-| 10 | Confederate monuments memorialize myths rather than history. | `society/politics.md` | settled |
+| 10 | Confederate monuments memorialize myths rather than history. | `society/monuments.md` | settled |
 | 11 | Public belief is shaped by incentives and distribution more than by accuracy; ask who benefits from a framing. | `society/perception-management.md` | settled |
 | 12 | Quotations are prompts for reflection, not proof. | `mind/famous-quotes.md` | settled |
 | 13 | Natural selection bridged mechanism and meaning, and gradualism is the right frame for mind. | `mind/dennett.md` | settled |

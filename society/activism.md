@@ -3,11 +3,7 @@ type: take
 ---
 ## Activism
 
-[Activism](https://en.wikipedia.org/wiki/Activism) is the effort to bring about social or political change. Most people feel the pull to fix what looks wrong in the world; the question is how to spend that pull without wasting it.
-
-### My take
-
-Some presumptuous rules for making a difference:
+[Activism](https://en.wikipedia.org/wiki/Activism) is the effort to bring about social or political change, and most of us feel the pull to fix what looks wrong in the world. The question is how to spend that pull without wasting it. My presumptuous rules for making a difference:
 
 1. **Pick your fights.** You cannot fix everything. Accept it.
 2. **Match effort to influence.** Spend on an issue in proportion to the control you actually have over it. Too big a bite chokes.

@@ -5,8 +5,6 @@ type: take
 
 [Misinformation](https://en.wikipedia.org/wiki/Misinformation) spreads faster than truth because lies are simpler, more emotional, and cheaper to produce, and the [attention economy](https://en.wikipedia.org/wiki/Attention_economy) is tuned for exactly those properties. Truth does not spread by default; if it is to compete, it has to be engineered for the same terrain.
 
-### My take
-
 Five principles truth-tellers can borrow from the way lies travel, without borrowing their ethics:
 
 | # | Principle | Action |

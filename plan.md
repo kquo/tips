@@ -15,3 +15,4 @@ Ideas captured for future discussion. Each entry uses an `IE<N>:` prefix (sequen
 - IE12: apply the publishing filter to Tech, including its links
 - IE13: apply the publishing filter to Life, including its links
 - IE14: propose a pre-prep hook in govna canon so `build.sh prep` runs `check.sh`
+- IE16: make `check.sh --register` detect a stale owning entry, one that exists but no longer states the position, since row 10 pointed at `society/politics.md` after the monuments split
