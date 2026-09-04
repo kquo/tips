@@ -1,33 +1,26 @@
-# Famous Quotes
+---
+type: quote
+---
+## Famous Quotes
 
-Quotes can be useful cognitive anchors. A good line compresses a lesson into something memorable. The tradeoff is that compression removes context, so quotes are best used as prompts for reflection, not as substitutes for reasoning.
+Quotes are useful cognitive anchors: a good line compresses a lesson into something memorable. The cost is that compression removes context, so I use them as prompts for reflection, never as substitutes for reasoning. Treat a quote as a pointer to an idea, not proof of it; ask what problem the line helps you notice or remember; and be wary of dramatic lines, whose emotional punch usually outruns their explanatory value. A few worth remembering:
 
-## How To Use Quotes Well
+### [Jorge Luis Borges](https://es.wikiquote.org/wiki/Jorge_Luis_Borges)
 
-- Treat a quote as a pointer to an idea, not proof that the idea is true.
-- Ask what problem the line helps you notice, clarify, or remember.
-- Be careful with dramatic quotes. Their emotional punch is often stronger than their explanatory value.
+"Yo no hablo de venganzas ni perdones; el olvido es la única venganza y el único perdón."
 
-## A Few Worth Remembering
+Roughly: forgetting, or letting go, is the only real revenge and the only real forgiveness. It shifts attention from theatrical payback to release.
 
-### [Jorge Luis Borges](https://en.wikipedia.org/wiki/Jorge_Luis_Borges)
+### [Jean-Paul Sartre](https://en.wikipedia.org/wiki/No_Exit)
 
-“Yo no hablo de venganzas ni perdones; el olvido es la única venganza y el único perdón.”
+"Hell is other people."
 
-Roughly: forgetfulness, or letting go, is the only real revenge and the only real forgiveness. The line is useful because it shifts attention away from theatrical payback and toward release.
+Repeated too casually. The value is not in treating other people as the problem but in remembering how social judgment, [status anxiety](https://en.wikipedia.org/wiki/Status_anxiety), and mutual dependence can become oppressive.
 
-### [Jean-Paul Sartre](https://en.wikipedia.org/wiki/Jean-Paul_Sartre)
+### [Spanish proverb](https://en.wikiquote.org/wiki/Spanish_proverbs)
 
-“Hell is other people.”
+"No hay plazo que no se cumpla ni deuda que no se pague."
 
-This line is often repeated too casually. The value is not in treating other people as the problem, but in remembering how social judgment, [status anxiety](https://en.wikipedia.org/wiki/Status_anxiety), and mutual dependence can become psychologically oppressive.
-
-### Old Adage
-
-“No hay plazo que no se cumpla ni deuda que no se pague.”
-
-Roughly: every deadline arrives, and every debt comes due. It is a compact reminder that delay does not erase consequences.
-
-## Bottom Line
+Roughly: every deadline arrives and every debt comes due. Delay does not erase consequences.
 
 Good quotes help memory and perspective. Bad use of quotes replaces thinking with borrowed certainty. Keep the first, avoid the second.

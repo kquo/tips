@@ -19,10 +19,11 @@ Use this table as the list of settled positions the site holds. One line per pos
 | 13 | Natural selection bridged mechanism and meaning, and gradualism is the right frame for mind. | `mind/dennett.md` | settled |
 | 14 | Named living people are criticized for public positions and actions only, never for mental states. | `govna/publishing-filter.md` | settled |
 | 15 | Truth borrows distribution mechanics such as speed, simplicity, trusted messengers, and repetition, but not outrage or social punishment. | `society/viral-truth.md`, `society/discourse.md` | settled |
-| 16 | Whether people can be reasoned out of comforting beliefs, and whether trying is worth the effort. | `mind/comfort-biases.md`, `mind/pseudoscience.md` against `mind/limits-of-bias.md`, `mind/cultural-cognition.md` | unresolved |
+| 16 | Individuals can resist bias, but changing someone else's comforting belief by direct argument rarely works; durable change comes through norms, trusted messengers, and institutions. | `mind/comfort-biases.md`, `mind/pseudoscience.md`, `mind/cultural-cognition.md`, `mind/reflexivity.md` | settled |
 | 17 | Cold logic describes positions, not persons; named figures are criticized for sourced public positions only. | `society/libertarianism.md`, `mind/cold-logic.md` | settled |
 | 18 | The Israel and Hamas entry is deliberately neutral and presents both framings with sources. | `society/israel-hamas.md` | settled |
 | 19 | Effort on an issue should match one's actual influence over it. | `society/activism.md` | settled |
 | 20 | Apocalyptic framing in politics licenses extreme measures and forecloses compromise; the framing is the danger, not the theology. | `society/elite-rapture.md` | settled |
 | 21 | U.S. party politics is identity-first with policy rationalized afterward; the exit is a coalition that treats disagreement as information. | `society/us-identity-politics.md` | settled |
 | 22 | The light triad is the counterweight to difficult personalities, and leaders need a balance of dark-triad edge and light-triad decency. | `society/difficult-personalities.md` | settled |
+| 23 | Cold logic and warm sentiment are two ends of one spectrum; lean cold for technical and safety decisions and warm where compassion is the point. | `mind/cold-logic.md` | settled |

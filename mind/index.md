@@ -1,24 +1,24 @@
 ## Mind
 
-- [Answer Patterns Framework](answer-patterns.md): How answers are structured and intended.  
-- [Noam Chomsky](chomsky.md): Some thoughts on Noam Chomsky's work.  
-- [Cold Logic](cold-logic.md): Rigid reasoning that sacrifices empathy and human dignity for strict efficiency.  
-- [Comfort and Biases](comfort-biases.md): Table of biases and the fundamental beliefs on which they might be based.  
-- [Computation](computation.md): Bits on computation.  
-- [Cultural Cognition](cultural-cognition.md): How cultural values and group identities shape how people interpret facts and evidence.  
-- [Human Core Challenges](core-challenges.md): The biological, social, and entropy-based limitations that shape humanity.  
-- [Daniel Dennett](dennett.md): Some thoughts on Daniel Dennett's work.  
-- [Desire](desire.md): Some thoughts on human desire.  
-- [Detecting Baloney](detecting-baloney.md): How to recognize flawed arguments, manipulative rhetoric, and unsupported claims.   
-- [Edge Website](edge-website.md): A comment on the Edge website.  
-- [Famous Quotes](famous-quotes.md): Notable quotes for reflection.
-- [Famous Lessons](famous-lessons.md): Smart thinking shortcuts.
-- [Free Will](free-will.md): Examining free will through Harris vs. Dennett.  
-- [Karl Popper Book Excerpt](popper.md): An excerpt from Popper's After the Open Society.
-- [Limits of Bias](limits-of-bias.md): Recognizing that common psychological tendencies are not universal and can be resisted.  
-- [Pseudoscience](pseudoscience.md): Bits on pseudoscience.  
-- [Reflexivity](reflexivity.md): What reflexivity is, and strategies for enhancing it.  
-- [Roger Penrose](penrose.md): Some thoughts on Roger Penrose's work.  
-- [Science](science.md): Bits on science.  
-- [Steven Pinker](pinker.md): Some thoughts on Steven Pinker's work.  
-- [Viral Truth](../society/viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  
+- [Answer Patterns](answer-patterns.md): Four dimensions for reading what an answer is doing.
+- [Noam Chomsky](chomsky.md): Where I follow him, where I part ways, and his point about the limits of intelligence.
+- [Cold Logic](cold-logic.md): Reasoning that follows a principle past the point where it serves people, and its warm opposite.
+- [Comfort and Biases](comfort-biases.md): Why comforting beliefs persist, and the one bias under all the others.
+- [Computation](computation.md): Universal computation, computational irreducibility, and why paradigm shifts matter.
+- [Human Core Challenges](core-challenges.md): The biological, social, and entropy problems under every other problem.
+- [Cultural Cognition](cultural-cognition.md): Reading facts through group identity, and how societies move past it.
+- [Daniel Dennett](dennett.md): Gradualism, intuition pumps, and Darwin's dangerous idea.
+- [Desire](desire.md): A single scale from hatred to addiction.
+- [Detecting Baloney](detecting-baloney.md): Pointers for an intellectual self-defense toolkit.
+- [Edge Website](edge-website.md): The best salon on the web, and its Epstein problem.
+- [Famous Lessons](famous-lessons.md): Razors and reminders for thinking.
+- [Famous Quotes](famous-quotes.md): A few lines worth remembering, and how to use quotes well.
+- [Free Will](free-will.md): The Harris and Dennett exchange, in three layers.
+- [Optimism](optimism.md): Lines and proverbs against pessimism.
+- [Roger Penrose](penrose.md): Provisional physics and non-algorithmic consciousness.
+- [Steven Pinker](pinker.md): My primary reference in psychology, with two reservations.
+- [Karl Popper](popper.md): Three principles of toleration under every good argument.
+- [Pseudoscience](pseudoscience.md): Why it is bad, who is drawn to it, and what actually counters it.
+- [Reflexivity](reflexivity.md): Observing and revising your own thinking, its evolved limits, and how institutions extend it.
+- [Reflexivity Curriculum](reflexivity-curriculum.md): Norms, practices, and safeguards that make reflection the default.
+- [Science](science.md): The most important mental tool we have, and why it comes hard.

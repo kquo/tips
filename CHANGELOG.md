@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.28.0 | AC33: Mind pass; all 22 entries typed, in voice, sourced; row 16 settled |
 | 0.27.0 | AC32: how-I-see-the-world About, timeline removed, Spanish link, Society fixes |
 | 0.26.0 | AC31: first-person voice replaces My take sections; ten Society takes reflowed |
 | 0.25.0 | AC30: Society pass, fairness rewrites, politics split, register settled |

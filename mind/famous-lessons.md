@@ -1,7 +1,7 @@
 ---
 type: reference
 ---
-# Famous Lessons
+## Famous Lessons
 
 A handy list of time-tested ideas and smart shortcuts for thinking.
 

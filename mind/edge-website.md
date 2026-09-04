@@ -1,5 +1,8 @@
+---
+type: take
+---
 ## Edge Website
-It seems silly when people brag about how much they know. _Knowledge bling_ makes humans look like street chimp entertainers. On the other hand, when knowledable folks get together and casually shoot the breeze about human knowlege, that can be pretty cool. And that's what <https://www.edge.org> is all about. It is the smartest, most insightful salon in the world. Worth visiting from time to time. Although lately, it's now 2023, it's been a bit quiet.
 
-It’s troubling that [The Edge website](https://www.edge.org) and several of its associated scientists have been linked to Jeffrey Epstein, the convicted financier and sex offender. Reports suggest he provided financial support for some of the scientific research these figures were involved in.
+It looks silly when people brag about how much they know; knowledge bling makes humans look like street chimp entertainers. When knowledgeable people get together and casually shoot the breeze about what we know, though, that is a fine thing, and it is what [Edge](https://www.edge.org) was: the smartest, most insightful salon on the web, worth a visit from time to time, although as of 2023 it had gone quiet.
 
+The trouble is its founder. [John Brockman](https://en.wikipedia.org/wiki/John_Brockman_(literary_agent)) was closely connected to Jeffrey Epstein, the convicted sex offender. That does not erase the conversations, but it changes how I read the guest list.

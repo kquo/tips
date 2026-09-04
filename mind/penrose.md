@@ -1,8 +1,12 @@
+---
+type: take
+---
 ## Roger Penrose
-[Roger Penrose](https://en.wikipedia.org/wiki/Roger_Penrose) is a brilliant thinker that offers some very interesting takes on consciousness and artificial intelligence. There is a great Lex Fridman [YouTube interview of Penrose](https://youtu.be/hXgqik6HXc0) discussing where he stands on the computability of consciousness, so these quick notes originated from that interview and also from reading his book mentioned below.
 
-In general, on Physics, Penrose mentions that Paul Dirac tacitly said that [Quantum mechanics](https://en.wikipedia.org/wiki/Quantum_mechanics) is a __provisional theory__. That we need still a theory that explains the collapse of the wave function. That Physics is essentially stuck. Quantum mechanics has to be modified, in an even-handed way (not just quantum gravity) to include both itself and gravity.
+[Roger Penrose](https://en.wikipedia.org/wiki/Roger_Penrose) is a brilliant thinker with unusual takes on consciousness and artificial intelligence. These notes come from a [Lex Fridman interview](https://youtu.be/hXgqik6HXc0) on the computability of consciousness and from the book below.
 
-Regarding consciousness, he mentions that there are 3 key aspects of it: intelligence, awareness and understanding. One of the most approachable areas to understanding, he says, is that we do understand how consciousness can be "turned off", as with anesthesiology. It is from there where his primary insights on the subject seem to come from.
+On physics, Penrose says in that interview that Paul Dirac tacitly treated [quantum mechanics](https://en.wikipedia.org/wiki/Quantum_mechanics) as a provisional theory: we still lack a theory of the collapse of the wave function, physics is essentially stuck, and quantum mechanics has to be modified even-handedly to include gravity rather than gravity simply being quantized.
 
-In his 1989 book [The Emperor's New Mind](https://en.wikipedia.org/wiki/The_Emperor%27s_New_Mind) he postulated that consciousness originates at the quantum level inside neurons, and although he admits his ideas are speculative it still sounds a bit too exotic. He also argued that human consciousness is non-algorithmic, and thus is not capable of being modeled by a computer. Nowadays we seem to be getting closer to AGI ([Artificial General Intelligence](https://en.wikipedia.org/wiki/Artificial_general_intelligence)), so most would say that that objection now appears to be incorrect.
+On consciousness, he names three aspects, intelligence, awareness, and understanding, and finds the most approachable entry point in anesthesia, where we do know how consciousness can be turned off. His primary insights seem to start there.
+
+In [The Emperor's New Mind](https://en.wikipedia.org/wiki/The_Emperor%27s_New_Mind) he proposed that consciousness originates at the quantum level inside neurons. He admits the idea is speculative, and to me it still sounds too exotic. He also argued that consciousness is non-algorithmic and so cannot be modeled by a computer. With systems now approaching [artificial general intelligence](https://en.wikipedia.org/wiki/Artificial_general_intelligence), that objection looks increasingly wrong to me.
