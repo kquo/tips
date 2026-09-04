@@ -22,7 +22,7 @@ How to argue with reasonable people, drawing on [Carl Rogers](https://en.wikiped
 
 ### Having Impossible Conversations
 
-[Peter Boghossian](https://en.wikipedia.org/wiki/Peter_Boghossian) and [James A. Lindsay](https://en.wikipedia.org/wiki/James_A._Lindsay) wrote [How to Have Impossible Conversations](https://a.co/d/3xpHH8x) in 2019. A brief, incomplete, and probably slightly unfair mnemonic of their advice:
+[Peter Boghossian](https://en.wikipedia.org/wiki/Peter_Boghossian) and [James A. Lindsay](https://en.wikipedia.org/wiki/James_A._Lindsay) wrote [How to Have Impossible Conversations](https://openlibrary.org/works/OL20680751W/How_to_Have_Impossible_Conversations) in 2019, the source of most of these techniques. They rest on older and better documented practice: [motivational interviewing](https://en.wikipedia.org/wiki/Motivational_interviewing), the [Socratic method](https://en.wikipedia.org/wiki/Socratic_method), [street epistemology](https://en.wikipedia.org/wiki/Street_epistemology), and [Rapoport's rules](https://en.wikipedia.org/wiki/Rapoport%27s_rules). A brief and incomplete mnemonic:
 
 - **Model it.** Be and do what you want them to do. Admit ignorance.
 - **Watch words.** Be careful, and understand their definitions.

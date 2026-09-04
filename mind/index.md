@@ -14,11 +14,11 @@
 - [Famous Quotes](famous-quotes.md): Notable quotes for reflection.
 - [Famous Lessons](famous-lessons.md): Smart thinking shortcuts.
 - [Free Will](free-will.md): Examining free will through Harris vs. Dennett.  
+- [Karl Popper Book Excerpt](popper.md): An excerpt from Popper's After the Open Society.
 - [Limits of Bias](limits-of-bias.md): Recognizing that common psychological tendencies are not universal and can be resisted.  
-- [Optimism](optimism.md): Some famous optimism quotes, en Español.  
 - [Pseudoscience](pseudoscience.md): Bits on pseudoscience.  
 - [Reflexivity](reflexivity.md): What reflexivity is, and strategies for enhancing it.  
 - [Roger Penrose](penrose.md): Some thoughts on Roger Penrose's work.  
 - [Science](science.md): Bits on science.  
 - [Steven Pinker](pinker.md): Some thoughts on Steven Pinker's work.  
-- [Viral Truth](viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  
+- [Viral Truth](../society/viral-truth.md): Bits on ensuring truth spreads faster than misinformation.  

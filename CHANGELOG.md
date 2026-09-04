@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.27.0 | AC32: how-I-see-the-world About, timeline removed, Spanish link, Society fixes |
 | 0.26.0 | AC31: first-person voice replaces My take sections; ten Society takes reflowed |
 | 0.25.0 | AC30: Society pass, fairness rewrites, politics split, register settled |
 | 0.24.0 | AC29: publishing filter contract, check.sh gate, stance register, timeline |

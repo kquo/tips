@@ -1,4 +1,4 @@
-Notes and reminders for easy reference.
+How I see the world, in short entries, plus a few how-tos.
 
 ### [Life](life/index.md)
 ### [Mind](mind/index.md)
@@ -6,4 +6,3 @@ Notes and reminders for easy reference.
 ### [Tech](tech/index.md)
 
 #### [About](about.md)
-#### [Timeline](timeline.md)

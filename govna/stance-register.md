@@ -25,3 +25,4 @@ Use this table as the list of settled positions the site holds. One line per pos
 | 19 | Effort on an issue should match one's actual influence over it. | `society/activism.md` | settled |
 | 20 | Apocalyptic framing in politics licenses extreme measures and forecloses compromise; the framing is the danger, not the theology. | `society/elite-rapture.md` | settled |
 | 21 | U.S. party politics is identity-first with policy rationalized afterward; the exit is a coalition that treats disagreement as information. | `society/us-identity-politics.md` | settled |
+| 22 | The light triad is the counterweight to difficult personalities, and leaders need a balance of dark-triad edge and light-triad decency. | `society/difficult-personalities.md` | settled |

@@ -66,7 +66,7 @@ kind_of() {
     life/index.md | mind/index.md | society/index.md | tech/index.md) echo index ;;
     life/*/index.md | mind/*/index.md | society/*/index.md | tech/*/index.md) echo index ;;
     life/*.md | mind/*.md | society/*.md | tech/*.md) echo entry ;;
-    about.md | index.md | timeline.md) echo root ;;
+    about.md | index.md) echo root ;;
     *.md) echo other ;;
     *) echo skip ;;
   esac
@@ -243,7 +243,7 @@ changed_set() {
 }
 
 all_set() {
-  { fd -e md . life mind society tech govna 2>/dev/null || find life mind society tech govna -name '*.md'; printf '%s\n' about.md index.md timeline.md AGENTS.md plan.md CHANGELOG.md README.md; } \
+  { fd -e md . life mind society tech govna 2>/dev/null || find life mind society tech govna -name '*.md'; printf '%s\n' about.md index.md AGENTS.md plan.md CHANGELOG.md README.md; } \
     | sed 's#^\./##' | sort -u | while read -r f; do [ -f "$f" ] && printf '%s\n' "$f"; done
 }
 

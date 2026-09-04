@@ -12,4 +12,4 @@ Some people in every walk of life lack social self-awareness, thrive on everyday
 5. **Do not expect them to change.** Getting upset is a waste of energy; these patterns are who they are, and confrontation does not rewire them.
 6. **Leave if it does not improve.** A [toxic workplace](https://en.wikipedia.org/wiki/Toxic_workplace) can do more damage to you and the people around you than to the company. Quitting is a legitimate outcome.
 
-The collective part is harder: societies that idolize these personalities keep promoting them. Recognizing the pattern is the first defense.
+The collective part is harder: societies that idolize these personalities keep promoting them. Recognizing the pattern is the first defense. The counterweight is the [light triad](https://en.wikipedia.org/wiki/Dark_triad#Light_triad) that [Scott Barry Kaufman](https://en.wikipedia.org/wiki/Scott_Barry_Kaufman) and colleagues proposed: humanism, Kantianism, and faith in humanity. Pure light rarely wins an election and pure dark should never win one, so look for leaders with a balance: enough edge to act, enough decency to be trusted.
