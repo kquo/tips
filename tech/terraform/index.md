@@ -218,7 +218,7 @@ One can certainly use a different SCM, or a differnt cloud, so above depend on y
 Intead of creating service principal _TF-AzureRM-Policy_ as mentioned in above article, let's just use the same SP and AZ group mentioned in previous section (`azuretf-sp00` and `az-terraform-management`) 
 
 Assign AZ group `az-terraform-management` the role "Resource Policy Contributor"
-  - Is this really needed for this exampe?
+  - This role may not be needed for this example.
 
 Integrate TF state into Github Action workflow:
   - <https://stackoverflow.com/questions/64397938/how-to-integrate-terraform-state-into-github-action-workflow>

@@ -13,7 +13,8 @@ Ideas captured for future discussion. Each entry uses an `IE<N>:` prefix (sequen
 - IE16: make `check.sh --register` detect a stale owning entry, one that exists but no longer states the position, since row 10 pointed at `society/politics.md` after the monuments split
 - IE17: retitle the site How I See It and decide whether to rename the repository
 - IE18: simpler-English companion pages as pre-generated static variants with a staleness check tied to the source entry
-- IE20: add an English-only rule to the publishing filter and a Spanish-prose detector to `check.sh`, since the AC32 inventory missed `mind/optimism.md`
-- IE21: make `check.sh` flag a paragraph that names a public figure without a source link, since the ad hoc per-paragraph check in the Mind pass caught two unsourced claims the filter missed
-- IE22: add the fence-language rule to the publishing filter and an untagged-fence detector to `check.sh`, since the Tech pass applied the rule by hand
-- IE23: add a question-and-answer-form detector to `check.sh`, since the filter bans Q&A transcripts but only a manual review caught the numbered question form in `life/disc-to-mkv.md`
+- IE24: add a product-name allow-list to the `W-NAME` detector, since Azure Management and Microsoft Graph on `tech/azure/ms-token-validation.md` warn on every sweep
+- IE25: make `X-LANG` catch a lone short Spanish sentence by scoring per entry as well as per line, and lowercase accented capitals without relying on `tr`, since the four-word line threshold misses a one-sentence quote outside a block quote
+- IE26: broaden `X-QA` to lowercase interrogatives, questions inside a paragraph, and bold `Q`/`A` markers without a colon, since the detector matches only capitalized list-item questions and `Q:`-style prefixes
+- IE27: retry a rate-limited external fetch with backoff in `check.sh`, since B'Tselem and GitHub answer 429 on most sweeps and each shows as a warning
+- IE28: verify the fragment of an external link against the target page's anchors, since the chess entry links three Wikipedia section anchors that the check does not test

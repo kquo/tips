@@ -6,7 +6,7 @@ type: reference
 - Definition: A cloud-based data integration service THAT 
     orchestrates data movement and transformation BETWEEN
     direct data sources <and> compute resources
-- How does it work?
+- How it works:
     Connect and collect
     Transform and enrich 
     CI/CD publish

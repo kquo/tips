@@ -57,10 +57,12 @@ Note: the two blood-pressure pages stay. A generic health how-to is not personal
 - Condense AI-drafted text into that shape before publishing any of it.
 - Use no section headed Conclusion, Final Thoughts, Bottom Line, Key Insight, Summary, Question, or Answer.
 - Publish no question-and-answer transcript.
+- Write every entry in English.
+- Quote a non-English source in the original only inside a block quote, followed by an English rendering.
 - Publish no placeholder such as NEEDS REWRITE, need link, Need sources, Needs clean up, TODO, FIXME, or TBD.
 - Write a how-to as the shortest sequence of steps that reaches the result.
 
-Note: the banned headings are the fingerprint of an unedited machine draft. The text under them is usually the only part worth keeping.
+Note: the banned headings are the fingerprint of an unedited machine draft. The text under them is usually the only part worth keeping. The question-form and Spanish-prose detectors in `check.sh` back the transcript and English rules.
 
 ## Fairness And Corrections
 
@@ -103,6 +105,8 @@ Note: the 2026-09-03 review found attention-economy mechanics explained in six e
 ## Accuracy And Sourcing
 
 - Source every contested factual claim.
+- Write every fact-claiming entry as defensibly as its sources allow.
+- State every factual claim no more strongly than its source supports.
 - Prefer Wikipedia or a primary source over commentary.
 - Attribute every quotation to a person and a source.
 - Mark a quotation `attributed` when its source cannot be verified.
@@ -129,6 +133,7 @@ Note: the allowlist covers hosts that reject scripted requests: Stack Overflow a
 - Host no executable code on the site.
 - Keep every script in the `queone/scripts` repository and link to it.
 - Keep a fenced block on a `take`, `note`, `howto`, or `quote` entry to 40 lines or fewer.
+- Tag every fenced block with a language, or `text` for plain output.
 - Show a snippet inline only when reading it is the point of the entry.
 
 ## Check Command
@@ -139,7 +144,7 @@ Note: the allowlist covers hosts that reject scripted requests: Stack Overflow a
 - Treat any non-warning finding in a changed entry as blocking.
 - Treat a warning as a review prompt, not a failure.
 
-Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
+Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
 
 ## Self-Enhancement
 

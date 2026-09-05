@@ -52,6 +52,10 @@ URL_SKIP='mydomain\.com|example\.(com|org|net)|somewhere\.com|contoso\.com|169\.
 HOST_ALLOW='stackoverflow\.com|stackexchange\.com|medium\.com|congress\.gov|sagepub\.com|politico\.com|devgenius\.io'
 HOST_SHORT='youtu\.be|youtube\.com|a\.co|aka\.ms|bit\.ly|t\.co|amazon\.com'
 FENCE_MAX=40
+QA_RE='^[[:space:]]*([0-9]+\.|[-*+])[[:space:]]+(\*\*)?(How|What|Why|Where|When|Which|Who|Is|Are|Can|Do|Does|Should)\b.*\?[[:space:]]*$|^[[:space:]]*(\*\*)?(Q|A|Question|Answer)(\*\*)?:'
+ES_RE='el|los|las|una|está|están|también|porque|más|cómo|qué|años|desde|hasta|cuando|tiene|tienen|hacer|sobre|entre|muy|pero|ser|ese|esa|esto|nosotros|ellos|siempre|nunca|mundo|vida|gente|cosas|mejor|ahora|todo|todos|nada|puede|pueden|mismo|cada|donde|aquí|que|por'
+ES_MIN=4
+NAME_RE='[A-Z][a-z]+ [A-Z][a-z]+'
 
 usage() {
   sed -n '2,15p' "$SELF" | sed 's/^# \{0,1\}//'
@@ -94,6 +98,11 @@ slugs_of() { # file -> kramdown and gfm slugs of every heading, one per line
 
 linksrc() { # file -> same line count with fenced blocks and code spans blanked
   awk '/^(```|~~~)/{fence=!fence; print ""; next} fence{print ""; next} {gsub(/`[^`]*`/,""); print}' "$1"
+}
+
+prosesrc() { # file -> same line count with front matter, fenced blocks, and block quotes blanked
+  awk 'NR==1 && $0=="---"{fm=1; print ""; next} fm==1 && $0=="---"{fm=0; print ""; next} fm==1{print ""; next}
+       /^(```|~~~)/{fence=!fence; print ""; next} fence{print ""; next} /^>/{print ""; next} {print}' "$1"
 }
 
 budget_for() {
@@ -192,6 +201,13 @@ check_structure() {
   if [ "$budget" -gt 0 ] && [ "$words" -gt "$budget" ]; then emit "$f" 1 B-WORDS "$words prose words, budget $budget for $t"; fi
   fmax=$(fence_max "$f")
   if [ "$t" != reference ] && [ "$fmax" -gt "$FENCE_MAX" ]; then emit "$f" 1 B-FENCE "fenced block of $fmax lines, limit $FENCE_MAX"; fi
+  prosesrc "$f" >"$TMP/prose.src"
+  rg -n -o -i -w -e "$ES_RE" "$TMP/prose.src" | tr '[:upper:]' '[:lower:]' | sort -u | cut -d: -f1 | uniq -c | awk -v m="$ES_MIN" '$1>=m{print $2}' | while read -r l; do emit "$f" "$l" X-LANG "Spanish prose, write the entry in English"; done
+  rg -n -e "$QA_RE" "$TMP/prose.src" | cut -d: -f1 | while read -r l; do emit "$f" "$l" X-QA "question-and-answer form"; done
+  awk '/^(```|~~~)/{ if(!fence && ($0=="```" || $0=="~~~")) print NR; fence=!fence }' "$f" | while read -r l; do emit "$f" "$l" X-FENCE "fenced block without a language tag"; done
+  if [ "$kind" = entry ] && { [ "$t" = take ] || [ "$t" = note ]; }; then
+    awk -v re="$NAME_RE" '/^#/{next} /\]\(|<https?:|attributed/{next} $0 ~ re {print NR}' "$TMP/prose.src" | while read -r l; do emit "$f" "$l" W-NAME "named person with no source link in this paragraph"; done
+  fi
 }
 
 # ── index completeness (directories with an index.md) ───────────────────────
@@ -273,6 +289,9 @@ selftest() {
     printf 'I first read it in 1992 and my wife agreed.\n'
     printf 'see [broken](nowhere.md) and [anchor](#no-such-heading) and [abs](https://que.one/x) and [dead](https://nonexistent.invalid/x)\n'
     printf 'TODO fix\n## Conclusion\n### My take\n'
+    printf 'No hay nada más viral que la enfermedad del pesimismo, y esto tiene que ver con la mente.\n'
+    printf -- '- How does it work?\nQ: is this a transcript?\n'
+    printf 'Winston Churchill said this without a source.\n'
     printf '```\n'; c=0; while [ $c -lt 45 ]; do printf 'line %s\n' "$c"; c=$((c+1)); done; printf '```\n'
     c=0; while [ $c -lt 300 ]; do printf 'word '; c=$((c+1)); done; printf '\n'
   } >"$fx/life/dirty.md"
@@ -285,7 +304,7 @@ selftest() {
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/clean.md` | settled |\n' >"$clean/govna/stance-register.md"
 
   res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
-  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING I-INDEX R-PATH; do
+  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME I-INDEX R-PATH; do
     if printf '%s\n' "$res" | rg -q -e " $c "; then printf 'PASS %s\n' "$c"; else printf 'FAIL %s\n' "$c"; ok=1; fi
   done
   res=$( (CHECK_ROOT="$clean" BITS_DENYLIST="$TMP/deny.txt" "$SELF" --all; CHECK_ROOT="$clean" "$SELF" --register) 2>&1 )

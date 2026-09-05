@@ -577,6 +577,7 @@ Note: `CLAUDE.md` is an example of an exempt identifier — it names a product-s
 - Link to the owning entry instead of restating a concept another entry owns.
 - Criticize named people only for public positions and actions.
 - Source every factual claim about a named person.
+- Write every fact-claiming entry as defensibly as its sources allow.
 - Host no executable code on the site.
 - Reference only the `queone` GitHub organization.
 - Record each filter gap found in a closure audit as an `IE<N>:` item in `plan.md` in the same completion report.

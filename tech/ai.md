@@ -2,7 +2,7 @@
 type: note
 ---
 ## AI
-Notes I keep on working with AI models. How I see the software worth building before AGI is on its [own page](before-agi.md). Everything here carries a sell-by date, because model capability has been moving faster than these notes.
+Notes I keep on working with AI models. How I see the software worth building before AGI is on its own page ([Software Before AGI](before-agi.md)). Everything here carries a sell-by date, because model capability has been moving faster than these notes.
 
 ### Prompts that keep answers honest
 
