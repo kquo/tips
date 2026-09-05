@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.32.1 | AC39: grammar-and-flow rule, proofreading gate, initials-aware sentence measure |
 | 0.32.0 | AC38: plain English is the only rendering; variants promoted, mechanism retired |
 | 0.31.0 | AC37: Plain English variants for every take and note, with a staleness gate |
 | 0.30.1 | AC36: four check.sh detectors, defensibility rule, AI page link fix |

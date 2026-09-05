@@ -107,7 +107,8 @@ prosesrc() { # file -> same line count with front matter, fenced blocks, and blo
 
 plain_mean() { # file -> mean words per sentence over prose, in tenths
   prosesrc "$1" | awk '/^#/{next} /^\|/{next} /^[[:space:]]*$/{next} {print}' | sed -E 's/\]\([^)]*\)/]/g; s/`[^`]*`/x/g' | tr '\n' ' ' \
-    | awk '{ n=split($0, s, "[.!?]+[ \"\047)]*"); w=0; c=0; for(i=1;i<=n;i++){ k=split(s[i], t, /[[:space:]]+/); m=0; for(j=1;j<=k;j++) if(t[j]!="") m++; if(m>0){w+=m; c++} } if(c==0) print 0; else printf "%d\n", (w*10)/c }'
+    | awk '{ n=split($0, tk, /[[:space:]]+/); out=""; for(i=1;i<=n;i++){ w=tk[i]; if (w ~ /^[A-Z]\.[,;:)]?$/ || w ~ /^(e\.g\.|i\.e\.|etc\.|vs\.|Dr\.|Mr\.|Mrs\.|Ms\.|Jr\.|Sr\.|St\.|No\.|U\.S\.|U\.K\.)[,;:)]?$/) gsub(/\./, "", w); out=out " " w }
+             n=split(out, s, "[.!?]+([ \"\047)]+|$)"); w=0; c=0; for(i=1;i<=n;i++){ k=split(s[i], t, /[[:space:]]+/); m=0; for(j=1;j<=k;j++) if(t[j]!="") m++; if(m>0){w+=m; c++} } if(c==0) print 0; else printf "%d\n", (w*10)/c }'
 }
 
 budget_for() {
@@ -305,6 +306,7 @@ selftest() {
     c=0; while [ $c -lt 300 ]; do printf 'word '; c=$((c+1)); done; printf '\n'
   } >"$fx/life/dirty.md"
   printf '## Untyped\n\nShort.\n' >"$fx/life/untyped.md"
+  printf -- '---\ntype: take\n---\n## Initials\n\nAs J. J. C. Smart and E. O. Wilson argued, e.g. in the U.S. and the U.K., this sentence runs to twenty words. Dr. Smith, Mr. Jones, i.e. two people, vs. St. Paul, etc. wrote another sentence that also runs on to twenty words.\n' >"$fx/life/initials.md"
   printf '## Life\n\n- [Dirty](dirty.md)\n' >"$fx/life/index.md"
   printf '## Sub\n' >"$fx/life/sub/index.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/missing.md` | settled |\n| 2 | Y. | `life/dirty.md` | bogus |\n' >"$fx/govna/stance-register.md"
@@ -312,10 +314,11 @@ selftest() {
   printf '## Life\n\n- [Clean](clean.md)\n' >"$clean/life/index.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/clean.md` | settled |\n' >"$clean/govna/stance-register.md"
 
-  res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
+  res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md life/initials.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
   for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME W-PLAIN I-INDEX R-PATH; do
     if printf '%s\n' "$res" | rg -q -e " $c "; then printf 'PASS %s\n' "$c"; else printf 'FAIL %s\n' "$c"; ok=1; fi
   done
+  if printf '%s\n' "$res" | rg -q -e "life/initials.md:1: W-PLAIN"; then printf 'PASS W-PLAIN-initials\n'; else printf 'FAIL W-PLAIN-initials\n'; ok=1; fi
   res=$( (CHECK_ROOT="$clean" BITS_DENYLIST="$TMP/deny.txt" "$SELF" --all; CHECK_ROOT="$clean" "$SELF" --register) 2>&1 )
   if printf '%s\n' "$res" | rg -q -e ': [A-Z]-'; then printf 'FAIL clean fixture produced findings:\n%s\n' "$res"; ok=1; else printf 'OK clean-fixture\n'; fi
   return $ok
