@@ -52,10 +52,14 @@ URL_SKIP='mydomain\.com|example\.(com|org|net)|somewhere\.com|contoso\.com|169\.
 HOST_ALLOW='stackoverflow\.com|stackexchange\.com|medium\.com|congress\.gov|sagepub\.com|politico\.com|devgenius\.io'
 HOST_SHORT='youtu\.be|youtube\.com|a\.co|aka\.ms|bit\.ly|t\.co|amazon\.com'
 FENCE_MAX=40
-QA_RE='^[[:space:]]*([0-9]+\.|[-*+])[[:space:]]+(\*\*)?(How|What|Why|Where|When|Which|Who|Is|Are|Can|Do|Does|Should)\b.*\?[[:space:]]*$|^[[:space:]]*(\*\*)?(Q|A|Question|Answer)(\*\*)?:'
-ES_RE='el|los|las|una|está|están|también|porque|más|cómo|qué|años|desde|hasta|cuando|tiene|tienen|hacer|sobre|entre|muy|pero|ser|ese|esa|esto|nosotros|ellos|siempre|nunca|mundo|vida|gente|cosas|mejor|ahora|todo|todos|nada|puede|pueden|mismo|cada|donde|aquí|que|por'
+QA_RE='^[[:space:]]*([0-9]+\.|[-*+])[[:space:]]+(\*\*)?(?i:how|what|why|where|when|which|who|is|are|can|do|does|should)\b.*\?[[:space:]]*$|^[[:space:]]*(\*\*)?(Q|A|Question|Answer)(\*\*)?:|^[[:space:]]*\*\*(Q|A|Question|Answer)\*\*[[:space:]]|^[[:space:]]*(Q|A)[.)-][[:space:]]'
+ES_RE='el|los|las|una|está|están|también|porque|más|cómo|qué|años|desde|hasta|cuando|tiene|tienen|hacer|sobre|entre|muy|pero|ser|ese|esa|esto|nosotros|ellos|siempre|nunca|mundo|vida|gente|cosas|mejor|ahora|todo|todos|nada|puede|pueden|mismo|cada|donde|aquí|que|por|si|hacia|abajo|arriba|después|antes|solo|sólo|algo|alguien|nadie|otra|otro|otros|otras|nuestro|nuestra|sino|aunque|mientras|entonces|así|aún|hoy|mañana|bien|pequeño|primero|último|hombre|mujer|tiempo|cosa|hecho|tener|decir|dice|dijo|fue|eran|fueron|estar|somos|soy|eres|vamos|voy|quiero|puedo|sabe|saber|vez|veces|día|días|noche|esta|este|estos|estas|aquel|aquella|quien|quién|dónde|cuál|cuánto'
+ES_SENT=3
 ES_MIN=4
 NAME_RE='[A-Z][a-z]+ [A-Z][a-z]+'
+NAME_OK='Azure Management|Microsoft Graph'
+BACKOFF_1=2
+BACKOFF_2=5
 
 usage() {
   sed -n '2,15p' "$SELF" | sed 's/^# \{0,1\}//'
@@ -138,12 +142,37 @@ check_privacy() {
 norm_url() { printf '%s' "$1" | sed -E 's#^https?://##; s#^www\.##; s#[?#].*$##; s#/$##'; }
 
 fetch_url() { # url -> "code final"
-  local hit
+  local hit code try=0
   hit=$(awk -F'\t' -v u="$1" '$1==u{print $2; exit}' "$URLCACHE")
   if [ -n "$hit" ]; then printf '%s' "$hit"; return; fi
-  hit=$(curl -sL -A "$UA" --max-time 20 -r 0-0 -o /dev/null -w '%{http_code} %{url_effective}' "$1" 2>/dev/null || printf '000 -')
+  while :; do
+    hit=$(curl -sL -A "$UA" --max-time 20 -r 0-0 -o /dev/null -w '%{http_code} %{url_effective}' "$1" 2>/dev/null || printf '000 -')
+    code="${hit%% *}"
+    [ "$code" = 429 ] && [ "$try" -lt 2 ] || break
+    try=$((try+1)); if [ "$try" -eq 1 ]; then sleep "$BACKOFF_1"; else sleep "$BACKOFF_2"; fi
+  done
   printf '%s\t%s\n' "$1" "$hit" >>"$URLCACHE"
   printf '%s' "$hit"
+}
+
+page_body() { # url -> path of cached body
+  local key p
+  key=$(printf '%s' "$1" | shasum -a 256 | cut -c1-32); p="$TMP/page.$key"
+  [ -f "$p" ] || curl -sL -A "$UA" --max-time 25 -o "$p" "$1" 2>/dev/null || : >"$p"
+  printf '%s' "$p"
+}
+
+check_anchor() { # file line url -> W-ANCHOR when the fragment is not on the page
+  local f="$1" l="$2" u="$3" base frag dec ent p c
+  base="${u%%#*}"; frag="${u#*#}"
+  case "$frag" in '' | /* | !*) return 0 ;; esac
+  dec=$(printf '%b' "$(printf '%s' "$frag" | sed 's/%\([0-9A-Fa-f][0-9A-Fa-f]\)/\\x\1/g')")
+  ent=$(printf '%s' "$dec" | sed "s/'/\&#39;/g")
+  p=$(page_body "$base")
+  for c in "$frag" "$dec" "$ent"; do
+    rg -q -F -e "id=\"$c\"" -e "name=\"$c\"" -e "href=\"#$c\"" -e "id=\"user-content-$c\"" "$p" && return 0
+  done
+  emit "$f" "$l" W-ANCHOR "no anchor #$frag on the page: $base"
 }
 
 check_external() { # file line url
@@ -158,6 +187,7 @@ check_external() { # file line url
     429) emit "$f" "$l" W-EXT "rate limited, retry: $u"; return 0 ;;
     *) emit "$f" "$l" L-EXT "dead ($code): $u"; return 0 ;;
   esac
+  case "$u" in *\#*) check_anchor "$f" "$l" "$u" ;; esac
   printf '%s' "$u" | rg -q -e "://([^/]*\.)?($HOST_SHORT)" && return 0
   if [ "$(norm_url "$u")" != "$(norm_url "$final")" ]; then emit "$f" "$l" L-EXT "moved to $final"; fi
 }
@@ -213,10 +243,13 @@ check_structure() {
   fi
   prosesrc "$f" >"$TMP/prose.src"
   rg -n -o -i -w -e "$ES_RE" "$TMP/prose.src" | tr '[:upper:]' '[:lower:]' | sort -u | cut -d: -f1 | uniq -c | awk -v m="$ES_MIN" '$1>=m{print $2}' | while read -r l; do emit "$f" "$l" X-LANG "Spanish prose, write the entry in English"; done
+  awk '/^#|^\|/{next} { line=$0; gsub(/\]\([^)]*\)/, "]", line); n=split(line, s, "[.!?]+[ \"\047)]*"); for(i=1;i<=n;i++) if (s[i] ~ /[A-Za-z]/) printf "%d\t%s\n", NR, s[i] }' "$TMP/prose.src" >"$TMP/sent.src"
+  rg -n -o -i -w -e "$ES_RE" "$TMP/sent.src" | tr '[:upper:]' '[:lower:]' | sort -u | cut -d: -f1 | uniq -c | awk -v m="$ES_SENT" '$1>=m{print $2}' | while read -r sl; do l=$(sed -n "${sl}p" "$TMP/sent.src" | cut -f1); emit "$f" "$l" X-LANG "Spanish prose, write the entry in English"; done
   rg -n -e "$QA_RE" "$TMP/prose.src" | cut -d: -f1 | while read -r l; do emit "$f" "$l" X-QA "question-and-answer form"; done
+  awk '/^#|^\||^[[:space:]]*([-*+]|[0-9]+\.)[[:space:]]/{next} /^[^.!?]*\?[[:space:]]*$/{print NR}' "$TMP/prose.src" | while read -r l; do emit "$f" "$l" X-QA "paragraph that is only a question"; done
   awk '/^(```|~~~)/{ if(!fence && ($0=="```" || $0=="~~~")) print NR; fence=!fence }' "$f" | while read -r l; do emit "$f" "$l" X-FENCE "fenced block without a language tag"; done
   if [ "$kind" = entry ] && { [ "$t" = take ] || [ "$t" = note ]; }; then
-    awk -v re="$NAME_RE" '/^#/{next} /\]\(|<https?:|attributed/{next} $0 ~ re {print NR}' "$TMP/prose.src" | while read -r l; do emit "$f" "$l" W-NAME "named person with no source link in this paragraph"; done
+    awk -v re="$NAME_RE" -v ok="$NAME_OK" '/^#/{next} /\]\(|<https?:|attributed/{next} { gsub(ok, "", $0) } $0 ~ re {print NR}' "$TMP/prose.src" | while read -r l; do emit "$f" "$l" W-NAME "named person with no source link in this paragraph"; done
   fi
 }
 
@@ -306,19 +339,28 @@ selftest() {
     c=0; while [ $c -lt 300 ]; do printf 'word '; c=$((c+1)); done; printf '\n'
   } >"$fx/life/dirty.md"
   printf '## Untyped\n\nShort.\n' >"$fx/life/untyped.md"
+  printf -- '---\ntype: take\n---\n## Spanish\n\nI keep one line from a film here. Nunca encontrarás un arco iris si estás mirando hacia abajo. It still moves me.\n' >"$fx/life/spanish.md"
+  printf -- '---\ntype: note\n---\n## QA\n\nHow do I decrypt a disc?\n\nUse the app.\n\n- how does it work?\n\n**Q** Is it safe?\n' >"$fx/life/qa.md"
+  printf -- '---\ntype: take\n---\n## Anchor\n\nI link a [missing anchor](https://en.wikipedia.org/wiki/Main_Page#no-such-anchor).\n' >"$fx/life/anchor.md"
+  printf -- '---\ntype: take\n---\n## Retry\n\nI link a [slow host](https://retry.example.test/x).\n' >"$fx/life/retry.md"
+  mkdir -p "$TMP/bin"; printf '#!/bin/sh\nn=$(cat "$COUNTFILE" 2>/dev/null || echo 0); n=$((n+1)); echo $n >"$COUNTFILE"; for a in "$@"; do u="$a"; done; if [ "$n" -le 2 ]; then printf "429 %%s" "$u"; else printf "200 %%s" "$u"; fi\n' >"$TMP/bin/curl"; chmod +x "$TMP/bin/curl"
   printf -- '---\ntype: take\n---\n## Initials\n\nAs J. J. C. Smart and E. O. Wilson argued, e.g. in the U.S. and the U.K., this sentence runs to twenty words. Dr. Smith, Mr. Jones, i.e. two people, vs. St. Paul, etc. wrote another sentence that also runs on to twenty words.\n' >"$fx/life/initials.md"
   printf '## Life\n\n- [Dirty](dirty.md)\n' >"$fx/life/index.md"
   printf '## Sub\n' >"$fx/life/sub/index.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/missing.md` | settled |\n| 2 | Y. | `life/dirty.md` | bogus |\n' >"$fx/govna/stance-register.md"
-  printf -- '---\ntype: note\n---\n## Clean\n\nA clean [entry](index.md) with one [ref](https://en.wikipedia.org/wiki/Main_Page).\n' >"$clean/life/clean.md"
+  printf -- '---\ntype: note\n---\n## Clean\n\nA clean [entry](index.md) with one [ref](https://en.wikipedia.org/wiki/Main_Page).\n\nMicrosoft Graph accepts the token.\n' >"$clean/life/clean.md"
   printf '## Life\n\n- [Clean](clean.md)\n' >"$clean/life/index.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/clean.md` | settled |\n' >"$clean/govna/stance-register.md"
 
-  res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md life/initials.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
-  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME W-PLAIN I-INDEX R-PATH; do
+  res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md life/initials.md life/spanish.md life/qa.md life/anchor.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
+  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME W-PLAIN W-ANCHOR I-INDEX R-PATH; do
     if printf '%s\n' "$res" | rg -q -e " $c "; then printf 'PASS %s\n' "$c"; else printf 'FAIL %s\n' "$c"; ok=1; fi
   done
   if printf '%s\n' "$res" | rg -q -e "life/initials.md:1: W-PLAIN"; then printf 'PASS W-PLAIN-initials\n'; else printf 'FAIL W-PLAIN-initials\n'; ok=1; fi
+  if printf '%s\n' "$res" | rg -q -e "life/spanish.md:[0-9]+: X-LANG"; then printf 'PASS X-LANG-sentence\n'; else printf 'FAIL X-LANG-sentence\n'; ok=1; fi
+  if [ "$(printf '%s\n' "$res" | rg -c -e "life/qa.md:[0-9]+: X-QA")" -ge 3 ]; then printf 'PASS X-QA-paragraph\n'; else printf 'FAIL X-QA-paragraph\n'; ok=1; fi
+  res=$( (COUNTFILE="$TMP/count" PATH="$TMP/bin:$PATH" CHECK_ROOT="$fx" "$SELF" life/retry.md) 2>&1 )
+  if [ "$(cat "$TMP/count")" = 3 ] && ! printf '%s\n' "$res" | rg -q -e "W-EXT|L-EXT"; then printf 'PASS RETRY-429\n'; else printf 'FAIL RETRY-429\n'; ok=1; fi
   res=$( (CHECK_ROOT="$clean" BITS_DENYLIST="$TMP/deny.txt" "$SELF" --all; CHECK_ROOT="$clean" "$SELF" --register) 2>&1 )
   if printf '%s\n' "$res" | rg -q -e ': [A-Z]-'; then printf 'FAIL clean fixture produced findings:\n%s\n' "$res"; ok=1; else printf 'OK clean-fixture\n'; fi
   return $ok
