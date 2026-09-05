@@ -9,4 +9,5 @@ exclude:
   - CHANGELOG.md
   - build.sh
   - check.sh
+  - pre-prep.sh
   - README.md

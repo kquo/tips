@@ -22,6 +22,7 @@ Note: the site is public and attributable through its GitHub repository. Anonymi
 - Count prose words after removing front matter, fenced code blocks, and HTML comments.
 - Split an entry that cannot meet its budget into two entries with one topic each.
 - Treat a missing `type` as `note` during the site-wide sweep only.
+- Update the About paragraph when a kind or its cap changes.
 
 Note: a `take` is opinion on a subject, a `note` is an explainer, a `howto` is steps to a result, a `reference` is a cheat-sheet or list, a `quote` is a collection of other people's words. Anything longer than these budgets reads like an encyclopedia entry, and Wikipedia already does that better.
 
