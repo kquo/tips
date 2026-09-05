@@ -17,3 +17,4 @@ Ideas captured for future discussion. Each entry uses an `IE<N>:` prefix (sequen
 - IE26: broaden `X-QA` to lowercase interrogatives, questions inside a paragraph, and bold `Q`/`A` markers without a colon, since the detector matches only capitalized list-item questions and `Q:`-style prefixes
 - IE27: retry a rate-limited external fetch with backoff in `check.sh`, since B'Tselem and GitHub answer 429 on most sweeps and each shows as a warning
 - IE28: verify the fragment of an external link against the target page's anchors, since the chess entry links three Wikipedia section anchors that the check does not test
+- IE29: make the `W-PLAIN` sentence split ignore initials and common abbreviations, since "J. J. C. Smart" counts as four sentences and lowers the mean

@@ -48,6 +48,8 @@ Note: the two blood-pressure pages stay. A generic health how-to is not personal
 
 - Write a reflective entry as one continuous first-person argument under its page title.
 - Write each reflective entry as how the author sees the subject, not as a report on it.
+- Write every `take` and `note` in plain English: short sentences and common words.
+- Keep a `take` or `note` near 16 words per sentence or fewer.
 - Open with one grounding sentence in that same voice.
 - Carry the general reference, usually Wikipedia, as an inline link where the concept first appears.
 - Use external links to support the argument, never as a detached summary of what others say.
@@ -63,21 +65,6 @@ Note: the two blood-pressure pages stay. A generic health how-to is not personal
 - Write a how-to as the shortest sequence of steps that reaches the result.
 
 Note: the banned headings are the fingerprint of an unedited machine draft. The text under them is usually the only part worth keeping. The question-form and Spanish-prose detectors in `check.sh` back the transcript and English rules.
-
-## Plain English Variants
-
-- Ship every `take` and `note` entry with a Plain English variant named `<entry>-plain.md` in the same directory.
-- Declare the source's `type`, `plain_of` naming the source file, and `source_sha` holding the first 16 hex characters of the source file's SHA-256 in the variant's front matter.
-- Title the variant with the source's title followed by ` (Plain English)`.
-- Write the variant under the same Voice, Fairness, and Accuracy rules as its source.
-- Write the variant in short sentences and common words.
-- Keep every claim, link, and registered position of the source in the variant, and add none.
-- Keep a variant to 125 percent of its type's budget.
-- Refresh the variant and its `source_sha` in the same pass as any change to its source.
-- Keep variants out of the area indexes and the stance register.
-- Treat the source as the owning entry for every position and concept a variant restates.
-
-Note: `quote`, `howto`, and `reference` entries have no variant. Rewording a quotation breaks its attribution, and steps and lists are already plain. The layout links Plain English from a source and Original from its variant; the Español link applies to both.
 
 ## Fairness And Corrections
 
@@ -159,7 +146,7 @@ Note: the allowlist covers hosts that reject scripted requests: Stack Overflow a
 - Treat any non-warning finding in a changed entry as blocking.
 - Treat a warning as a review prompt, not a failure.
 
-Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Variants: `V-MISSING`, `V-STALE`, `V-SOURCE`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. Variant checks run only on entries. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
+Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, `W-PLAIN`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. The plain-English warning measures mean words per sentence over prose lines, with front matter, fences, block quotes, headings, table rows, link targets, and code spans removed. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
 
 ## Self-Enhancement
 

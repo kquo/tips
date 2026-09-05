@@ -14,9 +14,7 @@
       {% if site.title and site.title != page.title %}
       <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
       {% endif %}
-      {% assign plain_url = "" %}{% assign plain_page = nil %}
-      {% if page.url contains ".html" and page.plain_of == nil %}{% assign plain_url = page.url | replace: ".html", "-plain.html" %}{% assign plain_page = site.pages | where: "url", plain_url | first %}{% endif %}
-      <p class="text-small"><a href="https://que-one.translate.goog{{ page.url }}?_x_tr_sl=en&_x_tr_tl=es">Español</a>{% if page.plain_of %} · <a href="{{ page.url | replace: "-plain.html", ".html" }}">Original</a>{% elsif plain_page %} · <a href="{{ plain_url }}">Plain English</a>{% endif %}</p>
+      <p class="text-small"><a href="https://que-one.translate.goog{{ page.url }}?_x_tr_sl=en&_x_tr_tl=es">Español</a></p>
 
       {{ content }}
 

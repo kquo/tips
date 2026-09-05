@@ -3,7 +3,7 @@ type: note
 ---
 ## Desire
 
-I find it useful to place wanting on a single scale that runs from hatred to addiction, because the same object can sit anywhere on it depending on the day, and the label tells me how much the feeling should be trusted.
+I find it useful to put wanting on one scale that runs from hatred to addiction. The same thing can sit anywhere on it depending on the day. The label tells me how much the feeling should be trusted.
 
 | # | Feeling | Level | Note |
 |---|---|---|---|

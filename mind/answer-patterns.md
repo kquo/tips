@@ -3,11 +3,11 @@ type: note
 ---
 ## Answer Patterns
 
-I sort answers along four dimensions, which helps me notice what an answer is doing before I decide what it is worth.
+I sort answers along four lines. This helps me see what an answer is doing before I decide what it is worth.
 
-- **Truth value.** Yes affirms, No denies, Don't know admits uncertainty, and Maybe introduces conditions.
-- **Form.** Short answers are direct; long answers justify or explore, and they usually carry nuance or uncertainty with them.
-- **Intent.** An answer can inform, persuade, entertain, or take responsibility for its accuracy and consequences, and it often combines two of these.
-- **Certainty.** High aligns with a clean Yes or No, medium adds qualifiers, low sits with Don't know or speculation.
+- **Truth value.** Yes agrees. No denies. Don't know admits doubt. Maybe adds conditions.
+- **Form.** A short answer is direct. A long answer explains or explores, and it usually carries some doubt with it.
+- **Intent.** An answer can inform, persuade, entertain, or take responsibility for being right. Often it does two of these at once.
+- **Certainty.** High goes with a clean Yes or No. Medium adds hedges. Low sits with Don't know or guessing.
 
-The useful move is to read the intent first. "You should definitely try this" is a short, persuasive Yes with medium certainty, and knowing that tells me how much weight to give it.
+The useful move is to read the intent first. "You should definitely try this" is a short, persuasive Yes with medium certainty. Knowing that tells me how much weight to give it.
