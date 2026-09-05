@@ -130,7 +130,8 @@ Note: the 2026-09-03 review found attention-economy mechanics explained in six e
 - Retry a rate-limited fetch before reporting it.
 - Rewrite a link whose target now redirects to a different path.
 - Verify a host on the bot-block allowlist in a browser.
-- Run the site-wide link sweep at every Package.
+- Run the site-wide link sweep monthly through the scheduled workflow, and on demand.
+- Fix the findings of the monthly link sweep in the next release.
 
 Note: the allowlist covers hosts that reject scripted requests: Stack Overflow and Stack Exchange, Medium, congress.gov, SAGE, Politico, and devgenius. Liveness decays between releases, which is why the sweep repeats.
 
@@ -145,12 +146,13 @@ Note: the allowlist covers hosts that reject scripted requests: Stack Overflow a
 ## Check Command
 
 - Run `./check.sh` on every changed entry before Implement completion.
-- Run `./check.sh --all` during Package prep and report the failing-entry count.
+- Run `./check.sh` on the release's changed entries and `./check.sh --no-net --all` during Package prep, and report both failing-entry counts.
+- Run `./check.sh --all` monthly through `.github/workflows/link-sweep.yml`; findings land in the Link sweep issue.
 - Run `./check.sh --selftest` after every change to `check.sh`.
 - Treat any non-warning finding in a changed entry as blocking.
 - Treat a warning as a review prompt, not a failure.
 
-Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, `W-PLAIN`, `W-ANCHOR`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. The plain-English warning measures mean words per sentence over prose lines, with front matter, fences, block quotes, headings, table rows, link targets, and code spans removed, and with initials and common abbreviations not counted as sentence ends. The name warning skips the product names in its allow-list. The Spanish check fires on a line with four distinct Spanish words or a sentence with three. The question-form check also flags a paragraph that is nothing but a question. The anchor warning skips a fragment that starts with `/` or `!`, which is a client-side route. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
+Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, `W-PLAIN`, `W-ANCHOR`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. The plain-English warning measures mean words per sentence over prose lines, with front matter, fences, block quotes, headings, table rows, link targets, and code spans removed, and with initials and common abbreviations not counted as sentence ends. The name warning skips the product names in its allow-list. The Spanish check fires on a line with four distinct Spanish words or a sentence with three. The question-form check also flags a paragraph that is nothing but a question. The anchor warning skips a fragment that starts with `/` or `!`, which is a client-side route. A fetch with no answer at all is retried once before it counts as dead. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
 
 ## Self-Enhancement
 

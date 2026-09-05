@@ -1,0 +1,46 @@
+name: Link sweep
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q ripgrep fd-find gawk
+          sudo ln -sf "$(command -v fdfind)" /usr/local/bin/fd
+      - name: Run the sweep
+        run: |
+          ./check.sh --all > sweep.txt 2>&1 || true
+          tail -n 1 sweep.txt
+      - name: Report
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -u
+          out="${SWEEP_FILE:-sweep.txt}"
+          last=$(tail -n 1 "$out")
+          case "$last" in "failing entries: "*) ;; *) echo "sweep did not finish: $last"; exit 1 ;; esac
+          n="${last#failing entries: }"
+          today=$(date -u +%F)
+          num=$(gh issue list --state open --search '"Link sweep" in:title' --json number,title --jq '.[] | select(.title=="Link sweep") | .number' | head -n 1)
+          if [ "$n" -gt 0 ]; then
+            { printf 'Link sweep on %s: %s failing entries.\n\n```text\n' "$today" "$n"; rg -v -e 'W-DENY' "$out"; printf '```\n'; } > body.md
+            if [ -n "$num" ]; then gh issue comment "$num" --body-file body.md; else gh issue create --title "Link sweep" --body-file body.md; fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "Link sweep on $today: clean."
+          fi

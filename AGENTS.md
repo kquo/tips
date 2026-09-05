@@ -569,8 +569,9 @@ Note: `CLAUDE.md` is an example of an exempt identifier — it names a product-s
 - Declare `type` front matter on every entry created or edited.
 - Run `./check.sh` on every changed entry before Implement completion.
 - Block Implement completion on any `./check.sh` failure in a changed entry.
-- Run `./check.sh --all` during Package prep.
-- Report the `./check.sh --all` failing-entry count in the Package completion report.
+- Run `./check.sh` on the release's changed entries and `./check.sh --no-net --all` during Package prep.
+- Report both failing-entry counts in the Package completion report.
+- Check for an open Link sweep issue during Package prep.
 - Check every stance-bearing claim in a changed entry against `govna/stance-register.md`.
 - Return to Refine when a changed entry contradicts a registered stance.
 - Record each new or changed stance in `govna/stance-register.md` in the same pass.

@@ -148,7 +148,7 @@ fetch_url() { # url -> "code final"
   while :; do
     hit=$(curl -sL -A "$UA" --max-time 20 -r 0-0 -o /dev/null -w '%{http_code} %{url_effective}' "$1" 2>/dev/null || printf '000 -')
     code="${hit%% *}"
-    [ "$code" = 429 ] && [ "$try" -lt 2 ] || break
+    if [ "$code" = 429 ] && [ "$try" -lt 2 ]; then :; elif [ "$code" = 000 ] && [ "$try" -lt 1 ]; then :; else break; fi
     try=$((try+1)); if [ "$try" -eq 1 ]; then sleep "$BACKOFF_1"; else sleep "$BACKOFF_2"; fi
   done
   printf '%s\t%s\n' "$1" "$hit" >>"$URLCACHE"
@@ -343,7 +343,18 @@ selftest() {
   printf -- '---\ntype: note\n---\n## QA\n\nHow do I decrypt a disc?\n\nUse the app.\n\n- how does it work?\n\n**Q** Is it safe?\n' >"$fx/life/qa.md"
   printf -- '---\ntype: take\n---\n## Anchor\n\nI link a [missing anchor](https://en.wikipedia.org/wiki/Main_Page#no-such-anchor).\n' >"$fx/life/anchor.md"
   printf -- '---\ntype: take\n---\n## Retry\n\nI link a [slow host](https://retry.example.test/x).\n' >"$fx/life/retry.md"
-  mkdir -p "$TMP/bin"; printf '#!/bin/sh\nn=$(cat "$COUNTFILE" 2>/dev/null || echo 0); n=$((n+1)); echo $n >"$COUNTFILE"; for a in "$@"; do u="$a"; done; if [ "$n" -le 2 ]; then printf "429 %%s" "$u"; else printf "200 %%s" "$u"; fi\n' >"$TMP/bin/curl"; chmod +x "$TMP/bin/curl"
+  mkdir -p "$TMP/bin"
+  cat >"$TMP/bin/curl" <<'SHIM'
+#!/bin/sh
+n=$(cat "$COUNTFILE" 2>/dev/null || echo 0); n=$((n+1)); echo $n >"$COUNTFILE"
+for a in "$@"; do u="$a"; done
+if [ "${SHIM_MODE:-429}" = 000 ]; then
+  if [ "$n" -le 1 ]; then printf "000 -"; else printf "200 %s" "$u"; fi
+else
+  if [ "$n" -le 2 ]; then printf "429 %s" "$u"; else printf "200 %s" "$u"; fi
+fi
+SHIM
+  chmod +x "$TMP/bin/curl"
   printf -- '---\ntype: take\n---\n## Initials\n\nAs J. J. C. Smart and E. O. Wilson argued, e.g. in the U.S. and the U.K., this sentence runs to twenty words. Dr. Smith, Mr. Jones, i.e. two people, vs. St. Paul, etc. wrote another sentence that also runs on to twenty words.\n' >"$fx/life/initials.md"
   printf '## Life\n\n- [Dirty](dirty.md)\n' >"$fx/life/index.md"
   printf '## Sub\n' >"$fx/life/sub/index.md"
@@ -361,6 +372,8 @@ selftest() {
   if [ "$(printf '%s\n' "$res" | rg -c -e "life/qa.md:[0-9]+: X-QA")" -ge 3 ]; then printf 'PASS X-QA-paragraph\n'; else printf 'FAIL X-QA-paragraph\n'; ok=1; fi
   res=$( (COUNTFILE="$TMP/count" PATH="$TMP/bin:$PATH" CHECK_ROOT="$fx" "$SELF" life/retry.md) 2>&1 )
   if [ "$(cat "$TMP/count")" = 3 ] && ! printf '%s\n' "$res" | rg -q -e "W-EXT|L-EXT"; then printf 'PASS RETRY-429\n'; else printf 'FAIL RETRY-429\n'; ok=1; fi
+  res=$( (COUNTFILE="$TMP/count0" SHIM_MODE=000 PATH="$TMP/bin:$PATH" CHECK_ROOT="$fx" "$SELF" life/retry.md) 2>&1 )
+  if [ "$(cat "$TMP/count0")" = 2 ] && ! printf '%s\n' "$res" | rg -q -e "W-EXT|L-EXT"; then printf 'PASS RETRY-000\n'; else printf 'FAIL RETRY-000\n'; ok=1; fi
   res=$( (CHECK_ROOT="$clean" BITS_DENYLIST="$TMP/deny.txt" "$SELF" --all; CHECK_ROOT="$clean" "$SELF" --register) 2>&1 )
   if printf '%s\n' "$res" | rg -q -e ': [A-Z]-'; then printf 'FAIL clean fixture produced findings:\n%s\n' "$res"; ok=1; else printf 'OK clean-fixture\n'; fi
   return $ok

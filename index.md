@@ -1,8 +1,11 @@
 How I see the world, in short entries, plus a few how-tos.
 
-### [Life](life/index.md)
-### [Mind](mind/index.md)
-### [Society](society/index.md)
-### [Tech](tech/index.md)
+<style>.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2rem}@media (max-width:30em){.areas{grid-template-columns:1fr}}</style>
+<div class="areas">
+<h3><a href="life/">Life</a></h3>
+<h3><a href="mind/">Mind</a></h3>
+<h3><a href="society/">Society</a></h3>
+<h3><a href="tech/">Tech</a></h3>
+</div>
 
 #### [About](about.md)
