@@ -1,3 +1,6 @@
+---
+type: reference
+---
 ## Access Control Models
 
 1. **RBAC (Role-Based Access Control)**  

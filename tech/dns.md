@@ -1,7 +1,10 @@
-# DNS
+---
+type: reference
+---
+## DNS
 Useful DNS bits.
 
-## Speed Up Initial Record Creation
+#### Speed Up Initial Record Creation
 To speed this up initial record creation within a zone, update the **negative caching TTL** value in the SOA record for that zone:
 
 ```bash
@@ -14,16 +17,16 @@ Example:
     7200 900 1209600 86400
 ```
 
-## Google DNS Flush cache
+#### Google DNS Flush cache
 <https://developers.google.com/speed/public-dns/cache>
 
-## Improving DNS Perfomance
+#### Improving DNS Perfomance
 - Use a DNS service that uses Anycast for their servers
 - Make sure the DNS provider has servers distributed globally (and that perform well)
 - Try to avoid long CNAME chains (try to avoid them at all if possible)
 - Use a long Time To Live (TTL) on your records so they can be cached by the ISPs and users
 
-## NextDNS on OPNsense
+#### NextDNS on OPNsense
 Use the [NextDNS CLI client (DoH Proxy) installer](https://github.com/nextdns/nextdns/wiki/Installer):
 
 ```bash
@@ -47,7 +50,7 @@ listen 10.10.3.1:53
 nextdns start
 ```
 
-## PowerShell DNS Command Commands
+#### PowerShell DNS Command Commands
 ```bash
 # Show A record
 Get-DnsServerResourceRecord -ComputerName ns1.mydomain.com -ZoneName mydomain.com -Name myhost
@@ -87,7 +90,7 @@ Remove-DnsServerResourceRecord -ComputerName ns1.mydomain.com -ZoneName "10.in-a
 Remove-DnsServerResourceRecord -ComputerName ns1.mydomain.com -ZoneName "mydomain.com" -RRType "TXT" -Name "."
 ```
 
-## PowerShell DNS Scripts
+#### PowerShell DNS Scripts
 PowerShell scripts to perform several different functions on DNS zone records hosted in AD. These scripts need to be moved to a repo.
 
 - Input file:

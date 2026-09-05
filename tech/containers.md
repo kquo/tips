@@ -1,7 +1,10 @@
-# Containers
+---
+type: reference
+---
+## Containers
 Container bits.
 
-## Install Docker - Ubuntu 25.04
+#### Install Docker - Ubuntu 25.04
 
 Below steps are based on <https://linuxiac.com/how-to-install-docker-on-ubuntu-24-04-lts/> : 
 
@@ -35,7 +38,7 @@ sudo rm -rf /var/lib/docker
 sudo rm -rf /var/lib/containerd
 ```
 
-## Install Docker - RedHat/AlmaLinux
+#### Install Docker - RedHat/AlmaLinux
 
 ```bash
 sudo dnf update -y
@@ -50,11 +53,11 @@ Logout and log back in for group changes to take effect.
 
 Above does not install `docker-compose-plugin`.
 
-## Public Docker Registry Logon
+#### Public Docker Registry Logon
 To login using your own Docker Hub username (cannot use email from CLI) simply do: `docker login`
 
 
-## Command Commands
+#### Command Commands
 ```bash
 docker search jenkins                                     # Sample search
 docker run -it centos                                     # Run image with interactive terminal shell
@@ -102,17 +105,17 @@ docker create -v /dbdata --name dbdata training/postgres /bin/true
 docker run -d --volumes-from dbdata --name db1 training/postgres
 ```
 
-## Docker Networking
+#### Docker Networking
 To create an external network with a specific IP CIDR range:
 
 ```bash
 docker network create --gateway 10.10.4.1 --subnet 10.10.4.0/24 NETNAME
 ```
 
-## Docker Volumes
+#### Docker Volumes
 Docker volumes are usually kept under `/var/lib/docker/volumes/` and by default only accessible by `root`.
 
-## Docker for Mac
+#### Docker for Mac
 HyperKit VM Shell
 
 ```bash
@@ -120,7 +123,7 @@ screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty
 linuxkit-025000000001:~# 
 ```
 
-## Kubernetes
+#### Kubernetes
 **Kubernetes** is a production-grade, open-source platform that orchestrates the placement (scheduling) and execution of application *containers* within and across computer clusters. Key elements:
 
 - **Deployment**: A Deployment is responsible for creating and updating instances of your application
@@ -141,10 +144,10 @@ linuxkit-025000000001:~#
 
 - **Criticism**: There are many who argue that for many shops Kubernetes is unncessarily complex and probably should be avoided. In many cases it is easier to run Docker alone, maybe using Compose or Swarm.
 
-## Docker Swarm
+#### Docker Swarm
 Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual host. Swarm serves the standard Docker API, so any tool which already communicates with a Docker daemon can use Swarm to transparently scale to multiple hosts: Dokku, Compose, Krane, Deis, DockerUI, Shipyard, Drone, Jenkins ... and, of course, the Docker client itself.
 
-## kubeadm
+#### kubeadm
 Creating a single control-plane cluster with kubeadm.
 
 See <https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/>
@@ -153,7 +156,7 @@ See <https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/creat
 
 Because you can install kubeadm on various types of machine (e.g. laptop, server, Raspberry Pi, etc.), it’s well suited for integration with provisioning systems such as Terraform or Ansible.
 
-## kubectl Common Commands
+#### kubectl Common Commands
 `kubectl` is Kubernetes's Swiss Army knife. Command commands are:
 
 ```bash
@@ -179,7 +182,7 @@ kubectl get ippool --all-namespaces --export -o yaml > ip-pools.yaml
 kubectl get systemnetworkpolicy.alpha --all-namespaces --export -o yaml > system-network-policies.yaml
 ```
 
-## Docker Compose
+#### Docker Compose
 
 Docker Compose allows one to define and run multi-container applications with Docker. A multi-container application can be defined in a single file (usually called `docker-compose.yaml`), then spun up with a single command (usually `docker-compose up`) and that gets everything running. Check the version: `docker-compose --version`.
 
@@ -254,7 +257,7 @@ Two very rough examples of using **docker compose**:
   - Working Docker and Docker Compose environment. Note that below examples are using version 2 of Docker Compose.
   - References:
     - Installing Docker: <https://docs.docker.com/engine/install/rhel/>
-    - Docker Compose: <https://docs.docker.com/compose/compose-file/compose-file-v3/>
+    - Docker Compose: <https://docs.docker.com/reference/compose-file/legacy-versions/>
   - Docker Socket Issues:
     - If you encounter any `permissions denied` issues with the docker daemon, try these commands:
        ```bash
@@ -396,7 +399,7 @@ Two very rough examples of using **docker compose**:
          main()
      ```
 
-## Docker Images
+#### Docker Images
 
 To build a very small, almost empty container Docker image, build using `FROM scratch`, for example: 
 
@@ -412,7 +415,7 @@ CMD ["/hello.sh"]
 $ docker build .
 ```
 
-## Docker Multi-Stage Builds for Standalone Go Binaries
+#### Docker Multi-Stage Builds for Standalone Go Binaries
 
 Docker multi-stage builds offer several key advantages for **standalone Go binaries**, combining build-time flexibility with minimal final images:
 

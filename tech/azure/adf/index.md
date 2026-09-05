@@ -1,4 +1,7 @@
-# Azure Data Factory (ADF)
+---
+type: reference
+---
+## Azure Data Factory (ADF)
 
 - Definition: A cloud-based data integration service THAT 
     orchestrates data movement and transformation BETWEEN
@@ -60,9 +63,9 @@
       3. Azure; Activity dispatch & Data movements & Dataflows (public or private)
   - Hybrid solution, depending on your networking needs
 
-## References
-- Microsoft doc: <https://docs.microsoft.com/en-us/azure/data-factory/introduction>
+#### References
+- Microsoft doc: <https://learn.microsoft.com/en-us/azure/data-factory/introduction>
 - Microsoft diagram:  <https://docs.microsoft.com/en-us/azure/data-factory/media/introduction/data-factory-visual-guide.png>
 
-## Diagram
+#### Diagram
 ![ADF](https://docs.microsoft.com/en-us/azure/data-factory/media/introduction/data-factory-visual-guide.png)

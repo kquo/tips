@@ -1,7 +1,10 @@
-# GitHub App Installation Permissions
+---
+type: reference
+---
+## GitHub App Installation Permissions
 This document outlines the three sets of permissions a GitHub App can request upon installation, and lists the available permissions in each category with brief descriptions.
 
-## 1. Repository Permissions
+#### 1. Repository Permissions
 Permissions that apply to repositories the app is installed on.
 
 | #  | Name                         | Description                                                                 | Default |
@@ -38,7 +41,7 @@ Permissions that apply to repositories the app is installed on.
 | 30 | Webhooks                    | Manage the post-receive hooks for a repository.                             | No access |
 | 31 | Workflows                   | Update GitHub Action workflow files.                                        | No access |
 
-## 2. Organization Permissions
+#### 2. Organization Permissions
 Permissions that apply across an organization when the app is installed on it.
 
 | #  | Name                          | Description                                                                | Default |
@@ -74,7 +77,7 @@ Permissions that apply across an organization when the app is installed on it.
 | 29 | Variables                     | Manage Actions organization variables.                                    | No access |
 | 30 | Webhooks                      | Manage the post-receive hooks for an organization.                        | No access |
 
-## 3. Account (User-to-Server) Permissions
+#### 3. Account (User-to-Server) Permissions
 Permissions used when an app acts on behalf of a user (via OAuth).
 
 | #  | Name                    | Description                                                                 | Default |

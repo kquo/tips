@@ -1,3 +1,6 @@
+---
+type: reference
+---
 ## Github Workflow OIDC Access to Vault
 To connect to HashiCorp Vault from GitHub Actions using **OIDC (OpenID Connect)**, you can leverage the `hashicorp/vault-action` to simplify the process. OIDC allows your workflow to authenticate to Vault without managing long-lived credentials, making it secure and ideal for CI/CD pipelines.
 
@@ -121,6 +124,6 @@ To recap, ensure the following is configured in Vault:
 
 
 **Reference**
-- [Configuring OpenID Connect in HashiCorp Vault](https://docs.github.com/en/enterprise-cloud@latest/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault)
+- [Configuring OpenID Connect in HashiCorp Vault](https://docs.github.com/en/enterprise-cloud@latest/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-hashicorp-vault)
 
   

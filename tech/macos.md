@@ -1,12 +1,15 @@
-# macOS
+---
+type: reference
+---
+## macOS
 macOS bits.
 
 - [iCloud Photos Backup Guide](icloud-photos.md)
 
-## Mac Migration
+#### Mac Migration
 - Update hostname: 
 
-```
+```bash
 sudo scutil --set HostName <new_name>
 sudo scutil --set LocalHostName <new_name>
 sudo scutil --set ComputerName <new_name>
@@ -30,7 +33,7 @@ dscacheutil -flushcache`
 - Update screencapture behaviour: `./tools/macos/screencapture`
 
 
-## BASHRC
+#### BASHRC
 - `.bashrc` for a user: 
 
 ```bash
@@ -79,20 +82,20 @@ alias grep='grep --color'
 alias myip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 ```
 
-## Network Quality
+#### Network Quality
 Check network quality => `networkQuality -v`
 
-## Useful CLI Site
-Awesome macOS Command-Line = <https://git.herrbischoff.com/awesome-macos-command-line/about/>
+#### Useful CLI Site
+Awesome macOS Command-Line = <https://github.com/herrbischoff/awesome-macos-command-line>
 
-## What TCP Ports Are Listening
+#### What TCP Ports Are Listening
 
 ```bash
 sudo lsof -iTCP -sTCP:LISTEN -n -P    # List what TCP ports apps are listening on
 ```
 
 
-## Turn Off IPV6
+#### Turn Off IPV6
 
 ```bash
 sudo networksetup -setv6off "Wi-Fi"
@@ -109,7 +112,7 @@ sudo networksetup -setv6automatic "Ethernet"
 ```
 
 
-## DNS
+#### DNS
 
 ```bash
 FLUSH
@@ -140,7 +143,7 @@ scutil --dns | grep 'nameserver\[[0-9]*\]'
 ```
 
 
-## Image Conversion
+#### Image Conversion
 - JPEG 
 
 ```bash
@@ -162,7 +165,7 @@ for N in *.pdf ; do sips -s format jpeg $N -o ${N}.jpg ; done
 magick mogrify -resize 60% yul.png 
 ```
 
-## View Hardware Information
+#### View Hardware Information
 
 ```bash
 # NUMBER OF CPUs, etc. Equivalent commands to Linux's nproc and free, etc
@@ -198,7 +201,7 @@ Hardware:
 ```
 
 
-## Disk Trix
+#### Disk Trix
 
 ```bash
 FORMAT
@@ -237,14 +240,14 @@ sudo rmdir /Volumes/centos
 ```
 
 
-## Convert ISO to IMG
+#### Convert ISO to IMG
 
 ```bash
 hdiutil convert ubuntu-20.04-desktop-amd64.iso -format UDRW -o ubuntu-20.04-desktop-amd64
 # Will automatically add the .dmg extension = ubuntu-20.04-desktop-amd64.dmg
 ```
 
-## Create macOS USB Installer
+#### Create macOS USB Installer
 - Download latest macOS installer via the App Store
   - Quit without continuing installation!
   - May take a while
@@ -260,7 +263,7 @@ hdiutil convert ubuntu-20.04-desktop-amd64.iso -format UDRW -o ubuntu-20.04-desk
 
 - Right click and EJECT
 
-## Startup Keys
+#### Startup Keys
 - For newer Apple Silicon CPU machines:
   Switch on your Mac device with the Power Button and do not stop pressing the power button until you see a window that displays a list of drives connected to your Mac.
 

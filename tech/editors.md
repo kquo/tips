@@ -1,9 +1,12 @@
-# Editors
+---
+type: reference
+---
+## Editors
 Handy editor bits.
 
-## vi
+#### vi
 Common commands:
-```
+```text
 CTRL-V    u                  Change case
 SHIFT-I   spaces             Indent
 
@@ -22,7 +25,7 @@ SEARCH/REPLACE g multiple instances per line, c confirm
 
 ```
 
-## VS Codium / Code
+#### VS Codium / Code
 Change foreground color:
 
 1. CMD + ,

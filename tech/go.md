@@ -1,12 +1,15 @@
-# Go
+---
+type: reference
+---
+## Go
 Useful GoLang bits.
 
-## References
+#### References
 - Useful examples = <https://gobyexample.com/>
 - Static analysis = <https://github.com/analysis-tools-dev/static-analysis#go>
 
 
-## Install Go
+#### Install Go
 
 1. On macOS 
 
@@ -21,7 +24,7 @@ export PATH=$PATH:$GOPATH/bin
 2. On Linux and Windows/GitBASH 
 
 ```bash
-curl -kLo /tmp/install-go.sh https://raw.githubusercontent.com/kquo/tools/refs/heads/main/go/install-go.sh
+curl -kLo /tmp/install-go.sh https://raw.githubusercontent.com/queone/scripts/main/install_go
 bash /tmp/install-go.sh            # To install latest Go version ... or 
 bash /tmp/install-go.sh go1.23.3   # To install this specific Go version
 
@@ -34,7 +37,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
 
-## Point to Local
+#### Point to Local
 
 While refactoring and troubleshooting code it is sometimes necessary to point to the local version of a package.
 
@@ -49,7 +52,7 @@ replace github.com/queone/utl => /Users/myuser/mycode/utl
 ```
 
 
-## Build Issues
+#### Build Issues
 
 1. If you get: 
 
@@ -61,7 +64,7 @@ go: go.mod file not found in current directory or any parent directory; see 'go 
 Try this 
 
 ```bash
-go mod init <package_name>   # For example, this would be 'zls' for github.com/kquo/zls
+go mod init <package_name>   # For example, this would be 'zls' for github.com/queone/<repo>
 go mod tidy
 ```
 
@@ -76,7 +79,7 @@ staticcheck ./...
 This will check for common code issues.
 
 
-## Generate Functions Hierarchy Graph
+#### Generate Functions Hierarchy Graph
 Use `go-callvis` for that: 
 
 ```bash
@@ -85,7 +88,7 @@ go-callvis -focus main ./...
 ```
 
 
-## Using `struct{}` for Efficient Maps
+#### Using `struct{}` for Efficient Maps
 
 Optimize Go memory usage when you need a "set" data structure, by using a map where the keys represent the elements of the set, and the value is of type `struct{}`. Why?
 
@@ -120,7 +123,7 @@ for _, i := range someList {
 ```
 
 
-## Reduce Binary Executable Size
+#### Reduce Binary Executable Size
 
 To reduce binary executable sizes:
 1. Always compile with `-ldflags "-s -w"`
@@ -132,7 +135,7 @@ upx -9 <binary>
 ```
 
 
-## Useful Code Snippets
+#### Useful Code Snippets
 
 - Check if field exists in given struct 
 
@@ -194,7 +197,7 @@ func GetListFromLocalFile(storeFile string) interface{} {
 ```
 
 
-## Common Makefile
+#### Common Makefile
 
 Makefiles are usually not needed with Go, but if you must, this one for macOS and Linux will build target binaries for multiple OSes. 
 

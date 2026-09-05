@@ -1,3 +1,6 @@
+---
+type: reference
+---
 ## Arcade
 Bits on playing the old-style coin-operated video arcade games. You can buy the actual old game cabinets from eBay and other places. Or you can set up [MAME](https://en.wikipedia.org/wiki/MAME) on your desktop, using game ROMs you legally own. Or you can build you own game cabinet, with a small dedicated computer running running MAME.
 
@@ -14,7 +17,7 @@ To set up MAME, do the following:
 - Install the latest MAME binary using your OS package installer. On macOS you can just do `brew install mame`
 - Copy the ROM zip files into the `~/.mame/roms/` directory
 - Run any specific game from the CLI with `mame stargate`
-- Install [`manu`](https://github.com/kquo/manu), a small Go util that reads above roms directory and prompts for what game to run 
+- Install [`manu`](https://github.com/queone/manu), a small Go util that reads above roms directory and prompts for what game to run 
 
 Read more in the [MAME Reference](https://docs.mamedev.org/index.html).
 
@@ -202,12 +205,12 @@ time make SUBTARGET=mame SOURCES="src/mame/capcom/1942.cpp,src/mame/namco/galaga
 
 #### Boot into manu Binary
 
-Boot into default `manu` Game Menu binary - See <https://github.com/kquo/manu>
+Boot into default `manu` Game Menu binary - See <https://github.com/queone/manu>
 
 You may also want to update your `$HOME/.bashrc` file with below snippet, so that this special menu utility always run: 
 
 ```bash
-# Always run manu menu binary. See https://github.com/kquo/manu
+# Always run manu menu binary. See https://github.com/queone/manu
 while true; do
     manu
 done

@@ -1,5 +1,8 @@
+---
+type: note
+---
 ## AI
-AI bits.
+Notes I keep on working with AI models.
 
 ### Run DeepSeek Locally
 

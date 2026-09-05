@@ -1,8 +1,11 @@
+---
+type: reference
+---
 ## AWS
 Amazon Web Services bits.
 
 ### AWS EC2 Instance Types Comparison
-See <http://www.ec2instances.info/>
+See <https://instances.vantage.sh/>
 
 ### Useful Commands
 Useful commands.

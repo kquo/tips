@@ -27,3 +27,6 @@ Use this table as the list of settled positions the site holds. One line per pos
 | 21 | U.S. party politics is identity-first with policy rationalized afterward; the exit is a coalition that treats disagreement as information. | `society/us-identity-politics.md` | settled |
 | 22 | The light triad is the counterweight to difficult personalities, and leaders need a balance of dark-triad edge and light-triad decency. | `society/difficult-personalities.md` | settled |
 | 23 | Cold logic and warm sentiment are two ends of one spectrum; lean cold for technical and safety decisions and warm where compassion is the point. | `mind/cold-logic.md` | settled |
+| 24 | Infrastructure-as-code tools compensate for platforms that keep no versioned record of their own state; the fix is one open, built-in infrastructure protocol. | `tech/terraform/problem-with-iac.md`, `tech/terraform/problem-with-state.md` | settled |
+| 25 | Only the resource a token is intended for should validate it; clients treat tokens as opaque bearer credentials. | `tech/azure/ms-token-validation.md` | settled |
+| 26 | Monitoring a person after a thorough evaluation finds no threat is government overreach. | `tech/privacy.md` | settled |

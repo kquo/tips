@@ -1,13 +1,16 @@
-# git
+---
+type: reference
+---
+## git
 Version control bits with `git` and <https://github.com>.
 
-## Subtopics
+#### Subtopics
 - [Github Actions Workflow General](github-actions.md)
 - [Github Actions Workflow OIDC Access to Vault](oidc-vault.md)
 - [Github Actions Workflow OIDC Access to Azure](oidc-azure.md)
 - [GitHub App Installation Permissions](app-inst-perms.md)
 
-## Remove Branches
+#### Remove Branches
 
 ```bash
 git branch -d MY_BRANCH                      # Delete local MY_BRANCH
@@ -17,7 +20,7 @@ git remote prune origin                      # Remove them from local
 ```
 
 
-## Basic Usage
+#### Basic Usage
 
 ```bash
 git checkout MASTER-BRANCH                   # Checkout the canonical source
@@ -32,7 +35,7 @@ git commit -m "my changes"                   # Commit your changes
 ```
 
 
-## General
+#### General
 
 ```bash
 git diff branch_A branch_B                   # Compare two branches
@@ -60,7 +63,7 @@ git mergetool                                      # Resolve Conflicts
 git config --global credential.helper osxkeychain  # Store Credentials on macOS Keychain
 ```
 
-## Rebase Current Branch
+#### Rebase Current Branch
 Step-by-step to rebase your current branch onto main: 
 
 ```bash
@@ -72,7 +75,7 @@ git rebase --continue         # Repeat these last 2 steps until rebase is comple
 git push --force-with-lease
 ```
 
-## Switch from master to main
+#### Switch from master to main
 
 ```bash
 git branch -m master main
@@ -82,7 +85,7 @@ git push origin --delete master
 ```
 
 
-## Fork and Sync Repositories
+#### Fork and Sync Repositories
 
 ```bash
 git remote -v                                               # List the current remotes
@@ -94,7 +97,7 @@ git merge upstream/master                                   # Merge upstream mas
 git push
 ```
 
-## Additional Origins
+#### Additional Origins
 
 ```bash
 git remote set-url origin git@github.com:user/repo2             # Replace origin
@@ -102,7 +105,7 @@ git remote set-url --add origin https://github.com/user/repo3   # Add another or
 ```
 
 
-## Squash Commits
+#### Squash Commits
 
 Squash or clump commits by moving to a new branch:
 
@@ -119,7 +122,7 @@ Squash or clump commits by moving to a new branch:
 ```
 
 
-## Revert to a Previous Commit
+#### Revert to a Previous Commit
 
 When you absolutely need to revert last commits.
 
@@ -136,7 +139,7 @@ git push origin [branch Name] -f
 ```
 
 
-## Create new Git Origin Repo, Local or Remote
+#### Create new Git Origin Repo, Local or Remote
 
 ```bash
 # Populate myproject directory with initial required files to be commited
@@ -158,7 +161,7 @@ git push
 ```
 
 
-## Tags
+#### Tags
 
 ```bash
 git tag                                 # List tags
@@ -173,7 +176,7 @@ git push origin :refs/tags/v2.0.0       # ... and remotely
 ```
 
 
-## Markdown Choice List
+#### Markdown Choice List
 
 ```bash
     * [ ] Is it still in use?
@@ -183,14 +186,14 @@ git push origin :refs/tags/v2.0.0       # ... and remotely
 ```
 
 
-## List Repos Using Github Token:
+#### List Repos Using Github Token:
 
 ```bash
 curl -u USERNAME:TOKEN https://api.github.com/orgs/:ORGNAME/repos?type=private
 ```
 
 
-## Show Branch in Shell Prompt
+#### Show Branch in Shell Prompt
 
 To show current git branch in BASH PS1 prompt, do the following: 
 
@@ -266,20 +269,20 @@ fi
 The script above has been slightly reformated from [the original Github Gist](https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f).
 
 
-## Host Static Site on Github Repo
+#### Host Static Site on Github Repo
 
-Host a simple static *public* document web site based on [Markdown](https://www.markdownguide.org/cheat-sheet) on Github by doing the following:
+Host a simple static *public* document web site based on [Markdown](https://markdownguide.offshoot.io/cheat-sheet/) on Github by doing the following:
 1. Create a **public** Github repo with at least 2 files: An `index.md` and a `_config.yml`
 2. Your repo name *must be named* `<username>.github.io`, but if you have your own domain to use for this, then the repo can be named anything
 3. `index.md` is the home page, equivalent to a `README.md` or `index.html` file 
 4. `_config.yml` tells [Github Pages](https://pages.github.com/) how to render your site, e.g. what theme to use, etc.
-5. You can use [this very same site](https://que.one) as an example
+5. You can use [this very same site](../index.md) as an example
 6. Go to the *Settings* section of your repo, then under the *Code and automation*, click on *Pages*
 7. Under *Source* select your main or master branch
 8. If using your own DNS domain, say `mydomain.com`, then set up a CNAME record for the `www`, and an A record for the Anycast IP addresses as follows: 
 
 ```bash
-www.mydomain.com    CNAME    kquo.github.io.     # Where kquo is your Github username
+www.mydomain.com    CNAME    USERNAME.github.io.     # Where USERNAME is your GitHub username
 
 @                   A        185.199.111.153     # These 4 are Github's Anycast IP addresses
 @                   A        185.199.110.153

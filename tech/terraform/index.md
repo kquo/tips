@@ -1,17 +1,20 @@
-# Terraform
-Bits on [Hashicorp Terraform](https://www.terraform.io/).
+---
+type: reference
+---
+## Terraform
+Bits on [Hashicorp Terraform](https://developer.hashicorp.com/terraform).
 
-It is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services by using [Terraform providers](https://www.terraform.io/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
+It is an open-source tool for provisioning and managing cloud infrastructure as code ([IaC](https://en.wikipedia.org/wiki/Infrastructure_as_code)). It codifies infrastructure in configuration files that describe the desired state for your topology. Terraform enables the management of any infrastructure - such as public clouds, private clouds, and SaaS services by using [Terraform providers](https://developer.hashicorp.com/terraform/language/providers). Each provider adds a set of resource types and/or data sources that Terraform can manage.
 
 Side note
 
 
-## Module Definitions
+#### Module Definitions
 1. A Terraform module is a container for multiple resources that are used together, allowing for reuse, simplification, and management of Terraform configurations.
 2. One thing to remember about a terraform module is that it should be for a _composite of resources_, not a single resource.
 
 
-## Moving Resources in Terraform State
+#### Moving Resources in Terraform State
 1. First you have to update your infrastructure files, but before running `terraform apply`, do the following:
 2. Below command will print of list ot lines to check for moving desired resources:
 ```bash
@@ -26,7 +29,7 @@ rm "$temp1" "$temp_from" "$temp_to"
 4. Remove the `-dry-run` in each line and re-run to move the resource.
 5. After doing all the moves, you can do a `terraform plan` and a `terraform apply` to confirm everything is good.
 
-### Moving Terraform-managed Azure resources from one Resource Group to another (OLD)
+##### Moving Terraform-managed Azure resources from one Resource Group to another (OLD)
 See <https://stackoverflow.com/questions/69283041/terraform-move-entire-resource-group-to-new-azure-subscription>
 
 *First*, you'll need to confirm the resource can actually be moved via the portal, by actually attempting to do the move.
@@ -57,10 +60,10 @@ terraform import azurerm_dns_cname_record.mydomain-www "/subscriptions/<UUID>/re
 ```
 
 
-## Terraform Workflow
+#### Terraform Workflow
 Below ASCII diagram depicts the typical Terraform workflow: 
  
-```
+```text
                          Update code
                         ┌───────────────┐
                         ▼               │
@@ -74,7 +77,7 @@ Below ASCII diagram depicts the typical Terraform workflow:
                          Deploy infra
 ```
 
-## Manage Azure With Terraform
+#### Manage Azure With Terraform
 - These particular instructions assume you will be managing your Azure tenant from an Apple Mac host, using BASH as a shell terminal
 - Of course you can do the same on a Windows host running GitBASH, or a Linux host using regular BASH, making the necessary adjustments
 - Install Terraform and Azure CLI on *macOs*: 
@@ -192,9 +195,9 @@ resource "azurerm_role_definition" "my-rbac-role" {
 
 - References:
   - This article is a helpful intro into this <https://blog.devgenius.io/beginners-guide-to-using-terraform-for-azure-90861bc8b9cf>
-  - To create more resources see the more detailed tutorial at <https://learn.hashicorp.com/collections/terraform/azure-get-started>
+  - To create more resources see the more detailed tutorial at <https://developer.hashicorp.com/terraform/tutorials/azure-get-started>
 
-## Manage Terraform with Github Actions
+#### Manage Terraform with Github Actions
 In general, the typical options when using Terraform are the following: 
     1. Deploy locally via Terraform CLI
     2. Deploy using Terraform Cloud/Enterprise
@@ -219,26 +222,25 @@ Assign AZ group `az-terraform-management` the role "Resource Policy Contributor"
 
 Integrate TF state into Github Action workflow:
   - <https://stackoverflow.com/questions/64397938/how-to-integrate-terraform-state-into-github-action-workflow>
-  - <https://www.blendmastersoftware.com/blog/deploying-to-azure-using-terraform-and-github-actions>
   - Create folder `.github` with subfolder `workflows` in the git repo
   - Upgrade Github account to Team Org, to be able to protect repository branches from direct MERGEs (repository Settings -> Branches)
 
 (Needs clean up)
 
 
-## Extent of Terraform Privileges
+#### Extent of Terraform Privileges
 It's wise to limit and isolate the scope and roles of the security context under which Terraform operates. This reduces the potential blast-radius if the Terraform credentials may happen to be compromised.
 
 
-## Single vs Multi-states
+#### Single vs Multi-states
 At some point you'll need to decide whether you will only have a single state file (local or remote). A single state file works fine for very small setups, but can quickly become cumbersome for larger infrastructure. Particularly if there are many different teams submitting changes to an environment and the state gets locked while each change is being applied. That is when having multiple states or workspaces will come in handy. It gives an organization more flexibility by allowing changes to be independently deployed without locking their separate workflows.
 
-## Mono vs Multi-repo
+#### Mono vs Multi-repo
 When working with Terraform there will come a point where you will need to decide whether to use a mono-repo versus a multi-repo _IaC_ structure for your source code repository. The common analogy is the monolithic project type as opposed to the micro-services project design. There's no right or wrong in this. The answer will depend on different factors, such as how tightly-coupled your project and the development and operation teams are.
 
 The typical mono-repo repository structure looks like the following: 
 
-```
+```text
 terraform-azure-core/
 ├── main.tf
 ├── variables.tf
@@ -335,7 +337,7 @@ module "azure_dns_zones" {
 # Other modules can be defined below to manage other resources with their respective separate module
 ```
 
-## See also
+#### See also
 * [The Problem with Infrastructure-as-Code](problem-with-iac.md)
 * [The Problem with Terraform State](problem-with-state.md)
 

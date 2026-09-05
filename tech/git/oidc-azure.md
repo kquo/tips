@@ -1,27 +1,9 @@
+---
+type: reference
+---
 ## Github Workflow OIDC Access to Azure
 
-**NEEDS REWRITE**
-
 OIDC allows workflows to authenticate and interact with Azure using short-lived tokens. This eliminates the need for long-lived personal access tokens (PAT) or service principal with a secrets, providing a more secure and manageable approach to accessing cloud resources directly from GitHub Actions.
-
-- [Github Workflow OIDC Access to Azure](#github-workflow-oidc-access-to-azure)
-  - [How It Works](#how-it-works)
-  - [Setting Up](#setting-up)
-  - [Overview](#overview)
-  - [OIDC Flow Diagram](#oidc-flow-diagram)
-  - [References](#references)
-- [Using OIDC for Authentication with Azure](#using-oidc-for-authentication-with-azure)
-  - [1. How GitHub Workflows Use OIDC to Authenticate with Azure](#1-how-github-workflows-use-oidc-to-authenticate-with-azure)
-  - [2. Can Any Program Do the Same?](#2-can-any-program-do-the-same)
-    - [a. The Program Must Be Able to Generate an OIDC Token](#a-the-program-must-be-able-to-generate-an-oidc-token)
-    - [b. Azure Must Trust the OIDC Token Issuer](#b-azure-must-trust-the-oidc-token-issuer)
-    - [c. The Program Must Have the Correct Configuration in Azure AD](#c-the-program-must-have-the-correct-configuration-in-azure-ad)
-  - [3. What Makes Azure Trust the GitHub OIDC Token?](#3-what-makes-azure-trust-the-github-oidc-token)
-  - [4. What Does It Take for Any Program to Be Trusted by Azure?](#4-what-does-it-take-for-any-program-to-be-trusted-by-azure)
-  - [5. Example: Custom Program Using OIDC with Azure](#5-example-custom-program-using-oidc-with-azure)
-  - [Summary](#summary)
-  - [Roles in the OIDC Flow](#roles-in-the-oidc-flow)
-    - [Why This Works](#why-this-works)
 
 ### How It Works
 1. **Configuration**: You configure your Azure AD App Registration to trust an external identity provider by setting up a federation with that IdP. This involves specifying details about the IdP, such as the issuer URL, and possibly uploading metadata documents for SAML-based federations.
@@ -87,7 +69,7 @@ OIDC allows workflows to authenticate and interact with Azure using short-lived 
                 curl -sH "Content-Type: application/json" -H "Authorization: Bearer ${AZ_TOKEN}" -X GET "https://management.azure.com/subscriptions?api-version=2022-12-01" | jq
 
             # Option 2: Using custom Python script (RECOMMENDED)
-            # See https://github.com/kquo/bits/blob/main/scripts/get_oidc_tokens.py
+            # See https://github.com/queone/scripts/blob/main/get_oidc_tokens.py
 
             - name: some_other_step
               run: |
@@ -149,16 +131,16 @@ MS Graph                    │                         Azure ARM
 ```
 
 ### References
-- [Example Python Get OIDC Token Script](https://github.com/kquo/bits/blob/main/scripts/get_oidc_tokens.py)
+- [Example Python Get OIDC Token Script](https://github.com/queone/scripts/blob/main/get_oidc_tokens.py)
 - [What is Github Action for Azure](https://learn.microsoft.com/en-us/azure/developer/github/github-actions) 
-- [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure)
 - [Azure login action](https://github.com/marketplace/actions/azure-login)
-- [Configuring OpenID Connect in cloud providers](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)
+- [Configuring OpenID Connect in cloud providers](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-cloud-providers)
 - [OpenID Connect on the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc)
 - [Create ASCII Diagrams](https://asciiflow.com/#/)
 
 
-## Using OIDC for Authentication with Azure
+### Using OIDC for Authentication with Azure
 
 This document explains how **OpenID Connect (OIDC)** authentication works between a program (like a GitHub workflow) and Azure, and what it takes for any program to be trusted by Azure.
 
@@ -264,7 +246,7 @@ If you want to write a custom program that uses OIDC to authenticate with Azure,
    - Present the OIDC token to Microsoft Identity Platform to request an Azure access token.
    - Use the access token to interact with Azure resources.
 
-### Summary
+### Requirements
 
 - **Any program** can use OIDC to authenticate with Azure, provided it generates valid OIDC tokens and Azure is configured to trust the token issuer.
 - Azure trusts GitHub's OIDC tokens because:
