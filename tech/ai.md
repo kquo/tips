@@ -2,7 +2,14 @@
 type: note
 ---
 ## AI
-Notes I keep on working with AI models.
+Notes I keep on working with AI models. How I see the software worth building before AGI is on its [own page](before-agi.md). Everything here carries a sell-by date, because model capability has been moving faster than these notes.
+
+### Prompts that keep answers honest
+
+Two prompts I reuse whenever accuracy matters more than speed:
+
+- `Do a thorough review of X, then adversarially double-check your conclusion for accuracy.`
+- `Assess the claim and provide a concise take.`
 
 ### Run DeepSeek Locally
 
@@ -12,7 +19,7 @@ Pick what DeepSeek R1 model you want to play with: 7b (4.7GB) - 14b (9G) - 32b (
 
 ```bash
 brew install ollama                   # Install ollama
-allama serve                          # Start ollama - in a diff shell window
+ollama serve                          # Start ollama - in a diff shell window
 ollama pull deepseek-r1:7b            # Pull deepseek-r1:7b
 ollama run deepseek-r1:7b             # Run it
 alias r1='ollama run deepseek-r1:7b'  # Setup a shell alias to prompt question
@@ -29,3 +36,5 @@ The most common use is semantic search / retrieval: embed a corpus and a query, 
 #### When Embeddings Are Enough
 
 For tasks focused on matching, ranking, or grouping, embeddings alone are often sufficient: faster, cheaper, more deterministic, and easier to debug than reaching for an LLM.
+
+Current as of September 2026.

@@ -1,8 +1,12 @@
+---
+type: reference
+---
 ## Poker
-Games cheat-sheet patterns:
+
+Chip counts, blind schedules, and payouts I reuse for home games, with standard [poker chip](https://en.wikipedia.org/wiki/Poker_chip) colors and a tournament [blind](https://en.wikipedia.org/wiki/Blind_%28poker%29) ladder.
 
 - Cash game
-```
+```text
   $40 buy-in
   4  green/25c =   1.00
   8  blue/50c  =   4.00
@@ -12,7 +16,7 @@ Games cheat-sheet patterns:
 ```
 
 - Tournament game
-```
+```text
   Each player gets $2000 in chips:
   4 green/$25   =   100
   8 blue/$50    =   400

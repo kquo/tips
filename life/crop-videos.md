@@ -1,16 +1,19 @@
+---
+type: howto
+---
 ## Cropping Videos
 
-How-to crop the sides of a 5-second video clip and convert it from **widescreen** format (e.g., 16:9) to an old-style movie format (e.g., 4:3) using a CLI program. Use `ffmpeg`:
+Crop the sides of a widescreen clip (16:9) down to the old 4:3 movie shape with [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg):
 
 ```bash
 ffmpeg -i input.mp4 -vf "crop=ih*4/3:ih:(iw-ih*4/3)/2:0" -t 5 -c:a copy output.mp4
 ```
 
-- `-i input.mp4`: Specifies the input video file.
-- `-vf "crop=ih*4/3:ih"`: This applies a video filter to crop the video.
-  - `ih` refers to the input height.
-  - `ih*4/3` calculates the new width based on the height to maintain a 4:3 aspect ratio.
-- `-t 5`: Optionally, limit the output video to 5 seconds.
-- `-c:a copy`: This copies the audio stream without re-encoding it.
-- `output.mp4`: Specifies the name of the output video file.
-
+- `-i input.mp4`: the input video file.
+- `-vf "crop=ih*4/3:ih:(iw-ih*4/3)/2:0"`: the crop filter.
+  - `ih` is the input height.
+  - `ih*4/3` is the new width that keeps a 4:3 aspect ratio.
+  - `(iw-ih*4/3)/2` centers the crop horizontally.
+- `-t 5`: optional; keeps only the first 5 seconds.
+- `-c:a copy`: copies the audio stream without re-encoding.
+- `output.mp4`: the output file.

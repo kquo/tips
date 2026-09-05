@@ -1,15 +1,14 @@
 ## Life
 
-- [Blood Pressure Diet](bp-diet.md): Blood pressure diet cheat-sheet.
-- [Kidneys & Blood Pressure](kidneys-bp.md): The Kidneys are the body’s primary long-term regulators of blood pressure.
-- [Columbo](columbo.md): Listing of all 69 TV Episodes of Columbo.
-- [Apple TV Home Videos](appletv-videos.md): Play home videos through your Apple TV.
-- [Crop Videos](crop-videos.md): How to crop videos.
-- [Converting iPhone Ringtones](iphone-ringtones.md): How to covert iPhone ringtones from M4R to MP3 and back.
-- [Chess Notes](chess.md): Chess bits.
-- [Baseball Notes](baseball.md): Baseball bits.
-- [Growing Old](growing-old.md): Bits on growing old.
-- [Poker Notes](poker.md): Poker bits.
-- [Personal Growth](personal-growth.md): Bits on personal growth and well-being.
-- [Decrypt Disc to MKV](disc-to-mkv.md): Bits on how to decrypt Blu-ray/DVD disc to an MKV File.
-- [STFU](stfu.html): For those moments when somone is totally oblivious to making unwanted noise.
+- [Growing Old](growing-old.md): Bertrand Russell's answer to the fear of death.
+- [Personal Growth](personal-growth.md): The handful of ideas I run my own life on.
+- [Blood Pressure Diet](bp-diet.md): A DASH-style cheat-sheet of foods to favor and foods to limit.
+- [Kidneys and Blood Pressure](kidneys-bp.md): How the kidneys regulate blood pressure and what that means for diet.
+- [Chess](chess.md): Openings to master, and a PGN cleanup function.
+- [Poker](poker.md): Chip counts, blind schedules, and payouts for home games.
+- [Baseball](baseball.md): One link for baseball data hacking.
+- [Columbo](columbo.md): All 69 episodes, and how to transcode the DVD set.
+- [Apple TV Home Videos](appletv-videos.md): Play videos from a Mac through the Apple TV app.
+- [Crop Videos](crop-videos.md): Crop a widescreen clip to 4:3 with FFmpeg.
+- [Converting iPhone Ringtones](iphone-ringtones.md): M4R to MP3 and back with FFmpeg.
+- [Decrypt Disc to MKV](disc-to-mkv.md): Rip a Blu-ray or DVD to MKV, then to MP4 for Apple TV.

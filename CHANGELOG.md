@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.30.0 | AC35: Life pass, every entry typed and in voice, STFU removed, AGI take added |
 | 0.29.1 | Tech: section headings fixed, AKS section removed, IaC and state essays revised |
 | 0.29.0 | AC34: Tech pass; every entry typed, links fixed, scripts moved to queone/scripts |
 | 0.28.0 | AC33: Mind pass; all 22 entries typed, in voice, sourced; row 16 settled |

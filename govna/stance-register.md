@@ -30,3 +30,6 @@ Use this table as the list of settled positions the site holds. One line per pos
 | 24 | Infrastructure-as-code tools compensate for platforms that keep no versioned record of their own state; platforms are absorbing reconciliation, and a common declarative model across vendors remains unsolved. | `tech/terraform/problem-with-iac.md`, `tech/terraform/problem-with-state.md` | settled |
 | 25 | Only the resource a token is intended for should validate it; clients treat tokens as opaque bearer credentials. | `tech/azure/ms-token-validation.md` | settled |
 | 26 | Monitoring a person after a thorough evaluation finds no threat is government overreach. | `tech/privacy.md` | settled |
+| 27 | Nobody owes you anything; luck is partly engineered by the situations you choose; outsource what lies outside your expertise, more so with age. | `life/personal-growth.md` | settled |
+| 28 | Widening one's interests beyond the self is the answer to the fear of death. | `life/growing-old.md` | settled |
+| 29 | Before AGI the software worth building is domain-specific harnesses and small maintainable utilities that augment people and models toward aligned AGI, with human intuition steering exploration; a superintelligence would absorb the harness layer, and every such claim is provisional. | `tech/before-agi.md` | settled |

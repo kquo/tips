@@ -1,13 +1,18 @@
+---
+type: reference
+---
 ## Columbo
 ![Columbo](columbo.jpg)
 
-This is a listing of all 69 TV Episodes of [Columbo](https://en.wikipedia.org/wiki/List_of_Columbo_episodes), from the "The Complete Series DVD Set".
+The 69 episodes of [Columbo](https://en.wikipedia.org/wiki/List_of_Columbo_episodes), as transcoded from the Complete Series DVD set.
 
-If you also own that set, you too can use [HandBrake](https://handbrake.fr/) to transcode them as MP4 files and stream them to yourself locally. It's very easy from the command line using: 
+Anyone who owns that set can use [HandBrake](https://en.wikipedia.org/wiki/HandBrake) ([download](https://handbrake.fr/)) to transcode each title to MP4 and stream it locally:
+
+```bash
+HandBrakeCLI -Z "Fast 480p30" -i /Volumes/COLUMBO -t 2 --no-two-pass -o FILENAME.mp4
 ```
-$ HandBrakeCLI -Z "Fast 480p30" -i /Volumes/COLUMBO -t 2 --no-two-pass -o FILENAME.mp4
-```
-Where `-t` is the title for sequence in each DVD (typically 1, 2, or 3).
+
+`-t` is the title number on each disc, typically 1, 2, or 3.
 
 ### Pilot Episodes
 - Columbo 01 1968 Prescription Murder.mp4

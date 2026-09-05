@@ -1,6 +1,7 @@
 ## Tech
 
-- [AI](ai.md): Running a model locally, and when embeddings are enough.
+- [AI](ai.md): Prompts that keep answers honest, running a model locally, and when embeddings are enough.
+- [Software Before AGI](before-agi.md): Domain-specific harnesses, what to build now, and why all of it is provisional.
 - [Arcade](arcade.md): MAME on a desktop and on a Raspberry Pi, with the cabinet configuration.
 - [AWS](aws.md): Instance comparison and metadata commands.
 - [Azure](azure/index.md): Entra, management hierarchy, CLI install, VMs, and PowerShell.

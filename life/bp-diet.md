@@ -1,5 +1,9 @@
+---
+type: reference
+---
 ## Blood Pressure Diet
-Blood pressure diet cheat-sheet.
+
+A cheat-sheet in the spirit of the [DASH diet](https://en.wikipedia.org/wiki/DASH_diet), the eating pattern most guidelines recommend for lowering blood pressure.
 
 ### Quick Bits
 - Remember that the [kidneys are the body’s primary long-term regulators of blood pressure](kidneys-bp.md).
@@ -8,7 +12,7 @@ Blood pressure diet cheat-sheet.
 - Use herbs, spices, lemon, and vinegar instead of salt.
 - Aim for mostly home-cooked meals.
 
-### ✔ Foods That Help Lower or Prevent High Blood Pressure
+### Foods That Help Lower or Prevent High Blood Pressure
 
 | Category | Examples |
 |--------|---------|
@@ -18,7 +22,7 @@ Blood pressure diet cheat-sheet.
 | **Healthy Fats** | Olive oil, nuts & seeds, salmon, sardines, mackerel |
 | **Low-Fat Dairy** | Yogurt, kefir, low-fat milk |
 
-### ✖ Foods to Limit or Avoid
+### Foods to Limit or Avoid
 
 | Category | Examples |
 |--------|---------|

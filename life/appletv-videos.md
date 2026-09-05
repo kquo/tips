@@ -1,10 +1,14 @@
+---
+type: howto
+---
 ## Home Videos Via Apple TV
 
-Share MP4 videos on your **Mac** with your **Apple TV** via the *Apple TV* **App**:
+Share MP4 videos on a Mac with an Apple TV through the [Apple TV app](https://en.wikipedia.org/wiki/Apple_TV_app) on the Mac:
 
-- Launch the Apple TV app and click on *File -> Import...* option and add the specific directory with your videos.
-- Click on your Mac's *System Settings -> General -> Sharing* and enable **Media Sharing**
-- Click on the **(i)** icon to configure settings
-- Make sure your Mac and Apple TV are on the **same** Wi-Fi network
-- Sign in with your Apple ID if prompted
-- **REMINDER**: Your Mac must remain powered ON in order to serve the content
+1. Open the Apple TV app on the Mac and choose *File > Import…* to add the folder holding the videos.
+2. Open *System Settings > General > Sharing* and turn on **Media Sharing**.
+3. Click the **(i)** icon next to Media Sharing to name the library and choose what to share.
+4. Put the Mac and the Apple TV on the same Wi-Fi network.
+5. Sign in with the same Apple ID on the Apple TV if prompted.
+
+The Mac must stay powered on to serve the videos.
