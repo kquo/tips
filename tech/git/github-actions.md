@@ -4,7 +4,7 @@ type: reference
 ## Github Actions
 Two quick examples of Github Actions workflow jobs. They both generate releases of the current repo, which is a Go binary. One does it automatically, the other manually:
 
-#### Workflow Automatic Run
+### Workflow Automatic Run
 
 ```yaml
 name: release-automatically
@@ -71,7 +71,7 @@ jobs:
           asset_content_type: application/gzip
 ```          
 
-#### Workflow Manual Run
+### Workflow Manual Run
 
 ```yaml
 name: release-manually

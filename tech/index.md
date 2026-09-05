@@ -3,7 +3,7 @@
 - [AI](ai.md): Running a model locally, and when embeddings are enough.
 - [Arcade](arcade.md): MAME on a desktop and on a Raspberry Pi, with the cabinet configuration.
 - [AWS](aws.md): Instance comparison and metadata commands.
-- [Azure](azure/index.md): Entra, management hierarchy, CLI install, VMs, AKS node access, and PowerShell.
+- [Azure](azure/index.md): Entra, management hierarchy, CLI install, VMs, and PowerShell.
 - [Containers](containers.md): Docker installation and the commands I reach for.
 - [Devops Documentation](devops-docs.md): The four kinds of documentation and how to write them.
 - [DNS](dns.md): Record creation, cache flushing, NextDNS on OPNsense, and PowerShell DNS commands.

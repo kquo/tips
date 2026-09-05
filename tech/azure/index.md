@@ -7,13 +7,13 @@ Helpful Microsoft Azure cloud bits.
 - [Github Workflow OIDC Access to Azure](../git/oidc-azure.md)
 - [Understanding Microsoft Access Token Validation](ms-token-validation.md)
 
-#### Azure Cloud
+### Azure Cloud
 
 The __cloud__ metaphor usually evokes a feeling of something that is experienced without understanding what it is or how it works, and Microsoft Azure [cloud computing](https://en.wikipedia.org/wiki/Cloud_computing) if no different.
 
 To avoid the hype, let's approach the Azure Cloud as revolving around two major realms: **Resource** and **Security**. This is not how Microsoft typically documents Azure, but it's a more helpful perspective on how it is put together and how it works. In essence, the Azure cloud can be summarized by its two fundamental realms: Azure Resource Services and Azure Security Services.
 
-#### Azure Resource Services
+### Azure Resource Services
 
 What we call _Azure **Resource** Services_ here is essentially the comprehensive suite of [Products](https://azure.microsoft.com/en-us/products/) and tools to host applications, store data, and enable various services on Microsoft's Azure cloud. Institutions can access these wide array of **Azure Services** which include virtual machines (VM), databases, storage solutions, machine learning, artificial intelligence (AI), serverless computing, content delivery networks (CDN), and much more. The functions of these services are primarily managed via the Azure Resource Manager API at <https://management.azure.com>, and are detailed at <https://learn.microsoft.com/en-us/azure/azure-resource-manager>. Azure services are the core of the Azure ecosystem.
 
@@ -21,14 +21,14 @@ See below pages for specific bits on specific services:
 
 - [Azure Data Factory (ADF)](adf/index.md): A cloud-based data integration service that orchestrates data movement and transformation between direct data compute resources.
 
-#### Azure Security Services
+### Azure Security Services
 
 What we call _Azure **Security** Services_ here is essentially what Microsoft calls its _[Microsoft Identity Platform](https://learn.microsoft.com/en-us/entra/identity-platform/)_, and it plays a fundamental role in the Azure ecosystem, that permeates all of Azure. Like Azure Resources, it is a complementary suite of services that provides several essential cloud identity components, allowing institutions to control and manage access to services and applications that they host on Azure.
 
 - [Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra) (formerly known as Azure Active Directory): This is the key element that serves as the primary **identity provider** for Azure, with tools and services to control and protect access to azure services and applications. It plays a vital role within the overall Azure identity and access management ([IAM](https://learn.microsoft.com/en-us/entra/fundamentals/identity-fundamental-concepts)) framework for any institution. At a very high level, IAM can be summarized as the core framework that enables an organization to facilitate **1)** the right individuals, **2)** to access the right resources, **3)** at the right time, and **4)** for the right reasons. The Microsoft Entra ID functions are managed via the [MS Graph](https://learn.microsoft.com/en-us/graph/overview) API, typically via the <https://graph.microsoft.com> endpoint.
 - Other important Azure security services are [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/overview) and [Microsoft Entra Privileged Identity Management (PIM)](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure). Moreover, the [Azure Security](https://learn.microsoft.com/en-us/azure/security/fundamentals/overview) page lists other essential elements within Azure security services.
 
-#### Azure Management Hierarchy
+### Azure Management Hierarchy
 
 To manage access into Azure resource or security services you must first understand that these are indeed two (2) separate _realms_, but they are very closely _intertwined_. The Resource Realm is where Azure service objects live, and the Security Realm is where, well, security objects live. Luckily, these realms share the same hierarchy, which starts at the top, within an organization's Azure **tenant**.
 
@@ -51,7 +51,7 @@ To manage access into Azure resource or security services you must first underst
 6. Microsoft Azure makes available native, **Built-In** Entra ID roles (security realm) as well as resource RBAC roles (resource realm) for each service product offering. Microsoft makes these roles available globally, to every organization with a tenant in Azure cloud.
 7. Many organization choose to create their own **Custom** roles based on the Built-In ones, because it affords them better version control of these roles. Microsoft is known for changing Built-In role behavior from time to time, and having your own _pinned_version of a role offers more control.
 
-#### Azure Access Methods
+### Azure Access Methods
 
 To do work in azure, whether to create resource or security objects, or to manage them, you have to access Azure in one of the following ways:
 
@@ -64,7 +64,7 @@ To do work in azure, whether to create resource or security objects, or to manag
 
 Typical use column only describes the most common reason for using the specific method, but actual usage can vary depending on context.
 
-#### Azure Virtual Machines
+### Azure Virtual Machines
 
 - Azure allows different types of VMs, see [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) for more info.
 - The [Azure VM Comparison page](https://cloudprice.net/?sortField=linuxPrice&sortOrder=true) provides a quick and dirty view of all current VM instances types that Azure offers, and includes latest princing.
@@ -78,7 +78,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 ```
 See also <https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=windows>
 
-#### Install Azure CLI
+### Install Azure CLI
 
 The [Azure CLI tool](https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli) (`az`) is a cross-platform utility that allows you to connect to Azure and execute administrative commands on Azure resources. Follow below table to install and use in the respective OS or environment:
 
@@ -89,7 +89,7 @@ The [Azure CLI tool](https://learn.microsoft.com/en-us/cli/azure/what-is-azure-c
 | [Windows](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest&tabs=azure-cli) | <== Click on link |
 | [Docker](https://learn.microsoft.com/en-us/cli/azure/run-azure-cli-docker?view=azure-cli-latest)  | docker run -it mcr.microsoft.com/azure-cli |
 
-#### Create VM
+### Create VM
 
 Create a sample Azure VM using the `az` utility.
 
@@ -103,56 +103,9 @@ az vm create --name myvm01 --resource-group myrs --admin-username admin --admin-
 az vm create --name myvm01 --resource-group myrs --admin-username admin --admin-password secure --image "OpenLogic:CentoOS:7.6:7.6.20190402" --subnet "/subscriptions/long-ass-name" --size Standard_B1ms
 ```
 
-#### SSH to AKS Cluster Node
+### PowerShell
 
-This is not generally recommended, but there are time, while experimenting in a lower environment when you may need to SSH into an ASK cluster node:
-
-- Set account: `az account set -s sub1000`
-
-- Get AKS node resource group
-```bash
-az aks show -n myakscluster --resource-group myresgroup --query nodeResourceGroup -o tsv
-MC_myakscluster1_resgroup_eastus2
-```
-
-- List nodes in that RS
-```bash
-az vmss list --resource-group MC_myakscluster1_resgroup_eastus2 --query [0].name -o tsv
-<VMSS-NAME>
-```
-
- - Locate your SSH public key
-```bash
-cat /home/user1/.ssh/id_ed25519.pub
-ssh-ed25519 AAAA...<PUBLIC-KEY> user1@example.com
-```
-
-- Add you SSH key to the set
-```bash
-az vmss extension set --resource-group MC_myakscluster1_resgroup_eastus2 --vmss-name <VMSS-NAME> --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.4 --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"ssh-ed25519 AAAA...<PUBLIC-KEY> user1@example.com\"}"
-```
-
-- Sync key across the set
-`az vmss update-instances --instance-ids "*" --resource-group MC_myakscluster1_resgroup_eastus2 --name <VMSS-NAME>`
-
-- View Connected Devices in subnet to locate the IP address of the specific AKS node, usually the 1st is `.4`, and SSH to it:
-`ssh azureuser@<NODE-IP>`
-
-- To remove this SSH access, after you are done troubleshooting:
-```bash
-az login
-az account set -s MYACCOUNT
-NodeResGroup=$(az aks show -n CLUSTER-NAME -g CLUSTER-RES-GRP --query nodeResourceGroup -o tsv)
-VmssList=$(az vmss list -g $NodeResGroup --query [0].name -otsv)
-az vmss extension list -g $NodeResGroup --vmss-name $VmssList -o tsv
-az vmss extension delete -g $NodeResGroup --vmss-name $VmssList -n VMAccessForLinux
-az vmss update-instances --instance-ids "*" -g $NodeResGroup -n $VmssList
-``` 
-Try SSH'ing to node to confirm there's no longer access.
-
-#### PowerShell
-
-##### Azure From PowerShell
+#### Azure From PowerShell
 
 - From Windows, PowerShell is of course built into Windows, simply open the PS Command Prompt then do: 
 
@@ -185,7 +138,7 @@ docker run -it mcr.microsoft.com/azure-powershell pwsh
 # Then run same above commands
 ```
 
-##### Common Commands
+#### Common Commands
 
 ```powershell
 # List PS version
@@ -241,7 +194,7 @@ $id = (Get-AzAdGroup -DisplayName MYGROUP).Id
 Remove-AzRoleAssignment -ObjectId $id -RoleDefinitionName "azure-support-basic" 
 ```
 
-#### PowerShell Service Principal Login
+### PowerShell Service Principal Login
 
 ```bash
 # Use the application ID as the username, and the secret as password
@@ -249,7 +202,7 @@ $credentials = Get-Credential
 Connect-AzAccount -ServicePrincipal -Credential $credentials -Tenant <tenant ID>
 ``` 
 
-#### Create Service Principal
+### Create Service Principal
 
 To quickly create an Azure service principal from the CLI, and grant it RBAC role `Contributor` at a specific subscription scope, run the following: 
 
@@ -264,7 +217,7 @@ az ad sp create-for-rbac -n sp-cli-mgmt --role="Contributor" --scopes="/subscrip
 ```
 If you omit the `-n <Name>` option, Azure will automatically pick a name like `azure-cli-2022-04-03-23-15-00` for you.
 
-#### WARNING: Use of _Microsoft Graph PowerShell_ SP
+### WARNING: Use of _Microsoft Graph PowerShell_ SP
 
 Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to Azure APIs is highly **discouraged**.
 - See <https://practical365.com/connect-microsoft-graph-powershell-sdk/>
@@ -285,7 +238,7 @@ Using the built-in **Microsoft Graph PowerShell** Service Principal to logon to 
       - From PowerShell you can then login with: `Connect-MgGraph -AccessToken $generated_token`
       - From Python scripts and Go utilities there are many different ways to logon and access APIs
 
-#### Azure Questions
+### Azure Questions
 
 - The functionalities of [Azure Resource Manager] (https://management.azure.com) and [MS Graph] (https://graph.microsoft.com) are very closely intertwined. Will these planes ever be bridged, integrated, or unified into a single platform and API?
 

@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.29.1 | Tech: section headings fixed, AKS section removed, IaC and state essays revised |
 | 0.29.0 | AC34: Tech pass; every entry typed, links fixed, scripts moved to queone/scripts |
 | 0.28.0 | AC33: Mind pass; all 22 entries typed, in voice, sourced; row 16 settled |
 | 0.27.0 | AC32: how-I-see-the-world About, timeline removed, Spanish link, Society fixes |

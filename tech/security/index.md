@@ -4,17 +4,17 @@ type: reference
 ## Security
 Computer security bits.
 
-#### Subtopics
+### Subtopics
 - [Access Control Models](access-models.md)
 
-#### Storing Passwords
+### Storing Passwords
 To store passwords use `bcript` -- don't use MD5. The key point is that *bcrypt* is like MD5 and other hash checksum tools, **but very, very slow**. And this a phenomenal deterence to brute force attacks.
 
 - <https://en.wikipedia.org/wiki/Bcrypt>
 - <https://pypi.org/project/py-bcrypt/>
 
 
-#### pfSense Let's Encrypt Certs
+### pfSense Let's Encrypt Certs
 To set up pfSense to use Let's Encrypt certificates (acme), just follow existing references.
 
 **References:**
@@ -23,7 +23,7 @@ To set up pfSense to use Let's Encrypt certificates (acme), just follow existing
 - <https://www.danielcolomb.com/2019/08/29/creating-wildcard-certificates-on-pfsense-with-lets-encrypt/>
 
 
-#### Let's Encrypt SSL Certificates
+### Let's Encrypt SSL Certificates
 Follow below steps to install and configure Certbot, and to issue and renew [Let's Encrypt](https://letsencrypt.org/) SSL certificates.
 
 These steps are based on [this Digital Ocean article](https://www.digitalocean.com/community/tutorials/how-to-acquire-a-let-s-encrypt-certificate-using-dns-validation-with-certbot-dns-digitalocean-on-ubuntu-20-04).
@@ -75,7 +75,7 @@ sudo certbot renew                   # To do manually
 sudo certbot renew --dry-run         # For testing
 ```
 
-#### ED25519 SSH Key
+### ED25519 SSH Key
 The Ed25519 key type is the latest, and according to most security experts, the best option. To generate a key run:
 
 ```bash
@@ -91,7 +91,7 @@ ssh-keygen
 ```
 
 
-#### pfSense FreeBSD Firewall
+### pfSense FreeBSD Firewall
 - Download it 
 
 ```bash
@@ -112,7 +112,7 @@ VirtualBox
 - Confirm by checking `https://<PFSENSE-IP>:444/`
 
 
-#### pfSense Disk Addition
+### pfSense Disk Addition
 Add another disk to pfSense appliance.
 ```bash
 camcontrol devlist [geom disk list]       # Show disks
@@ -140,11 +140,11 @@ To reattach after reboot:
 ```
 
 
-#### pfSense Speed Tuning
+### pfSense Speed Tuning
 To speed things up, maybe use `sysctl net.isr.dispatch=deferred`? [Need sources]
 
 
-#### pfSense Serial Connnection From macOS
+### pfSense Serial Connnection From macOS
 - Download and install Prolific Serial USB extension for macOS
   - <https://prolificusa.com/product/pl2303gc-usb-full-uart-bridge-controller-gpio/>
 - After you will see this device = `/dev/tty.usbserial-<ID>`
@@ -154,7 +154,7 @@ To speed things up, maybe use `sysctl net.isr.dispatch=deferred`? [Need sources]
   - `Press Ctrl-A, Ctrl-\ to quit`
 
 
-#### Memorable Password Generation
+### Memorable Password Generation
 To generate 4-word phrase memorable password use [pgen](https://github.com/queone/gkit/tree/main/cmd/pgen):
 
 ```bash
@@ -167,7 +167,7 @@ You can use `pgen 6` to generate 6-word prhases, and so on.
 To check entropy of these passwords use GRC's Interactive Brute Force Password "Search Space" Calculator: <https://www.grc.com/haystack.htm>
 
 
-#### OpenSSL Commands
+### OpenSSL Commands
 - Functions to list SAN SSL certs and expiry. Use in `.bashrc` or put in a dedicated bash script: 
 
 ```bash
@@ -221,14 +221,14 @@ openssl rsa -in privateKey.key -check
 ```
 
 
-#### Test Cert Against CA
+### Test Cert Against CA
 ```bash
 echo -n | openssl s_client -connect ldap.mydomain.com:636 -CAfile ad-ca-root.crt -showcerts -state
 echo -n | openssl s_client -connect puppet.mydomain.com:8140 -prexit
 ```
 
 
-#### Generate Self-Signed Cert Bash Script
+### Generate Self-Signed Cert Bash Script
 This script should be placed in a code repo and just referenced here as an example 
 
 ```bash
@@ -267,7 +267,7 @@ exit 0
 ```
 
 
-#### Hashicorp Vault
+### Hashicorp Vault
 Hashicorp Vault is as secret sharing and management tool:
 
 - <https://developer.hashicorp.com/vault>
@@ -276,7 +276,7 @@ Hashicorp Vault is as secret sharing and management tool:
 - The vault binary can serve as both client and server
 
 
-#### Vault Common Commands
+### Vault Common Commands
 ```bash
 export VAULT_ADDR=https://vault.mydomain.com
 vault kv get myfolder/mykey
@@ -284,7 +284,7 @@ vault kv list myfolder/mysubfolder/
 ```
 
 
-#### Vault Login
+### Vault Login
 ```bash
 vault auth -method=ldap -address=https://vault.mydomain.com:443 username=user1
   Password (will be hidden):
@@ -304,7 +304,7 @@ Created/provided public PGP key user1.key for Vault unsealing
 ```
 
 
-#### Unseal Hashicorp Vault
+### Unseal Hashicorp Vault
 ```bash
 cat input3.txt | xxd -r -p | gpg --decrypt   [OLD]
 echo <keyvalue> | base64 -D > output.gpg     [NEW]
@@ -313,7 +313,7 @@ vault unseal -address=https://${INSTANCEID}.vault.mydomain.com:8200
 ```
 
 
-#### Vault Rekeying Effort
+### Vault Rekeying Effort
 ```text
 Find leader
   curl https://vault.mydomain.com/v1/sys/leader
@@ -327,7 +327,7 @@ Find leader
 ```
 
 
-#### Access to Vault and Token for ServiceAppX
+### Access to Vault and Token for ServiceAppX
 ```text
   Checkout vaul-policies repo
 
@@ -345,7 +345,7 @@ Find leader
 ```
 
 
-#### Vault Server Monitoring
+### Vault Server Monitoring
 - Reference <https://developer.hashicorp.com/vault/api-docs/system/health> 
 
 ```text
@@ -371,7 +371,7 @@ Find leader
 ```
 
 
-#### Modern Web Authentication
+### Modern Web Authentication
 Short summary of modern web application authentication using an indentity provider (IdP).
 
 1. A "Trust Relationship" between the web app and the IdP must be set up before hand
@@ -390,7 +390,7 @@ Short summary of modern web application authentication using an indentity provid
 - Multiple IdPs (Federation): Home Realm Discovery
 
 
-#### JSON Web Token
+### JSON Web Token
 JSON Web Token (JWT) are an open, industry standard RFC7519 method for representing claims securely between two parties.
 
 - See <https://jwt.io/>
@@ -413,7 +413,7 @@ except Exception as e:
     pass
 ```
 
-#### ZIP Password Protection
+### ZIP Password Protection
 ```bash
 zip -e  archive.zip <list_of_files>        # Files in current directory
 zip -er archive.zip <directory> <file_n>   # Directory and files

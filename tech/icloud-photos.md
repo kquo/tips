@@ -7,7 +7,7 @@ type: reference
 - Or you can export all your iCloud Photos locally using something like `icloudpd`, as described below.
 
 
-#### Export iCloud Photos Locally
+### Export iCloud Photos Locally
 The recommended way is to backup all your original iCloud media using the [iCloud Photo Downloader](https://github.com/icloud-photos-downloader/icloud_photos_downloader) Python utility `icloudpd`. It downloads all photos from your iCloud account via the CLI. This means *all* photos as well as *all* videos (so make sure you have enough hard disk space!): 
 
 ```bash
@@ -20,7 +20,7 @@ icloudpd -d icloud-photos -u YOUR-ICLOUD-EMAIL-ID@icloud.com
 ... then follow prompts.
 
 
-#### Default Photos Library Location
+### Default Photos Library Location
 Alternatively, you can just reference **macOS**'s default Photos Library, which is located at `~/Pictures/Photos Library.photoslibrary/`
 
 This single package contains:
@@ -32,7 +32,7 @@ This single package contains:
 > **Important:** Do not copy individual subfolders inside the package. Always copy the full `.photoslibrary` package.
 
 
-#### Backup Strategy
+### Backup Strategy
 Use `rsync` to copy your library to an External Drive.
 
 Assuming your external backup drive is mounted at `/Volumes/bak` and contains a `Pictures/` subfolder, you can back up the library as follows:
@@ -53,7 +53,7 @@ Explanation of options:
 > This creates an exact copy of your Photos Library in `/Volumes/bak/Pictures/`.
 
 
-#### Restore Strategy
+### Restore Strategy
 
 To restore the library:
 

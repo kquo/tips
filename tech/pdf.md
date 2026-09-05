@@ -4,7 +4,7 @@ type: reference
 ## PDF
 PDF bits.
 
-#### Size Reduction
+### Size Reduction
 You can use ImageMagick to reduce the size of a PDF by lowering its resolution.
 From https://apple.stackexchange.com/questions/297417/how-to-decrease-pdf-size-without-losing-quality :
 
@@ -15,7 +15,7 @@ convert -density 72 oldfile.pdf new.pdf
 
 where 72 is the target DPI.
 
-#### PDF Join/Merge
+### PDF Join/Merge
 Best option is to use `pdfunite`, from `brew install poppler` which also installs other useful PDF tools:
 
 ```bash
@@ -23,6 +23,6 @@ pdfunite another.pdf subdir/others_0*.pdf new_target.pdf
 ```
 - Above will create a new PDF called `new_target.pdf` with the total content of `another.pdf` and all the individual PDFs under `subdir/` named as such.
 
-#### References
+### References
 - <https://apple.stackexchange.com/questions/230437/how-can-i-combine-multiple-pdfs-using-the-command-line>
 - <https://www.mankier.com/package/poppler-utils>

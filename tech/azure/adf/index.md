@@ -63,9 +63,9 @@ type: reference
       3. Azure; Activity dispatch & Data movements & Dataflows (public or private)
   - Hybrid solution, depending on your networking needs
 
-#### References
+### References
 - Microsoft doc: <https://learn.microsoft.com/en-us/azure/data-factory/introduction>
 - Microsoft diagram:  <https://docs.microsoft.com/en-us/azure/data-factory/media/introduction/data-factory-visual-guide.png>
 
-#### Diagram
+### Diagram
 ![ADF](https://docs.microsoft.com/en-us/azure/data-factory/media/introduction/data-factory-visual-guide.png)
