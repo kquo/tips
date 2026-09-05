@@ -12,7 +12,6 @@ Ideas captured for future discussion. Each entry uses an `IE<N>:` prefix (sequen
 - IE14: propose a pre-prep hook in govna canon so `build.sh prep` runs `check.sh`
 - IE16: make `check.sh --register` detect a stale owning entry, one that exists but no longer states the position, since row 10 pointed at `society/politics.md` after the monuments split
 - IE17: retitle the site How I See It and decide whether to rename the repository
-- IE18: simpler-English companion pages as pre-generated static variants with a staleness check tied to the source entry
 - IE24: add a product-name allow-list to the `W-NAME` detector, since Azure Management and Microsoft Graph on `tech/azure/ms-token-validation.md` warn on every sweep
 - IE25: make `X-LANG` catch a lone short Spanish sentence by scoring per entry as well as per line, and lowercase accented capitals without relying on `tr`, since the four-word line threshold misses a one-sentence quote outside a block quote
 - IE26: broaden `X-QA` to lowercase interrogatives, questions inside a paragraph, and bold `Q`/`A` markers without a colon, since the detector matches only capitalized list-item questions and `Q:`-style prefixes

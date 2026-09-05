@@ -105,6 +105,8 @@ prosesrc() { # file -> same line count with front matter, fenced blocks, and blo
        /^(```|~~~)/{fence=!fence; print ""; next} fence{print ""; next} /^>/{print ""; next} {print}' "$1"
 }
 
+sha_of() { shasum -a 256 "$1" | cut -c1-16; }
+
 budget_for() {
   case "$1" in take) echo 250 ;; note) echo 400 ;; howto) echo 500 ;; quote) echo 300 ;; reference) echo 0 ;; *) echo 400 ;; esac
 }
@@ -198,15 +200,32 @@ check_structure() {
     t=note
   fi
   budget=$(budget_for "$t"); words=$(prose_words "$f")
+  if [ -n "$(front_value "$f" plain_of)" ]; then budget=$((budget * 5 / 4)); fi
   if [ "$budget" -gt 0 ] && [ "$words" -gt "$budget" ]; then emit "$f" 1 B-WORDS "$words prose words, budget $budget for $t"; fi
   fmax=$(fence_max "$f")
   if [ "$t" != reference ] && [ "$fmax" -gt "$FENCE_MAX" ]; then emit "$f" 1 B-FENCE "fenced block of $fmax lines, limit $FENCE_MAX"; fi
+  check_variant "$f" "$kind" "$t"
   prosesrc "$f" >"$TMP/prose.src"
   rg -n -o -i -w -e "$ES_RE" "$TMP/prose.src" | tr '[:upper:]' '[:lower:]' | sort -u | cut -d: -f1 | uniq -c | awk -v m="$ES_MIN" '$1>=m{print $2}' | while read -r l; do emit "$f" "$l" X-LANG "Spanish prose, write the entry in English"; done
   rg -n -e "$QA_RE" "$TMP/prose.src" | cut -d: -f1 | while read -r l; do emit "$f" "$l" X-QA "question-and-answer form"; done
   awk '/^(```|~~~)/{ if(!fence && ($0=="```" || $0=="~~~")) print NR; fence=!fence }' "$f" | while read -r l; do emit "$f" "$l" X-FENCE "fenced block without a language tag"; done
   if [ "$kind" = entry ] && { [ "$t" = take ] || [ "$t" = note ]; }; then
     awk -v re="$NAME_RE" '/^#/{next} /\]\(|<https?:|attributed/{next} $0 ~ re {print NR}' "$TMP/prose.src" | while read -r l; do emit "$f" "$l" W-NAME "named person with no source link in this paragraph"; done
+  fi
+}
+
+# ── plain english variants (entries) ────────────────────────────────────────
+check_variant() { # file kind type
+  local f="$1" kind="$2" t="$3" d po src stem
+  [ "$kind" = entry ] || return 0
+  d=$(dirname "$f")
+  po=$(front_value "$f" plain_of)
+  if [ -n "$po" ]; then
+    src="$d/$po"
+    [ -f "$src" ] || { emit "$f" 1 V-SOURCE "plain_of names a missing file: $po"; return 0; }
+    [ "$(front_value "$f" source_sha)" = "$(sha_of "$src")" ] || emit "$f" 1 V-STALE "source $po changed, rewrite this variant and refresh source_sha"
+  else
+    case "$t" in take | note) stem="${f%.md}"; [ -f "$stem-plain.md" ] || emit "$f" 1 V-MISSING "no Plain English variant ${stem#$d/}-plain.md" ;; esac
   fi
 }
 
@@ -218,6 +237,7 @@ check_index_dir() { # dir
     [ -e "$f" ] || continue
     [ "$f" = "$idx" ] && continue
     name="${f#$d/}"
+    case "$name" in *-plain.md) continue ;; esac
     rg -q -F -e "]($name)" -e "]($name#" -e "href=\"$name\"" "$idx" || emit "$idx" 1 I-INDEX "missing entry $name"
   done
 }
@@ -296,15 +316,18 @@ selftest() {
     c=0; while [ $c -lt 300 ]; do printf 'word '; c=$((c+1)); done; printf '\n'
   } >"$fx/life/dirty.md"
   printf '## Untyped\n\nShort.\n' >"$fx/life/untyped.md"
+  printf -- '---\ntype: take\nplain_of: dirty.md\nsource_sha: 0000000000000000\n---\n## Dirty (Plain English)\n\nI think so.\n' >"$fx/life/stale-plain.md"
+  printf -- '---\ntype: take\nplain_of: nothing.md\nsource_sha: 0000000000000000\n---\n## Orphan (Plain English)\n\nI think so.\n' >"$fx/life/orphan-plain.md"
   printf '## Life\n\n- [Dirty](dirty.md)\n' >"$fx/life/index.md"
   printf '## Sub\n' >"$fx/life/sub/index.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/missing.md` | settled |\n| 2 | Y. | `life/dirty.md` | bogus |\n' >"$fx/govna/stance-register.md"
   printf -- '---\ntype: note\n---\n## Clean\n\nA clean [entry](index.md) with one [ref](https://en.wikipedia.org/wiki/Main_Page).\n' >"$clean/life/clean.md"
   printf '## Life\n\n- [Clean](clean.md)\n' >"$clean/life/index.md"
+  printf -- '---\ntype: note\nplain_of: clean.md\nsource_sha: %s\n---\n## Clean (Plain English)\n\nA plain [entry](index.md) with one [ref](https://en.wikipedia.org/wiki/Main_Page).\n' "$(sha_of "$clean/life/clean.md")" >"$clean/life/clean-plain.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/clean.md` | settled |\n' >"$clean/govna/stance-register.md"
 
-  res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
-  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME I-INDEX R-PATH; do
+  res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md life/stale-plain.md life/orphan-plain.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
+  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME V-MISSING V-STALE V-SOURCE I-INDEX R-PATH; do
     if printf '%s\n' "$res" | rg -q -e " $c "; then printf 'PASS %s\n' "$c"; else printf 'FAIL %s\n' "$c"; ok=1; fi
   done
   res=$( (CHECK_ROOT="$clean" BITS_DENYLIST="$TMP/deny.txt" "$SELF" --all; CHECK_ROOT="$clean" "$SELF" --register) 2>&1 )

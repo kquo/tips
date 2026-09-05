@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.31.0 | AC37: Plain English variants for every take and note, with a staleness gate |
 | 0.30.1 | AC36: four check.sh detectors, defensibility rule, AI page link fix |
 | 0.30.0 | AC35: Life pass, every entry typed and in voice, STFU removed, AGI take added |
 | 0.29.1 | Tech: section headings fixed, AKS section removed, IaC and state essays revised |
