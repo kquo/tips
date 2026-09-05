@@ -39,7 +39,8 @@ jobs:
           today=$(date -u +%F)
           num=$(gh issue list --state open --search '"Link sweep" in:title' --json number,title --jq '.[] | select(.title=="Link sweep") | .number' | head -n 1)
           if [ "$n" -gt 0 ]; then
-            { printf 'Link sweep on %s: %s failing entries.\n\n```text\n' "$today" "$n"; rg -v -e 'W-DENY' "$out"; printf '```\n'; } > body.md
+            w=$(rg -c -e ': W-' "$out" || echo 0)
+            { printf 'Link sweep on %s: %s failing entries.\n\n```text\n' "$today" "$n"; rg -v -e 'W-DENY' -e ': W-' -e '^failing entries' "$out"; printf '```\n\n%s warnings omitted, see the run log.\n' "$w"; } > body.md
             if [ -n "$num" ]; then gh issue comment "$num" --body-file body.md; else gh issue create --title "Link sweep" --body-file body.md; fi
           elif [ -n "$num" ]; then
             gh issue close "$num" --comment "Link sweep on $today: clean."

@@ -3,6 +3,7 @@
 | Version | Summary |
 |---------|---------|
 | Unreleased | |
+| 0.33.1 | AC42: register stale-owner warning, pre-prep.sh, HRW and GRC allowlisted |
 | 0.33.0 | AC41: monthly link sweep workflow, release-only checks, timeout retry, home grid |
 | 0.32.2 | AC40: name allow-list, sentence Spanish, wider Q&A, 429 retry, anchor check |
 | 0.32.1 | AC39: grammar-and-flow rule, proofreading gate, initials-aware sentence measure |

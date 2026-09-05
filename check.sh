@@ -49,7 +49,7 @@ MARKER_RE='NEEDS REWRITE|\(need link\)|\[Need sources\]|Needs clean up'
 MARKER_CS_RE='\b(TODO|FIXME|TBD)\b'
 HEADING_RE='^#{1,6}[[:space:]]*(Conclusion|Final Thoughts|Bottom Line|Key Insight|Summary|Question|Answer|My take|Opinion|My opinion|Thoughts|My thoughts|Verdict)[[:space:]]*:?[[:space:]]*$'
 URL_SKIP='mydomain\.com|example\.(com|org|net)|somewhere\.com|contoso\.com|169\.254\.169\.254|://(10|192\.168|127)\.|localhost|\{|%s|<|\$|/\.default$|token\.actions\.githubusercontent\.com|management\.azure\.com/?$|graph\.microsoft\.com/?$'
-HOST_ALLOW='stackoverflow\.com|stackexchange\.com|medium\.com|congress\.gov|sagepub\.com|politico\.com|devgenius\.io'
+HOST_ALLOW='stackoverflow\.com|stackexchange\.com|medium\.com|congress\.gov|sagepub\.com|politico\.com|devgenius\.io|hrw\.org|grc\.com'
 HOST_SHORT='youtu\.be|youtube\.com|a\.co|aka\.ms|bit\.ly|t\.co|amazon\.com'
 FENCE_MAX=40
 QA_RE='^[[:space:]]*([0-9]+\.|[-*+])[[:space:]]+(\*\*)?(?i:how|what|why|where|when|which|who|is|are|can|do|does|should)\b.*\?[[:space:]]*$|^[[:space:]]*(\*\*)?(Q|A|Question|Answer)(\*\*)?:|^[[:space:]]*\*\*(Q|A|Question|Answer)\*\*[[:space:]]|^[[:space:]]*(Q|A)[.)-][[:space:]]'
@@ -58,6 +58,7 @@ ES_SENT=3
 ES_MIN=4
 NAME_RE='[A-Z][a-z]+ [A-Z][a-z]+'
 NAME_OK='Azure Management|Microsoft Graph'
+STALE_STOP='their|about|which|would|through|never|every|since|rather|between|those|these|after|before|other|only|into|more|most|than|such|same|both|each|some|what|when|where|from|with|that|this|have|been|being|does|over|under|while|because|without|within|should|could|there|whether|itself|another|someone|anyone|nothing|always|often|still|entry|entries'
 BACKOFF_1=2
 BACKOFF_2=5
 
@@ -267,15 +268,24 @@ check_index_dir() { # dir
 
 # ── stance register ─────────────────────────────────────────────────────────
 check_register() {
-  local reg="govna/stance-register.md" l row status tok
+  local reg="govna/stance-register.md" l row status tok owners pos stem total hit
   [ -f "$reg" ] || { emit "$reg" 1 R-PATH "register missing"; return; }
   rg -n -e '^\| *[0-9]+ *\|' "$reg" | while IFS= read -r row; do
     l="${row%%:*}"; row="${row#*:}"
     status=$(printf '%s' "$row" | awk -F'|' '{gsub(/^ +| +$/,"",$5); print $5}')
     case "$status" in settled | unresolved) ;; *) emit "$reg" "$l" R-PATH "status must be settled or unresolved" ;; esac
+    owners=''
     printf '%s' "$row" | awk -F'|' '{print $4}' | rg -o -e '`[^`]+`' | tr -d '`' | while read -r tok; do
       [ -e "$tok" ] || emit "$reg" "$l" R-PATH "owning path missing: $tok"
     done
+    for tok in $(printf '%s' "$row" | awk -F'|' '{print $4}' | rg -o -e '`[^`]+`' | tr -d '`'); do [ -f "$tok" ] && owners="$owners $tok"; done
+    [ -n "$owners" ] || continue
+    pos=$(printf '%s' "$row" | awk -F'|' '{print $3}')
+    total=0; hit=0
+    for stem in $(printf '%s' "$pos" | tr '[:upper:]' '[:lower:]' | tr -c 'a-z\n' ' ' | tr ' ' '\n' | awk 'length($0)>=5' | rg -v -x -e "$STALE_STOP" | cut -c1-5 | sort -u); do
+      total=$((total+1)); rg -q -i -e "\\b$stem" $owners && hit=$((hit+1))
+    done
+    if [ "$total" -gt 0 ] && [ $((hit * 2)) -lt "$total" ]; then emit "$reg" "$l" W-STALE "owning entry uses $hit of $total key terms, reword the row or fix the owner"; fi
   done
 }
 
@@ -358,13 +368,13 @@ SHIM
   printf -- '---\ntype: take\n---\n## Initials\n\nAs J. J. C. Smart and E. O. Wilson argued, e.g. in the U.S. and the U.K., this sentence runs to twenty words. Dr. Smith, Mr. Jones, i.e. two people, vs. St. Paul, etc. wrote another sentence that also runs on to twenty words.\n' >"$fx/life/initials.md"
   printf '## Life\n\n- [Dirty](dirty.md)\n' >"$fx/life/index.md"
   printf '## Sub\n' >"$fx/life/sub/index.md"
-  printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/missing.md` | settled |\n| 2 | Y. | `life/dirty.md` | bogus |\n' >"$fx/govna/stance-register.md"
+  printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/missing.md` | settled |\n| 2 | Y. | `life/dirty.md` | bogus |\n| 3 | Markets reward innovation through price signals. | `life/dirty.md` | settled |\n' >"$fx/govna/stance-register.md"
   printf -- '---\ntype: note\n---\n## Clean\n\nA clean [entry](index.md) with one [ref](https://en.wikipedia.org/wiki/Main_Page).\n\nMicrosoft Graph accepts the token.\n' >"$clean/life/clean.md"
   printf '## Life\n\n- [Clean](clean.md)\n' >"$clean/life/index.md"
   printf '# Register\n\n| # | Position | Owning entry | Status |\n|---|---|---|---|\n| 1 | X. | `life/clean.md` | settled |\n' >"$clean/govna/stance-register.md"
 
   res=$( (CHECK_ROOT="$fx" BITS_DENYLIST="$TMP/deny.txt" "$SELF" life/dirty.md life/untyped.md life/initials.md life/spanish.md life/qa.md life/anchor.md; CHECK_ROOT="$fx" "$SELF" --register) 2>&1 )
-  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME W-PLAIN W-ANCHOR I-INDEX R-PATH; do
+  for c in P-GUID P-SSH P-HEX P-MAC P-EMAIL P-PATH P-ORG P-DENY W-YEAR W-PERSONAL B-TYPE B-WORDS B-FENCE L-REL L-ANCHOR L-ABS L-EXT X-MARKER X-HEADING X-LANG X-QA X-FENCE W-NAME W-PLAIN W-ANCHOR W-STALE I-INDEX R-PATH; do
     if printf '%s\n' "$res" | rg -q -e " $c "; then printf 'PASS %s\n' "$c"; else printf 'FAIL %s\n' "$c"; ok=1; fi
   done
   if printf '%s\n' "$res" | rg -q -e "life/initials.md:1: W-PLAIN"; then printf 'PASS W-PLAIN-initials\n'; else printf 'FAIL W-PLAIN-initials\n'; ok=1; fi

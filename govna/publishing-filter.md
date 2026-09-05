@@ -91,6 +91,7 @@ Note: the entries on the Principle of Charity, Hanlon's Razor, and Bulverism alr
 - Record a new or changed position in the register in the same pass as the entry.
 - Mark a position `unresolved` when two entries disagree.
 - Settle each `unresolved` line with the Director before either entry ships again.
+- Keep each register row's key terms present in its owning entry, or reword the row.
 - Run `./check.sh --register` after every register edit.
 
 Note: the register is what turns "no contradictions" from a one-time review into an ongoing check.
@@ -133,7 +134,7 @@ Note: the 2026-09-03 review found attention-economy mechanics explained in six e
 - Run the site-wide link sweep monthly through the scheduled workflow, and on demand.
 - Fix the findings of the monthly link sweep in the next release.
 
-Note: the allowlist covers hosts that reject scripted requests: Stack Overflow and Stack Exchange, Medium, congress.gov, SAGE, Politico, and devgenius. Liveness decays between releases, which is why the sweep repeats.
+Note: the allowlist covers hosts that reject scripted requests: Stack Overflow and Stack Exchange, Medium, congress.gov, SAGE, Politico, devgenius, Human Rights Watch, and GRC. Liveness decays between releases, which is why the sweep repeats.
 
 ## Code Hosting
 
@@ -152,7 +153,7 @@ Note: the allowlist covers hosts that reject scripted requests: Stack Overflow a
 - Treat any non-warning finding in a changed entry as blocking.
 - Treat a warning as a review prompt, not a failure.
 
-Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, `W-PLAIN`, `W-ANCHOR`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. The plain-English warning measures mean words per sentence over prose lines, with front matter, fences, block quotes, headings, table rows, link targets, and code spans removed, and with initials and common abbreviations not counted as sentence ends. The name warning skips the product names in its allow-list. The Spanish check fires on a line with four distinct Spanish words or a sentence with three. The question-form check also flags a paragraph that is nothing but a question. The anchor warning skips a fragment that starts with `/` or `!`, which is a client-side route. A fetch with no answer at all is retried once before it counts as dead. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
+Detector codes. Privacy: `P-GUID`, `P-SSH`, `P-HEX`, `P-MAC`, `P-EMAIL`, `P-PATH`, `P-ORG`, `P-DENY`. Warnings: `W-YEAR`, `W-PERSONAL`, `W-NAME`, `W-PLAIN`, `W-ANCHOR`, `W-STALE`, and the informational `W-DENY`, `W-TYPE`, `W-EXT`. Budgets: `B-TYPE`, `B-WORDS`, `B-FENCE`. Links: `L-REL`, `L-ANCHOR`, `L-ABS`, `L-EXT`. Structure: `X-MARKER`, `X-HEADING`, `X-LANG`, `X-QA`, `X-FENCE`. Index: `I-INDEX`. Register: `R-PATH`. Privacy and link checks run on every checked file. Budget, fence, marker, heading, and index checks run only on entries and the root site pages. The plain-English warning measures mean words per sentence over prose lines, with front matter, fences, block quotes, headings, table rows, link targets, and code spans removed, and with initials and common abbreviations not counted as sentence ends. The name warning skips the product names in its allow-list. The Spanish check fires on a line with four distinct Spanish words or a sentence with three. The question-form check also flags a paragraph that is nothing but a question. The anchor warning skips a fragment that starts with `/` or `!`, which is a client-side route. A fetch with no answer at all is retried once before it counts as dead. The stale-owner warning takes the first five letters of each word of five letters or more in a register row, minus common function words, and fires when fewer than half of them start a word in the owning entries. `CHANGELOG.md` is exempt from `P-ORG` because its historical rows are immutable.
 
 ## Self-Enhancement
 
